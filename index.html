@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CTM – Clinic Total Management</title>
   <style>
     body {
@@ -18,69 +18,34 @@
       width: 100%;
       display: block;
     }
-    .contact-link {
-      position: relative;
-      text-align: center;
-      margin-top: -100px;
-      margin-bottom: 100px;
-    }
-    .contact-link a {
-      background-color: white;
-      padding: 12px 24px;
-      color: black;
+    .link-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-decoration: none;
+      color: #000;
       font-weight: bold;
-      border: 1px solid black;
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .relative {
+      position: relative;
     }
   </style>
 </head>
 <body>
-
-  <!-- ① メインビジュアル -->
-  <div class="section">
-    <img src="images/1.png" alt="メインビジュアル">
+  <div class="section"><img src="images/1.png" alt="メインビジュアル" /></div>
+  <div class="section"><img src="images/2.png" alt="業務負荷" /></div>
+  <div class="section"><img src="images/3.png" alt="外来対応" /></div>
+  <div class="section"><img src="images/4.png" alt="サービス訴求" /></div>
+  <div class="section"><img src="images/5.png" alt="業務内容詳細" /></div>
+  <div class="section"><img src="images/6.png" alt="会社情報" /></div>
+  <div class="section"><img src="images/7.png" alt="FAQ" /></div>
+  <div class="section relative">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAlcsYFRDRuZj9MAiFxT8FAwb3Bp0GJ1acJ2JYjjt9h7NQQ/viewform" class="link-overlay">お問い合わせはこちら</a>
+    <img src="images/8.png" alt="お問い合わせ" />
   </div>
-
-  <!-- ② 業務負担訴求 -->
-  <div class="section">
-    <img src="images/2.png" alt="業務負担訴求">
-  </div>
-
-  <!-- ③ 外来対応訴求 -->
-  <div class="section">
-    <img src="images/3.png" alt="外来対応訴求">
-  </div>
-
-  <!-- ④ サービス紹介 -->
-  <div class="section">
-    <img src="images/4.png" alt="サービス紹介">
-  </div>
-
-  <!-- ⑤ 会社情報 -->
-  <div class="section">
-    <img src="images/5.png" alt="会社情報">
-  </div>
-
-  <!-- ⑥ FAQ -->
-  <div class="section">
-    <img src="images/6.png" alt="FAQ">
-  </div>
-
-  <!-- ⑦ 導入の流れ -->
-  <div class="section">
-    <img src="images/7.png" alt="導入の流れ">
-  </div>
-
-  <!-- ⑧ お問い合わせ -->
-  <div class="section">
-    <img src="images/8.png" alt="お問い合わせ">
-    <div class="contact-link">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAlcsYFtDRdUjz9MAiFxTBfAWbJ8pDOGj1acJ2JYjt9h7NQQ/viewform" target="_blank">
-        お問い合わせはこちら
-      </a>
-    </div>
-  </div>
-
 </body>
 </html>
