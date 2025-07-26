@@ -1,3 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>CTM | Clinic Total Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 明朝系フォント（Noto Serif JP） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Serif JP', serif;
+      background-color: #f5f5f5;
+    }
+
+    .hero {
+      background-image: url("images/1.png");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #004225;
+      position: relative;
+    }
+
+    .hero-text {
+      background: none; /* ← 背景なしで透過 */
+      padding: 0;
+      max-width: 80%;
+    }
+
+    .hero-text h1 {
+      font-weight: 700; /* 太字 */
+      font-size: 2rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-weight: 400; /* 普通の太さ */
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 1.5rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
 <section class="hero">
   <div class="hero-text">
     <h1>“院長の最大の理解者”として、<br>ともに走るパートナー</h1>
@@ -5,54 +64,5 @@
   </div>
 </section>
 
-<style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #f5f5f5;
-  }
-
-  .hero {
-    background-image: url("images/1.png"); /* ← ここを必要に応じてパス修正 */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #004225;
-    position: relative;
-  }
-
-  .hero-text {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 80%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-  }
-
-  .hero-text p {
-    font-size: 1.1rem;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .hero-text {
-      padding: 20px;
-    }
-    .hero-text h1 {
-      font-size: 1.5rem;
-    }
-    .hero-text p {
-      font-size: 1rem;
-    }
-  }
-</style>
+</body>
+</html>
