@@ -13,17 +13,22 @@
       background-color: #f5f5f5;
     }
 
-    .hero {
-      background-image: url("images/1.png");
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: left;
-      text-align: center;
-      color: #004225;
-      position: relative;
+  .hero {
+  background-image: url("images/1.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;      /* ↓ 下寄せ */
+  align-items: flex-start;        /* ← 左寄せ */
+  padding: 0 10% 10% 10%;         /* 上右下左：下に余白 */
+  text-align: left;
+  color: #004225;
+  position: relative;
+}
+
+}
+
     }
 
     .hero-text {
