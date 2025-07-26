@@ -1,6 +1,6 @@
 <section class="hero">
   <div class="hero-text">
-    <h1>“院長の最大の理解者”として、ともに走るパートナー</h1>
+    <h1>“院長の最大の理解者”として、<br>ともに走るパートナー</h1>
     <p>Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
   </div>
 </section>
@@ -13,20 +13,20 @@
   }
 
   .hero {
-    background-image: url("images/1.png");
+    background-image: url("images/1.png"); /* ← ここを必要に応じてパス修正 */
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     text-align: center;
     color: #004225;
+    position: relative;
   }
 
   .hero-text {
-    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 12px;
     max-width: 80%;
@@ -36,6 +36,7 @@
   .hero-text h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    line-height: 1.4;
   }
 
   .hero-text p {
@@ -47,11 +48,9 @@
     .hero-text {
       padding: 20px;
     }
-
     .hero-text h1 {
       font-size: 1.5rem;
     }
-
     .hero-text p {
       font-size: 1rem;
     }
