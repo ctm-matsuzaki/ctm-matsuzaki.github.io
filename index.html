@@ -19,12 +19,17 @@
   background-position: center;
   height: 100vh;
   display: flex;
-  justify-content: flex-end;     /* ⬅︎ 下に寄せる（縦方向） */
-  align-items: flex-start;       /* ⬅︎ 左に寄せる（横方向） */
-  padding: 0 0 10% 10%;          /* ⬅︎ 左下に余白を確保 */
+  flex-direction: column;         /* ← これを追加！縦並びに */
+  justify-content: flex-end;      /* ↓ 下に配置（縦方向） */
+  align-items: flex-start;        /* ← 左に配置（横方向） */
+  padding: 0 0 10% 10%;           /* 左下に余白 */
   text-align: left;
   color: #004225;
   position: relative;
+}
+
+}
+
 }
 
 }
