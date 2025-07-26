@@ -47,7 +47,10 @@
   font-size: 1.8rem;      /* ⬅ 少し大きくしました（以前は1.2rem） */
   margin: 0;
 }
-
+.subline {
+  display: inline-block;
+  margin-left: 4rem;
+}
 
     @media (max-width: 768px) {
       .hero-text h1 {
@@ -63,7 +66,11 @@
 
 <section class="hero">
   <div class="hero-text">
-    <h1>“院長の最大の理解者”として、<br>ともに走るパートナー</h1>
+   <h1>
+  “院長の最大の理解者”として、<br>
+  <span class="subline">ともに走るパートナー</span>
+</h1>
+
     <p>Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
   </div>
 </section>
