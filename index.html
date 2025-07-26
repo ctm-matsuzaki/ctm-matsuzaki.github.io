@@ -1,5 +1,5 @@
 <section class="hero">
-  <div class="overlay">
+  <div class="hero-text">
     <h1>“院長の最大の理解者”として、ともに走るパートナー</h1>
     <p>Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
   </div>
@@ -11,6 +11,7 @@
     font-family: sans-serif;
     background-color: #f5f5f5;
   }
+
   .hero {
     background-image: url("images/1.png");
     background-size: cover;
@@ -19,23 +20,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
     position: relative;
+    text-align: center;
+    color: #004225;
   }
-  .overlay {
-    background-color: rgba(255, 255, 255, 0.85);
+
+  .hero-text {
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
     padding: 30px;
     border-radius: 12px;
-    color: #004225;
     max-width: 80%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
-  .overlay h1 {
+
+  .hero-text h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  .overlay p {
+
+  .hero-text p {
     font-size: 1.1rem;
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-text {
+      padding: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 1.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+    }
   }
 </style>
