@@ -91,7 +91,7 @@ hr.faq-divider {
 
 .faq-title-line {
   border: none;
-  border-top: 2px solid #1d3e2f;  /* 濃い緑 */
-  width: 80px;
+  border-top: 2px solid #1d3e2f;  /* CTMの濃緑 */
+  width: 50%;                     /* 他と同じ長さに調整 */
   margin: 0 auto 40px auto;
 }
