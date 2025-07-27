@@ -88,3 +88,10 @@ hr.faq-divider {
   font-size: 1rem;
   line-height: 2;
 }
+
+.faq-title-line {
+  border: none;
+  border-top: 2px solid #1d3e2f;  /* 濃い緑 */
+  width: 80px;
+  margin: 0 auto 40px auto;
+}
