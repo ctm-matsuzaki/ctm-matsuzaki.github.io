@@ -94,10 +94,10 @@ hr.faq-divider {
 }
 .contact-section {
   position: relative;
-  background-image: url("images/9.jpeg");  /* ←ここをアップロードした画像名に変更 */
+  background-image: url("images/9.jpeg");
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 100vh; /* ←ここを変更 */
   display: flex;
   justify-content: center;
   align-items: center;
