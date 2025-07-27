@@ -68,3 +68,9 @@ footer {
   color: #003300;
   margin-bottom: 1.5em;
 }
+.faq-divider {
+  border: none;
+  border-top: 1.5px solid #2c4a27;  /* 緑のライン */
+  width: 50%;
+  margin: 50px auto;
+}
