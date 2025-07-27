@@ -68,9 +68,9 @@ footer {
   color: #003300;
   margin-bottom: 1.5em;
 }
-.faq-divider {
+hr.faq-divider {
   border: none;
-  border-top: 1.5px solid #2c4a27;  /* 緑色のライン */
+  border-top: 2px solid #2c4a27;  /* CTMの深緑 */
   width: 50%;
   margin: 80px auto;
 }
