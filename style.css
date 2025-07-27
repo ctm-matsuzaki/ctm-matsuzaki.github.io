@@ -70,7 +70,7 @@ footer {
 }
 hr.faq-divider {
   border: none;
-  border-top: 2px solid #2c4a27;  /* CTMの深緑 */
+  border-top: 2px solid #2c4a27; /* CTM緑 */
   width: 50%;
-  margin: 80px auto;
+  margin: 100px auto;  /* 上下の間隔を少し広く調整 */
 }
