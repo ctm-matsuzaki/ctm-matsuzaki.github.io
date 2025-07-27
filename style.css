@@ -97,7 +97,7 @@ hr.faq-divider {
   background-image: url("images/9.jpeg");
   background-size: cover;
   background-position: center;
-  height: 100vh; /* ←ここを変更 */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +109,7 @@ hr.faq-divider {
 
 .contact-title {
   font-size: 2.5rem;
-  color: #2c4a27;  /* 緑系カラー */
+  color: #2c4a27;
   margin-bottom: 30px;
   font-family: "Noto Serif JP", serif;
   letter-spacing: 1px;
