@@ -71,7 +71,20 @@ footer {
 
 hr.faq-divider {
   border: none;
-  border-top: 2px solid #2c4a27; /* CTMの緑 */
+  border-top: 2px solid #1d3e2f; /* 濃い緑：CTMイメージに近づけた */
   width: 50%;
   margin: 100px auto;
+}
+
+.faq-q {
+  font-weight: bold;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.1rem;
+}
+
+.faq-a {
+  font-weight: normal;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
+  line-height: 2;
 }
