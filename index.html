@@ -138,6 +138,69 @@
   font-size: 1.1rem;
   line-height: 1.8;
 }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 60px 10%;
+  background-color: #ffffff;
+  color: #082422;
+  text-align: center;
+}
+
+.service-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.service-item h3 {
+  color: #2f4f2f;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.white-section {
+  background-color: #ffffff;
+  padding: 60px 10%;
+}
+
+.gray-section {
+  background-color: #eeeeee;
+  padding: 60px 10%;
+}
+
+.busy-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.busy-text {
+  max-width: 600px;
+}
+
+.busy-text h2 {
+  font-size: 2rem;
+  color: #082422;
+  margin-bottom: 1rem;
+}
+
+.busy-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #082422;
+}
+
   </style>
 </head>
 <body>
@@ -184,5 +247,48 @@
       </p>
     </div>
     <img src="images/3.jpeg" alt="受付が混雑する医療現場">
+  </div>
+</section>
+<!-- 外来対応に追われる毎日 -->
+<section class="gray-section">
+  <div class="busy-content">
+    <div class="busy-text">
+      <h2>外来対応に追われる毎日、見直す時間もない</h2>
+      <p>
+        人手不足、業務の属人化、非効率な運用…<br>
+        目の前の患者対応に手一杯で、経営のことまで手がまわらないと感じていませんか？
+      </p>
+    </div>
+    <img src="images/3.jpeg" alt="外来対応に追われる様子">
+  </div>
+</section>
+
+<!-- CTM紹介 -->
+<section class="white-section">
+  <h2>院長先生の最大の理解者であり、最高の2番手としてお手伝いいたします</h2>
+  <hr style="width: 30%; margin: 1rem auto; border-top: 1px solid #2f4f2f;">
+  <h3 style="text-align: center; color: #2f4f2f;">Service</h3>
+
+  <div class="service-grid">
+    <div class="service-item">
+      <img src="images/4.jpeg" alt="経営分析">
+      <h3>経営分析</h3>
+      <p>診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全な財務運営を支援。将来を見据えた収益改善策をご提案します。</p>
+    </div>
+    <div class="service-item">
+      <img src="images/5.jpeg" alt="人事労務支援">
+      <h3>人事労務支援</h3>
+      <p>採用活動から就業規則の整備、勤怠・給与管理までをサポート。スタッフが安心して働ける環境づくりを、実務レベルで支援します。</p>
+    </div>
+    <div class="service-item">
+      <img src="images/6.jpeg" alt="業務フロー改善">
+      <h3>業務フロー改善</h3>
+      <p>受付から診療、会計までの一連の流れを見直し。スタッフの負担を軽減し、患者様にとってわかりやすく快適な導線を整備します。</p>
+    </div>
+    <div class="service-item">
+      <img src="images/7.jpeg" alt="マーケティング戦略">
+      <h3>マーケティング戦略</h3>
+      <p>地域特性や競合を分析し、来院につながる戦略を立案。WEB広告、紙媒体、SNS投稿の作成まで一貫して支援し、集患力を高めます。</p>
+    </div>
   </div>
 </section>
