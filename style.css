@@ -54,3 +54,17 @@ footer {
     background: #204E3D;
     color: white;
 }
+.catch-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+  color: #003300;
+  margin-bottom: 0.5em;
+}
+
+.catch-subtitle {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #003300;
+  margin-bottom: 1.5em;
+}
