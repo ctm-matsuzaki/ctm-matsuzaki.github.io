@@ -85,6 +85,58 @@
   height: auto;
   border-radius: 12px;
 }
+.busy-section {
+  background-color: #f5f5f5;
+  padding: 80px 10%;
+  text-align: center;
+  color: #004225;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.busy-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.busy-section h2 span {
+  display: block;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-top: 10px;
+}
+
+.busy-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.busy-content img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.busy-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+.busy-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.busy-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
 
   </style>
 </head>
@@ -104,18 +156,22 @@
 </body>
 </html>
 <!-- 忙しさ訴求セクション -->
-<section class="gray-section">
-  <div class="content-wrapper">
-    <h2>「忙しさの中で、気づけば手がまわらない…」<br>そんな日々を、少しでも変えるお手伝いを</h2>
-    <hr style="border: none; border-top: 1px solid #004225; width: 30%; margin: 1rem auto;">
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem;">
-      <img src="images/busy_doctor.jpeg" alt="忙しい医療現場" style="max-width: 400px; width: 100%; border-radius: 12px;">
-      <div style="max-width: 500px; text-align: left;">
-        <h3 style="font-weight: bold; color: #004225;">「時間が足りない」と感じるのは、問題のサイン</h3>
-        <p>請求、採用、マネジメント──<br>
+<!-- 忙しさセクション -->
+<section class="busy-section">
+  <h2>
+    「忙しさの中で、気づけば手がまわらない…」<br>
+    <span>そんな日々を、少しでも変えるお手伝いを</span>
+  </h2>
+  <div class="busy-content">
+    <img src="images/2.jpeg" alt="業務に追われる女性">
+    <div class="busy-text">
+      <h3>「時間が足りない」と感じるのは、問題のサイン</h3>
+      <p>
+        請求、採用、マネジメント──<br>
         重要なのに、後回しにされがちな業務が山積みになっていませんか？<br>
-        見直せば、もっと医療に集中できるはずです</p>
-      </div>
+        見直せば、もっと医療に集中できるはずです
+      </p>
     </div>
   </div>
 </section>
+
