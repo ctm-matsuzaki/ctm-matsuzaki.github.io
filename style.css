@@ -97,7 +97,7 @@ hr.faq-divider {
   background-image: url("images/9.jpeg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,13 +105,17 @@ hr.faq-divider {
 
 .contact-overlay {
   text-align: center;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4); /* 背景ぼかし */
+  padding: 40px;
+  border-radius: 12px;
 }
 
 .contact-title {
-  font-size: 2.5rem;
-  color: #2c4a27;
+  font-size: 2.8rem;
+  color: #2c4a27; /* 緑系 */
   margin-bottom: 30px;
-  font-family: "Noto Serif JP", serif;
+  font-family: 'Noto Serif JP', serif;
   letter-spacing: 1px;
 }
 
