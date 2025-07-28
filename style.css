@@ -95,7 +95,7 @@ hr.faq-divider {
 
 .contact-section {
   position: relative;
-  background-image: url("images/contact-bg.jpeg?rev=1"); /* ← クエリ付きでキャッシュ無効化 */
+  background-image: url("images/contact-bg.jpeg?rev=4");
   background-size: cover;
   background-position: center;
   height: 600px;
