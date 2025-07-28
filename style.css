@@ -92,15 +92,19 @@ hr.faq-divider {
 .faq-title-line {
   display: none;
 }
+
 .contact-section {
   position: relative;
-  background-image: url("images/9.jpeg");
+  background-image: url("images/contact-bg.jpeg?rev=1"); /* ← クエリ付きでキャッシュ無効化 */
   background-size: cover;
   background-position: center;
   height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 万が一画像が出ない時の背景色 */
+  background-color: #dfeee0;
 }
 
 .contact-overlay {
