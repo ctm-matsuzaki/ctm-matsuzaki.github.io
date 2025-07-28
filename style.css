@@ -98,12 +98,20 @@ hr.faq-divider {
   background-image: url("https://ctm-matsuzaki.github.io/images/contact-bg.jpeg");
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* 全画面の高さ */
+  min-height: 80vh; /* 全画面の高さ */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.contact-overlay {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  padding: 60px 40px;
+  background-color: rgba(0, 0, 0, 0.4); /* 背景ぼかし */
+  border-radius: 16px;
+  text-align: center;
+}
 .contact-overlay {
   text-align: center;
   background: none; /* ✅ グレーの背景を削除 */
@@ -111,20 +119,19 @@ hr.faq-divider {
 }
 
 .contact-title {
-  font-size: 3rem;
+  font-size: 3.2rem;
+  margin-bottom: 40px;
   color: #2c4a27;
-  margin-bottom: 30px;
-  font-family: 'Noto Serif JP', serif;
 }
 
 .contact-button {
-  display: inline-block;
-  padding: 15px 30px;
+  padding: 18px 36px;
+  font-size: 1.4rem;
+  font-weight: bold;
   background-color: white;
   color: #000;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border: 1px solid #555;
+  border: 2px solid #555;
+  border-radius: 6px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
