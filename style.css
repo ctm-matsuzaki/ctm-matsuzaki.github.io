@@ -95,16 +95,14 @@ hr.faq-divider {
 
 .contact-section {
   position: relative;
-  background-image: url("images/contact-bg.jpeg?rev=4");
+  background-image: url("https://ctm-matsuzaki.github.io/images/contact-bg.jpeg"); /* ← フルURLで確実に読み込み */
   background-size: cover;
   background-position: center;
   height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* 万が一画像が出ない時の背景色 */
-  background-color: #dfeee0;
+  background-color: #dfeee0; /* 万が一の背景色 */
 }
 
 .contact-overlay {
