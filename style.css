@@ -93,12 +93,17 @@ hr.faq-divider {
   display: none;
 }
 
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
 .contact-section {
   position: relative;
-  background-image: url("https://ctm-matsuzaki.github.io/images/contact-bg.jpeg");
+  background-image: url("images/contact-bg.jpeg");
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  min-height: 80vh; /* 高さを調整可能 */
   display: flex;
   justify-content: center;
   align-items: center;
