@@ -14,35 +14,27 @@
       background-color: #f5f5f5;
     }
 /* ここから差し替え */
+body { margin: 0; overflow-x: hidden; } /* 横スクロール防止 */
 
-/* 余白を消す（横スクロールも防止） */
-body { margin: 0; overflow-x: hidden; }
-
-/* ヒーローをラッパーの制限から“強制的に”外へ出して全幅にする */
 .hero {
   background-image: url("images/1.png");
   background-size: cover;
   background-position: center;
 
-  /* ★ フル幅ブレイクアウト（親のmax-width/左右paddingを無視） */
+  /* 全幅にするための設定 */
   width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 
-  height: 100vh;                 /* 画面の高さいっぱい */
+  height: 100vh;                 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;     /* 下に寄せる */
-  align-items: flex-start;       /* 左に寄せる */
-  padding: 0 0 6% 6%;            /* 左下余白 */
-  text-align: left;
+  justify-content: flex-end;     
+  align-items: flex-start;       
+  padding: 0;                     /* 余白は .hero-text で管理 */
   color: #004225;
-  box-sizing: border-box;        /* paddingで幅が増えないように */
+  box-sizing: border-box;
 }
-
 /* テキスト枠を全幅許容に（狭くなるのを防止） */
 .hero-text {
   background: none;
