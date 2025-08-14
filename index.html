@@ -16,30 +16,46 @@
 /* ここから差し替え */
 body { margin: 0; overflow-x: hidden; } /* 横スクロール防止 */
 
+/* 横スクロール防止 & 余白リセット */
+body { margin: 0; overflow-x: hidden; }
+
+/* ヒーロー：中央にフル幅（親の max-width/padding を無視） */
 .hero {
   background-image: url("images/1.png");
   background-size: cover;
   background-position: center;
 
-  /* 全幅にするための設定 */
+  /* ★ブレイクアウト（安定版） */
+  display: block;
   width: 100vw;
+  max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
-  height: 100vh;                 
+  height: 100vh;                 /* 画面の高さいっぱい */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;     
-  align-items: flex-start;       
-  padding: 0;                     /* 余白は .hero-text で管理 */
-  color: #004225;
+  justify-content: flex-end;     /* 下寄せ */
+  align-items: flex-start;       /* 左寄せ */
+  padding: 0;                    /* 余白は内側で付ける */
   box-sizing: border-box;
 }
-/* テキスト枠を全幅許容に（狭くなるのを防止） */
+
+/* ヒーロー内のテキスト枠：中央寄せ & 適正最大幅 */
 .hero-text {
   background: none;
-  padding: 0;
-  max-width: 100%;
+  max-width: 1200px;             /* お好みで 1100–1400px */
+  width: 100%;
+  margin: 0 auto;                /* 中央揃え */
+  padding: 0 6vw 6vh;            /* 左右6vw / 下6vh の余白 */
+}
+
+/* 見出し/本文（必要なら調整） */
+.hero-text h1 { font-weight: 700; font-size: 3.6rem; line-height: 1.6; margin-bottom: 1rem; }
+.hero-text p  { font-weight: 400; font-size: 1.8rem; margin: 0; }
+
+@media (max-width: 768px) {
+  .hero-text h1 { font-size: 1.8rem; }
+  .hero-text p  { font-size: 1.1rem; }
 }
 
 /* 見出し・本文（元の指定を必要に応じて残す） */
