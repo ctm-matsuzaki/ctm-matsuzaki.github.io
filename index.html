@@ -27,11 +27,12 @@ body { margin: 0; overflow-x: hidden; }
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* 縦方向 → 中央 */
-  align-items: flex-start;   /* 横方向 → 左寄せ */
+  justify-content: flex-end;   /* ← 縦方向：下寄せ */
+  align-items: flex-start;     /* ← 横方向：左寄せ */
   box-sizing: border-box;
-  padding-left: 10%;         /* 左に余白（位置調整） */
-  text-align: left;          /* テキストを左揃え */
+  padding-left: 8%;            /* 左に余白（位置調整） */
+  padding-bottom: 12%;         /* 下に余白（位置調整） */
+  text-align: left;
 }
 
 .hero-text {
