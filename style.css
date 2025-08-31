@@ -341,13 +341,30 @@ html, body { margin: 0; padding: 0; }
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
+  z-index: 2;
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+/* 上の「会社情報」ラベル */
+.hero-eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: #e6f2ec;
+  margin-bottom: 0.5rem;
 }
 
-.hero-text p {
-  font-size: 1.5rem;
+/* メインの見出し */
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #e1f7e9; /* 少し明るめの緑系 */
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.hero-title span {
+  display: block;
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  font-weight: 400;
+  margin-top: 0.2em;
+  color: #fff;
 }
