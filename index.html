@@ -19,43 +19,42 @@ body { margin: 0; overflow-x: hidden; } /* 横スクロール防止 */
 /* 横スクロール防止 & 余白リセット */
 body { margin: 0; overflow-x: hidden; }
 
-/* ===== Hero: 画面の横幅いっぱいにブレイクアウト ===== */
 .hero {
   background-image: url('images/1.png');
   background-size: cover;
-  background-position: center;     /* 必要なら left center / 45% 50% に調整 */
+  background-position: center;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;         /* 縦位置…中央（下寄せにしたい時は flex-end） */
-  align-items: flex-start;         /* 横位置…左寄せ（中央にしたい時は center） */
-
-  /* ★ここが肝。親の max-width を無視して「画面幅」に広げる */
-  width: 100vw;
-  max-width: 100vw;
-  margin-left:  calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  height: 100vh;                   /* 1画面の高さ */
-  padding-left: 6vw;               /* 左の余白（5〜8vwで微調整） */
-  padding-right: 6vw;              /* 右も少し余白 */
+  justify-content: center;   /* ← 縦中央 */
+  align-items: center;       /* ← 横中央 */
   box-sizing: border-box;
+  text-align: center;        /* ← テキスト中央寄せ */
+  padding: 0 5vw;            /* 左右に余白 */
 }
 
-/* ヒーロー内テキスト：幅と余白 */
 .hero-text {
-  max-width: 1200px;               /* 行の最大長。1100〜1400px目安 */
+  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;                  /* 中央基準（左余白で左寄せに見せる） */
-  padding: 0 0 0 0;                /* 余白は .hero で付ける */
+  margin: 0 auto;
 }
 
 .hero-text h1 {
   font-weight: 700;
   font-size: 3.6rem;
   line-height: 1.6;
-  margin: 0 0 1rem 0;
+  margin-bottom: 1rem;
+  color: #2c4a27;   /* 見本と同じ緑色 */
+}
+
+.hero-text p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 0;
   color: #2c4a27;
 }
+
 
 .hero-text p {
   font-weight: 400;
