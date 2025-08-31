@@ -317,3 +317,37 @@ html, body { margin: 0; padding: 0; }
   .kv{ min-height: 44vw; }
   .kv-title{ transform: translateY(4px); }
 }
+/* =========================
+   Company Hero Section
+   ========================= */
+.hero-company {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+}
