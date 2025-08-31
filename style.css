@@ -161,3 +161,159 @@ html, body { margin: 0; padding: 0; }
   .contact-title { font-size: 2.6rem; }
   .contact-button { padding: 12px 24px; font-size: 1rem; }
 }
+/* =========================
+   Company page common
+   ========================= */
+:root{
+  --ctm-green: #264a27;
+  --ctm-green-ink: #1f3c21;
+  --ink: #00220f;
+  --muted: #9bd8ba;
+}
+
+.kv{
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(240px, 38vw, 420px);
+  background: #f4f7f5;
+  overflow: hidden;
+}
+.kv-inner{ text-align: center; }
+.kv .eyebrow{
+  color: var(--ctm-green);
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: .5rem;
+  font-size: clamp(.9rem,2.2vw,1rem);
+}
+.kv-title{
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1;
+  font-size: clamp(3rem, 12vw, 12rem);
+  letter-spacing: .02em;
+}
+.kv-title span{
+  display: block;
+  color: var(--ctm-green);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  letter-spacing: .08em;
+  margin-top: .4rem;
+}
+
+.section{
+  position: relative;
+  padding: clamp(48px, 8vw, 96px) 0;
+  background: #fff;
+  overflow: hidden;
+}
+.section--dark{
+  background: var(--ctm-green);
+  color: #fff;
+}
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.section-title{
+  color: var(--ctm-green);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.5;
+  font-size: clamp(1.2rem, 3.2vw, 2rem);
+  margin: 0 auto clamp(24px, 4vw, 32px);
+}
+.section--dark .section-title{ color: #fff; }
+
+.lead{
+  text-align: center;
+  line-height: 1.9;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: #254233;
+}
+.section--dark .lead{ color: #eaf4ee; }
+
+/* 小見出しラベル */
+.label, .label-inverse{
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: .12em;
+  margin: 0 0 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: clamp(.75rem, 2vw, .9rem);
+}
+.label{ color: var(--ctm-green); background: #e9f5ee; }
+.label-inverse{ color: #fff; background: rgba(255,255,255,.12); }
+
+/* 大きな薄字の英単語（背景ワード） */
+.has-bgword{
+  position: relative;
+}
+.has-bgword::after{
+  content: attr(data-word);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 0;
+  pointer-events: none;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-align: center;
+  line-height: 1;
+  color: var(--muted);
+  opacity: .35;
+  font-size: clamp(4rem, 26vw, 18rem);
+  transform: translateY(20%);
+  mix-blend-mode: multiply;
+}
+.section--dark.has-bgword::after{
+  color: rgba(255,255,255,.12);
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+/* コンテンツは前面へ */
+.section > .container{ position: relative; z-index: 1; }
+
+/* Concept中のキャッチ */
+.catch{
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  margin: clamp(24px, 4vw, 32px) 0 8px;
+}
+.section:not(.section--dark) .catch{ color: var(--ctm-green); }
+
+/* Value（番号付きリスト） */
+.values{
+  list-style: none;
+  padding: 0;
+  margin: clamp(24px, 5vw, 40px) auto 0;
+  width: min(900px, 92%);
+  display: grid;
+  gap: clamp(18px, 2.8vw, 28px);
+}
+.values h4{
+  color: var(--ctm-green);
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  margin: 0 0 .25em;
+  font-weight: 800;
+  text-align: center;
+}
+.values p{
+  text-align: center;
+  margin: 0;
+  color: #254233;
+  line-height: 1.9;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+}
+
+/* モバイル微調整 */
+@media (max-width: 768px){
+  .kv{ min-height: 44vw; }
+  .kv-title{ transform: translateY(4px); }
+}
