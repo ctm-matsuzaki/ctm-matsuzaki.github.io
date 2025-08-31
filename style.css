@@ -96,17 +96,18 @@ html, body { margin: 0; padding: 0; }
   margin-right: 0 !important;
 }
 
-/* --- Contact (full width) --- */
+/* 画面いっぱいの横幅はこのまま */
 .full-bleed {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
+/* 背景画像の表示と中央配置 */
 .contact-section {
   position: relative;
   min-height: 80vh;
-  background-image: url('images/contact-bg.jpeg'); /* 実際のファイル名に合わせる */
+  background-image: url('images/contact-bg.jpeg'); /* ファイル名が違えば合わせる */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -116,25 +117,30 @@ html, body { margin: 0; padding: 0; }
   align-items: center;
 }
 
+/* ← これが“2段で中央揃え”の主役 */
 .contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;           /* タイトルとボタンの間隔 */
   text-align: center;
-  line-height: 1.4;  /* 行間を少し広めに */
 }
 
+/* タイトルを少し大きく＆上下中央に見えやすく */
 .contact-title {
-  font-size: 3.5rem;  /* 少し大きく */
+  font-size: 3.6rem;         /* ここでサイズUP */
+  line-height: 1.05;         /* 英字と仮名の見た目中央を合わせやすく */
   color: #2c4a27;
-  margin-bottom: 30px;
+  margin: 0;                 /* 余白でズレないように */
   font-family: 'Noto Serif JP', serif;
   letter-spacing: 1px;
-  display: inline-block;
-  vertical-align: middle; /* 日本語とアルファベットのベースラインを揃える */
 }
 
+/* ボタンはそのままでもOK。中央は flex で揃います */
 .contact-button {
   display: inline-block;
   padding: 16px 32px;
-  background-color: #fff;
+  background: #fff;
   color: #000;
   font-weight: bold;
   font-size: 1.2rem;
@@ -142,11 +148,10 @@ html, body { margin: 0; padding: 0; }
   border-radius: 4px;
   text-decoration: none;
   transition: background .2s ease, color .2s ease, border-color .2s ease;
-  vertical-align: middle; /* ボタンも中央基準 */
 }
 
 .contact-button:hover {
-  background-color: #2c4a27;
+  background: #2c4a27;
   color: #fff;
   border-color: #2c4a27;
 }
