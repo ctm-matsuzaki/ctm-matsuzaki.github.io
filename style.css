@@ -118,27 +118,31 @@ html, body { margin: 0; padding: 0; }
 
 .contact-inner {
   text-align: center;
+  line-height: 1.4;  /* 行間を少し広めに */
 }
 
 .contact-title {
-  font-size: 3rem;
+  font-size: 3.5rem;  /* 少し大きく */
   color: #2c4a27;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-family: 'Noto Serif JP', serif;
   letter-spacing: 1px;
+  display: inline-block;
+  vertical-align: middle; /* 日本語とアルファベットのベースラインを揃える */
 }
 
 .contact-button {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 16px 32px;
   background-color: #fff;
   color: #000;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: 1px solid #000;
   border-radius: 4px;
   text-decoration: none;
   transition: background .2s ease, color .2s ease, border-color .2s ease;
+  vertical-align: middle; /* ボタンも中央基準 */
 }
 
 .contact-button:hover {
@@ -149,6 +153,6 @@ html, body { margin: 0; padding: 0; }
 
 /* モバイル調整 */
 @media (max-width: 768px) {
-  .contact-title { font-size: 2.2rem; }
-  .contact-button { padding: 12px 24px; font-size: 0.95rem; }
+  .contact-title { font-size: 2.6rem; }
+  .contact-button { padding: 12px 24px; font-size: 1rem; }
 }
