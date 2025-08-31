@@ -368,3 +368,25 @@ html, body { margin: 0; padding: 0; }
   margin-top: 0.2em;
   color: #fff;
 }
+.hero-title-with-bg {
+  position: relative;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  z-index: 2;
+}
+
+/* 背景の英字（Philosophy）を重ねる */
+.hero-title-with-bg::before {
+  content: attr(data-word);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  z-index: -1;
+  pointer-events: none;
+}
