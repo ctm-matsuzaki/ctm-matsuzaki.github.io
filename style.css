@@ -332,6 +332,8 @@ html, body { margin: 0; padding: 0; }
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
+  position: relative;   /* 追加 */
+  z-index: 0;           /* 追加 */
 }
 
 .hero-text {
@@ -341,7 +343,7 @@ html, body { margin: 0; padding: 0; }
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  z-index: 2;
+  z-index: 2;  
 }
 
 /* 上の「会社情報」ラベル */
@@ -378,15 +380,16 @@ html, body { margin: 0; padding: 0; }
 }
 
 .hero-title-with-bg::before {
-  content: attr(data-word);
+  content: 'Philosophy';            /* attr依存をやめ、まず見えるか検証 */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 900;
-  color: rgba(31, 127, 105, 0.2); /* 薄いグリーンに変更 */
+  color: rgba(0, 0, 0, 0.18);        /* 見えやすい薄い黒。緑にしたければ調整可 */
   white-space: nowrap;
-  z-index: 0;                 /* ← -1 から修正 */
+  z-index: 1;                        /* 画像(z=0)より前、見出し本体(z=2)より後ろ */
   pointer-events: none;
+  text-shadow: 0 0 12px rgba(0,0,0,0.12); /* 視認性UP */
 }
