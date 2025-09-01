@@ -393,3 +393,97 @@ html, body { margin: 0; padding: 0; }
   pointer-events: none;
   text-shadow: 0 0 12px rgba(0,0,0,0.12); /* 視認性UP */
 }
+/* ===== Common color tokens ===== */
+:root{
+  --ctm-green-deep: #213B1F;  /* バナーの深緑 */
+  --ctm-green-ink:  #224A33;  /* 文字の緑（本文） */
+}
+
+/* ===== 画像バナー ===== */
+.banner{
+  margin: 0;
+  width: 100%;
+  display: block;
+  background: var(--ctm-green-deep); /* 画像が細い時の両端色ケア */
+}
+.banner-img{
+  display: block;
+  width: 100%;
+  height: auto;         /* 画像そのまま（見本は16:9想定） */
+}
+
+/* ===== 見出しブロック（白背景＋緑文字） ===== */
+.section-text{
+  background: #fff;
+  padding: clamp(28px, 6vw, 72px) 0;
+  text-align: center;
+}
+.kicker{
+  color: var(--ctm-green-ink);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  letter-spacing: .06em;
+  margin: 0 0 .5em;
+}
+.headline-jp{
+  color: var(--ctm-green-ink);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
+  margin: 0;
+}
+
+/* ===== 段落ブロック（白背景） ===== */
+.paragraph-block{
+  background: #fff;
+  padding: clamp(36px, 7vw, 96px) 0;
+  text-align: center;
+}
+.kicker-center{
+  color: var(--ctm-green-ink);
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  font-weight: 800;
+  margin: 0 0 .6em;
+}
+.catch-strong{
+  color: var(--ctm-green-ink);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin: 0 0 .8em;
+}
+.lead-center{
+  color: var(--ctm-green-ink);
+  line-height: 2;
+  font-size: clamp(1rem, 2.3vw, 1.25rem);
+  margin: 0;
+}
+.mt-lg{ margin-top: clamp(24px, 4vw, 40px); }
+
+/* ===== バリュー（番号リスト） ===== */
+.values-list{
+  background: #fff;
+  padding: clamp(36px, 7vw, 96px) 0;
+}
+.values-list ol{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(920px, 92%);
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
+}
+.values-list li{
+  text-align: center;
+}
+.values-list h4{
+  color: var(--ctm-green-ink);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  margin: 0 0 .35em;
+}
+.values-list p{
+  color: var(--ctm-green-ink);
+  margin: 0;
+  line-height: 1.9;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+}
