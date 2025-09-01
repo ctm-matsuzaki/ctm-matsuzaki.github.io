@@ -404,23 +404,32 @@ html, body { margin: 0; padding: 0; }
   --ctm-green-ink:  #224A33;  /* 文字の緑（本文） */
 }
 
-/* ===== 画像バナー ===== */
-.banner{
-  margin: 0;
-  width: 100%;
-  display: block;
-  background: var(--ctm-green-deep); /* 画像が細い時の両端色ケア */
-}
-.banner-img{
-  display: block;
-  width: 100%;
-  height: auto;         /* 画像そのまま（見本は16:9想定） */
+:root{
+  --ctm-green-deep:#213B1F; /* 濃い緑（バナー/帯） */
+  --ctm-green-ink:#224A33;  /* 文字用の緑 */
 }
 
-/* ===== 見出しブロック（白背景＋緑文字） ===== */
-.section-text{
-  background: #fff;
-  padding: clamp(28px, 6vw, 72px) 0;
+/* --- Hero（画像だけを中央トリミングで横いっぱい） --- */
+.hero-company{
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+.hero-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- 会社情報の小見出し（白背景・中央） --- */
+.section-text.only-kicker{
+  background:#fff;
+  padding: clamp(28px, 6vw, 72px) 0 0;
   text-align: center;
 }
 .kicker{
@@ -428,26 +437,22 @@ html, body { margin: 0; padding: 0; }
   font-weight: 700;
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   letter-spacing: .06em;
-  margin: 0 0 .5em;
 }
-.headline-jp{
-  color: var(--ctm-green-ink);
-  font-weight: 800;
-  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
-  margin: 0;
-}
+.kicker.center{ text-align:center; }
 
-/* ===== 段落ブロック（白背景） ===== */
+/* --- バナー画像（英字入りをそのまま表示） --- */
+.banner{ margin:0; width:100%; background: var(--ctm-green-deep); }
+.banner-img{ display:block; width:100%; height:auto; }
+.banner-deep{ background: var(--ctm-green-deep); }
+
+/* --- 段落ブロック（白背景 or 濃緑背景） --- */
 .paragraph-block{
-  background: #fff;
-  padding: clamp(36px, 7vw, 96px) 0;
+  padding: clamp(36px, 7vw, 96px) 20px;
   text-align: center;
+  background:#fff;
 }
-.kicker-center{
-  color: var(--ctm-green-ink);
-  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
-  font-weight: 800;
-  margin: 0 0 .6em;
+.paragraph-block.on-deep{
+  background: var(--ctm-green-deep);
 }
 .catch-strong{
   color: var(--ctm-green-ink);
@@ -455,31 +460,35 @@ html, body { margin: 0; padding: 0; }
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   margin: 0 0 .8em;
 }
+.kicker-center{
+  color: var(--ctm-green-ink);
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  font-weight: 800;
+  margin: 0 0 .6em;
+}
 .lead-center{
   color: var(--ctm-green-ink);
   line-height: 2;
-  font-size: clamp(1rem, 2.3vw, 1.25rem);
-  margin: 0;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  margin: 0 auto 1.2em;
+  max-width: 1000px;
 }
-.mt-lg{ margin-top: clamp(24px, 4vw, 40px); }
+.white{ color:#fff; }
 
-/* ===== バリュー（番号リスト） ===== */
+/* --- Value（番号リスト） --- */
 .values-list{
-  background: #fff;
-  padding: clamp(36px, 7vw, 96px) 0;
+  background:#fff;
+  padding: clamp(36px, 7vw, 96px) 20px;
 }
 .values-list ol{
   list-style: none;
-  margin: 0;
-  padding: 0;
-  width: min(920px, 92%);
-  margin-inline: auto;
+  margin:0 auto;
+  padding:0;
+  max-width: 980px;
   display: grid;
   gap: clamp(18px, 3vw, 28px);
 }
-.values-list li{
-  text-align: center;
-}
+.values-list li{ text-align:center; }
 .values-list h4{
   color: var(--ctm-green-ink);
   font-weight: 800;
