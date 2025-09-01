@@ -320,20 +320,21 @@ html, body { margin: 0; padding: 0; }
 /* =========================
    Company Hero Section
    ========================= */
-.hero-company {
+.hero-company{
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 60vh;         /* 高さ調整可 */
   overflow: hidden;
 }
 
-.hero-img {
+.hero-img{
+  position: absolute;
+  inset: 0;             /* top:0; right:0; bottom:0; left:0; と同じ */
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-  position: relative;   /* 追加 */
-  z-index: 0;           /* 追加 */
+  object-fit: cover;    /* 横いっぱいで中央トリミング */
+  object-position: center;
+  display: block;
 }
 
 .hero-text {
@@ -346,12 +347,16 @@ html, body { margin: 0; padding: 0; }
   z-index: 2;  
 }
 
-/* 上の「会社情報」ラベル */
-.hero-eyebrow {
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  color: #e6f2ec;
-  margin-bottom: 0.5rem;
+.hero-eyebrow{
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #224A33;                      /* 緑文字 */
+  background: rgba(255,255,255,.88);   /* 白背景で読みやすく */
 }
 
 /* メインの見出し */
