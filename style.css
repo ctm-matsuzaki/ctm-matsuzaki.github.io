@@ -385,7 +385,7 @@ html, body { margin: 0; padding: 0; }
   transform: translate(-50%, -50%);
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 900;
-  color: rgba(0, 0, 0, 0.1); /* ← ここを黒寄りに */
+  color: rgba(31, 127, 105, 0.2); /* 薄いグリーンに変更 */
   white-space: nowrap;
   z-index: 0;                 /* ← -1 から修正 */
   pointer-events: none;
