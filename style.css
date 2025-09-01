@@ -377,7 +377,6 @@ html, body { margin: 0; padding: 0; }
   z-index: 2;
 }
 
-/* 背景の英字（Philosophy）を重ねる */
 .hero-title-with-bg::before {
   content: attr(data-word);
   position: absolute;
@@ -386,8 +385,8 @@ html, body { margin: 0; padding: 0; }
   transform: translate(-50%, -50%);
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(0, 0, 0, 0.1); /* ← ここを黒寄りに */
   white-space: nowrap;
-  z-index: -1;
+  z-index: 0;                 /* ← -1 から修正 */
   pointer-events: none;
 }
