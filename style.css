@@ -458,7 +458,16 @@ html, body { margin: 0; padding: 0; }
 
 /* --- バナー画像（英字入りをそのまま表示） --- */
 .banner{ margin:0; width:100%; background: var(--ctm-green-deep); }
-.banner-img{ display:block; width:100%; height:auto; }
+/* バナー画像を横幅いっぱいに広げる */
+.banner-img {
+  width: 100vw;         /* ビューポート幅いっぱい */
+  height: auto;         /* 縦は自動調整 */
+  object-fit: cover;    /* 画像をトリミングしてカバー */
+  object-position: center; /* 常に中央寄せ */
+  display: block;       /* 余計な隙間防止 */
+  margin: 0 auto;       /* 中央揃え（念のため） */
+}
+
 .banner-deep{ background: var(--ctm-green-deep); }
 
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
