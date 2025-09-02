@@ -334,20 +334,24 @@ html, body { margin: 0; padding: 0; }
    ========================= */
 /* ヒーロー画像を余白なく画面いっぱいにする */
 .hero-company {
-  margin: 0;
-  padding: 0;
-  width: 100vw;   /* ブラウザ幅いっぱい */
-  height: 100vh;  /* ブラウザ高さいっぱい */
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw;
+  height: 60vh;        /* ここは好み。全画面なら 100vh でもOK */
   overflow: hidden;
 }
 
 .hero-img {
+  position: absolute;  /* ← insetで四辺をピタッと貼る */
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* 画像をトリミングして埋める */
-  object-position: center; /* 中央基準 */
-  display: block;
+  object-fit: cover;   /* 画面いっぱいにトリミング表示 */
+  object-position: center;
+  display: block;      /* 画像の下の隙間対策 */
 }
+
 
 .hero-text {
   position: absolute;
