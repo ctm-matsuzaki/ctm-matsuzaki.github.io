@@ -501,3 +501,8 @@ html, body { margin: 0; padding: 0; }
   line-height: 1.9;
   font-size: clamp(1rem, 2.2vw, 1.15rem);
 }
+/* ★デバッグ用：どの要素が見えているか判別 */
+html  { background: #ffe0e0 !important; }  /* 薄い赤 */
+body  { background: #e0ffe0 !important; }  /* 薄い緑 */
+.hero-company { background: #e0e8ff !important; }  /* 薄い青 */
+.hero-company img { outline: 2px solid #0066cc !important; } /* 画像の枠線 */
