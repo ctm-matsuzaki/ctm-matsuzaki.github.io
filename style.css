@@ -409,20 +409,21 @@ html, body { margin: 0; padding: 0; }
   --ctm-green-ink:#224A33;  /* 文字用の緑 */
 }
 
-.hero-company {
+.hero-company{
   position: relative;
   width: 100%;
-  height: 100vh; /* ← 画面いっぱいの高さに */
-  margin: 0;      /* ← 念のため余白削除 */
-  padding: 0;     /* ← 念のため余白削除 */
+  height: 100vh;  /* 画面いっぱいに */
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
-.hero-img {
+.hero-img{
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 画像をトリミングして全画面 */
-  display: block;    /* ← 左の隙間防止 */
+  object-fit: cover;     /* 全画面にトリミング */
+  object-position: center;
+  display: block;        /* 左の隙間防止 */
 }
 
 /* --- 会社情報の小見出し（白背景・中央） --- */
