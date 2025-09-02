@@ -1,6 +1,14 @@
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
+/* 全ページの余白を完全にゼロにする（UA既定の8pxを潰す）*/
+html, body { 
+  margin: 0 !important; 
+  padding: 0 !important; 
+  border: 0 !important;
+}
+
+/* インライン画像の行間ギャップ対策（念のため）*/
+img, picture, figure { 
+  display: block; 
+  margin: 0; 
 }
 
 body {
