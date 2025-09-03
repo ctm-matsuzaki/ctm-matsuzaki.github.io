@@ -464,6 +464,10 @@ html, body { margin: 0; padding: 0; }
 }
 
 .concept-text {
+  .concept-text h3,
+.concept-text p {
+  color: #fff;   /* 白文字にする */
+}
   position: absolute;
   bottom: 15%;   /* ← 位置はそのまま好みで調整 */
   left: 50%;
