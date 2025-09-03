@@ -457,12 +457,14 @@ html, body { margin: 0; padding: 0; }
   background:#fff;
 }
 
-.catch-strong {
-    color: var(--ctm-green-ink);
-    font-weight: 800;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    margin: 0 0 .8em;
-    text-align: center;   /* ← この行を追加 */
+/* 理念の見出しと同じ見た目を Concept / Mission / Vision の h3 にも適用 */
+.catch-strong,
+.content h3.catch {
+  color: var(--ctm-green-ink);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin: 0 0 .8em;
+  text-align: center;
 }
 
 .kicker-center{
@@ -471,14 +473,12 @@ html, body { margin: 0; padding: 0; }
   font-weight: 800;
   margin: 0 0 .6em;
 }
-.lead-center {
+/* 本文の見た目を理念と同じに統一 */
+.lead-center,
+.content p.lead {
   color: var(--ctm-green-ink);
-  line-height: 2;
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
-  margin: 0 auto 1.2em;
-  max-width: 1000px;
   line-height: 1.9;
-  font-size: clamp(1rem, 1.9vw, 1.15rem);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
   margin: 0 auto 1.2em;
   max-width: 1200px;
   text-align: center;
