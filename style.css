@@ -458,51 +458,6 @@ html, body { margin: 0; padding: 0; }
   width: 100%;
 }
 
-.banner-img {
-  width: 100%;
-  display: block;
-}
-
-.concept-text {
-  .concept-text h3,
-.concept-text p {
-  color: #fff;   /* 白文字にする */
-}
-  position: absolute;
-  bottom: 15%;   /* ← 位置はそのまま好みで調整 */
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;   /* 白文字に統一 */
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: center;
-  z-index: 2;
-  width: 90%;
-  max-width: 800px;
-  white-space: nowrap;   /* ← これで改行させない */
-}
-
-/* === コンセプトテキストを画像の上に重ねる === */
-.concept {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.concept-text {
-  position: absolute;
-  bottom: 15%;   /* ← 位置調整：数字を変えると上下に移動できます */
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;   /* 白文字 */
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: center;
-  z-index: 2;
-  width: 90%;
-  max-width: 800px;
-}
-
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
 .paragraph-block{
   padding: clamp(36px, 7vw, 96px) 20px;
@@ -516,8 +471,11 @@ html, body { margin: 0; padding: 0; }
   color: var(--ctm-green-ink);
   font-weight: 800;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
-  margin: 0 0 .8em;
+- margin: 0 0 .8em;
++ margin: 0 0 .8em;
++ text-align: center;
 }
+
 .kicker-center{
   color: var(--ctm-green-ink);
   font-size: clamp(1.1rem, 2.6vw, 1.4rem);
@@ -526,11 +484,17 @@ html, body { margin: 0; padding: 0; }
 }
 .lead-center{
   color: var(--ctm-green-ink);
-  line-height: 2;
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
-  margin: 0 auto 1.2em;
-  max-width: 1000px;
+- line-height: 2;
+- font-size: clamp(1rem, 2.2vw, 1.2rem);
+- margin: 0 auto 1.2em;
+- max-width: 1000px;
++ line-height: 1.9;
++ font-size: clamp(1rem, 1.9vw, 1.15rem);
++ margin: 0 auto 1.2em;
++ max-width: 1200px;
+  text-align: center;
 }
+
 .white{ color:#fff; }
 
 /* --- Value（番号リスト） --- */
