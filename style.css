@@ -465,7 +465,7 @@ html, body { margin: 0; padding: 0; }
 
 .philosophy-text {
   position: absolute;
-  top: 90%;           /* 48〜56%で微調整可。まずは50% */
+  top: 150%;           /* 48〜56%で微調整可。まずは50% */
   left: 50%;
   transform: translate(-50%, -50%);   /* 画像の中央に重ねる */
   color: var(--ctm-green-ink);
