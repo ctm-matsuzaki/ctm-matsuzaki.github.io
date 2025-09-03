@@ -509,24 +509,46 @@ html, body { margin: 0; padding: 0; }
 
 .white{ color:#fff; }
 
-/* --- Value（番号リスト） --- */
-.values-list {
-  background: #f7f7f7; /* ← 他と同じグレー */
-  padding: clamp(36px, 7vw, 96px) 20px;
+/* Value セクション（全体グレー＆画像直下から始まる） */
+.content.values { margin-top: 0; }  /* 画像の直後から始める */
+
+.values-list{
+  /* 全面グレー（他セクションと同じ） */
+  background: #f7f7f7;
+  /* 上は控えめ、下はゆったり（画像直下の余白を詰める） */
+  padding: clamp(24px, 4vw, 48px) 20px clamp(40px, 6vw, 72px);
   text-align: center;
+  /* 箱っぽく見える原因を除去 */
+  max-width: none;
+  margin: 0;
+  box-shadow: none;
+  border: none;
 }
 
-.values-list p {
+/* 各項目のまとまり間の余白（細字→次の太字 の距離を広めに） */
+.values-list li{
+  list-style: none;              /* 番号を消す */
+  margin: 0 auto clamp(24px, 3vw, 32px);
+  max-width: 980px;              /* 行幅は他と合わせて読みやすく */
+}
+
+/* 本文（細字） */
+.values-list li,
+.values-list li p{
   color: var(--ctm-green-ink);
   line-height: 1.9;
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
-  margin: 0 0 1.2em;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);  /* 他の本文と同じ */
+  margin: 0;
 }
 
-.values-list p strong {
+/* 見出し（太字）— Vision/Mission と同じ大きさ＆色に統一 */
+.values-list li strong{
   display: block;
-  font-size: clamp(1.2rem, 2.6vw, 1.4rem); /* ← 他の太字見出しと統一 */
-  font-weight: 800;
-  margin-bottom: 0.3em;
   color: var(--ctm-green-ink);
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2.6vw, 1.4rem); /* 見出しサイズ（理念以降と同じ） */
+  margin: 0 0 .25em;                        /* 太字→直後の本文は少し狭く */
 }
+
+/* 最後の項目の下だけ余白を消す（締まり良く） */
+.values-list li:last-child{ margin-bottom: 0; }
