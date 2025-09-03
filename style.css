@@ -540,15 +540,13 @@ html, body { margin: 0; padding: 0; }
   margin: 0.4em 0 0;   /* ← strong との間隔を少し狭める */
 }
 
-/* 見出し（太字部分） */
 .values-list li strong {
   display: block;
   color: var(--ctm-green-ink);
   font-weight: 800;
-  font-size: clamp(1.4rem, 2.8vw, 1.6rem);  /* ← 他のh3と同じ大きさに */
-  margin: 0 0 0.6em;  /* ← 下余白を増やして本文と間隔を広くする */
+  font-size: clamp(1.6rem, 3vw, 2rem); /* 他セクションの見出しと同等に統一 */
+  margin: 1.2em 0 0.6em 0;             /* 上に1行分のスペースを確保（見出し前） */
 }
-
 
 /* 最後の項目の下だけ余白を消す（締まり良く） */
 .values-list li:last-child{ margin-bottom: 0; }
