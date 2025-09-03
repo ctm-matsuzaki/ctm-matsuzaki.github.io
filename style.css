@@ -512,43 +512,43 @@ html, body { margin: 0; padding: 0; }
 /* Value セクション（全体グレー＆画像直下から始まる） */
 .content.values { margin-top: 0; }  /* 画像の直後から始める */
 
-.values-list{
-  /* 全面グレー（他セクションと同じ） */
-  background: #f7f7f7;
-  /* 上は控えめ、下はゆったり（画像直下の余白を詰める） */
-  padding: clamp(24px, 4vw, 48px) 20px clamp(40px, 6vw, 72px);
-  text-align: center;
-  /* 箱っぽく見える原因を除去 */
-  max-width: none;
-  margin: 0;
+/* === Value セクション修正 === */
+
+/* 全体の余計な背景とボックスを削除 */
+.values-list {
+  background: none;   /* ← 背景削除 */
+  padding: 0;         /* ← 余計な余白削除 */
   box-shadow: none;
   border: none;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 980px;
 }
 
-/* 各項目のまとまり間の余白（細字→次の太字 の距離を広めに） */
-.values-list li{
-  list-style: none;              /* 番号を消す */
-  margin: 0 auto clamp(24px, 3vw, 32px);
-  max-width: 980px;              /* 行幅は他と合わせて読みやすく */
+/* 各項目 */
+.values-list li {
+  list-style: none;
+  margin: 0 auto 2.2em;  /* ← 下の余白を広めにして間隔調整 */
+  max-width: 980px;
 }
 
-/* 本文（細字） */
-.values-list li,
-.values-list li p{
+/* 本文 */
+.values-list li p {
   color: var(--ctm-green-ink);
   line-height: 1.9;
-  font-size: clamp(1rem, 2.2vw, 1.15rem);  /* 他の本文と同じ */
-  margin: 0;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  margin: 0.4em 0 0;   /* ← strong との間隔を少し狭める */
 }
 
-/* 見出し（太字）— Vision/Mission と同じ大きさ＆色に統一 */
-.values-list li strong{
+/* 見出し（太字部分） */
+.values-list li strong {
   display: block;
   color: var(--ctm-green-ink);
   font-weight: 800;
-  font-size: clamp(1.2rem, 2.6vw, 1.4rem); /* 見出しサイズ（理念以降と同じ） */
-  margin: 0 0 .25em;                        /* 太字→直後の本文は少し狭く */
+  font-size: clamp(1.4rem, 2.8vw, 1.6rem);  /* ← 他のh3と同じ大きさに */
+  margin: 0 0 0.6em;  /* ← 下余白を増やして本文と間隔を広くする */
 }
+
 
 /* 最後の項目の下だけ余白を消す（締まり良く） */
 .values-list li:last-child{ margin-bottom: 0; }
