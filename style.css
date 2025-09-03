@@ -453,21 +453,28 @@ html, body { margin: 0; padding: 0; }
 .banner-deep{ background: var(--ctm-green-deep); }
 
 .philosophy {
-  position: relative; /* 親を基準にする */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  display: block;
 }
 
 .philosophy-text {
   position: absolute;
-  bottom: 10%;              /* 画像の下から10%の位置に配置 */
+  top: 50%;           /* 48〜56%で微調整可。まずは50% */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);   /* 画像の中央に重ねる */
   color: var(--ctm-green-ink);
   text-align: center;
-  max-width: 800px;
+  max-width: 880px;
   width: 90%;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  z-index: 2;               /* 画像より上に出す */
+  line-height: 1.9;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  z-index: 2;
 }
 
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
