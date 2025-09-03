@@ -514,8 +514,6 @@ html, body { margin: 0; padding: 0; }
   background: #f7f7f7; /* ← 他と同じグレー */
   padding: clamp(36px, 7vw, 96px) 20px;
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .values-list p {
@@ -527,7 +525,7 @@ html, body { margin: 0; padding: 0; }
 
 .values-list p strong {
   display: block;
-  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-size: clamp(1.2rem, 2.6vw, 1.4rem); /* ← 他の太字見出しと統一 */
   font-weight: 800;
   margin-bottom: 0.3em;
   color: var(--ctm-green-ink);
