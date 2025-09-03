@@ -452,14 +452,22 @@ html, body { margin: 0; padding: 0; }
 
 .banner-deep{ background: var(--ctm-green-deep); }
 
+.philosophy {
+  position: relative; /* 親を基準にする */
+}
+
 .philosophy-text {
-  margin: 2rem auto;
-  padding: 1rem;
+  position: absolute;
+  bottom: 10%;              /* 画像の下から10%の位置に配置 */
+  left: 50%;
+  transform: translateX(-50%);
   color: var(--ctm-green-ink);
-  font-size: 1.2rem;
-  line-height: 1.8;
   text-align: center;
   max-width: 800px;
+  width: 90%;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  z-index: 2;               /* 画像より上に出す */
 }
 
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
