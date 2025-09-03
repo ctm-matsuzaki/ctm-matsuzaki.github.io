@@ -510,28 +510,17 @@ html, body { margin: 0; padding: 0; }
 .white{ color:#fff; }
 
 /* --- Value（番号リスト） --- */
-.values-list{
+.values-list {
   background:#fff;
   padding: clamp(36px, 7vw, 96px) 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.values-list ol{
-  list-style: none;
-  margin:0 auto;
-  padding:0;
-  max-width: 980px;
-  display: grid;
-  gap: clamp(18px, 3vw, 28px);
-}
-.values-list li{ text-align:center; }
-.values-list h4{
+
+.values-list p {
   color: var(--ctm-green-ink);
-  font-weight: 800;
-  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
-  margin: 0 0 .35em;
-}
-.values-list p{
-  color: var(--ctm-green-ink);
-  margin: 0;
   line-height: 1.9;
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  margin: 0 0 1.2em;
 }
