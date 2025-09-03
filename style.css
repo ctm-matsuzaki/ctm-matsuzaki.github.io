@@ -458,9 +458,7 @@ html, body { margin: 0; padding: 0; }
   text-align: center;
   background:#fff;
 }
-.paragraph-block.on-deep{
-  background: var(--ctm-green-deep);
-}
+
 .catch-strong {
     color: var(--ctm-green-ink);
     font-weight: 800;
