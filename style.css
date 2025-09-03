@@ -424,24 +424,6 @@ html, body { margin: 0; padding: 0; }
   --ctm-green-deep:#213B1F; /* 濃い緑（バナー/帯） */
   --ctm-green-ink:#224A33;  /* 文字用の緑 */
 }
-
-.hero-company {
-  position: relative;
-  width: 100%;
-  height: 100vh;   /* ← 画面いっぱいに */
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;      /* 画像を切り抜いてでも画面いっぱいに */
-  object-position: center; /* 真ん中を基準に */
-  display: block;
-}
-
 /* --- 会社情報の小見出し（白背景・中央） --- */
 .section-text.only-kicker{
   background:#fff;
@@ -525,20 +507,4 @@ html, body { margin: 0; padding: 0; }
   margin: 0;
   line-height: 1.9;
   font-size: clamp(1rem, 2.2vw, 1.15rem);
-}
-/* ★デバッグ用：どの要素が見えているか判別 */
-html  { background: #ffe0e0 !important; }  /* 薄い赤 */
-body  { background: #e0ffe0 !important; }  /* 薄い緑 */
-.hero-company { background: #e0e8ff !important; }  /* 薄い青 */
-.hero-company img { outline: 2px solid #0066cc !important; } /* 画像の枠線 */
-
-/* バナー画像を画面いっぱいにする */
-figure.banner img.banner-img {
-  width: 100vw !important;
-  height: auto !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
-   margin: 0 !important;
-  padding: 0 !important;
 }
