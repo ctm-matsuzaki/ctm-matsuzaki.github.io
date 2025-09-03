@@ -495,7 +495,17 @@ html, body { margin: 0; padding: 0; }
   text-align: center;
 }
 
-.white{ color:#fff; }
+/* 理念と同じ本文スタイルをコンセプト・ミッション・ビジョンにも適用 */
+.concept-text p,
+.mission-text p,
+.vision-text p {
+  color: var(--ctm-green-ink);
+  line-height: 1.9;
+  font-size: clamp(1rem, 1.9vw, 1.15rem);
+  margin: 0 auto 1.2em;
+  max-width: 1200px;
+  text-align: center;
+}
 
 .white{ color:#fff; }
 
