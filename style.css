@@ -452,6 +452,21 @@ html, body { margin: 0; padding: 0; }
 
 .banner-deep{ background: var(--ctm-green-deep); }
 
+/* 理念テキストを画像の上に配置する */
+.philosophy-text {
+  position: absolute;
+  top: 80%;               /* 数字を調整すると上下に移動できます */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--ctm-green-ink); /* 濃い緑 */
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  z-index: 2;             /* 画像の上に表示 */
+  width: 90%;             /* 横幅の調整 */
+  max-width: 800px;       /* 読みやすい幅を制限 */
+}
+
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
 .paragraph-block{
   padding: clamp(36px, 7vw, 96px) 20px;
