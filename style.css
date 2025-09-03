@@ -477,6 +477,27 @@ html, body { margin: 0; padding: 0; }
   z-index: 2;
 }
 
+/* === コンセプトテキストを画像の上に重ねる === */
+.concept {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.concept-text {
+  position: absolute;
+  bottom: 15%;   /* ← 位置調整：数字を変えると上下に移動できます */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;   /* 白文字 */
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  z-index: 2;
+  width: 90%;
+  max-width: 800px;
+}
+
 /* --- 段落ブロック（白背景 or 濃緑背景） --- */
 .paragraph-block{
   padding: clamp(36px, 7vw, 96px) 20px;
