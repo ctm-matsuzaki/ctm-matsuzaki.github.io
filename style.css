@@ -438,8 +438,6 @@ html, body { margin: 0; padding: 0; }
 }
 .kicker.center{ text-align:center; }
 
-/* --- バナー画像（英字入りをそのまま表示） --- */
-.banner{ margin:0; width:100%; background: var(--ctm-green-deep); }
 /* バナー画像を横幅いっぱいに広げる */
 .banner-img {
   width: 100vw;         /* ビューポート幅いっぱい */
