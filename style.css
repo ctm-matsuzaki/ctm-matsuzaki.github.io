@@ -632,3 +632,17 @@ html, body { margin: 0; padding: 0; }
   .message-block { padding: 1.6em; }
 }
 
+/* === 代表挨拶ページだけ、共通の引っ張り指定を無効化 === */
+.page-message .content { 
+  margin-top: 0 !important;     /* グローバルの負の margin を打ち消す */
+}
+
+/* ヒーローと本文の間隔をしっかり確保 */
+.hero-message { 
+  margin-bottom: 3.2em;         /* まだ近ければ 4em まで上げてもOK */
+}
+
+/* 念のため本文の先頭に少しだけ内側の余白を足す */
+.content.message-section {
+  padding-top: 0.8em;           /* 好みで 0〜1.2em の範囲で調整 */
+}
