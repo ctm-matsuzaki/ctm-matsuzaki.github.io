@@ -559,6 +559,7 @@ html, body { margin: 0; padding: 0; }
   height: 280px;            /* 高さは好みに応じて調整可 */
   object-fit: cover;        /* 横幅いっぱいに表示しつつトリミング */
   display: block;
+  margin-bottom: 2em;       /* ← 追加：画像下に余白を入れる */
 }
 
 /* 1カラム縦並びの本文領域 */
