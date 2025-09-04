@@ -626,18 +626,3 @@ html, body { margin: 0; padding: 0; }
   .message-section { padding: 3em 1.2em; }
   .message-block { padding: 1.6em; }
 }
-
-/* ヒーローと本文の間隔をしっかり確保 */
-.hero-message { 
-  margin-bottom: 3.2em;         /* まだ近ければ 4em まで上げてもOK */
-}
-
-/* 念のため本文の先頭に少しだけ内側の余白を足す */
-.content.message-section {
-  padding-top: 0.8em;           /* 好みで 0〜1.2em の範囲で調整 */
-}
-
-.page-message .content.message-section {
-  margin-top: 2em;   /* 0ではなく余白を確保 */
-  padding-top: 0;    /* 余計な余白を削除 */
-}
