@@ -636,3 +636,8 @@ html, body { margin: 0; padding: 0; }
 .content.message-section {
   padding-top: 0.8em;           /* 好みで 0〜1.2em の範囲で調整 */
 }
+/* === 代表挨拶ページの本文開始位置を調整 === */
+.page-message .content.message-section {
+  margin-top: 0 !important;     /* 上方向に引っ張らせない */
+  padding-top: 3em !important;  /* 画像と本文の間にしっかり余白を入れる */
+}
