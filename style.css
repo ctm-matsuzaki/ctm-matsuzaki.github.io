@@ -557,11 +557,6 @@ html, body { margin: 0; padding: 0; }
   margin-bottom: 2.4em;        /* ヒーロー下に余白を確保 */
 }
 
-/* 共通 .content の上詰めを、このセクションだけ無効化 */
-.content.message-section {
-  margin-top: 0 !important;    /* 画像直後から開始（重なり防止） */
-}
-
 /* すでに書いてあればそのままでOK。未追加なら入れてください */
 .hero-message .hero-img {
   width: 100%;
@@ -630,11 +625,6 @@ html, body { margin: 0; padding: 0; }
   .hero-message .hero-img { height: 220px; }
   .message-section { padding: 3em 1.2em; }
   .message-block { padding: 1.6em; }
-}
-
-/* === 代表挨拶ページだけ、共通の引っ張り指定を無効化 === */
-.page-message .content { 
-  margin-top: 0 !important;     /* グローバルの負の margin を打ち消す */
 }
 
 /* ヒーローと本文の間隔をしっかり確保 */
