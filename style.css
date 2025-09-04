@@ -621,3 +621,17 @@ html, body { margin: 0; padding: 0; }
   .message-section { padding: 3em 1.2em; }
   .message-block { padding: 1.6em; }
 }
+
+/* 代表挨拶：画像と本文が重ならない最小セット */
+.page-message .hero-message .hero-img {
+  display: block;
+  width: 100%;
+  height: auto;        /* 固定高さは使わない */
+  object-fit: cover;
+}
+
+.page-message .content.message-section {
+  margin-top: 2em;     /* ここで間隔を管理。2em〜3emで調整可 */
+  position: relative;
+  z-index: 1;
+}
