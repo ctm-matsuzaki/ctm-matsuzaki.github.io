@@ -552,11 +552,6 @@ html, body { margin: 0; padding: 0; }
 .values-list li:last-child{ margin-bottom: 0; }
 
 /* ===== 代表挨拶（message.html） ===== */
-/* ヒーローと本文の“かぶり”防止 */
-.hero-message { 
-  margin-bottom: 2.4em;        /* ヒーロー下に余白を確保 */
-}
-
 /* すでに書いてあればそのままでOK。未追加なら入れてください */
 .hero-message .hero-img {
   width: 100%;
