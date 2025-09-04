@@ -540,12 +540,12 @@ html, body { margin: 0; padding: 0; }
   margin: 0.4em 0 0;   /* ← strong との間隔を少し狭める */
 }
 
-.values-list li strong {
+.values-list strong {
   display: block;
   color: var(--ctm-green-ink);
   font-weight: 800;
-  font-size: clamp(1.6rem, 3vw, 2rem); /* 他セクションの見出しと同等に統一 */
-  margin: 1.2em 0 0.6em 0;             /* 上に1行分のスペースを確保（見出し前） */
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin: 1.2em 0 0.6em 0;
 }
 
 /* 最後の項目の下だけ余白を消す（締まり良く） */
