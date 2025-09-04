@@ -641,3 +641,11 @@ html, body { margin: 0; padding: 0; }
   margin-top: 0 !important;     /* 上方向に引っ張らせない */
   padding-top: 3em !important;  /* 画像と本文の間にしっかり余白を入れる */
 }
+/* 代表挨拶：本文セクションの先頭でマージン相殺を止める */
+.page-message .content.message-section {
+  margin-top: 0 !important;      /* 引っ張り無効 */
+  padding-top: 3em !important;   /* 画像との間隔 */
+  display: flow-root;            /* ← これでBFC化して相殺を止める（Safari対応） */
+  /* もし古いSafariで効かない場合は overflow:auto; に変えてもOK */
+  /* overflow: auto; */
+}
