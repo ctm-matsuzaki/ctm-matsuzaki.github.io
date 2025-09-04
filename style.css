@@ -622,13 +622,20 @@ html, body { margin: 0; padding: 0; }
   .message-block { padding: 1.6em; }
 }
 
-/* 代表挨拶：画像と本文が重ならない最小セット */
+
+/* 代表挨拶：画像の“下”に明確な空間を作る */
+.page-message .hero-message {
+  margin-bottom: 56px;   /* ここを 48px / 64px に調整して好みの位置に */
+}
+
+/* 念のため：画像は比率維持で横幅いっぱい */
 .page-message .hero-message .hero-img {
   display: block;
   width: 100%;
-  height: auto;        /* 固定高さは使わない */
+  height: auto;          /* 固定高さは使わない */
   object-fit: cover;
 }
+
 
 .page-message .content.message-section {
   margin-top: 2em;     /* ここで間隔を管理。2em〜3emで調整可 */
