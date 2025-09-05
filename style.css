@@ -624,8 +624,9 @@ html, body { margin: 0; padding: 0; }
 
 
 /* PCで大きめ、画面が小さいほど自動で控えめに */
+/* ベース：常にこの余白を使う（デスクトップで良かった 440px を維持） */
 .page-message .hero-message {
-  margin-bottom: clamp(56px, 12vh, 440px);
+  margin-bottom: 440px !important;
 }
 
 /* タブレット〜スマホはさらに詰める */
