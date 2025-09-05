@@ -665,10 +665,17 @@ html, body { margin: 0; padding: 0; }
   .page-message .page-title { margin-top: 0; }
 }
 
-/* 名前画像（経歴セクション） */
-.profile-name { text-align: center; margin: 0 0 0.6em; }
-.profile-name-img { display: inline-block; width: min(70vw, 480px); height: auto; }
-.job-titles { font-weight: 700; margin-top: 0.2em; }
+.profile-name {
+  text-align: left;        /* ← 左寄せ */
+  margin: 0 0 0.6em;
+}
+
+.profile-name-img {
+  display: block;          /* ← 行頭から始まる */
+  margin: 0;               /* ← 左端にピタッと */
+  width: min(70vw, 480px);
+  height: auto;
+}
 
 @media (max-width: 768px) {
   .profile-name-img { width: min(84vw, 360px); }
