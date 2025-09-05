@@ -649,22 +649,18 @@ html, body { margin: 0; padding: 0; }
   z-index: 1;
 }
 
-/* === スマホの重なり解消（768px以下）=== */
+/* PC基準（デスクトップ） */
+.page-message .hero-message { margin-bottom: 440px; } /* !important は付けない */
+.page-message .hero-message .hero-img {
+  display: block; width: 100%; height: auto; object-fit: cover;
+}
+.page-message .content.message-section { margin-top: 2em; } /* お好みで 1.6–2.4em */
+
+/* スマホ（768px以下）：確実に下げる */
 @media (max-width: 768px) {
-  /* 画像の下に十分な余白を確保（32〜48pxで好みに微調整） */
-  .page-message .hero-message {
-    margin-bottom: 40px !important;
-  }
-
-  /* 本文セクション：外側marginは使わず、内側paddingで開始位置を作る */
+  .page-message .hero-message { margin-bottom: 96px; }          /* 80–120pxで調整可 */
   .page-message .content.message-section {
-    margin-top: 0 !important;      /* 相殺されやすい外側marginは0に */
-    padding-top: 12px !important;  /* 内側paddingなら相殺されない */
-    display: flow-root;            /* BFC化で相殺そのものを止める（SafariもOK） */
+    margin-top: 0; padding-top: 20px; display: flow-root;       /* 相殺防止 */
   }
-
-  /* 見出しの上マージンをゼロにして食い込み防止 */
-  .page-message .page-title {
-    margin-top: 0;
-  }
+  .page-message .page-title { margin-top: 0; }
 }
