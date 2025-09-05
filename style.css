@@ -625,7 +625,7 @@ html, body { margin: 0; padding: 0; }
 
 /* 代表挨拶：画像の“下”に明確な空間を作る */
 .page-message .hero-message {
-  margin-bottom: 400px;   /* ここを 48px / 64px に調整して好みの位置に */
+  margin-bottom: 440px;   /* ここを 48px / 64px に調整して好みの位置に */
 }
 
 /* 念のため：画像は比率維持で横幅いっぱい */
