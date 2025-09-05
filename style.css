@@ -664,3 +664,25 @@ html, body { margin: 0; padding: 0; }
   }
   .page-message .page-title { margin-top: 0; }
 }
+
+/* 名前画像（経歴セクション） */
+.profile-name {
+  text-align: center;
+  margin: 0 0 0.6em;        /* 下だけ少し余白 */
+}
+.profile-name-img {
+  display: inline-block;
+  width: min(70vw, 480px);  /* 画面に応じて縮小、上限480px */
+  height: auto;
+}
+
+/* 肩書きは従来の段落と同じトーンで。必要なら太字維持 */
+.job-titles {
+  font-weight: 700;         /* 以前 strong だった見た目を継承 */
+  margin-top: 0.2em;
+}
+
+/* スマホでのサイズ微調整 */
+@media (max-width: 768px) {
+  .profile-name-img { width: min(84vw, 360px); }
+}
