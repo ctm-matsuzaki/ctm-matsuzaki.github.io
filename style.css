@@ -664,15 +664,3 @@ html, body { margin: 0; padding: 0; }
   }
   .page-message .page-title { margin-top: 0; }
 }
-
-/* 代表挨拶：画像見出し */
-.page-message .page-title-img {
-  display: block;
-  width: min(72vw, 480px);
-  height: auto;
-  margin: 0 auto;
-  pointer-events: none;
-}
-@media (max-width: 768px) {
-  .page-message .page-title-img { width: min(84vw, 420px); }
-}
