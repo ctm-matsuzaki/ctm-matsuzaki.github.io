@@ -623,11 +623,19 @@ html, body { margin: 0; padding: 0; }
 }
 
 
-/* 代表挨拶：画像の“下”に明確な空間を作る */
+/* PCで大きめ、画面が小さいほど自動で控えめに */
 .page-message .hero-message {
-  margin-bottom: 440px;   /* ここを 48px / 64px に調整して好みの位置に */
+  margin-bottom: clamp(56px, 12vh, 440px);
 }
 
+/* タブレット〜スマホはさらに詰める */
+@media (max-width: 1024px) {
+  .page-message .hero-message { margin-bottom: clamp(40px, 10vh, 200px); }
+}
+@media (max-width: 768px) {
+  .page-message .hero-message { margin-bottom: 32px; }           /* 実測で調整可 */
+  .page-message .hero-message .hero-img { height: 220px; }       /* 既存の指定を活かす */
+}
 /* 念のため：画像は比率維持で横幅いっぱい */
 .page-message .hero-message .hero-img {
   display: block;
