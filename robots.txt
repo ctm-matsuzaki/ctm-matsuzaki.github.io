@@ -2,5 +2,3 @@ User-agent: *
 Disallow:
 
 Sitemap: https://ctm-matsuzaki.github.io/sitemap.xml
-Sitemap: https://ctm-matsuzaki.github.io/sitemap.txt
-
