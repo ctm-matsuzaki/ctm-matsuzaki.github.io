@@ -691,3 +691,60 @@ html, body { margin: 0; padding: 0; }
 @media (max-width: 768px) {
   .profile-name-img { width: min(84vw, 360px); }
 }
+
+/* フッター共通 */
+.site-footer {
+  background-color: #1b5e20; /* 濃いグリーン */
+  color: #fff;
+  padding: 2.5em 1.5em;
+  margin-top: 4em;
+}
+
+.site-footer .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo-img {
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto 1.5em;
+  display: block;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2em;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.75;
+}
+
+.footer-copy p {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* スマホ用レスポンシブ */
+@media (max-width: 600px) {
+  .footer-nav ul {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+}
