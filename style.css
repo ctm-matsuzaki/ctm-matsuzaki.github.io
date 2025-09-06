@@ -750,65 +750,13 @@ html, body { margin: 0; padding: 0; }
 /* ===== Services page – modern layout ===== */
 .page-services { background: #fafafa; }
 
-/* ヒーロー帯（会社情報の緑を使用） */
-.page-services .svc-hero{
-  background: var(--ctm-green);
-  color: #fff;
-  padding: clamp(40px,9vh,120px) 1.6rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-/* うっすら格子柄で奥行きを出す（画像不要） */
-.page-services .svc-hero::after{
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(transparent 31px, rgba(255,255,255,.06) 32px),
-    linear-gradient(90deg, transparent 31px, rgba(255,255,255,.06) 32px);
-  background-size:32px 32px;
-  pointer-events:none;
-}
 .page-services .svc-hero-inner{ max-width:1100px; margin:0 auto; }
 .page-services .svc-eyebrow{ letter-spacing:.12em; opacity:.9; margin:0 0 .4em; }
 .page-services .svc-hero-title{ font-weight:800; font-size:clamp(1.8rem,4.6vw,3rem); margin:.1em 0 .25em; }
 .page-services .svc-hero-lead{ margin:0 0 1.1rem; opacity:.95; }
 
-/* ピル型内ナビ */
-.page-services .svc-pillnav{ display:flex; flex-wrap:wrap; gap:.6rem; }
-.page-services .svc-pillnav a{
-  display:inline-block; background:rgba(255,255,255,.14); color:#fff; text-decoration:none;
-  padding:.5em .9em; border-radius:999px; font-weight:700; font-size:.95rem; backdrop-filter: blur(4px);
-}
-.page-services .svc-pillnav a:hover{ background:rgba(255,255,255,.22); }
-
 /* 本文のラップ */
 .page-services .svc-wrap{ max-width:1100px; margin:2.2rem auto 3rem; padding:0 1.6rem; }
-
-/* セクションブロック（左右に余白・影・丸み） */
-.page-services .svc-block{
-  background:#fff; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.08);
-  padding:clamp(18px,2.4vw,28px); margin-bottom:1.6rem; position:relative;
-}
-/* 交互に薄い帯を付けて単調さ回避 */
-.page-services .svc-block.alt{ background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, rgba(24,77,43,.12), transparent) border-box; border:1px solid transparent; }
-
-/* タイトル＆説明 */
-.page-services .svc-block-header h2{
-  color:var(--ctm-green); font-weight:800; font-size:clamp(1.3rem,2.6vw,1.8rem); margin:.1em 0 .3em;
-}
-.page-services .svc-block-header p{ margin:.2em 0 .8em; }
-
-/* 箇条書き（アイコン付き） */
-.page-services .svc-list{ list-style:none; margin:0; padding:0; }
-.page-services .svc-list li{
-  position:relative; padding-left:1.7em; margin:.45em 0;
-}
-.page-services .svc-list li::before{
-  content:""; position:absolute; left:0; top:.32em;
-  width:1.05em; height:1.05em; border-radius:50%;
-  background: radial-gradient(circle at 35% 35%, #fff 0 40%, transparent 41%), var(--ctm-green);
-  outline:2px solid rgba(24,77,43,.18);
-}
 
 /* CTA */
 .page-services .svc-cta{ text-align:center; margin:2.4rem 0 3.2rem; }
