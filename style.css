@@ -355,12 +355,14 @@ html, body { margin: 0; padding: 0; }
 
 .hero-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 2;  
+  left: clamp(16px, 7vw, 120px);
+  bottom: clamp(40px, 10vh, 160px);
+  transform: none;
+  text-align: left;
+  color: white;      /* お好みで緑にする場合は #1b5e20 などに */
+  z-index: 2;
+  max-width: min(90vw, 840px);
+  line-height: 1.35;
 }
 
 .hero-eyebrow{
@@ -400,20 +402,6 @@ html, body { margin: 0; padding: 0; }
   z-index: 2;
 }
 
-.hero-title-with-bg::before {
-  content: 'Philosophy';            /* attr依存をやめ、まず見えるか検証 */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 900;
-  color: rgba(0, 0, 0, 0.18);        /* 見えやすい薄い黒。緑にしたければ調整可 */
-  white-space: nowrap;
-  z-index: 1;                        /* 画像(z=0)より前、見出し本体(z=2)より後ろ */
-  pointer-events: none;
-  text-shadow: 0 0 12px rgba(0,0,0,0.12); /* 視認性UP */
-}
 /* ===== Common color tokens ===== */
 :root{
   --ctm-green-deep: #213B1F;  /* バナーの深緑 */
