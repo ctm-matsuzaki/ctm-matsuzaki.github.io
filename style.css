@@ -756,18 +756,29 @@ html, body { margin: 0; padding: 0; }
   background:#fafafa;
 }
 
-/* ヒーロー：背景画像＋文字のみ薄グレーのパネル */
+/* ==== SERVICES v3 START ==== */
+.page-services{
+  /* 会社情報の緑トーンに合わせる（必要なら値だけ調整） */
+  --ctm-green-ink:  #224A33;  /* 見出し・本文で使う緑 */
+  --ctm-green-pale: #E9F2EC;  /* カード背景の薄い緑 */
+  background:#fafafa;
+}
+
+/* ヒーロー：背景画像＋“文字だけ”半透明パネル */
 .page-services .svc-hero{
-  position: relative; color:#fff; text-align:center;
+  position: relative;
+  text-align: center;
   padding: clamp(80px,24vh,220px) 1.6rem clamp(36px,8vh,72px);
 }
-.page-services .hero-bg{ background: var(--hero-img) center/cover no-repeat; }
+.page-services .hero-bg{
+  background: var(--hero-img) center/cover no-repeat;
+}
 .page-services .hero-bg::after{
   content:""; position:absolute; inset:0; background:rgba(0,0,0,.28);
 }
-.page-services .svc-hero-inner{ position:relative; z-index:1; max-width:1100px; margin:0 auto; }
-
-/* ← 文字の背面だけに薄グレー（半透明） */
+.page-services .svc-hero-inner{
+  position:relative; z-index:1; max-width:1100px; margin:0 auto;
+}
 .page-services .hero-copy{
   display:inline-block;
   background: rgba(255,255,255,.78);
@@ -775,9 +786,13 @@ html, body { margin: 0; padding: 0; }
   padding: clamp(14px,1.8vw,22px) clamp(18px,2vw,28px);
   box-shadow: 0 6px 24px rgba(0,0,0,.18);
   backdrop-filter: blur(2px);
+  color: var(--ctm-green-ink);          /* ← 文字色は緑 */
 }
 .page-services .hero-copy > *{ margin:.45rem 0; }
-.page-services .svc-hero-title{ font-weight:800; font-size:clamp(1.8rem,4.6vw,3rem); margin:0 0 .2rem; }
+.page-services .svc-hero-title{
+  font-weight:800; font-size:clamp(1.8rem,4.6vw,3rem); margin:0 0 .2rem;
+  color: var(--ctm-green-ink);
+}
 .page-services .svc-hero-desc{ margin:.2rem auto .6rem; max-width:960px; }
 .page-services .svc-hero-lead{ margin:0; opacity:.95; }
 
@@ -789,22 +804,24 @@ html, body { margin: 0; padding: 0; }
   border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.08);
   padding:clamp(18px,2.4vw,28px); margin-bottom:1.6rem;
 }
-.page-services .svc-col.media img{ width:100%; height:auto; display:block; border-radius:12px; }
+.page-services .svc-col.media img{
+  width:100%; height:auto; display:block; border-radius:12px;
+}
 
-/* 見出しの色は会社の緑に統一 */
+/* 見出しの色を緑に統一 */
 .page-services .svc-row h2{ color: var(--ctm-green-ink); }
 
-/* 箇条書き：点をやめて“▸”マーク＋緑色に */
+/* 箇条書きのマークを“▸”＋緑に */
 .page-services .svc-row ul{ list-style:none; padding-left:0; margin:.6rem 0 0; }
 .page-services .svc-row ul > li{
   position:relative; padding-left:1.35em; margin:.35em 0;
 }
 .page-services .svc-row ul > li::before{
   content:"▸"; position:absolute; left:0; top:.05em;
-  color: var(--ctm-green-ink); font-weight:700;
-  line-height:1;
+  color: var(--ctm-green-ink); font-weight:700; line-height:1;
 }
 
+/* レスポンシブ：交互配置 */
 @media (min-width:900px){
   .page-services .svc-row{ grid-template-columns:1.1fr .9fr; }
   .page-services .svc-row.rev{ grid-template-columns:.9fr 1.1fr; }
