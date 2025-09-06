@@ -692,24 +692,22 @@ html, body { margin: 0; padding: 0; }
   margin-top: 4em;
 }
 
-/* フッター内リンクやコピーライトも白に */
-.site-footer,
-.site-footer a,
-.site-footer .footer-copy p {
+:root {
+  --ctm-green: #184d2b; /* 会社情報ページの緑を基準色 */
+}
+
+/* フッター共通 */
+.site-footer {
+  background-color: var(--ctm-green);
   color: #fff;
+  padding: 2.5em 1.5em;
+  margin-top: 4em;
 }
 
 .site-footer .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-}
-
-.footer-logo-img {
-  max-width: 180px;
-  height: auto;
-  margin: 0 auto 1.5em;
-  display: block;
 }
 
 .footer-nav ul {
@@ -736,20 +734,14 @@ html, body { margin: 0; padding: 0; }
 
 .footer-copy p {
   font-size: 0.8rem;
-  opacity: 0.85;
   margin: 0;
+  color: #fff;
 }
 
-/* スマホ用レスポンシブ */
+/* スマホ対応 */
 @media (max-width: 600px) {
   .footer-nav ul {
     flex-direction: column;
     gap: 0.8em;
   }
-}
-
-.site-footer,
-.site-footer a,
-.site-footer .footer-copy p {
-  color: #fff;
 }
