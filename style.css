@@ -784,12 +784,6 @@ html, body { margin: 0; padding: 0; }
 }
 /* ==== SERVICES v3 END ==== */
 
-body {
-  margin: 0;
-  font-family: 'Noto Serif JP', serif;
-  background-color: #f5f5f5;
-}
-
 /* 単体スクロール防止 */
 body { margin: 0; overflow-x: hidden; }
 
@@ -840,37 +834,6 @@ body { margin: 0; overflow-x: hidden; }
 @media (max-width: 768px) {
   .hero-text h1 { font-size: 1.8rem; }
   .hero-text p { font-size: 1.1rem; }
-}
-
-/* 見出し＋本文（元の指定を念のため反映） */
-.hero-text h1 {
-  font-weight: 700;
-  font-size: 3.6rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  font-weight: 400;
-  font-size: 1.8rem;
-  margin: 0;
-}
-
-/* スマホ時に少し調整 */
-@media (max-width: 768px) {
-  .hero-text h1 { font-size: 1.5rem; }
-}
-
-/* ここまで差し替え */
-
-.sublime {
-  display: inline-block;
-  margin-left: 16rem;
-}
-
-@media (max-width: 768px) {
-  .hero-text h1 { font-size: 1.5rem; }
-  .hero-text p { font-size: 1rem; }
 }
 
 .gray-section {
@@ -948,4 +911,45 @@ html, body { overflow-x: hidden; }
 
   /* ヒーロー左右の余白も念のため内側に収める */
   .hero { padding-left: 5vw !important; padding-right: 5vw !important; }
+}
+
+/* === Top Service Grid（共通クラス） === */
+.svc-grid{
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: min(1100px, 92%);
+  display: grid;
+  gap: clamp(16px, 2.8vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.svc-card{
+  background: #E9F2EC; /* サイトの薄緑トーン */
+  border-radius: 12px;
+  padding: clamp(14px, 2vw, 20px);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.svc-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin: 0 0 1rem;
+}
+
+.svc-title{
+  color: var(--ctm-green-ink, #224A33);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  margin: 0 0 .4rem;
+}
+
+.svc-desc{
+  color: var(--ctm-green-ink, #224A33);
+  line-height: 1.9;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
+  margin: 0;
 }
