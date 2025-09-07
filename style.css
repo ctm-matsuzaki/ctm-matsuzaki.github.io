@@ -886,3 +886,33 @@ body { margin: 0; overflow-x: hidden; }
   margin-bottom: 1rem;
   font-family: 'Noto Serif JP', serif;
 }
+/* --- 横スクロール停止（保険） --- */
+html, body { overflow-x: hidden; }
+
+/* --- スマホ時のはみ出し要因の無効化 --- */
+@media (max-width: 768px) {
+  /* h1内のサブラインの左マージン 16rem が溢れの主因 */
+  .sublime { 
+    margin-left: 0 !important;
+    display: inline; /* 必須ではないが行内化で安全 */
+  }
+
+  /* 100vw＋左右マイナスマージンはiOSで1〜2px溢れやすい */
+  .full-bleed {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ヒーロー内の左右余白をビューポート内に収める */
+  .hero { 
+    padding-left: 5vw !important; 
+    padding-right: 5vw !important; 
+  }
+
+  /* 画像・図が親幅を越えないようにする（保険） */
+  img, picture, svg, video, canvas { 
+    max-width: 100% !important; 
+    height: auto; 
+  }
+}
