@@ -9,6 +9,11 @@ html, body {
   border: 0 !important;
 }
 
+/* ===== 全体リセット: 余白ズレ防止 ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* インライン画像の行間ギャップ対策（念のため）*/
 img, picture, figure { 
   display: block; 
