@@ -916,3 +916,36 @@ html, body { overflow-x: hidden; }
     height: auto; 
   }
 }
+/* 安全策：横はみ出しの全止め */
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+
+/* スマホ時のはみ出し原因を確実に無効化 */
+@media (max-width: 768px) {
+  /* 大きな固定左マージンをゼロ化（今回の Service 見出しなど） */
+  h1[style*="margin-left"],
+  h2[style*="margin-left"],
+  h3[style*="margin-left"],
+  p[style*="margin-left"] {
+    margin-left: 0 !important;
+  }
+
+  /* 100vw/フルブリード系は iOS で溢れやすい → 幅100%に */
+  .full-bleed {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* サブラインの左寄せで溢れていた件の保険（既に入れていればOK） */
+  .sublime { margin-left: 0 !important; display: inline; }
+
+  /* セクション内のカラム最小幅で溢れるケースを抑止 */
+  [style*="min-width: 300px"] { min-width: 0 !important; width: 100% !important; }
+
+  /* 画像・メディアは親幅内に必ず収める */
+  img, picture, svg, video, canvas { max-width: 100% !important; height: auto; }
+
+  /* ヒーロー左右の余白も念のため内側に収める */
+  .hero { padding-left: 5vw !important; padding-right: 5vw !important; }
+}
