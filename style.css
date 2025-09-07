@@ -797,14 +797,17 @@ body { margin: 0; overflow-x: hidden; }
   background-size: cover;
   background-position: center;
   width: 100%;
+  max-width: 100vw;   /* ✅ 横幅を画面幅に固定 */
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;  /* 縦方向：下寄せ */
-  align-items: flex-start;    /* 横方向：左寄せ */
-  box-sizing: border-box;
-  padding-left: 8%;           /* 左右余白 */
-  padding-bottom: 8%;         /* 下余白（位置調整） */
+  justify-content: flex-end;
+  align-items: flex-start;
+  box-sizing: border-box; /* ✅ 余白計算を正しく */
+  overflow-x: hidden;     /* ✅ 横スクロール防止 */
+  padding-left: 5vw;      /* % → vwに調整（画面幅依存でズレ防止） */
+  padding-right: 5vw;     /* 右側にも同じ余白を設定 */
+  padding-bottom: 8%;
   text-align: left;
 }
 
