@@ -953,3 +953,54 @@ html, body { overflow-x: hidden; }
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
   margin: 0;
 }
+/* 画像のはみ出し抑止（保険） */
+.img-fluid { max-width: 100%; height: auto; display: block; }
+
+/* 2カラム（レスポンシブ） */
+.split{
+  display: grid;
+  gap: clamp(16px, 2.8vw, 28px);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+.split .col { min-width: 0; }              /* はみ出し防止 */
+.split.rev .col:first-child { order: 2; }  /* 画像右パターン */
+.split.rev .col:last-child  { order: 1; }
+
+@media (min-width: 900px){
+  .split{ grid-template-columns: 1fr 1fr; }
+  .split.rev .col:first-child { order: 1; }
+  .split.rev .col:last-child  { order: 2; }
+}
+
+/* Company CTA 強調（暗色帯を既存のsection--darkに合わせる） */
+.section--dark .contact-button:hover { opacity: .9; }
+
+/* subline → sublime（既存CSS名に合わせてスマホで左マージンを殺す） */
+.sublime { display: inline; }
+@media (max-width: 768px){
+  .sublime { margin-left: 0 !important; }
+  .full-bleed { width: 100% !important; margin-left:0 !important; margin-right:0 !important; }
+}
+
+/* Service グリッド（未導入なら） */
+.svc-grid{
+  list-style: none; padding: 0; margin: 0 auto;
+  width: min(1100px, 92%);
+  display: grid; gap: clamp(16px, 2.8vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.svc-card{
+  background: #E9F2EC; border-radius: 12px;
+  padding: clamp(14px, 2vw, 20px); text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.svc-img{ width: 100%; height: auto; display: block; border-radius: 8px; margin: 0 0 1rem; }
+.svc-title{
+  color: var(--ctm-green-ink, #224A33);
+  font-weight: 800; font-size: clamp(1.05rem, 2.6vw, 1.3rem); margin: 0 0 .4rem;
+}
+.svc-desc{
+  color: var(--ctm-green-ink, #224A33);
+  line-height: 1.9; font-size: clamp(.95rem, 2.2vw, 1.05rem); margin: 0;
+}
