@@ -70,50 +70,61 @@
     <img src="images/3.jpeg" alt="受付が混雑する医療現場" style="width: 100%; border-radius: 8px;">
   </div>
 </section>
-<!-- CTM紹介 -->
-<section style="background-color: #e9f3ee; text-align: center; padding: 56px 20px;">
-  <h2 style="font-size: 3.2rem; font-weight: bold; color: #002b10; margin-bottom: 1.2rem;">
-    院長先生の最大の理解者であり、<br>最高の2番手としてお手伝いいたします
-  </h2>
-  <hr style="border: 0; border-top: 3px solid #375c3b; width: 220px; margin: 20px auto;">
+<!-- CTM紹介（共通クラス運用） -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">院長先生の最大の理解者であり、<br>最高の2番手としてお手伝いします</h2>
+    <hr class="faq-divider" style="margin: 20px auto; width: 220px;">
+  </div>
 </section>
 
-<section style="background-color: #ffffff; text-align: left; padding: 40px 20px;">
-<h3 style="font-size: 2rem; color: #375c3b; margin: 0; text-align: center;">Service</h3>
+<!-- Service（インライン撤廃＋中央寄せ） -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <h3 class="section-title" style="margin:0;">Service</h3>
+  </div>
 </section>
 
-<section style="background-color: #ffffff;">
-  <div class="service-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 20px;">
-
-    <div class="service-item" style="flex: 1 1 220px; max-width: 250px; text-align: center;">
-      <img src="images/4.jpeg" alt="経営分析" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-      <h3 style="color: #2f4f2f; font-size: 1.3rem;">経営分析</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6;">診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全な財務運営を支援。将来を見据えた収益改善策をご提案します。</p>
+<!-- Service カード（flexのインライン撤廃） -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <ul class="svc-grid">
+      <!-- 1 -->
+      <li class="svc-card">
+        <img src="images/4.jpeg" alt="経営分析" class="svc-img">
+        <h3 class="svc-title">経営分析</h3>
+        <p class="svc-desc">
+          診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全経営基盤をご提案します。
+        </p>
+      </li>
+      <!-- 2 -->
+      <li class="svc-card">
+        <img src="images/5.jpeg" alt="人事労務" class="svc-img">
+        <h3 class="svc-title">人事労務</h3>
+        <p class="svc-desc">
+          採用・評価制度・労務整備まで現場運用と両輪で伴走。スタッフの定着と成長を促します。
+        </p>
+      </li>
+      <!-- 3 -->
+      <li class="svc-card">
+        <img src="images/6.jpeg" alt="業務改善" class="svc-img">
+        <h3 class="svc-title">業務改善</h3>
+        <p class="svc-desc">
+          現場のムダを洗い出し、導線や帳票を見直し。患者様にもスタッフにも分かりやすい改善を実装します。
+        </p>
+      </li>
+      <!-- 4 -->
+      <li class="svc-card">
+        <img src="images/7.jpeg" alt="マーケティング" class="svc-img">
+        <h3 class="svc-title">マーケティング</h3>
+        <p class="svc-desc">
+          WEB導線、SNS発信、紹介スキームまで一貫して支援。集患と定着を両立します。
+        </p>
+      </li>
+    </ul>
+    <div style="text-align:right; margin-top:1rem;">
+      <a href="services.html" style="color:#375c3b; text-decoration:none; font-weight:700;">more &gt;</a>
     </div>
-
-    <div class="service-item" style="flex: 1 1 220px; max-width: 250px; text-align: center;">
-      <img src="images/5.jpeg" alt="人事労務支援" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-      <h3 style="color: #2f4f2f; font-size: 1.3rem;">人事労務支援</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6;">採用活動から就業規則の整備、勤怠・給与管理までをサポート。スタッフが安心して働ける環境づくりを、実務レベルで支援します。</p>
-    </div>
-
-    <div class="service-item" style="flex: 1 1 220px; max-width: 250px; text-align: center;">
-      <img src="images/6.jpeg" alt="業務フロー改善" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-      <h3 style="color: #2f4f2f; font-size: 1.3rem;">業務フロー改善</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6;">受付から診療、会計までの一連の流れを見直し、スタッフの負担を軽減し、患者様にとってわかりやすく快適な導線を整備します。</p>
-    </div>
-
-    <div class="service-item" style="flex: 1 1 220px; max-width: 250px; text-align: center;">
-      <img src="images/7.jpeg" alt="マーケティング戦略" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-      <h3 style="color: #2f4f2f; font-size: 1.3rem;">マーケティング戦略</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6;">地域特性や競合を分析し、来院につながる戦略を立案。WEB広告、紙媒体、SNS投稿の作成まで一貫して支援し、集患力を高めます。</p>
-
-      <!-- moreボタンをここに配置 -->
-     <div style="text-align: right; margin-top: 1rem;">
-  <a href="services.html" style="color: #375c3b; font-size: 1.2rem; text-decoration: none;">more &gt;</a>
-</div>
-    </div>
-
   </div>
 </section>
 
