@@ -341,76 +341,48 @@ html, body { margin: 0; padding: 0; }
 /* =========================
    Company Hero Section
    ========================= */
-/* ヒーロー画像を余白なく画面いっぱいにする */
-.hero-company {
+/* ===== 新しい Hero セクション ===== */
+.hero {
   position: relative;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100vw;
-  height: 60vh;        /* ここは好み。全画面なら 100vh でもOK */
+  width: 100%;
+  min-height: 80vh;
+  background: url('images/hero.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
 
-.hero-img {
-  position: absolute;  /* ← insetで四辺をピタッと貼る */
+.hero__overlay {
+  position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* 画面いっぱいにトリミング表示 */
-  object-position: center;
-  display: block;      /* 画像の下の隙間対策 */
+  background: rgba(0, 0, 0, 0.4); /* 透明度は調整可能 */
 }
 
-
-.hero-text {
-  position: absolute;
-  left: clamp(16px, 7vw, 120px);
-  bottom: clamp(40px, 10vh, 160px);
-  transform: none;
-  text-align: left;
-  color: white;      /* お好みで緑にする場合は #1b5e20 などに */
-  z-index: 2;
-  max-width: min(90vw, 840px);
-  line-height: 1.35;
-}
-
-.hero-eyebrow{
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  color: #224A33;                      /* 緑文字 */
-  background: rgba(255,255,255,.88);   /* 白背景で読みやすく */
-}
-
-/* メインの見出し */
-.hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: #e1f7e9; /* 少し明るめの緑系 */
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-.hero-title span {
-  display: block;
-  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
-  font-weight: 400;
-  margin-top: 0.2em;
-  color: #fff;
-}
-
-.hero-title-with-bg {
+.hero__content {
   position: relative;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: #ffffff;
-  z-index: 2;
+  color: #fff;
+  max-width: 90%;
+  z-index: 1;
 }
 
+.hero__content h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero__content p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 0 1rem;
+  }
+}
 /* ===== Common color tokens ===== */
 :root{
   --ctm-green-deep: #213B1F;  /* バナーの深緑 */
