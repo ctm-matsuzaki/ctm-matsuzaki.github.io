@@ -1013,7 +1013,4 @@ html, body { overflow-x: hidden; }
   line-height: 1.9; font-size: clamp(.95rem, 2.2vw, 1.05rem); margin: 0;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden; /* 一旦、横はみ出しを封じる */
-}
+
