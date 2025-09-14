@@ -357,6 +357,12 @@ html, body { margin: 0; padding: 0; }
   margin: 0 auto;
   padding-left: clamp(16px, 6vw, 96px); /* 左寄せ */
   text-align: left;
+
+  /* 追加：縦位置調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* 縦中央寄せ */
+  min-height: 70svh;         /* heroの高さに揃える */
 }
 
 .hero__title,
