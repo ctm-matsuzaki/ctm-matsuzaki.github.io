@@ -342,58 +342,51 @@ html, body { margin: 0; padding: 0; }
    Company Hero Section
    ========================= */
 /* ===== Top Hero (layout fixed to mock) ===== */
+/* hero セクション */
 .hero {
-  position: relative;
   width: 100%;
-  min-height: 70svh;
+  min-height: 80vh;
+  background: url('images/1.png') no-repeat center center;
   background-size: cover;
-  background-position: center;
-  /* ← 文字の縦位置を決める。見本に合わせて少し下げる */
-  padding-top: 22vh;
-  padding-bottom: 12vh;
-}
-
-/* Hero セクションのテキスト位置を見本に合わせる */
-.hero_inner {
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;   /* 縦中央 */
-  align-items: center;       /* 横中央 */
-  text-align: center;        /* テキストを中央揃え */
-  padding: 0 1rem;           /* スマホで端にくっつかないように */
+  align-items: center;
 }
 
-/* メインタイトル */
-.hero_title {
-  font-family: 'Noto Serif JP', serif;
+.hero_inner {
+  width: min(92%, 1200px);
+  margin: 0 auto;
+  padding: clamp(16px, 6vw, 96px) 0;
+  text-align: left;   /* 左寄せ */
+}
+
+.hero__title {
+  font-family: 'Noto Serif JP', serif; /* 見本に合わせて serif */
   font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  line-height: 1.5;
-  color: #224A33;
-  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 1.4;
+  color: #224A33; /* グリーン */
+  margin: 0 0 0.8rem;
 }
 
-/* サブテキスト */
-.hero_lead {
+.hero__lead {
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  line-height: 1.8;
-  color: #555;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  line-height: 1.7;
+  color: #285444; /* 見本に近い落ち着いた緑 */
   margin: 0;
 }
 
-/* スマホでの微調整（縦位置と左余白を少し詰める） */
+/* スマホ用 */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 18vh;
-    padding-bottom: 10vh;
-    min-height: 60svh;
+    min-height: 60vh;
   }
-  .hero__inner { padding-left: clamp(12px, 5vw, 40px); }
+  .hero_inner {
+    padding-left: clamp(12px, 5vw, 40px);
+  }
 }
+
 /* ===== Common color tokens ===== */
 :root{
   --ctm-green-deep: #213B1F;  /* バナーの深緑 */
