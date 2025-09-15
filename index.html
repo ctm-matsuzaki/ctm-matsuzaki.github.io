@@ -24,6 +24,30 @@
   <meta property="og:url" content="https://ctm-matsuzaki.github.io/">
   <meta property="og:image" content="https://ctm-matsuzaki.github.io/images/1.png">
   <meta name="twitter:card" content="summary_large_image">
+
+  <style id="hotfix-hero" type="text/css">
+  /* これが効けば、CSSが正しく反映できる状態 */
+  section.hero{
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    padding-bottom: 14vh !important;  /* 文字をさらに下へ */
+  }
+  .hero__inner{
+    margin-left: clamp(10px, 4.5vw, 48px) !important;
+    background: rgba(240,240,240,0.85) !important; /* スマホでのグレー確認用にPCでも一旦表示 */
+    display: inline-block !important;
+    padding: 12px 14px !important;
+    border-radius: 6px !important;
+  }
+  .hero__title, .hero__lead{
+    font-family: 'Noto Serif JP', serif !important;
+    color: #285444 !important;
+  }
+
+  /* 下の2カラム（problem）も効いているかの目印 */
+  .problem-item img{ outline: 3px dashed #ff0077 !important; }
+</style>
+
 </head>
 
 <body>
