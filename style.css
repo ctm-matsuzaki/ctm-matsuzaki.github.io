@@ -307,42 +307,68 @@ nav a {
 }
 
 /* =====================================================
-   Hero Section（ここを後で修正対象にする）
+   Hero Section（最新版）
    ===================================================== */
 
 .hero {
   position: relative;
   width: 100%;
-  min-height: 80vh;
-  background: url('images/hero.jpg') no-repeat center center;
+  min-height: 70svh;
+  background: url('images/1.png') no-repeat center center;
   background-size: cover;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-end;    /* 下寄せ */
+  align-items: flex-start;      /* 左寄せ */
+
+  padding-bottom: 10vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.hero_overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+.hero__inner {
+  width: min(96%, 1240px);
+  margin: 0;
+  margin-left: clamp(12px, 5vw, 72px);
+  text-align: left;
 }
 
-.hero_content {
-  position: relative;
-  color: #fff;
-  max-width: 90%;
-  z-index: 1;
+.hero__title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6.4vw, 4.2rem);
+  line-height: 1.32;
+  margin: 0 0 1rem;
+  color: #285444;
 }
 
-.hero_content h1 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+.hero__lead {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  line-height: 1.75;
+  margin: 0;
+  color: #285444;
 }
 
-.hero_content p {
-  font-size: clamp(1rem, 3vw, 1.5rem);
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60svh;
+    padding-bottom: 6vh;
+  }
+
+  .hero__inner {
+    margin-left: clamp(10px, 4vw, 24px);
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 6.2vw, 2.7rem);
+  }
+
+  .hero__lead {
+    font-size: clamp(0.98rem, 3.2vw, 1.2rem);
+  }
 }
 
 /* =====================================================
