@@ -362,11 +362,12 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* 文字ブロック（さらに左へ寄せる） */
-.hero-text{
+.hero-text {
   max-width: 1200px;
-  width: min(96%, 1240px);
-  margin: 0 auto;
-  padding-left: clamp(6px, 2vw, 24px);   /* ← 左寄せ度合い */
+  width: min(90%, 1240px);
+  margin: auto;
+  padding-left: clamp(40px, 6vw, 100px); /* ← 左に寄せたいので増やす */
+  padding-bottom: 12vh; /* ← 下に寄せたいので増やす */
   text-align: left;
 }
 
