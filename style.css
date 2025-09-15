@@ -441,6 +441,16 @@ section.hero .hero-text p{
   section.hero .hero-text p{ font-size: clamp(0.98rem, 3.2vw, 1.2rem); }
 }
 
+/* スマホ専用調整 */
+@media (max-width: 768px) {
+  section.hero .hero-text {
+    background: rgba(240, 240, 240, 0.85); /* ← グレーの透過背景 */
+    padding: 16px;                         /* ← 背景と文字の余白 */
+    border-radius: 4px;                     /* ← 角丸（お好みで） */
+    display: inline-block;                  /* ← 背景を文字ブロックだけに限定 */
+  }
+}
+
 /* ===== Common color tokens ===== */
 :root{
   --ctm-green-deep: #213B1F;  /* バナーの深緑 */
