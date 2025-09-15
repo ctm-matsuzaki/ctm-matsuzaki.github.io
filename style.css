@@ -354,18 +354,15 @@ html, body { margin: 0; padding: 0; }
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;    /* ← 下寄せ */
-  align-items: flex-start;      /* ← 左寄せ */
+  justify-content: flex-end;   /* ← 下寄せ */
+  align-items: flex-start;     /* ← 左寄せ */
 
-  padding-bottom: 10vh;         /* ← 下の余白調整（もっと下に寄せるなら数値増やす） */
-  box-sizing: border-box;
-  overflow-x: hidden;
+  padding-bottom: 10vh;        /* ← 下に余白 */
 }
 
 .hero__inner {
   width: min(96%, 1240px);
-  margin: 0;
-  margin-left: clamp(12px, 5vw, 72px); /* ← 左余白の調整（小さくするとさらに左へ） */
+  margin-left: clamp(12px, 5vw, 72px); /* ← 左余白の調整 */
   text-align: left;
 }
 
@@ -440,11 +437,10 @@ section.hero .hero-text p{
     padding: 14px 16px;
     border-radius: 6px;
 
-    /* 背景を“文字塊だけ”に限定するための上書き */
     display: inline-block;
-    width: auto;                       /* ← これがポイント（既存の min(96%,1240px) を上書き） */
-    max-width: min(96%, 720px);        /* はみ出し防止の上限だけ残す */
-    margin-left: clamp(12px, 5vw, 24px); /* 既存の左余白に合わせる */
+    width: auto;
+    max-width: min(96%, 720px);
+    margin-left: clamp(12px, 5vw, 24px);
   }
 }
 
