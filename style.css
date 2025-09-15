@@ -366,8 +366,8 @@ html, body { margin: 0; padding: 0; }
   max-width: 1200px;
   width: min(90%, 1240px);
   margin: auto;
-  padding-left: clamp(40px, 6vw, 100px); /* ← 左に寄せたいので増やす */
-  padding-bottom: 12vh; /* ← 下に寄せたいので増やす */
+  padding-left: clamp(40px, 6vw, 160px); /* ← 左に寄せたいので増やす */
+  padding-bottom: 20vh; /* ← 下に寄せたいので増やす */
   text-align: left;
 }
 
