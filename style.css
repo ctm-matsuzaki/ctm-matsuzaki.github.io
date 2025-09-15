@@ -390,22 +390,56 @@ html, body { margin: 0; padding: 0; }
   margin: 0;
 }
 
-/* ==== スマホ調整 ==== */
+/* セクション本体：下寄せは維持 */
+section.hero{
+  position: relative;
+  width: 100%;
+  min-height: 70svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;     /* 下目 */
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 8vh;           /* 下げ量はお好みで */
+}
+
+/* 文字ブロック：中央寄せをやめて左へ固定 */
+section.hero .hero-text{
+  width: min(96%, 1240px);
+  margin: 0;                                  /* ← auto を消す */
+  margin-left: clamp(14px, 6vw, 96px);        /* ← 左に寄せる主役 */
+  text-align: left;
+}
+
+/* フォント＆色を強制（小さい文字の色に統一） */
+section.hero .hero-text h1,
+section.hero .hero-text p{
+  font-family: 'Noto Serif JP', serif !important;
+  color: #285444 !important;
+}
+
+/* 見出しサイズ＆行間（見本寄せ） */
+section.hero .hero-text h1{
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6.4vw, 4.2rem);
+  line-height: 1.32;
+  margin: 0 0 1rem;
+}
+
+/* リード文 */
+section.hero .hero-text p{
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* スマホ微調整 */
 @media (max-width: 768px){
-  .hero{
-    height: 60svh;
-    padding-bottom: 6vh;                  /* 下寄せは少し控えめ */
-  }
-  .hero-text{
-    width: min(94%, 720px);
-    padding-left: clamp(10px, 4vw, 22px); /* 端にくっつかないよう少し残す */
-  }
-  .hero-text h1{
-    font-size: clamp(1.8rem, 6vw, 2.6rem);
-  }
-  .hero-text p{
-    font-size: clamp(0.95rem, 3.2vw, 1.2rem);
-  }
+  section.hero{ min-height: 60svh; padding-bottom: 6vh; }
+  section.hero .hero-text{ margin-left: clamp(12px, 5vw, 24px); }
+  section.hero .hero-text h1{ font-size: clamp(1.9rem, 6.2vw, 2.7rem); }
+  section.hero .hero-text p{ font-size: clamp(0.98rem, 3.2vw, 1.2rem); }
 }
 
 /* ===== Common color tokens ===== */
