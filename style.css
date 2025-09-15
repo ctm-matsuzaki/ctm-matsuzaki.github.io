@@ -479,3 +479,95 @@ section.hero .hero-text p{
   height: auto;         /* 縦は自動調整 */
   object-fit: cover;    /* 画像をトリミングしてカバー */
   object-position: center
+
+/* =========================================
+   Feature section（見本レイアウト）
+   ========================================= */
+.section-divider{
+  width: min(220px, 40%);
+  height: 1px;
+  background: rgba(34,74,51,.35);
+  border: 0;
+  margin: clamp(20px, 4vw, 28px) auto 0;
+}
+.section--muted{ background: #eeeeee; }
+
+.feature{
+  background: #efefef; /* 1つ目は薄グレー帯 */
+}
+.feature.feature--reverse{
+  background: #e9e9e9; /* 2つ目もわずかにトーン差 */
+}
+
+.feature .container{
+  width: min(1100px, 92%);
+}
+
+.feature__inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 56px);
+  padding: clamp(28px, 6vw, 56px) 0;
+}
+
+.feature__img{
+  margin: 0;
+}
+.feature__img img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.feature__body{
+  color: var(--ctm-green-ink, #285444);
+}
+
+.feature__title{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 800;
+  color: var(--ctm-green, #264a27);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.35;
+  margin: 0 0 .8em;
+}
+
+.feature__text{
+  font-family: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  line-height: 1.9;
+  color: #254233;
+  margin: 0;
+}
+
+/* 左右入れ替え */
+.feature--reverse .feature__inner{
+  grid-template-columns: 1fr 1fr;
+}
+.feature--reverse .feature__img{
+  order: 2;
+}
+.feature--reverse .feature__body{
+  order: 1;
+}
+
+/* モバイル：縦並び＆中央寄せ */
+@media (max-width: 768px){
+  .feature__inner{
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: left;
+  }
+  .feature--reverse .feature__img,
+  .feature--reverse .feature__body{
+    order: initial;
+  }
+  .feature__title{
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem);
+  }
+  .feature__text{
+    font-size: clamp(.98rem, 3.6vw, 1.05rem);
+  }
+}
