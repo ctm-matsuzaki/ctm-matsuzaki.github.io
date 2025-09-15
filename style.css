@@ -571,3 +571,67 @@ section.hero .hero-text p{
     font-size: clamp(.98rem, 3.6vw, 1.05rem);
   }
 }
+
+/* =========================
+   Problem Section
+   ========================= */
+.problem {
+  background: #f5f5f5; /* グレー背景 */
+  padding: 60px 20px;
+}
+
+.problem .container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.problem-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.problem-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.problem-item img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.problem-text {
+  width: 50%;
+}
+
+.problem-text h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #183d2b;
+  margin-bottom: 1rem;
+}
+
+.problem-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .problem-item,
+  .problem-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .problem-item img,
+  .problem-text {
+    width: 100%;
+  }
+}
