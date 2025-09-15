@@ -368,20 +368,23 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* タイトルを一回り大きく */
-.hero__title{
+.hero_title {
+  font-family: 'Noto Serif JP', serif;
   font-weight: 700;
-  font-size: clamp(2.2rem, 6vw, 3.8rem);/* 以前より大きめ */
-  line-height: 1.28;
-  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 5vw, 3.2rem); /* 少し大きめ */
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  color: #224A33; /* 小さい文字と同じ色に統一 */
 }
 
-/* リードは少しだけアップ */
-.hero__lead{
+.hero_lead {
+  font-family: 'Noto Serif JP', serif;
   font-weight: 400;
-  font-size: clamp(1.05rem, 2.7vw, 1.4rem);
-  line-height: 1.75;
-  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  line-height: 1.6;
+  color: #224A33; /* 色統一 */
 }
+
 
 /* スマホ微調整：左余白はわずかに確保 */
 @media (max-width: 768px){
