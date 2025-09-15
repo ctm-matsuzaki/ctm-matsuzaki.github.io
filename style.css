@@ -399,7 +399,7 @@ section.hero{
   justify-content: flex-end;     /* 下目 */
   background-size: cover;
   background-position: center;
-  padding-bottom: 15vh;           /* 下げ量はお好みで */
+  padding-bottom: 1vh;           /* 下げ量はお好みで */
 }
 
 /* 文字ブロック：中央寄せをやめて左へ固定 */
