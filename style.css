@@ -341,56 +341,69 @@ html, body { margin: 0; padding: 0; }
 /* =========================
    Company Hero Section
    ========================= */
-/* Hero セクション */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 75vh;
-  background: url('images/1.png') no-repeat center center;
+/* ==== HERO（見本あわせ：左寄せ・下目・色統一） ==== */
+.hero{
+  background-image: url('images/1.png'); /* そのままでOK */
   background-size: cover;
+  background-position: center;
+  width: 100%;
+  max-width: 100%;
+  height: 70svh;                 /* svhでスマホ安定 */
   display: flex;
-  align-items: center;
-}
-
-.hero_inner {
-  width: min(92%, 1200px);
-  margin: 0 auto;
-  padding-left: clamp(24px, 5vw, 64px); /* 左寄せ */
+  align-items: center;           /* 縦センターベース */
+  flex-direction: column;
+  justify-content: flex-end;     /* 少し下目に配置 */
+  box-sizing: border-box;
+  overflow-x: hidden;            /* 横スクロール防止 */
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 8vh;           /* 下に寄せる量（お好みで調整） */
   text-align: left;
 }
 
-/* 大きなキャッチコピー */
-.hero_title {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 700;
-  color: #285444; /* 小さい文字と同じ色 */
-  font-size: clamp(2.2rem, 6vw, 4rem); /* 少し大きく */
-  line-height: 1.3;
-  margin: 0 0 1rem;
+/* 文字ブロック（さらに左へ寄せる） */
+.hero-text{
+  max-width: 1200px;
+  width: min(96%, 1240px);
+  margin: 0 auto;
+  padding-left: clamp(6px, 2vw, 24px);   /* ← 左寄せ度合い */
+  text-align: left;
 }
 
-/* 小さな補足コピー */
-.hero_lead {
+/* 見出し（大） */
+.hero-text h1{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #285444;                         /* 小さい文字の色に統一 */
+  font-size: clamp(2.3rem, 6.2vw, 4.0rem);/* ひと回り大きく */
+  line-height: 1.30;
+  margin-bottom: 1rem;
+}
+
+/* リード（小） */
+.hero-text p{
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
-  color: #285444; /* 小さい文字と統一 */
-  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
-  line-height: 1.6;
+  color: #285444;                         /* 同色で統一 */
+  font-size: clamp(1.05rem, 2.7vw, 1.45rem);
+  line-height: 1.75;
   margin: 0;
 }
 
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 60vh;
+/* ==== スマホ調整 ==== */
+@media (max-width: 768px){
+  .hero{
+    height: 60svh;
+    padding-bottom: 6vh;                  /* 下寄せは少し控えめ */
   }
-  .hero_inner {
-    padding-left: clamp(12px, 5vw, 24px);
+  .hero-text{
+    width: min(94%, 720px);
+    padding-left: clamp(10px, 4vw, 22px); /* 端にくっつかないよう少し残す */
   }
-  .hero_title {
-    font-size: clamp(1.6rem, 6vw, 2.5rem);
+  .hero-text h1{
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
   }
-  .hero_lead {
+  .hero-text p{
     font-size: clamp(0.95rem, 3.2vw, 1.2rem);
   }
 }
