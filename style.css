@@ -433,23 +433,21 @@ section.hero .hero-text p{
   margin: 0;
 }
 
-/* スマホ微調整 */
-@media (max-width: 768px){
-  section.hero{ min-height: 60svh; padding-bottom: 6vh; }
-  section.hero .hero-text{ margin-left: clamp(12px, 5vw, 24px); }
-  section.hero .hero-text h1{ font-size: clamp(1.9rem, 6.2vw, 2.7rem); }
-  section.hero .hero-text p{ font-size: clamp(0.98rem, 3.2vw, 1.2rem); }
-}
-
-/* スマホ専用調整 */
+/* スマホ専用：ヒーロー文字ブロックに半透明グレー背景 */
 @media (max-width: 768px) {
-  section.hero .hero-text {
-    background: rgba(240, 240, 240, 0.85); /* ← グレーの透過背景 */
-    padding: 16px;                         /* ← 背景と文字の余白 */
-    border-radius: 4px;                     /* ← 角丸（お好みで） */
-    display: inline-block;                  /* ← 背景を文字ブロックだけに限定 */
+  .hero__inner {
+    background: rgba(240, 240, 240, 0.85);
+    padding: 14px 16px;
+    border-radius: 6px;
+
+    /* 背景を“文字塊だけ”に限定するための上書き */
+    display: inline-block;
+    width: auto;                       /* ← これがポイント（既存の min(96%,1240px) を上書き） */
+    max-width: min(96%, 720px);        /* はみ出し防止の上限だけ残す */
+    margin-left: clamp(12px, 5vw, 24px); /* 既存の左余白に合わせる */
   }
 }
+
 
 /* ===== Common color tokens ===== */
 :root{
