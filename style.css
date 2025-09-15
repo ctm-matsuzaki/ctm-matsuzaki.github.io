@@ -352,39 +352,40 @@ html, body { margin: 0; padding: 0; }
   align-items: center;
 }
 
-.hero_inner {
-  width: min(92%, 1200px);
+/* 位置：もっと左へ（内側余白を減らす） */
+.hero__inner{
+  width: min(96%, 1240px);              /* コンテナを少し広げる */
   margin: 0 auto;
-  padding: clamp(16px, 6vw, 96px) 0;
-  text-align: left;   /* 左寄せ */
+  padding-left: clamp(8px, 2.8vw, 28px);/* ← 左余白をぐっと縮める */
+  text-align: left;
 }
 
-.hero__title {
-  font-family: 'Noto Serif JP', serif; /* 見本に合わせて serif */
-  font-weight: 700;
-  font-size: clamp(1.8rem, 5vw, 3.2rem);
-  line-height: 1.4;
-  color: #224A33; /* グリーン */
-  margin: 0 0 0.8rem;
-}
-
-.hero__lead {
+/* フォント：大きく＋色を小さい文字に合わせて統一 */
+.hero__title,
+.hero__lead{
   font-family: 'Noto Serif JP', serif;
+  color: #285444;                       /* ← 小さい文字の色に合わせて統一 */
+}
+
+/* タイトルを一回り大きく */
+.hero__title{
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);/* 以前より大きめ */
+  line-height: 1.28;
+  margin: 0 0 1rem;
+}
+
+/* リードは少しだけアップ */
+.hero__lead{
   font-weight: 400;
-  font-size: clamp(1rem, 2.6vw, 1.3rem);
-  line-height: 1.7;
-  color: #285444; /* 見本に近い落ち着いた緑 */
+  font-size: clamp(1.05rem, 2.7vw, 1.4rem);
+  line-height: 1.75;
   margin: 0;
 }
 
-/* スマホ用 */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 60vh;
-  }
-  .hero_inner {
-    padding-left: clamp(12px, 5vw, 40px);
-  }
+/* スマホ微調整：左余白はわずかに確保 */
+@media (max-width: 768px){
+  .hero__inner{ padding-left: clamp(10px, 4vw, 22px); }
 }
 
 /* ===== Common color tokens ===== */
