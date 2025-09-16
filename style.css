@@ -570,7 +570,7 @@ section.hero .hero-text p{
 
 /* ===== Problems（PC左右交互／SP縦） ===== */
 .problems{
-  background:#f4f4f4;         /* 見本に近い薄グレー帯 */
+  background:#f4f4f4;                 /* 見本の薄グレー */
   padding: clamp(48px, 6vw, 80px) 0;
 }
 .problems .container{
@@ -578,6 +578,7 @@ section.hero .hero-text p{
   margin: 0 auto;
 }
 
+/* 2カラム行（PC）／1カラム（SP） */
 .problem-row{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -585,44 +586,39 @@ section.hero .hero-text p{
   align-items: center;
   margin: clamp(24px, 5vw, 64px) 0;
 }
-.problem-row.reverse{
-  direction: rtl;          /* 並びだけ反転して… */
-}
-.problem-row.reverse > *{
-  direction: ltr;          /* 中身の文字は通常方向に */
-}
 
+/* 交互：右→左の順に並べつつテキスト方向を保つテクニック */
+.problem-row.reverse{ direction: rtl; }
+.problem-row.reverse > *{ direction: ltr; }
+
+/* 画像 */
 .problem-col.media img{
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px;       /* 角丸はお好みで */
+  border-radius: 8px;
   object-fit: cover;
 }
 
+/* 見出し・本文（見本のトーン） */
 .problem-col.text h2{
-  font-family: "Noto Serif JP", serif;
+  font-family: 'Noto Serif JP', serif;
   font-weight: 700;
   font-size: clamp(1.4rem, 2.6vw, 2rem);
   line-height: 1.6;
-  color: #1f3c21;           /* 見本の濃い緑系 */
+  color: #1f3c21;
   margin: 0 0 .75em;
 }
 .problem-col.text p{
-  font-family: "Noto Serif JP", serif;
-  font-size: clamp(1rem, 2.0vw, 1.15rem);
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.9;
   color: #254233;
   margin: 0;
 }
 
-/* スマホ：縦並び＆余白調整 */
+/* SP：縦並び（交互を解除） */
 @media (max-width: 900px){
-  .problem-row{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .problem-row.reverse{
-    direction: ltr;         /* 反転解除（縦並びでは不要） */
-  }
+  .problem-row{ grid-template-columns: 1fr; gap: 18px; }
+  .problem-row.reverse{ direction: ltr; } /* 通常方向に戻す */
 }
