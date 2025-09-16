@@ -632,38 +632,76 @@ section.hero .hero-text p{
   }
 }
 
-/* ===== Problem Section ===== */
-.problem-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
+/* =====================================================
+   課題提起セクション（画像＋テキスト）
+   ===================================================== */
+
+.problems {
+  background: #fff;                /* お好みで #f5f5f5 でも */
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+
+.problems .container {
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 80px 0;
-  background: #f4f4f4; /* グレー背景 */
 }
 
-.problem-section img {
-  flex: 1;
-  max-width: 50%;
+/* 横並びの基本レイアウト */
+.problem-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 48px);
+  margin-bottom: clamp(48px, 8vw, 96px);
+}
+
+/* 交互（2個目など）は左右を反転 */
+.problem-item.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 画像側：比率とトリミングで見本に寄せる */
+.problem-item img {
+  flex: 1 1 52%;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  aspect-ratio: 16 / 9;   /* 見本の横長バランスに寄せる */
+  object-fit: cover;      /* はみ出し分は自然にトリミング */
+  display: block;
+  border-radius: 2px;     /* 任意 */
 }
 
+/* テキスト側 */
 .problem-text {
-  flex: 1;
+  flex: 1 1 48%;
+  color: #254233;
 }
 
 .problem-text h2 {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-family: 'Noto Serif JP', serif;
   font-weight: 700;
-  margin-bottom: 1rem;
   color: #285444;
+  line-height: 1.35;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  margin: 0 0 .6em;
 }
 
 .problem-text p {
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  line-height: 1.8;
-  color: #333;
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.9;
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  margin: 0;
+  color: #254233;
+}
+
+/* スマホ（縦積み） */
+@media (max-width: 900px) {
+  .problem-item,
+  .problem-item.reverse {
+    flex-direction: column;
+    align-items: flex-start;   /* 左揃え */
+  }
+  .problem-item img,
+  .problem-text { width: 100%; }
+  .problem-item img { margin-bottom: 14px; }
 }
