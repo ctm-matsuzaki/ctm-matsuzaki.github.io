@@ -568,77 +568,12 @@ section.hero .hero-text p{
   }
 }
 
-/* =========================
-   Problem Section
-   ========================= */
-.problem {
-  background: #f5f5f5; /* グレー背景 */
-  padding: 60px 20px;
-}
-
-.problem .container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
-
-.problem-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 40px;
-}
-
-.problem-item.reverse {
-  flex-direction: row-reverse;
-}
-
-.problem-item img {
-  width: 50%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.problem-text {
-  width: 50%;
-}
-
-.problem-text h2 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #183d2b;
-  margin-bottom: 1rem;
-}
-
-.problem-text p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333;
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .problem-item,
-  .problem-item.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .problem-item img,
-  .problem-text {
-    width: 100%;
-  }
-}
-
 /* =====================================================
-   課題提起セクション（画像＋テキスト）
+   課題提起セクション（最終版）
    ===================================================== */
-
 .problems {
-  background: #fff;                /* お好みで #f5f5f5 でも */
-  padding: clamp(48px, 8vw, 96px) 0;
+  background: #fff;
+  padding: clamp(32px, 6vw, 64px) 0;
 }
 
 .problems .container {
@@ -652,56 +587,54 @@ section.hero .hero-text p{
   align-items: center;
   justify-content: space-between;
   gap: clamp(20px, 4vw, 48px);
-  margin-bottom: clamp(48px, 8vw, 96px);
+  margin-bottom: clamp(24px, 5vw, 48px);
 }
 
-/* 交互（2個目など）は左右を反転 */
 .problem-item.reverse {
   flex-direction: row-reverse;
 }
 
-/* 画像側：比率とトリミングで見本に寄せる */
 .problem-item img {
-  flex: 1 1 52%;
+  flex: 1 1 48%;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;   /* 見本の横長バランスに寄せる */
-  object-fit: cover;      /* はみ出し分は自然にトリミング */
-  display: block;
-  border-radius: 2px;     /* 任意 */
+  object-fit: cover;
+  display: block;        /* 下の余白対策 */
+  border-radius: 4px;
 }
 
-/* テキスト側 */
 .problem-text {
   flex: 1 1 48%;
+  font-family: 'Noto Serif JP', serif;
   color: #254233;
 }
 
 .problem-text h2 {
-  font-family: 'Noto Serif JP', serif;
   font-weight: 700;
-  color: #285444;
-  line-height: 1.35;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
-  margin: 0 0 .6em;
+  line-height: 1.35;
+  color: #285444;
+  margin: 0 0 0.6em;
 }
 
 .problem-text p {
-  font-family: 'Noto Serif JP', serif;
-  line-height: 1.9;
   font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.9;
   margin: 0;
-  color: #254233;
 }
 
-/* スマホ（縦積み） */
+/* スマホ用：縦積み */
 @media (max-width: 900px) {
   .problem-item,
   .problem-item.reverse {
     flex-direction: column;
-    align-items: flex-start;   /* 左揃え */
+    align-items: flex-start;
   }
   .problem-item img,
-  .problem-text { width: 100%; }
-  .problem-item img { margin-bottom: 14px; }
+  .problem-text {
+    width: 100%;
+  }
+  .problem-item img {
+    margin-bottom: 14px;
+  }
 }
