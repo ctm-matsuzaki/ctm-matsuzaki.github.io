@@ -631,3 +631,39 @@ section.hero .hero-text p{
     width: 100%;
   }
 }
+
+/* ===== Problem Section ===== */
+.problem-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 80px 0;
+  background: #f4f4f4; /* グレー背景 */
+}
+
+.problem-section img {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.problem-text {
+  flex: 1;
+}
+
+.problem-text h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #285444;
+}
+
+.problem-text p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  color: #333;
+}
