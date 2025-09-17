@@ -634,3 +634,61 @@ section.hero .hero-text p{
     order: 2; /* テキストは後ろ */
   }
 }
+
+/* ===== Service Grid ===== */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* PCでは4列 */
+  gap: 32px; /* カード間の余白 */
+  list-style: none;
+  padding: 0;
+  margin: clamp(24px, 5vw, 40px) auto 0;
+  width: min(1200px, 95%);
+}
+
+.svc-card {
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.svc-img {
+  width: 100%;
+  height: 180px;           /* 高さを固定 */
+  object-fit: cover;       /* トリミングして比率維持 */
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.svc-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ctm-green-ink, #285444);
+  margin: 0 0 0.4em;
+}
+
+.svc-desc {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+/* タブレット用：2列 */
+@media (max-width: 1024px) {
+  .svc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* スマホ用：1列 */
+@media (max-width: 600px) {
+  .svc-grid {
+    grid-template-columns: 1fr;
+  }
+  .svc-img {
+    height: 200px; /* スマホは少し縦長に */
+  }
+}
