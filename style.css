@@ -618,9 +618,19 @@ section.hero .hero-text p{
   margin: 0;
 }
 
+/* スマホは縦並びで必ず「画像→テキスト」 */
 @media (max-width: 900px){
-  .problem-row{ grid-template-columns: 1fr; gap: 18px; }
-  /* 交互指定をリセット（上下の自然順に） */
-  .problem-row.reverse .media,
-  .problem-row.reverse .text { order: initial; }
+  .problem-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .problem-row.reverse {
+    direction: ltr; /* ← 交互用の反転を無効化 */
+  }
+  .problem-row.reverse .problem-col.media {
+    order: 1; /* 画像を必ず先に */
+  }
+  .problem-row.reverse .problem-col.text {
+    order: 2; /* テキストは後ろ */
+  }
 }
