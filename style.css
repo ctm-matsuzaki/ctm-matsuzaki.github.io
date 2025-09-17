@@ -588,9 +588,9 @@ section.hero .hero-text p{
   margin: clamp(24px, 5vw, 64px) 0;
 }
 
-/* 交互レイアウト（2ブロック目など） */
-.problem-row.reverse { direction: rtl; }
-.problem-row.reverse > * { direction: ltr; }
+/* 交互レイアウト（2ブロック目など）→ Gridはdirectionが効かないのでorderで並び替え */
+.problem-row.reverse .media { order: 2; } /* 画像を右へ */
+.problem-row.reverse .text  { order: 1; } /* テキストを左へ */
 
 /* 画像 */
 .problem-col.media img{
@@ -618,8 +618,9 @@ section.hero .hero-text p{
   margin: 0;
 }
 
-/* SP：縦並びに変更（交互は自然に上下入れ替わり） */
 @media (max-width: 900px){
   .problem-row{ grid-template-columns: 1fr; gap: 18px; }
-  .problem-row.reverse{ direction: ltr; }
+  /* 交互指定をリセット（上下の自然順に） */
+  .problem-row.reverse .media,
+  .problem-row.reverse .text { order: initial; }
 }
