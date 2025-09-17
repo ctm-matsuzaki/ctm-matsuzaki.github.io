@@ -567,3 +567,58 @@ section.hero .hero-text p{
     font-size: clamp(.98rem, 3.6vw, 1.05rem);
   }
 }
+
+/* ===== Problems（見本どおり：PCは左右2カラム／SPは縦並び） ===== */
+.problems{
+  background:#f4f4f4;                /* 薄いグレー帯 */
+  padding: clamp(48px, 6vw, 80px) 0;  /* 上下余白 */
+}
+.problems .container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* PC：左右2カラム */
+.problem-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
+  margin: clamp(24px, 5vw, 64px) 0;
+}
+
+/* 交互レイアウト（2ブロック目など） */
+.problem-row.reverse { direction: rtl; }
+.problem-row.reverse > * { direction: ltr; }
+
+/* 画像 */
+.problem-col.media img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 見出し・本文（色は見本の緑系） */
+.problem-col.text h2{
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.6;
+  color: #1f3c21;
+  margin: 0 0 .75em;
+}
+.problem-col.text p{
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.9;
+  color: #254233;
+  margin: 0;
+}
+
+/* SP：縦並びに変更（交互は自然に上下入れ替わり） */
+@media (max-width: 900px){
+  .problem-row{ grid-template-columns: 1fr; gap: 18px; }
+  .problem-row.reverse{ direction: ltr; }
+}
