@@ -474,7 +474,8 @@ section.hero .hero-text p{
   width: 100vw;         /* ビューポート幅いっぱい */
   height: auto;         /* 縦は自動調整 */
   object-fit: cover;    /* 画像をトリミングしてカバー */
-  object-position: center
+  object-position: center;
+}   /* ← これを追加！ */
 
 /* =========================================
    Feature section（見本レイアウト）
