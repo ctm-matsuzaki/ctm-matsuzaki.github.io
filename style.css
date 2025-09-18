@@ -759,15 +759,15 @@ section.hero .hero-text p{
   text-align: center;
   padding-bottom: 8px;
   white-space: nowrap;
-  color: #1f7a5c;  /* ← 直接緑を指定 */
+  color: var(--green);   /* ← 他の見出しと同じ緑に */
 }
 
 .section-lead::after {
   content: "";
   display: block;
-  height: 4px;          /* Serviceと同じ太さに合わせる */
-  background: #1f7a5c;  /* ← 線も緑に変更 */
-  width: 72px;          /* ← Serviceと同じ長さに統一 */
+  height: 4px;            /* Serviceと同じ太さ */
+  background: var(--green);
+  width: 100%;            /* ← 文字幅いっぱいにフィット */
   margin: 8px auto 0;
 }
 
