@@ -750,30 +750,33 @@ section.hero .hero-text p{
   .svc-grid{ grid-template-columns: 1fr; }
 }
 
-/* 院長先生の最大の理解者〜 見出し */
-/* 院長先生の最大の理解者〜 見出し */
-.section-lead {
-  position: relative;
-  display: inline-block;
-  font-size: clamp(1.8rem, 3.8vw, 2.4rem); /* ← 文字を大きめに調整 */
-  line-height: 1.6;
-  text-align: center;
-  padding-bottom: 10px;
-  white-space: nowrap;
-  color: var(--ctm-green-ink); /* 他の緑に合わせる */
+/* 院長先生の見出し専用 */
+.section-lead.lead-green {
+  color: var(--green) !important;
+  display: inline-block; 
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem); /* ← 大きめ文字サイズも維持 */
   font-weight: 700;
 }
 
-.section-lead::after {
+.section-lead.lead-green::after {
   content: "";
   display: block;
-  height: 2px;                         /* ← Serviceと同じ太さ */
-  background: var(--ctm-green-ink);    /* 線の色も同じ */
+  height: 1px;   /* ← 線の太さを1pxに統一 */
+  background: var(--green) !important;
   width: 100%;
-  margin: 10px auto 0;
+  margin: 8px auto 0;
 }
 
-@media (max-width: 768px){
+/* Service 見出し下の線も同じく */
+.service-title::after {
+  content: "";
+  display: block;
+  height: 1px;   /* ← 同じく1px */
+  background: var(--ctm-green, #1d3e2f);
+  width: 100%;
+  margin: 8px aut
+
+  @media (max-width: 768px){
   .section-lead{
     white-space: normal;
     max-width: 96%;
