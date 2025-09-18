@@ -751,51 +751,105 @@ section.hero .hero-text p{
 }
 
 /* ===== 院長先生の最大の理解者〜 見出し ===== */
-.section-lead {
+.section-lead{
+  position: relative;
   display: inline-block;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   line-height: 1.6;
   text-align: center;
   padding-bottom: 8px;
-  position: relative;
-  white-space: nowrap; /* PCでは一行 */
+  white-space: nowrap;      /* PCは一行 */
 }
 
-.section-lead::after {
+.section-lead::after{
   content: "";
   display: block;
-  height: 2px;
+  height: 2px;              /* Serviceと同じ太さ */
   background: #1d3e2f;
-  width: 100%;          /* 文字幅に揃う */
+  width: 100%;              /* 文字幅ぴったり */
   margin: 8px auto 0;
 }
 
 /* スマホは改行許可 */
-@media (max-width: 768px) {
-  .section-lead {
-    white-space: normal; /* 自然に折り返し */
-    max-width: 96%;      /* はみ出さない */
+@media (max-width: 768px){
+  .section-lead{
+    white-space: normal;
+    max-width: 96%;
   }
 }
 
-/* ===== Service 見出し ===== */
-.service-title {
-  font-size: 2.4rem;       /* 大きめ */
+/* セクション背景（「時間が足りない」と同じ系統の薄グレー） */
+.section--svc{
+  background: #f4f4f4;
+}
+
+/* Service 見出し（少し大きく＆背景付き） */
+.service-title{
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
   font-weight: 700;
   color: var(--ctm-green, #1d3e2f);
-  background: #f4f4f4;     /* 「時間が足りない」と同じグレー */
+  background: #f4f4f4;       /* 文字背景も薄グレーで一体感 */
   display: inline-block;
   padding: 10px 20px;
   border-radius: 4px;
-  margin-bottom: 32px;
+  margin: 0 auto 28px;
   text-align: center;
 }
-
-.service-title::after {
+.service-title::after{
   content: "";
   display: block;
-  height: 2px;
+  height: 2px;               /* 見出し下の線（太さ統一） */
   background: #1d3e2f;
   width: 100%;
   margin: 8px auto 0;
+}
+
+/* カードグリッド：PC4列 / タブ2列 / SP1列 */
+.svc-grid{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: clamp(16px, 3vw, 24px);
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px){
+  .svc-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .svc-grid{ grid-template-columns: 1fr; }
+}
+
+/* カード本体（角丸＋薄いシャドウ） */
+.svc-card{
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.svc-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+.svc-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* タイトル・本文（見本寄せの雰囲気） */
+.svc-card-title{
+  color: var(--ctm-green, #264a27);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  text-align: center;
+  margin: 14px 14px 8px;
+}
+.svc-desc{
+  margin: 0 16px 18px;
+  text-align: center;
+  color: #254233;
+  line-height: 1.9;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
 }
