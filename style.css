@@ -854,3 +854,19 @@ section.hero .hero-text p{
   line-height: 1.9;
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
 }
+
+/* ===== 「院長先生の〜」固定指定（他に負けないよう末尾＆具体性アップ） ===== */
+section.understanding .section-lead{
+  color: var(--green) !important;   /* 見出しを緑に固定 */
+  display: inline-block;            /* afterの幅=文字幅 */
+  white-space: nowrap;
+}
+
+section.understanding .section-lead::after{
+  content: "";
+  display: block;
+  height: 4px;                      /* Serviceと同じ太さに合わせるなら4px */
+  background: var(--green) !important; /* 線も緑に固定 */
+  width: 100%;                      /* 文字の長さと同じに */
+  margin: 8px auto 0;
+}
