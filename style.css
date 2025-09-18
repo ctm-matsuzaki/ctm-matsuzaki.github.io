@@ -751,26 +751,26 @@ section.hero .hero-text p{
 }
 
 /* 院長先生の最大の理解者〜 見出し */
+/* 院長先生の最大の理解者〜 見出し */
 .section-lead {
   position: relative;
   display: inline-block;
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem); /* ← 少し大きめに */
+  font-size: clamp(1.8rem, 3.8vw, 2.4rem); /* ← 文字を大きめに調整 */
   line-height: 1.6;
   text-align: center;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   white-space: nowrap;
-  font-family: 'Noto Serif JP', serif; /* ← 上のheroと同じフォント */
-  font-weight: 700;                    /* 見出しっぽく太字 */
-  color: var(--ctm-green-ink);         /* ← 他と同じ緑 */
+  color: var(--ctm-green-ink); /* 他の緑に合わせる */
+  font-weight: 700;
 }
 
 .section-lead::after {
   content: "";
   display: block;
-  height: 2px;                         /* Serviceと同じ太さ */
-  background: var(--ctm-green-ink);    /* 線の色も同じ緑 */
-  width: 100%;                         /* 文字幅にフィット */
-  margin: 8px auto 0;
+  height: 2px;                         /* ← Serviceと同じ太さ */
+  background: var(--ctm-green-ink);    /* 線の色も同じ */
+  width: 100%;
+  margin: 10px auto 0;
 }
 
 @media (max-width: 768px){
