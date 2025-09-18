@@ -758,19 +758,18 @@ section.hero .hero-text p{
   line-height: 1.6;
   text-align: center;
   padding-bottom: 8px;
-  white-space: nowrap;   /* PCは一行 */
-  color: var(--green);   /* ← 文字を緑に変更 */
+  white-space: nowrap;
+  color: #1f7a5c;  /* ← 直接緑を指定 */
 }
 
 .section-lead::after {
   content: "";
   display: block;
-  height: 2px;
-  background: var(--green); /* ← 線も緑に変更 */
-  width: 100px;             /* ← 線の長さ。Serviceと同じ72〜100pxに調整推奨 */
+  height: 4px;          /* Serviceと同じ太さに合わせる */
+  background: #1f7a5c;  /* ← 線も緑に変更 */
+  width: 72px;          /* ← Serviceと同じ長さに統一 */
   margin: 8px auto 0;
 }
-
 
 /* スマホは改行許可 */
 @media (max-width: 768px){
