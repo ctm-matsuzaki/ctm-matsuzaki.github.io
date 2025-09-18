@@ -762,14 +762,15 @@ section.hero .hero-text p{
   color: var(--green);   /* ← 文字を緑に変更 */
 }
 
-.section-lead:after {
+.section-lead::after {
   content: "";
   display: block;
   height: 2px;
   background: var(--green); /* ← 線も緑に変更 */
-  width: 100%;
+  width: 100px;             /* ← 線の長さ。Serviceと同じ72〜100pxに調整推奨 */
   margin: 8px auto 0;
 }
+
 
 /* スマホは改行許可 */
 @media (max-width: 768px){
