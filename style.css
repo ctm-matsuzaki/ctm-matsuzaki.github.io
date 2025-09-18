@@ -759,26 +759,24 @@ section.hero .hero-text p{
   text-align: center;
   padding-bottom: 8px;
   white-space: nowrap;
-  color: var(--green);   /* ← 他の見出しと同じ緑に */
+  color: var(--ctm-green);   /* ← 修正：var(--green) を var(--ctm-green) に */
 }
 
 .section-lead::after {
   content: "";
   display: block;
-  height: 4px;            /* Serviceと同じ太さ */
-  background: var(--green);
-  width: 100%;            /* ← 文字幅いっぱいにフィット */
+  height: 4px;               /* Serviceと同じ太さ */
+  background: var(--ctm-green);  /* ← 修正：var(--green) を var(--ctm-green) に */
+  width: 100%;               /* 文字幅いっぱい */
   margin: 8px auto 0;
 }
 
-/* スマホは改行許可 */
 @media (max-width: 768px){
   .section-lead{
     white-space: normal;
     max-width: 96%;
   }
 }
-
 /* セクション背景（「時間が足りない」と同じ系統の薄グレー） */
 .section--svc{
   background: #f4f4f4;
@@ -853,19 +851,4 @@ section.hero .hero-text p{
   color: #254233;
   line-height: 1.9;
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
-}
-
-/* 院長先生の見出し専用 */
-.section-lead.lead-green {
-  color: var(--green) !important;   /* 文字を緑に */
-  display: inline-block;            /* afterの幅を文字幅に */
-}
-
-.section-lead.lead-green::after {
-  content: "";
-  display: block;
-  height: 2px;                      /* Serviceと同じ太さ */
-  background: var(--green) !important; /* 線も緑に */
-  width: 100%;                      /* 文字幅に合わせる */
-  margin: 8px auto 0;
 }
