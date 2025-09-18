@@ -751,7 +751,7 @@ section.hero .hero-text p{
 }
 
 /* ===== 院長先生の最大の理解者〜 見出し ===== */
-..section-lead {
+.section-lead {
   position: relative;
   display: inline-block;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
@@ -759,12 +759,14 @@ section.hero .hero-text p{
   text-align: center;
   padding-bottom: 8px;
   white-space: nowrap;   /* PCは一行 */
+  color: var(--green);   /* ← 文字を緑に変更 */
 }
+
 .section-lead:after {
   content: "";
   display: block;
   height: 2px;
-  background: #1d3e2f;   /* ← 今は濃い灰色(黒っぽい) */
+  background: var(--green); /* ← 線も緑に変更 */
   width: 100%;
   margin: 8px auto 0;
 }
