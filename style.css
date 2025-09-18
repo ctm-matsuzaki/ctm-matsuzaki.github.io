@@ -857,3 +857,47 @@ section.hero .hero-text p{
   line-height: 1.9;
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
 }
+
+/* ===== Company：左テキスト／右写真 ===== */
+.company-cta{
+  background: var(--ctm-green-deep, #213B1F);
+  color: #fff;
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+.company-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;      /* 左：テキスト やや広め */
+  align-items: center;
+  gap: clamp(24px, 5vw, 56px);
+}
+.company-text .lead{ color:#eaf4ee; }
+.company-more{
+  display:inline-block;
+  margin-top: 12px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  border-bottom: 1px solid rgba(255,255,255,.9);
+  padding-bottom: 2px;
+}
+.company-more:hover{ opacity:.85; }
+
+/* 右の写真は横幅いっぱいに見せる */
+.company-img{
+  margin:0;
+}
+.company-img img{
+  width: 100%;
+  height: auto;
+  display:block;
+  border-radius: 6px;              /* 角丸：不要なら削除 */
+  object-fit: cover;
+}
+
+/* モバイル：縦並び（上：テキスト／下：写真） */
+@media (max-width: 900px){
+  .company-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
