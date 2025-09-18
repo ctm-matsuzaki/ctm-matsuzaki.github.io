@@ -855,17 +855,17 @@ section.hero .hero-text p{
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
 }
 
-/* 院長先生の理解者セクション専用 */
+/* 院長先生の見出し専用 */
 .section-lead.lead-green {
-  color: var(--green) !important;      /* 文字色を緑に固定 */
-  display: inline-block;               /* afterの幅を文字幅に */
+  color: var(--green) !important;   /* 文字を緑に */
+  display: inline-block;            /* afterの幅を文字幅に */
 }
 
 .section-lead.lead-green::after {
   content: "";
   display: block;
-  height: 2px;                         /* Serviceと同じ太さに */
-  background: var(--green) !important; /* 線の色も緑に固定 */
-  width: 100%;                         /* 文字と同じ長さ */
+  height: 2px;                      /* Serviceと同じ太さ */
+  background: var(--green) !important; /* 線も緑に */
+  width: 100%;                      /* 文字幅に合わせる */
   margin: 8px auto 0;
 }
