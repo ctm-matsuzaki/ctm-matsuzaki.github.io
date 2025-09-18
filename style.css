@@ -751,22 +751,21 @@ section.hero .hero-text p{
 }
 
 /* ===== 院長先生の最大の理解者〜 見出し ===== */
-.section-lead{
+..section-lead {
   position: relative;
   display: inline-block;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   line-height: 1.6;
   text-align: center;
   padding-bottom: 8px;
-  white-space: nowrap;      /* PCは一行 */
+  white-space: nowrap;   /* PCは一行 */
 }
-
-.section-lead::after{
+.section-lead:after {
   content: "";
   display: block;
-  height: 2px;              /* Serviceと同じ太さ */
-  background: #1d3e2f;
-  width: 100%;              /* 文字幅ぴったり */
+  height: 2px;
+  background: #1d3e2f;   /* ← 今は濃い灰色(黒っぽい) */
+  width: 100%;
   margin: 8px auto 0;
 }
 
