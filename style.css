@@ -750,43 +750,45 @@ section.hero .hero-text p{
   .svc-grid{ grid-template-columns: 1fr; }
 }
 
-/* ===== 「院長先生の最大の理解者〜」の下線 ===== */
+/* ===== 院長先生の最大の理解者〜 見出し ===== */
 .section-lead {
-  position: relative;
   display: inline-block;
-  font-size: clamp(1.4rem, 3vw, 1.8rem); /* PCは1行、SPは自動で折り返し */
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   line-height: 1.6;
   text-align: center;
   padding-bottom: 8px;
+  position: relative;
+  white-space: nowrap; /* PCでは一行 */
 }
 
 .section-lead::after {
   content: "";
   display: block;
-  height: 2px; /* Service と同じ太さ */
+  height: 2px;
   background: #1d3e2f;
-  width: 100%; /* 文字幅に合わせる */
+  width: 100%;          /* 文字幅に揃う */
   margin: 8px auto 0;
 }
 
-/* スマホは2行になるように幅を制限 */
+/* スマホは改行許可 */
 @media (max-width: 768px) {
   .section-lead {
-    max-width: 90%;  /* 自然に改行 */
-    white-space: normal;
+    white-space: normal; /* 自然に折り返し */
+    max-width: 96%;      /* はみ出さない */
   }
 }
 
 /* ===== Service 見出し ===== */
 .service-title {
-  font-size: 2rem;
+  font-size: 2.4rem;       /* 大きめ */
   font-weight: 700;
   color: var(--ctm-green, #1d3e2f);
-  background: #f4f4f4; /* 「時間が足りない」と同じ薄グレー */
+  background: #f4f4f4;     /* 「時間が足りない」と同じグレー */
   display: inline-block;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 4px;
   margin-bottom: 32px;
+  text-align: center;
 }
 
 .service-title::after {
@@ -794,6 +796,6 @@ section.hero .hero-text p{
   display: block;
   height: 2px;
   background: #1d3e2f;
-  width: 60px; /* 下線の長さ調整可 */
+  width: 100%;
   margin: 8px auto 0;
 }
