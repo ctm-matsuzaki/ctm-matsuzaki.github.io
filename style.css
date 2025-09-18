@@ -855,18 +855,17 @@ section.hero .hero-text p{
   font-size: clamp(.95rem, 2.2vw, 1.05rem);
 }
 
-/* ===== 「院長先生の〜」固定指定（他に負けないよう末尾＆具体性アップ） ===== */
-section.understanding .section-lead{
-  color: var(--green) !important;   /* 見出しを緑に固定 */
-  display: inline-block;            /* afterの幅=文字幅 */
-  white-space: nowrap;
+/* 院長先生の理解者セクション専用 */
+.section-lead.lead-green {
+  color: var(--green) !important;      /* 文字色を緑に固定 */
+  display: inline-block;               /* afterの幅を文字幅に */
 }
 
-section.understanding .section-lead::after{
+.section-lead.lead-green::after {
   content: "";
   display: block;
-  height: 4px;                      /* Serviceと同じ太さに合わせるなら4px */
-  background: var(--green) !important; /* 線も緑に固定 */
-  width: 100%;                      /* 文字の長さと同じに */
+  height: 2px;                         /* Serviceと同じ太さに */
+  background: var(--green) !important; /* 線の色も緑に固定 */
+  width: 100%;                         /* 文字と同じ長さ */
   margin: 8px auto 0;
 }
