@@ -1,7 +1,8 @@
-:root {
-  --ctm-green: #184d2b; /* 会社情報ページの背景と同じ緑 */
+:root{
+  --ctm-green: #264a27;
+  --ctm-green-deep: #213B1F;
+  --ctm-green-ink: #224A33;
 }
-
 /* 全ページの余白を完全にゼロにする（UA既定の8pxを潰す）*/
 html, body { 
   margin: 0 !important; 
@@ -185,13 +186,6 @@ html, body { margin: 0; padding: 0; }
 /* =========================
    Company page common
    ========================= */
-:root{
-  --ctm-green: #264a27;
-  --ctm-green-ink: #1f3c21;
-  --ink: #00220f;
-  --muted: #9bd8ba;
-}
-
 .kv{
   position: relative;
   display: grid;
@@ -451,10 +445,6 @@ section.hero .hero-text p{
   --ctm-green-ink:  #224A33;  /* 文字の緑（本文） */
 }
 
-:root{
-  --ctm-green-deep:#213B1F; /* 濃い緑（バナー/帯） */
-  --ctm-green-ink:#224A33;  /* 文字用の緑 */
-}
 /* --- 会社情報の小見出し（白背景・中央） --- */
 .section-text.only-kicker{
   background:#fff;
@@ -635,138 +625,6 @@ section.hero .hero-text p{
   }
 }
 
-/* ===== Service Grid ===== */
-.svc-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* PCでは4列 */
-  gap: 32px; /* カード間の余白 */
-  list-style: none;
-  padding: 0;
-  margin: clamp(24px, 5vw, 40px) auto 0;
-  width: min(1200px, 95%);
-}
-
-.svc-card {
-  background: #fff;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.svc-img {
-  width: 100%;
-  height: 180px;           /* 高さを固定 */
-  object-fit: cover;       /* トリミングして比率維持 */
-  border-radius: 6px;
-  margin-bottom: 0.8rem;
-}
-
-.svc-title {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--ctm-green-ink, #285444);
-  margin: 0 0 0.4em;
-}
-
-.svc-desc {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #333;
-  margin: 0;
-}
-
-/* タブレット用：2列 */
-@media (max-width: 1024px) {
-  .svc-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* スマホ用：1列 */
-@media (max-width: 600px) {
-  .svc-grid {
-    grid-template-columns: 1fr;
-  }
-  .svc-img {
-    height: 200px; /* スマホは少し縦長に */
-  }
-}
-
-/* ===== Service cards ===== */
-.svc-grid{
-  list-style: none;
-  padding: 0;
-  margin: clamp(16px, 3vw, 24px) 0 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 3vw, 24px);
-}
-
-.svc-card{
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 28px rgba(0,0,0,.08);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.svc-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(0,0,0,.12);
-}
-
-/* 画像は比率を揃えてトリミング */
-.svc-img{
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-/* タイトル＆本文（少し大きめに） */
-.svc-card .svc-title{
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 800;
-  color: var(--ctm-green, #264a27);
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);  /* ← 少し大きめ */
-  margin: 12px 16px 6px;
-  line-height: 1.35;
-}
-.svc-card .svc-desc{
-  font-size: clamp(.95rem, 1.4vw, 1.05rem);
-  line-height: 1.9;
-  color: #254233;
-  margin: 0 16px 16px;
-}
-
-/* レスポンシブ：タブレット2列、スマホ1列 */
-@media (max-width: 1024px){
-  .svc-grid{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px){
-  .svc-grid{ grid-template-columns: 1fr; }
-}
-
-/* 院長先生の見出し専用 */
-.section-lead.lead-green {
-  color: var(--green) !important;
-  display: inline-block; 
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem); /* ← 大きめ文字サイズも維持 */
-  font-weight: 700;
-}
-
-.section-lead.lead-green::after {
-  content: "";
-  display: block;
-  height: 1px;   /* ← 線の太さを1pxに統一 */
-  background: var(--green) !important;
-  width: 100%;
-  margin: 8px auto 0;
-}
-
 /* Service 見出し下の線も同じく */
 .service-title::after {
   content: "";
@@ -799,11 +657,12 @@ section.hero .hero-text p{
   margin: 0 auto 28px;
   text-align: center;
 }
-.service-title::after{
+
+.service-title::after {
   content: "";
   display: block;
-  height: 2px;               /* 見出し下の線（太さ統一） */
-  background: #1d3e2f;
+  height: 1px;
+  background: var(--ctm-green, #1d3e2f);
   width: 100%;
   margin: 8px auto 0;
 }
@@ -975,4 +834,19 @@ section.hero .hero-text p{
     min-height: unset;
   }
   .company-img{ height: 48vw; }     /* 適度な高さを確保 */
+}
+
+.section-lead{
+  color: var(--ctm-green-ink, #224A33);
+  display: inline-block;
+  font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+  font-weight: 700;
+}
+.section-lead::after{
+  content:"";
+  display:block;
+  height:1px;
+  background: currentColor;
+  width: 100%;
+  margin-top:8px;
 }
