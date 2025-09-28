@@ -628,6 +628,15 @@ footer a:hover {
   margin: 0;
 }
 
+/* ===== Service セクションタイトル ===== */
+.svc-section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #165b33; /* 緑色 */
+  margin: 40px 0 20px;
+  font-weight: 700;
+}
+
 /* 4つのサービス項目に背景を付ける */
 .svc-row {
   background: rgba(240, 240, 240, 0.6); /* 薄いグレー */
