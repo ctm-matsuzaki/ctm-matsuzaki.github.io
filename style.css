@@ -587,3 +587,61 @@ footer a:hover {
     order: initial;
   }
 }
+
+/* Hero セクション */
+.svc-hero {
+  position: relative;
+  text-align: center;
+  color: #2e5e2e; /* 緑色 */
+}
+
+.svc-hero-bg {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.svc-hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(240, 240, 240, 0.7); /* 薄いグレー背景 */
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.svc-hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.svc-hero-text p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* スマホ用 (768px以下) */
+@media screen and (max-width: 768px) {
+  .svc-hero-text {
+    position: static;
+    transform: none;
+    background: rgba(240, 240, 240, 0.7);
+    margin-top: -5px;
+    max-width: 100%;
+  }
+
+  .svc-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .svc-hero-text p {
+    font-size: 1rem;
+  }
+}
