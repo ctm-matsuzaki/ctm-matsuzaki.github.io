@@ -122,8 +122,11 @@ body {
   margin-top: 8px;
 }
 
-.section-lead {
-  white-space: nowrap; /* 改行しない */
+/* PC のみ一行表示 */
+@media screen and (min-width: 768px) {
+  .section-lead {
+    white-space: nowrap; /* 改行しない */
+  }
 }
 
 /* =========================
