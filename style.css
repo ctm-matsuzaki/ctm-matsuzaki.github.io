@@ -343,65 +343,69 @@ body {
 /* =========================
    FAQ
    ========================= */
-.faq-section {
+.faq-section{
   text-align: center;
-  margin: 80px auto;
-  max-width: 900px;
-  padding: 0 20px;
+  margin: clamp(48px, 8vw, 96px) auto;
+  max-width: 920px;
+  padding: 0 clamp(12px, 3vw, 24px);
 }
 
-.faq-title {
-  font-weight: bold;
+.faq-title{
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.8rem;
+  font-weight: 800;
   color: var(--ctm-green-deep);
-  margin-bottom: 2rem;
+  font-size: clamp(1.6rem, 3.4vw, 2rem);
+  line-height: 1.2;
+  margin: 0 0 1.2rem;
 }
-
-.faq-title span {
+.faq-title span{
   display: block;
-  font-size: 1.2rem;
   font-weight: 400;
-  color: #333;
+  font-size: clamp(.9rem, 2.2vw, 1.1rem);
+  color: var(--ctm-green-ink);
+  margin-top: .2rem;
 }
 
-.faq-q {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+.faq-item{ margin: clamp(24px, 6vw, 48px) 0; }
+
+.faq-q{
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  margin: 0 0 .6rem;
 }
 
-.faq-a {
-  font-size: 1rem;
-  margin: 0.5rem 0 1rem;
-  line-height: 1.8;
+.faq-a{
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.9;
+  margin: 0 0 1rem;
 }
+.faq-a.lead{ margin-bottom: .6rem; }
 
-.faq-list {
+.faq-list{
   list-style: none;
   padding: 0;
-  margin: 1em auto 1.5em auto;
-  display: inline-block;
-  text-align: left;  /* 箇条書きは左寄せ */
+  margin: .6rem auto 1.2rem;
+  display: inline-block;     /* 中央でコンテンツ幅に合わせる */
+  text-align: left;          /* 箇条書きは左揃え */
 }
-
-.faq-list li {
-  margin: 0.4em 0;
+.faq-list li{
+  margin: .35em 0;
   padding-left: 1.2em;
   position: relative;
+  white-space: nowrap;       /* 見本寄せ：一行で収める（必要に応じ解除） */
 }
-
-.faq-list li::before {
+.faq-list li::before{
   content: "・";
   position: absolute;
   left: 0;
   color: var(--ctm-green-deep);
 }
 
-hr.faq-divider {
+hr.faq-divider{
   border: none;
   border-top: 2px solid var(--ctm-green-deep);
-  width: 50%;
-  margin: 2rem auto;
+  width: min(60%, 560px);
+  margin: clamp(16px, 4vw, 28px) auto 0;
 }
