@@ -234,53 +234,53 @@ body {
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr; } }
 
 /* =========================
-   Company
+   Company：左右分割レイアウト
    ========================= */
 .company-cta {
-  background: var(--ctm-green-deep);
-  color:#fff;
-  padding: clamp(56px, 8vw, 96px) 0;
+  padding: 0;   /* 全体には背景色なし */
 }
 
-/* Company：見本寄せ（左テキスト／右画像、余白とサイズ調整） */
 .company-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;       /* 画像側を少し広め */
-  align-items: center;
-  gap: clamp(32px, 6vw, 72px);                /* 余白を広めに */
+  grid-template-columns: 1fr 1fr;
   min-height: clamp(360px, 46vw, 520px);
+}
+
+/* 左：写真カラム */
+.company-img {
+  background: url('images/company.jpg') no-repeat center center; /* ←写真を背景化 */
+  background-size: cover;
+}
+
+/* 右：テキストカラム（緑背景） */
+.company-text {
+  background: var(--ctm-green-deep);
+  color: #fff;
+  padding: clamp(48px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .company-title {
   font-family: 'Noto Serif JP', serif;
   font-weight: 700;
   font-size: clamp(2.2rem, 4.2vw, 3.2rem);
-  line-height: 1.15;
-  margin: 0 0 .4em;
+  margin: 0 0 .5em;
   color: #fff;
-  text-align: left;
 }
-
 .company-subtitle {
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
   font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   margin: 0 0 1.2em;
   color: #eaf4ee;
-  text-align: left;
 }
-
-.company-text {
-  padding-left: clamp(8px, 1vw, 12px);        /* 左端ベタ付きを回避 */
-}
-
 .company-text .lead {
   color: #eaf4ee;
-  text-align: left;
   margin: 0 0 1.2rem;
   line-height: 1.9;
 }
-
 .company-more {
   display: inline-block;
   font-weight: 700;
@@ -292,36 +292,18 @@ body {
 }
 .company-more:hover { opacity: .85; }
 
-.company-img {
-  margin: 0;
-  align-self: center;
-  justify-self: end;
-}
-.company-img img {
-  width: min(640px, 48vw);    /* 画像を一回り大きめに */
-  height: auto;               /* 縦は自動調整 */
-  object-fit: cover;
-  display: block;
-  border-radius: 0;
-}
-
-/* モバイル：縦並び（上：テキスト／下：写真） */
+/* モバイル：縦並びに変更 */
 @media (max-width: 900px) {
   .company-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    min-height: unset;
   }
   .company-img {
-    height: auto;
-    justify-self: stretch;
+    height: 48vw;  /* 上半分に写真 */
   }
-  .company-img img {
-    width: 100%;
-    height: auto;
+  .company-text {
+    padding: clamp(32px, 6vw, 64px);
   }
 }
-
 /* =========================
    FAQ
    ========================= */
