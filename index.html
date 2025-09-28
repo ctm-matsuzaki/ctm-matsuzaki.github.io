@@ -134,23 +134,27 @@
   </div>
 </section>
 
-<section class="section section--dark">
-  <div class="container split cta">
-    <div class="col">
-      <h2 class="section-title" style="color:#fff; margin-bottom:.4em;">Company</h2>
-      <h3 class="catch">会社情報</h3>
-      <p class="lead" style="color:#eaf4ee;">
-        医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、持続可能なクリニックづくりを実現します。
+<!-- Company（見本どおり：左テキスト／右画像、フル幅） -->
+<section id="company" class="company-cta full-bleed" aria-labelledby="company-title">
+  <div class="container company-grid">
+    <!-- 左：テキスト -->
+    <div class="company-text">
+      <h2 id="company-title" class="company-title">Company</h2>
+      <h3 class="company-subtitle">会社情報</h3>
+      <p class="lead">
+        医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、
+        持続可能なクリニックづくりを実現します。
       </p>
-      <div style="margin-top: 1rem;">
-        <a href="company.html" class="contact-button" style="background:#fff; color:#000; border-color:#000;">more &gt;</a>
-      </div>
+      <a href="company.html" class="company-more" aria-label="会社情報の詳細へ">more &gt;</a>
     </div>
-    <div class="col">
-      <img src="images/8.jpeg" alt="会社情報イメージ" class="img-fluid">
-    </div>
+
+    <!-- 右：画像 -->
+    <figure class="company-img" aria-hidden="true">
+      <img src="images/8.jpeg" alt="" loading="lazy">
+    </figure>
   </div>
 </section>
+
 
   <!-- FAQ -->
   <section class="section" style="background:#f5f5f5;">
