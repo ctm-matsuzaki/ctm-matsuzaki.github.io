@@ -901,3 +901,78 @@ section.hero .hero-text p{
     gap: 20px;
   }
 }
+
+/* =========================
+   Company（見本レイアウト）
+   ========================= */
+.company-cta{
+  background: var(--ctm-green-deep, #213B1F);
+  color: #fff;
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.company-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;  /* 左をやや広め */
+  align-items: center;
+  gap: clamp(24px, 5vw, 56px);
+  min-height: clamp(320px, 48vw, 520px); /* 見本の高さ感 */
+}
+
+/* 左：テキスト */
+.company-title{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem); /* 見本の大きめ "Company" */
+  line-height: 1.15;
+  margin: 0 0 .4em;
+  color: #fff;
+  text-align: left;
+}
+.company-subtitle{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  margin: 0 0 1.2em;
+  color: #eaf4ee;
+  text-align: left;
+}
+.company-text .lead{
+  color: #eaf4ee;
+  text-align: left;
+  margin: 0 0 1.2rem;
+  line-height: 1.9;
+}
+.company-more{
+  display:inline-block;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 4px;
+  padding: .5rem .9rem;
+}
+.company-more:hover{ opacity:.85; }
+
+/* 右：画像を“面いっぱい”に */
+.company-img{
+  margin: 0;
+  align-self: stretch;             /* ← セクション高に合わせて伸ばす */
+}
+.company-img img{
+  width: 100%;
+  height: 100%;                    /* ← 高さを親にフィット */
+  object-fit: cover;               /* ← トリミングで見本の雰囲気へ */
+  display: block;
+  border-radius: 0;                /* 見本は角丸なし */
+}
+
+/* モバイル：縦積み（テキスト→画像） */
+@media (max-width: 900px){
+  .company-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: unset;
+  }
+  .company-img{ height: 48vw; }     /* 適度な高さを確保 */
+}
