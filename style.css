@@ -341,50 +341,75 @@ body {
 }
 
 /* =========================
-   FAQ
+   FAQ（強制上書き・中央寄せ版）
    ========================= */
-.faq {
-  text-align: center;
-  margin: 80px auto;
-  max-width: 800px;
+#faq.faq-section{
+  max-width: 960px !important;
+  margin: clamp(48px,8vw,96px) auto !important;
+  padding: 0 clamp(12px,3vw,24px) !important;
+  text-align: center !important;
 }
 
-.faq-title {
-  font-size: 1.8rem;
-  font-weight: 700;
+#faq .faq-title{
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 800;
   color: var(--ctm-green-deep);
-  margin-bottom: 0.2em;
+  font-size: clamp(1.6rem,3.4vw,2rem);
+  line-height: 1.2;
+  margin: 0 0 .4rem !important;
 }
 
-.faq-subtitle {
-  font-size: 1rem;
-  color: var(--ctm-green-deep);
-  margin-bottom: 2em;
+#faq .faq-title span{
+  display: block;
+  font-weight: 400;
+  font-size: clamp(.9rem,2.2vw,1.1rem);
+  color: var(--ctm-green-ink);
 }
 
-.faq-content {
-  text-align: left;
+#faq .faq-item{ 
+  margin: clamp(24px,6vw,48px) 0 !important; 
 }
 
-.faq-q {
+#faq .faq-q{
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
-  margin-bottom: 0.5em;
+  font-size: clamp(1.1rem,2.6vw,1.35rem);
+  margin: 0 0 .6rem !important;
 }
 
-.faq-a {
-  margin-bottom: 1.5em;
-  line-height: 1.8;
+#faq .faq-a{
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(1rem,2.2vw,1.1rem);
+  line-height: 1.9;
+  margin: 0 0 1rem !important;
 }
 
-.faq-a ul {
-  margin: 0.5em 0 1.2em 1.2em;
+#faq .faq-a.lead{ margin-bottom: .6rem !important; }
+
+/* 箇条書き（中央に置きつつ、項目は左揃え） */
+#faq .faq-list{
+  list-style: none;
   padding: 0;
-  list-style-type: disc;
+  margin: .6rem auto 1.2rem !important;
+  display: inline-block;      /* コンテンツ幅に合わせて中央配置 */
+  text-align: left;           /* 箇条書きは左揃え */
+}
+#faq .faq-list li{
+  margin: .35em 0;
+  padding-left: 1.2em;
+  position: relative;
+}
+#faq .faq-list li::before{
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--ctm-green-deep);
 }
 
-.faq-divider {
-  border: none;
-  border-top: 2px solid var(--ctm-green-deep);
-  margin: 2em auto;
-  width: 80%;
+/* 区切り線（必ず中央&緑） */
+#faq .faq-divider{
+  border: none !important;
+  border-top: 2px solid var(--ctm-green-deep) !important;
+  width: min(60%, 560px) !important;
+  margin: clamp(16px,4vw,28px) auto 0 !important;
 }
