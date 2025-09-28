@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>CTM | Clinic Total Management</title>
-　<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800&family=Noto+Serif+JP:wght@400;700;800&display=swap" rel="stylesheet">
+
   <!-- 基本SEO -->
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ctm-matsuzaki.github.io/">
@@ -12,11 +15,10 @@
   <!-- モバイル対応 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- フォント / CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-　<link rel="stylesheet" href="style.css?v=20240917a">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=20250928a">
 
-  <!-- （任意）OG/Twitter。必要に応じてページごとに更新 -->
+  <!-- OG/Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CTM（クリニック トータル マネージメント）">
   <meta property="og:title" content="CTM | Clinic Total Management">
@@ -24,144 +26,166 @@
   <meta property="og:url" content="https://ctm-matsuzaki.github.io/">
   <meta property="og:image" content="https://ctm-matsuzaki.github.io/images/1.png">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- （補助）フルブリード＆Contactの最小ユーティリティ
+       ※ すでに style.css にあれば削除可 -->
+  <style>
+    .full-bleed,
+    .full-bleed :where([class*="container"], [class*="wrapper"], [class*="content"]) {
+      max-width: none !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .full-bleed { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+    .contact-section {
+      position: relative; min-height: 80vh;
+      background-image: url('images/contact-bg.jpeg');
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .contact-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    .contact-title { font-size: 3.6rem; line-height: 1.05; color: #2c4a27; margin: 0; font-family: 'Noto Serif JP', serif; letter-spacing: 1px; }
+    .contact-button { display: inline-block; padding: 16px 32px; background: #fff; color: #000; font-weight: bold; font-size: 1.2rem; border: 1px solid #000; border-radius: 4px; text-decoration: none; }
+    @media (max-width: 768px){ .contact-title{ font-size: 2.6rem; } .contact-button{ padding:12px 24px; font-size:1rem; } }
+  </style>
 </head>
 
 <body>
 
-  <!-- hero セクション -->
-<section class="hero" style="background-image:url('images/1.png');">
-  <div class="hero__inner">
-    <h1 class="hero__title">“院長の最大の理解者”として、<br>　　　　　ともに走るパートナー</h1>
-    <p class="hero__lead">Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
-  </div>
-</section>
+  <!-- ========== Hero ========== -->
+  <section class="hero" style="background-image:url('images/1.png');">
+    <div class="hero__inner">
+      <h1 class="hero__title">“院長の最大の理解者”として、<br>　　　　　ともに走るパートナー</h1>
+      <p class="hero__lead">Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
+    </div>
+  </section>
 
-<!-- ===== Problem Teaser（見本の「忙しさの中で〜」帯）===== -->
-<section class="section has-bgword" data-word="">
-  <div class="container">
-    <h2 class="section-title">「忙しさの中で、気づけば手がまわらない…」</h2>
-    <p class="lead">そんな日々を、少しでも変えるお手伝いを</p>
-    <hr class="section-divider">
-  </div>
-</section>
+  <!-- ========== Problem Teaser（帯） ========== -->
+  <section class="section has-bgword" data-word="">
+    <div class="container">
+      <h2 class="section-title">「忙しさの中で、気づけば手がまわらない…」</h2>
+      <p class="lead">そんな日々を、少しでも変えるお手伝いを</p>
+      <hr class="section-divider">
+    </div>
+  </section>
 
-<!-- ===== Problems ===== -->
-<section class="problems">
-  <div class="container">
+  <!-- ========== Problems ========== -->
+  <section class="problems">
+    <div class="container">
 
-    <!-- ブロック1：画像 左 ／ テキスト 右 -->
-    <div class="problem-row">
-      <div class="problem-col media">
-        <img src="images/2.png" alt="書類の山と女性医師">
+      <!-- ブロック1：画像 左 ／ テキスト 右 -->
+      <div class="problem-row">
+        <div class="problem-col media">
+          <img src="images/2.png" alt="書類の山と女性医師">
+        </div>
+        <div class="problem-col text">
+          <h2>「時間が足りない」と感じるのは、問題のサイン</h2>
+          <p>
+            請求、採用、マネジメント——<br>
+            重要なのに、後回しにされがちな業務が山積みになっていませんか？<br>
+            見直せば、もっと医療に集中できるはずです
+          </p>
+        </div>
       </div>
-      <div class="problem-col text">
-        <h2>「時間が足りない」と感じるのは、問題のサイン</h2>
-        <p>
-          請求、採用、マネジメント——<br>
-          重要なのに、後回しにされがちな業務が山積みになっていませんか？<br>
-          見直せば、もっと医療に集中できるはずです
-        </p>
+
+      <!-- ブロック2：テキスト 左 ／ 画像 右 -->
+      <div class="problem-row reverse">
+        <div class="problem-col text">
+          <h2>外来対応に追われ、見直す時間もない</h2>
+          <p>
+            人手不足、業務の属人化、非効率な運用…<br>
+            目の前の患者対応に手一杯で、経営のことまで手が回らないと感じていませんか？
+          </p>
+        </div>
+        <div class="problem-col media">
+          <img src="images/3.png" alt="外来の行列と受付">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== 「院長先生の最大の理解者〜」 ========== -->
+  <section class="section understanding">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-lead">院長先生の最大の理解者であり、最高の2番手としてお手伝いします</h2>
+    </div>
+  </section>
+
+  <!-- ========== Service（カードグリッド） ========== -->
+  <section class="section section--svc" id="service">
+    <div class="container">
+      <h3 class="service-title">Service</h3>
+
+      <ul class="svc-grid">
+        <li class="svc-card">
+          <img src="images/4.jpeg" alt="経営分析" class="svc-img">
+          <h3 class="svc-title">経営分析</h3>
+          <p class="svc-desc">
+            診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全な財務運営を支援。将来を見据えた収益改善策をご提案します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/5.jpeg" alt="人事労務支援" class="svc-img">
+          <h3 class="svc-title">人事労務支援</h3>
+          <p class="svc-desc">
+            採用活動から就業規則の整備、勤怠・給与管理までをサポート。スタッフが安心して働ける環境づくりを、実務レベルで支援します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/6.jpeg" alt="業務フロー改善" class="svc-img">
+          <h3 class="svc-title">業務フロー改善</h3>
+          <p class="svc-desc">
+            受付から診察、会計までの一連の流れを見直し、負担を軽減。患者様にとって分かりやすく快適な導線を整備します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/7.jpeg" alt="マーケティング戦略" class="svc-img">
+          <h3 class="svc-title">マーケティング戦略</h3>
+          <p class="svc-desc">
+            地域特性や競合を分析し、来院につながる戦略を立案。WEB導線、紙媒体、SNS投稿の作成まで一貫して支援します。
+          </p>
+        </li>
+      </ul>
+
+      <div style="text-align:right; margin-top:1rem;">
+        <a href="services.html" style="color:#375c3b; text-decoration:none; font-weight:700;">more &gt;</a>
       </div>
     </div>
+  </section>
 
-    <!-- ブロック2：テキスト 左 ／ 画像 右（交互） -->
-    <div class="problem-row reverse">
-      <div class="problem-col text">
-        <h2>外来対応に追われ、見直す時間もない</h2>
-        <p>
-          人手不足、業務の属人化、非効率な運用…<br>
-          目の前の患者対応に手一杯で、経営のことまで手が回らないと感じていませんか？
+  <!-- ========== Company（左テキスト／右画像：フル幅） ========== -->
+  <section id="company" class="company-cta full-bleed" aria-labelledby="company-title">
+    <div class="container company-grid">
+      <!-- 左：テキスト -->
+      <div class="company-text">
+        <h2 id="company-title" class="company-title">Company</h2>
+        <h3 class="company-subtitle">会社情報</h3>
+        <p class="lead">
+          医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、
+          持続可能なクリニックづくりを実現します。
         </p>
+        <a href="company.html" class="company-more" aria-label="会社情報の詳細へ">more &gt;</a>
       </div>
-      <div class="problem-col media">
-        <img src="images/3.png" alt="外来の行列と受付">
-      </div>
+
+      <!-- 右：画像 -->
+      <figure class="company-img" aria-hidden="true">
+        <img src="images/8.jpeg" alt="" loading="lazy">
+      </figure>
     </div>
+  </section>
 
-  </div>
-</section>
-<!-- /Problems -->
-<!-- CTM紹介（見出しだけのブロック） -->
-<!-- もともと <section> … なら -->
-<section class="section understanding">
-  <div class="container" style="text-align:center;">
-<h2 class="section-lead">院長先生の最大の理解者であり、最高の2番手としてお手伝いします</h2>
-  </div>
-</section>
-
-<!-- Service（見出し＋カード：セクション全体を薄いグレー） -->
-<section class="section section--svc">
-  <div class="container">
-    <h3 class="service-title">Service</h3>
-
-    <ul class="svc-grid">
-      <li class="svc-card">
-        <img src="images/4.jpeg" alt="経営分析" class="svc-img">
-        <h3 class="svc-card-title">経営分析</h3>
-        <p class="svc-desc">
-          診療報酬や自費収入のバランス、コスト構造を分析し、健全な経営基盤を設計します。
-        </p>
-      </li>
-
-      <li class="svc-card">
-        <img src="images/5.jpeg" alt="人事労務" class="svc-img">
-        <h3 class="svc-card-title">人事労務支援</h3>
-        <p class="svc-desc">
-          採用・評価制度・労務整備を、現場運用と両輪で。定着と成長を支援します。
-        </p>
-      </li>
-
-      <li class="svc-card">
-        <img src="images/6.jpeg" alt="業務改善" class="svc-img">
-        <h3 class="svc-card-title">業務フロー改善</h3>
-        <p class="svc-desc">
-          導線や帳票を見直し、患者様にもスタッフにも分かりやすい業務へ最適化します。
-        </p>
-      </li>
-
-      <li class="svc-card">
-        <img src="images/7.jpeg" alt="マーケティング" class="svc-img">
-        <h3 class="svc-card-title">マーケティング戦略</h3>
-        <p class="svc-desc">
-          WEB導線、SNS発信、紹介スキームを一貫支援。集患と定着を両立します。
-        </p>
-      </li>
-    </ul>
-
-    <div style="text-align:right; margin-top:1rem;">
-      <a href="services.html" style="color:#375c3b; text-decoration:none; font-weight:700;">more &gt;</a>
-    </div>
-  </div>
-</section>
-
-<!-- Company（見本どおり：左テキスト／右画像、フル幅） -->
-<section id="company" class="company-cta full-bleed" aria-labelledby="company-title">
-  <div class="container company-grid">
-    <!-- 左：テキスト -->
-    <div class="company-text">
-      <h2 id="company-title" class="company-title">Company</h2>
-      <h3 class="company-subtitle">会社情報</h3>
-      <p class="lead">
-        医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、
-        持続可能なクリニックづくりを実現します。
-      </p>
-      <a href="company.html" class="company-more" aria-label="会社情報の詳細へ">more &gt;</a>
-    </div>
-
-    <!-- 右：画像 -->
-    <figure class="company-img" aria-hidden="true">
-      <img src="images/8.jpeg" alt="" loading="lazy">
-    </figure>
-  </div>
-</section>
-
-
-  <!-- FAQ -->
+  <!-- ========== FAQ ========== -->
   <section class="section" style="background:#f5f5f5;">
     <div class="container">
       <h2 class="section-title">よくあるご質問</h2>
-      <h3 class="catch">FAQ</h3>
-      <hr class="faq-title-line">
+      <h3 class="catch" style="color:#224A33;">FAQ</h3>
+      <hr class="faq-divider">
 
       <div class="faq">
         <p class="faq-q">Q. どのような業務をお願いできますか？</p>
@@ -189,19 +213,19 @@
     </div>
   </section>
 
-  <!-- Contact（フル幅背景） -->
-  <section class="contact-section full-bleed">
+  <!-- ========== Contact（フル幅背景） ========== -->
+  <section class="contact-section full-bleed" aria-labelledby="contact-title">
     <div class="contact-inner">
-      <h2 class="contact-title">CONTACT</h2>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button">お問い合わせはこちら</a>
+      <h2 id="contact-title" class="contact-title">CONTACT</h2>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button" rel="noopener">お問い合わせはこちら</a>
     </div>
   </section>
 
-  <!-- 共通フッター -->
+  <!-- ========== Footer ========== -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <nav class="footer-nav" aria-label="フッターナビゲーション">
-        <ul>
+    <div class="footer-inner container" style="padding:24px 0; text-align:center;">
+      <nav class="footer-nav" aria-label="フッターナビゲーション" style="margin-bottom:8px;">
+        <ul style="list-style:none; padding:0; margin:0; display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
           <li><a href="/">ホーム</a></li>
           <li><a href="/message.html">代表挨拶</a></li>
           <li><a href="/company.html">会社情報</a></li>
@@ -212,5 +236,6 @@
       <div class="footer-copy">© 2025 CTM（クリニック トータル マネージメント）</div>
     </div>
   </footer>
+
 </body>
 </html>
