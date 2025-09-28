@@ -251,44 +251,48 @@ body {
   background-size: cover;
 }
 
-/* 右：テキストカラム（緑背景） */
+//* 右：テキストカラム */
 .company-text {
   background: var(--ctm-green-deep);
-  color: #fff;
+  color:#fff;
   padding: clamp(48px, 6vw, 96px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 600px;  /* ← 二行に収める幅調整 */
 }
 
 .company-title {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 700;
-  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
-  margin: 0 0 .5em;
-  color: #fff;
+  font-family:'Noto Serif JP',serif;
+  font-weight:700;
+  font-size:clamp(2.2rem,4.2vw,3.2rem);
+  margin:0 0 .5em;
+  color:#fff;
 }
+
 .company-subtitle {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-  margin: 0 0 1.2em;
-  color: #eaf4ee;
+  font-family:'Noto Serif JP',serif;
+  font-weight:400;
+  font-size:clamp(1.1rem,2.2vw,1.4rem);
+  margin:0 0 1.2em;
+  color:#eaf4ee;
 }
+
 .company-text .lead {
-  color: #eaf4ee;
-  margin: 0 0 1.2rem;
-  line-height: 1.9;
+  color:#eaf4ee;
+  margin:0 0 1.2rem;
+  line-height:1.9;
 }
+
 .company-more {
   display:inline-block;
   font-weight:700;
   color:#fff;
   text-decoration:none;
   padding:.5rem .9rem;
+  border:none;      /* ← 枠削除 */
+  background:none;  /* ← 念のため背景リセット */
 }
-
-.company-more:hover { opacity: .85; }
 
 /* =========================
    Responsive
