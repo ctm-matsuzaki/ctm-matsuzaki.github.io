@@ -519,3 +519,71 @@ footer a:hover {
   .svc-row.reverse .svc-media,
   .svc-row.reverse .svc-body{ order: initial; }
 }
+
+/* =========================
+   Services layout (image ⇄ text)
+   ========================= */
+.svc-wrap{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.svc-row{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr; /* 左やや広め */
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+  margin: clamp(40px, 6vw, 80px) 0;
+}
+
+.svc-col.media img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.svc-col.text h2{
+  font-family: "Noto Serif JP", serif;
+  font-weight: 800;
+  color: var(--ctm-green, #264a27);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.35;
+  margin: 0 0 .6em;
+}
+
+.svc-col.text p{
+  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.9;
+  color: #254233;
+  margin: 0 0 .8em;
+}
+
+.svc-col.text ul{
+  margin: .2em 0 0;
+  padding-left: 1.2em;
+  color: #254233;
+  line-height: 1.9;
+  font-size: clamp(.98rem, 2vw, 1.05rem);
+}
+
+.svc-col.text li { margin: .1em 0; }
+
+/* 偶数行は左右反転（PC） */
+.svc-row.rev .svc-col.media{ order: 2; }
+.svc-row.rev .svc-col.text { order: 1; }
+
+/* モバイルは縦並び（画像→テキスト） */
+@media (max-width: 900px){
+  .svc-row{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .svc-row.rev .svc-col.media,
+  .svc-row.rev .svc-col.text{
+    order: initial;
+  }
+}
