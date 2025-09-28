@@ -1,80 +1,121 @@
-<main class="svc-wrap">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>サービス案内 | CTM（クリニック トータル マネージメント）</title>
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="事務長代行サービスのご案内。経営分析／人事労務支援／業務フロー改善／マーケティングを、現場で実装・定着まで支援します。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-services">
 
-  <!-- 01 経営分析（左に画像／右にテキスト） -->
-  <article id="analysis" class="svc-row">
-    <figure class="svc-col media">
-      <img src="images/4.jpeg" alt="経営分析" loading="lazy" decoding="async">
-    </figure>
-    <div class="svc-col text">
-      <h2>経営分析</h2>
-      <p>
-        会計（税理士）と連携し、収益・費用の収支バランスを分解。診療報酬・自費の構成、コスト構造を見直し、
-        「どこを伸ばし、どこを締めるか」を数値で可視化します。
-      </p>
-      <ul>
-        <li>KPI設計（患者数・単価・再診率・キャッシュフロー 等）</li>
-        <li>月次レビュー（外来/部門/医師/曜日別の実績可視化）</li>
-        <li>PL改善（売上構成・固定費/変動費の見直し・改善テーマ特定）</li>
-        <li>保険/自費ポートフォリオ設計・粗利改善シミュレーション</li>
-      </ul>
+  <!-- ====== Hero（導入セクション） ====== -->
+  <section class="svc-hero" style="background:#f4f4f4; padding:60px 20px; text-align:center;">
+    <h1 class="svc-hero-title">事務長代行サービス</h1>
+    <p class="svc-hero-desc">
+      経営分析・人事労務・業務改善・マーケティングまで包括的に支援し、<br>
+      院長が診療に専念できる環境を整えます。
+    </p>
+  </section>
+
+  <!-- ====== Service 本文 ====== -->
+  <main class="svc-wrap">
+
+    <!-- 01 経営分析 -->
+    <article id="analysis" class="svc-row">
+      <figure class="svc-col media">
+        <img src="images/4.jpeg" alt="経営分析" loading="lazy" decoding="async">
+      </figure>
+      <div class="svc-col text">
+        <h2>経営分析</h2>
+        <p>
+          会計（税理士）と連携し、収益・費用の収支バランスを分解。診療報酬・自費の構成、コスト構造を見直し、
+          「どこを伸ばし、どこを締めるか」を数値で可視化します。
+        </p>
+        <ul>
+          <li>KPI設計（患者数・単価・再診率・キャッシュフロー 等）</li>
+          <li>月次レビュー（外来/部門/医師/曜日別の実績可視化）</li>
+          <li>PL改善（売上構成・固定費/変動費の見直し・改善テーマ特定）</li>
+          <li>保険/自費ポートフォリオ設計・粗利改善シミュレーション</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 02 人事労務支援 -->
+    <article id="hr" class="svc-row rev">
+      <div class="svc-col text">
+        <h2>人事労務支援</h2>
+        <p>
+          採用から評価・定着までの人事サイクルを現場運用と両輪で整えます。労務リスクを抑えつつ人件費と労働時間を最適化。
+        </p>
+        <ul>
+          <li>採用設計（求人票・面接設計・評価基準の明確化）</li>
+          <li>勤怠/シフト体制の是正・就業規則/手当設計の見直し</li>
+          <li>評価制度の運用・賃金テーブル設計・1on1導入</li>
+          <li>人手不足/欠員時の業務再配分・応援体制設計</li>
+        </ul>
+      </div>
+      <figure class="svc-col media">
+        <img src="images/5.jpeg" alt="人事労務支援" loading="lazy" decoding="async">
+      </figure>
+    </article>
+
+    <!-- 03 業務フロー改善 -->
+    <article id="workflow" class="svc-row">
+      <figure class="svc-col media">
+        <img src="images/6.jpeg" alt="業務フロー改善" loading="lazy" decoding="async">
+      </figure>
+      <div class="svc-col text">
+        <h2>業務フロー改善</h2>
+        <p>
+          受付〜診療〜会計までの導線・帳票・オペレーションを見直し、スタッフ負担を軽減。患者さまにもわかりやすい導線に最適化します。
+        </p>
+        <ul>
+          <li>受付/会計のタイムスタディ・滞留箇所の特定</li>
+          <li>問診票/帳票の再設計・電子化・テンプレート整備</li>
+          <li>レイアウト/導線最適化（院内サイン・動線設計）</li>
+          <li>マニュアル/チェックリストの整備と定着支援</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 04 マーケティング戦略 -->
+    <article id="marketing" class="svc-row rev">
+      <div class="svc-col text">
+        <h2>マーケティング戦略</h2>
+        <p>
+          地域特性と競合状況を分析し、来院につながる導線を設計。メッセージ・見せ方を統一し、Web/院内/紹介を連動させます。
+        </p>
+        <ul>
+          <li>ブランド設計（トーン&ビジュアル/コピー/院内掲示）</li>
+          <li>Web導線（HP/SEO・MEO・SNS・投稿運用）</li>
+          <li>院内導線（パンフ/掲示/サイン/説明スライド）</li>
+          <li>紹介スキームの設計（紹介カード/説明トーク整備）</li>
+        </ul>
+      </div>
+      <figure class="svc-col media">
+        <img src="images/7.jpeg" alt="マーケティング戦略" loading="lazy" decoding="async">
+      </figure>
+    </article>
+
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="footer-inner container" style="padding:24px 0; text-align:center; background:#264a27; color:#fff;">
+      <nav class="footer-nav" aria-label="フッターナビゲーション" style="margin-bottom:8px;">
+        <ul style="list-style:none; padding:0; margin:0; display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
+          <li><a href="index.html" style="color:#fff;">ホーム</a></li>
+          <li><a href="message.html" style="color:#fff;">代表挨拶</a></li>
+          <li><a href="company.html" style="color:#fff;">会社情報</a></li>
+          <li><a href="services.html" style="color:#fff;">サービス</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScALcSYFDRujj29MAiFk8fTAwb3Bp0GJlacJ2LYjj97h7NQQ/viewform" target="_blank" rel="noopener" style="color:#fff;">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-copy">© 2025 CTM（クリニック トータル マネージメント）</div>
     </div>
-  </article>
+  </footer>
 
-  <!-- 02 人事労務支援（右に画像／左にテキスト） -->
-  <article id="hr" class="svc-row rev">
-    <div class="svc-col text">
-      <h2>人事労務支援</h2>
-      <p>
-        採用から評価・定着までの人事サイクルを現場運用と両輪で整えます。労務リスクを抑えつつ人件費と労働時間を最適化。
-      </p>
-      <ul>
-        <li>採用設計（求人票・面接設計・評価基準の明確化）</li>
-        <li>勤怠/シフト体制の是正・就業規則/手当設計の見直し</li>
-        <li>評価制度の運用・賃金テーブル設計・1on1導入</li>
-        <li>人手不足/欠員時の業務再配分・応援体制設計</li>
-      </ul>
-    </div>
-    <figure class="svc-col media">
-      <img src="images/5.jpeg" alt="人事労務支援" loading="lazy" decoding="async">
-    </figure>
-  </article>
-
-  <!-- 03 業務フロー改善（左に画像／右にテキスト） -->
-  <article id="workflow" class="svc-row">
-    <figure class="svc-col media">
-      <img src="images/6.jpeg" alt="業務フロー改善" loading="lazy" decoding="async">
-    </figure>
-    <div class="svc-col text">
-      <h2>業務フロー改善</h2>
-      <p>
-        受付〜診療〜会計までの導線・帳票・オペレーションを見直し、スタッフ負担を軽減。患者さまにもわかりやすい導線に最適化します。
-      </p>
-      <ul>
-        <li>受付/会計のタイムスタディ・滞留箇所の特定</li>
-        <li>問診票/帳票の再設計・電子化・テンプレート整備</li>
-        <li>レイアウト/導線最適化（院内サイン・動線設計）</li>
-        <li>マニュアル/チェックリストの整備と定着支援</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- 04 マーケティング戦略（右に画像／左にテキスト） -->
-  <article id="marketing" class="svc-row rev">
-    <div class="svc-col text">
-      <h2>マーケティング戦略</h2>
-      <p>
-        地域特性と競合状況を分析し、来院につながる導線を設計。メッセージ・見せ方を統一し、Web/院内/紹介を連動させます。
-      </p>
-      <ul>
-        <li>ブランド設計（トーン&ビジュアル/コピー/院内掲示）</li>
-        <li>Web導線（HP/SEO・MEO・SNS・投稿運用）</li>
-        <li>院内導線（パンフ/掲示/サイン/説明スライド）</li>
-        <li>紹介スキームの設計（紹介カード/説明トーク整備）</li>
-      </ul>
-    </div>
-    <figure class="svc-col media">
-      <img src="images/7.jpeg" alt="マーケティング戦略" loading="lazy" decoding="async">
-    </figure>
-  </article>
-
-</main>
+</body>
+</html>
