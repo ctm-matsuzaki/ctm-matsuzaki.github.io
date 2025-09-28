@@ -122,6 +122,10 @@ body {
   margin-top: 8px;
 }
 
+.section-lead {
+  white-space: nowrap; /* 改行しない */
+}
+
 /* =========================
    Problems
    ========================= */
