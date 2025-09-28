@@ -246,9 +246,8 @@ body {
   min-height: clamp(360px, 46vw, 520px);
 }
 
-/* 左：写真カラム */
-.company-img{
-  background: url('images/8.jpeg') center / cover no-repeat; /* ← パスと拡張子を実ファイルに合わせる */
+/* 左：写真カラム */.company-img {
+  background: url('images/8.jpg') center/cover no-repeat;
   background-size: cover;
 }
 
@@ -282,14 +281,13 @@ body {
   line-height: 1.9;
 }
 .company-more {
-  display: inline-block;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 4px;
-  padding: .5rem .9rem;
+  display:inline-block;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  padding:.5rem .9rem;
 }
+
 .company-more:hover { opacity: .85; }
 
 /* =========================
