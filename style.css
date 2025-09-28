@@ -297,9 +297,9 @@ body {
   font-weight:700;
   color:#fff;
   text-decoration:none;
-  padding: 0.8rem 1.5rem; /* ← ボタンサイズUP */
-  font-size: 1rem;        /* ← テキストサイズUP */
-  border:none !important;
+  padding: 0.6rem 1.2rem;  /* 少し広めに */
+  font-size: 1.1rem;       /* ← 本文テキストと同じサイズに調整 */
+  border:none !important;  /* 枠を消す */
   outline:none;
   background: none;
   margin-top: 1.5rem;
