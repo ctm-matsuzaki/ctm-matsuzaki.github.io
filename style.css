@@ -38,11 +38,11 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding-bottom: 10vh;
+  padding-bottom: 4vh;
 }
 .hero__inner {
   width: min(96%, 1240px);
-  margin-left: clamp(12px, 5vw, 72px);
+  margin-left: clamp(8px, 3vw, 40px);
   text-align: left;
 }
 .hero__title {
