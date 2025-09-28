@@ -281,25 +281,30 @@ body {
   margin: 0 0 1.2em;
 }
 
-.company-text .lead{
-  color: #eaf4ee;
-  line-height: 1.9;
-  margin: 0 0 1.2rem;
-  max-width: 640px;                                     /* ← 2行目安 */
+/* 説明文の幅を調整して2行にする */
+.company-text .lead {
+  color:#eaf4ee;
+  text-align:left;
+  margin:0 0 1.2rem;
+  line-height:1.9;
+  max-width: 90%;   /* ← 横幅を広げる */
+  font-size: 1.05rem; /* ← 少し小さめにして改行を減らす */
 }
 
-/* more：枠を完全に外す */
+/* MOREボタンを大きめに */
 .company-more{
-  display: inline-block;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  padding: .5rem .9rem;
-  border: none !important;
-  outline: none;
+  display:inline-block;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  padding: 0.8rem 1.5rem; /* ← ボタンサイズUP */
+  font-size: 1rem;        /* ← テキストサイズUP */
+  border:none !important;
+  outline:none;
   background: none;
-  margin-top: 1.5rem;   /* ← ボタンの余白 */
+  margin-top: 1.5rem;
 }
+
 .company-more:hover{ opacity: .85; }
 
 /* ---------- Responsive（SPは上下） ---------- */
