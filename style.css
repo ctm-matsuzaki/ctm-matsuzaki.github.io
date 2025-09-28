@@ -234,64 +234,87 @@ body {
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr; } }
 
 /* =========================
-   Company：左右分割レイアウト
+   Company（PC: 左=写真 / 右=緑テキスト、SP: 上下）
    ========================= */
-.company-cta {
-  padding: 0;   /* 全体には背景色なし */
+.company-cta{
+  padding: 0;                     /* 全体に背景は付けない */
+  background: transparent;
 }
 
-.company-grid {
+.company-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;     /* PCでは左右2分割 */
-  min-height: clamp(360px, 46vw, 520px);
+  grid-template-columns: 1fr 1fr; /* PCは左右2分割 */
+  min-height: clamp(320px, 42vw, 520px);  /* セクションの基準高さ */
 }
 
-/* 左：写真カラム */.company-img {
-  background: url('images/8.jpg') center/cover no-repeat;
-  background-size: cover;
+/* 左：写真（背景で全面表示） */
+.company-img{
+  min-height: inherit;                                /* ← 親のmin-heightを継承して高さを確保 */
+  background: url('images/8.jpeg') center / cover no-repeat;
 }
 
-//* 右：テキストカラム */
-.company-text {
-  background: var(--ctm-green-deep);
-  color:#fff;
-  padding: clamp(48px, 6vw, 96px);
+/* 右：テキスト（緑背景＋白文字） */
+.company-text{
+  min-height: inherit;                                /* ← 左と同じ高さに */
+  background: var(--ctm-green-deep) !important;       /* ← 確実に緑に */
+  color: #fff;
+  padding: clamp(32px, 5vw, 72px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 600px;  /* ← 二行に収める幅調整 */
+  align-items: center;                                 /* 内容を縦中央 */
 }
 
-.company-title {
-  font-family:'Noto Serif JP',serif;
-  font-weight:700;
-  font-size:clamp(2.2rem,4.2vw,3.2rem);
-  margin:0 0 .5em;
-  color:#fff;
+/* テキストの横幅を制御して2行に収める */
+.company-text > *{ margin: 0; }
+.company-title{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  color: #fff;
+  margin: 0 0 .5em;
+}
+.company-subtitle{
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #eaf4ee;
+  margin: 0 0 1.2em;
+}
+.company-text .lead{
+  color: #eaf4ee;
+  line-height: 1.9;
+  margin: 0 0 1.2rem;
+  max-width: 640px;                                     /* ← 2行目安 */
 }
 
-.company-subtitle {
-  font-family:'Noto Serif JP',serif;
-  font-weight:400;
-  font-size:clamp(1.1rem,2.2vw,1.4rem);
-  margin:0 0 1.2em;
-  color:#eaf4ee;
+/* more：枠を完全に外す */
+.company-more{
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  padding: .5rem .9rem;
+  border: none !important;        /* ← 枠削除 */
+  outline: none;
+  background: none;
 }
+.company-more:hover{ opacity: .85; }
 
-.company-text .lead {
-  color:#eaf4ee;
-  margin:0 0 1.2rem;
-  line-height:1.9;
-}
-
-.company-more {
-  display:inline-block;
-  font-weight:700;
-  color:#fff;
-  text-decoration:none;
-  padding:.5rem .9rem;
-  border:none;      /* ← 枠削除 */
-  background:none;  /* ← 念のため背景リセット */
+/* ---------- Responsive（SPは上下） ---------- */
+@media (max-width: 900px){
+  .company-grid{
+    grid-template-columns: 1fr;   /* 縦並び */
+  }
+  .company-img{
+    min-height: unset;
+    height: 56vw;                 /* 写真の見える高さを確保 */
+  }
+  .company-text{
+    min-height: unset;
+    padding: clamp(28px, 6vw, 56px);
+  }
+  .company-text .lead{
+    max-width: none;              /* SPは幅制限解除（読みやすさ優先） */
+  }
 }
 
 /* =========================
