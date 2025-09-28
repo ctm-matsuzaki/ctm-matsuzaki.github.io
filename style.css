@@ -255,12 +255,12 @@ body {
 
 /* 右：テキスト（緑背景＋白文字） */
 .company-text{
-  min-height: inherit;                                /* ← 左と同じ高さに */
-  background: var(--ctm-green-deep) !important;       /* ← 確実に緑に */
+  min-height: inherit;
+  background: var(--ctm-green-deep) !important;
   color: #fff;
   padding: clamp(32px, 5vw, 72px);
-  display: flex;
-  align-items: center;                                 /* 内容を縦中央 */
+  /* display: flex; ← 削除 */
+  /* align-items: center; ← 削除 */
 }
 
 /* テキストの横幅を制御して2行に収める */
@@ -270,8 +270,9 @@ body {
   font-weight: 700;
   font-size: clamp(2.2rem, 4.2vw, 3.2rem);
   color: #fff;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
 }
+
 .company-subtitle{
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
@@ -279,6 +280,7 @@ body {
   color: #eaf4ee;
   margin: 0 0 1.2em;
 }
+
 .company-text .lead{
   color: #eaf4ee;
   line-height: 1.9;
@@ -293,9 +295,10 @@ body {
   color: #fff;
   text-decoration: none;
   padding: .5rem .9rem;
-  border: none !important;        /* ← 枠削除 */
+  border: none !important;
   outline: none;
   background: none;
+  margin-top: 1.5rem;   /* ← ボタンの余白 */
 }
 .company-more:hover{ opacity: .85; }
 
