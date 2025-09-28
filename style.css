@@ -43,6 +43,7 @@ body {
 .hero__inner {
   width: min(96%, 1240px);
   margin-left: clamp(8px, 3vw, 40px);
+　　margin-bottom: 2vh;  
   text-align: left;
 }
 .hero__title {
