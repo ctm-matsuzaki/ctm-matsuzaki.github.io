@@ -663,3 +663,23 @@ footer a:hover {
     font-size: 1rem;
   }
 }
+
+/* 代表挨拶ページ */
+.philosophy {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.philosophy .catch {
+  color: #165b33; /* 緑色 */
+  font-size: 2.5rem; /* 見出しと同じサイズ */
+  margin-bottom: 20px;
+}
+
+.philosophy .lead-center {
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
