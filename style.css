@@ -700,12 +700,11 @@ footer a:hover {
 }
 
 /* ===== 名前画像（松﨑 忠将） レスポンシブ調整 ===== */
-.cmp-name{
-  display:block;
-  height:auto;
-  /* PC：左寄り（少し内側）＆大きめ */
-  width: clamp(420px, 40vw, 680px);
-  margin: 24px auto 12px 8%;
+.cmp-name {
+  display: block;
+  width: clamp(280px, 35vw, 480px); /* ← 幅を拡大 */
+  height: auto;
+  margin: clamp(20px, 4vw, 36px) auto 0;
 }
 
 /* タブレット以下は中央寄せ＆さらに見やすく */
