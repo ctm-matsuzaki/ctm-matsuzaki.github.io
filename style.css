@@ -698,3 +698,23 @@ footer a:hover {
   margin: 0 auto;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
+
+/* 名前テキスト（PCとスマホで見やすく調整） */
+.cmp-name-text {
+  display: block;
+  color: var(--ctm-green-ink);
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2vw, 1.8rem); /* ← デスクトップではやや大きめ */
+  margin: 1.2em auto 1.2em 5%; /* ← 左に寄せつつ、PCで余白を入れる */
+}
+
+/* スマホでは中央寄せ＆文字を少し大きく */
+@media (max-width: 768px) {
+  .cmp-name-text {
+    margin: 1.2em auto;         /* 左寄せを解除して中央寄せ */
+    text-align: center;         /* 中央寄せ */
+    font-size: 1.5rem;          /* スマホで見やすい大きさに */
+  }
+}
+
