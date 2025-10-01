@@ -698,15 +698,3 @@ footer a:hover {
   margin: 0 auto;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
-
-/* トップページ専用 */
-.hero--top {
-  background: url('images/1.png') no-repeat center center;
-  background-size: cover;
-}
-
-/* 代表挨拶ページ専用（観葉植物） */
-.hero--message {
-  background: url('images/23.jpg') no-repeat center center;
-  background-size: cover;
-}
