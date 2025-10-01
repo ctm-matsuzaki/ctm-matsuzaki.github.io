@@ -700,25 +700,26 @@ footer a:hover {
 }
 
 /* ===== 名前画像（松﨑 忠将） レスポンシブ調整 ===== */
-.cmp-name {
-  display: block;
-  width: clamp(280px, 35vw, 480px); /* ← 幅を拡大 */
-  height: auto;
-  margin: clamp(20px, 4vw, 36px) auto 0;
+.cmp-name{
+  display:block;
+  height:auto;
+  /* PC：少し左寄り（内側8%）で大きめ */
+  width: clamp(420px, 40vw, 680px);
+  margin: 24px auto 12px 8%;
 }
 
-/* タブレット以下は中央寄せ＆さらに見やすく */
+/* タブレット以下：中央寄せ */
 @media (max-width: 1024px){
   .cmp-name{
     width: clamp(380px, 56vw, 640px);
-    margin: 22px auto 12px auto; /* 中央寄せ */
+    margin: 22px auto 12px auto;
   }
 }
 
-/* スマホ（～768px）：中央寄せ＋文字が小さく見えないサイズに */
+/* スマホ：中央寄せ＋さらに大きめ（文字が小さく見えない幅） */
 @media (max-width: 768px){
   .cmp-name{
-    width: min(88%, 560px);     /* 画面に対してしっかり大きく */
-    margin: 18px auto 10px auto;/* 完全中央寄せ */
+    width: min(88%, 560px);
+    margin: 18px auto 10px auto;
   }
 }
