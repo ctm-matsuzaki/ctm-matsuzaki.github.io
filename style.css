@@ -762,14 +762,9 @@ footer a:hover {
 
 /* ===== Footer normalize (全ページ統一) ===== */
 .site-footer{
-  /* 画面幅いっぱい（親の幅制限を無視） */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  width: 100vw;
-
+  /* ← 50vw の左寄せ調整は廃止。素直に100%幅にします。 */
+  width: 100%;
+  margin: 0;
   background-color: var(--ctm-green-deep) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -799,5 +794,5 @@ footer a:hover {
 .site-footer a:hover{ text-decoration: underline !important; }
 .site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
 
-/* 横スクロール抑止（100vw使用時の保険） */
+/* 横スクロール抑止（保険） */
 html, body{ overflow-x: hidden; }
