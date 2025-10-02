@@ -39,12 +39,14 @@ body {
   align-items: flex-start;
   padding-bottom: 4vh;
 }
+
 .hero__inner {
   width: min(96%, 1240px);
   margin-left: clamp(8px, 3vw, 40px);
-　　margin-bottom: 2vh;  
+  margin-bottom: 2vh;  /* ← 正しく有効化 */
   text-align: left;
 }
+
 .hero__title {
   font-family: 'Noto Serif JP', serif;
   font-weight: 700;
@@ -421,28 +423,6 @@ body {
 }
 
 /* =========================
-   Footer（緑背景バージョン）
-   ========================= */
-footer {
-  background-color: var(--ctm-green-deep); /* サイトの濃い緑 */
-  color: #fff; /* 全体の文字を白に */
-  text-align: center;
-  padding: 20px 10px;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #fff; /* リンクも白字 */
-  text-decoration: none;
-  margin: 0 6px;
-  font-weight: 500;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* =========================
    Services 2-column section
    ========================= */
 .svc-section{
@@ -725,46 +705,32 @@ footer a:hover {
   }
 }
 
-/* ===== Footer normalize (全ページ統一) ===== */
+/* ===== 名前画像（松﨑 忠将） レスポンシブ最終版 ===== */
+.cmp-name{
+  display:block;
+  height:auto;
+  width: clamp(420px, 40vw, 680px);        /* PC：大きめ */
+  margin: 24px auto 12px clamp(24px, 4vw, 32px); /* PC：左に寄せる */
+}
+
+@media (max-width: 1024px){
+  .cmp-name{
+    width: clamp(380px, 56vw, 640px);
+    margin: 22px 0 12px clamp(20px, 4.5vw, 32px); /* タブレットも左寄せ */
+  }
+}
+
+@media (max-width: 768px){
+  .cmp-name{
+    width: min(92%, 560px);                /* スマホ：もっと大きく */
+    margin: 18px 0 14px clamp(16px, 5vw, 24px); /* スマホ：経歴見出しと揃う位置に左寄せ */
+  }
+}
+
+/* ===== Footer normalize（全ページ統一）===== */
 .site-footer{
-  width: 100vw !important;
+  width: 100% !important;
   margin: 0 !important;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);          /* 親の幅制限の影響を受けても全幅に */
-  background-color: var(--ctm-green-deep) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-.site-footer .footer-inner{
-  max-width: min(1100px, 92%) !important; /* 中身だけ幅制限 */
-  margin: 0 auto !important;
-  padding: 28px 12px !important;
-  background: transparent !important;     /* 緑背景は footer にのみ付ける */
-  text-align: center !important;
-}
-
-.site-footer .footer-nav ul{
-  list-style: none !important;
-  margin: 0 0 10px !important;
-  padding: 0 !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 18px !important;
-}
-
-.site-footer .footer-nav li{ margin: 0 !important; }
-.site-footer a{ color:#fff !important; text-decoration:none !important; }
-.site-footer a:hover{ text-decoration: underline !important; }
-.site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
-
-/* ===== Footer normalize (全ページ統一) ===== */
-.site-footer{
-  /* ← 50vw の左寄せ調整は廃止。素直に100%幅にします。 */
-  width: 100%;
-  margin: 0;
   background-color: var(--ctm-green-deep) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
