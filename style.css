@@ -727,11 +727,12 @@ body {
   }
 }
 
-/* ===== Footer normalize（全ページ統一）===== */
+/* ===== Footer normalize (全ページ統一) ===== */
 .site-footer{
-  width: 100% !important;
-  margin: 0 !important;
+  width: 100%;
+  margin: 0;
   background-color: var(--ctm-green-deep) !important;
+  color: #fff !important;               /* ←← これを追加（全テキストを白に） */
   border-radius: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
