@@ -715,9 +715,11 @@ footer a:hover {
   }
 }
 
-@media (max-width: 768px){
-  .cmp-name{
-    width: min(88%, 560px) !important;
-    margin: 18px auto 10px auto !important; /* 中央寄せ */
+@media (max-width: 768px) {
+  .cmp-name {
+    font-size: 1.25rem; /* 経歴と同じくらいのサイズ */
+    text-align: left;   /* 左寄せ */
+    margin: 18px 0 10px 0; /* 上下の余白を微調整 */
+    display: block;
   }
 }
