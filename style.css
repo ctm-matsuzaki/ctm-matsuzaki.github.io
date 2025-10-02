@@ -703,21 +703,21 @@ footer a:hover {
 .cmp-name{
   display:block;
   height:auto;
-  font-size: clamp(1.4rem, 2.2vw, 2rem); /* ←文字を大きめに */
-  width: auto;
-  margin: 24px auto 12px 20%; /* ←左寄りを調整 */
+  /* PC：少し左寄り（内側 8%）＆大きめ */
+  width: clamp(420px, 40vw, 680px) !important;
+  margin: 24px auto 12px 8% !important;
 }
 
 @media (max-width: 1024px){
   .cmp-name{
-    font-size: 1.3rem; /* ←タブレット用 */
-    margin: 20px auto 12px 12%;
+    width: clamp(380px, 56vw, 640px) !important;
+    margin: 22px auto 12px auto !important; /* 中央寄せ */
   }
 }
 
 @media (max-width: 768px){
   .cmp-name{
-    font-size: 1.2rem; /* ←スマホ用 */
-    margin: 18px auto 10px 8%; /* ←左寄りを少しだけに */
+    width: min(88%, 560px) !important;
+    margin: 18px auto 10px auto !important; /* 中央寄せ */
   }
 }
