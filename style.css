@@ -725,43 +725,37 @@ footer a:hover {
   }
 }
 
-/* =========================
-   Footer（緑背景・中央揃え・箇条書き消去）
-   ========================= */
+/* ===== Footer normalize (全ページ統一) ===== */
 .site-footer{
-  width: 100%;
-  background-color: var(--ctm-green-deep);
-  color: #fff;
+  width: 100vw !important;
+  margin: 0 !important;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);          /* 親の幅制限の影響を受けても全幅に */
+  background-color: var(--ctm-green-deep) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .site-footer .footer-inner{
-  width: min(1100px, 92%);
-  margin: 0 auto;
-  padding: 28px 12px;
-  text-align: center;
+  max-width: min(1100px, 92%) !important; /* 中身だけ幅制限 */
+  margin: 0 auto !important;
+  padding: 28px 12px !important;
+  background: transparent !important;     /* 緑背景は footer にのみ付ける */
+  text-align: center !important;
 }
 
 .site-footer .footer-nav ul{
-  list-style: none;           /* ● を消す */
-  padding: 0;
-  margin: 0 0 10px;
-  display: flex;              /* 横並び */
-  flex-wrap: wrap;            /* 折り返し可 */
-  justify-content: center;    /* 中央配置 */
-  gap: 18px;                  /* 項目の間隔 */
+  list-style: none !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 18px !important;
 }
 
-.site-footer .footer-nav li{ margin: 0; }
-
-.site-footer a{
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.site-footer a:hover{ text-decoration: underline; }
-
-.site-footer .footer-copy{
-  font-size: .9rem;
-  opacity: .9;
-}
+.site-footer .footer-nav li{ margin: 0 !important; }
+.site-footer a{ color:#fff !important; text-decoration:none !important; }
+.site-footer a:hover{ text-decoration: underline !important; }
+.site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
