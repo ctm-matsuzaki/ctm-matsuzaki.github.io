@@ -718,10 +718,10 @@ footer a:hover {
 /* ===== スマホ専用：名前サイズを大きく・左寄せ ===== */
 @media (max-width: 768px) {
   .cmp-name {
-    font-size: 1.45rem;   /* 経歴と同等より少し大きめ */
+    font-size: 1.80rem;   /* 経歴と同等より少し大きめ */
     text-align: left;     /* 左寄せ */
     display: block;
-    margin: 0 0 14px 6%;  /* 左余白を少し確保（調整可能） */
+    margin: 0 0 14px 3%;  /* 左余白を少し確保（調整可能） */
   }
 }
 
