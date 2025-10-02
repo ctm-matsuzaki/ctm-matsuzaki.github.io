@@ -695,12 +695,12 @@ body {
   }
 }
 
-/* ===== スマホ専用：名前画像を大きく・左寄せ ===== */
+/* ===== スマホ専用：名前画像の高さを経歴タイトルに揃える ===== */
 @media (max-width: 768px) {
   .cmp-name {
-    width: clamp(300px, 85%, 480px) !important; /* ← スマホで大きめに調整 */
-    margin: 0 0 16px 3% !important;             /* 左に寄せつつ余白少し */
-    height: auto !important;
+    height: 2.2rem !important;   /* 経歴タイトル(h3)と同等の高さに調整 */
+    width: auto !important;      /* 縦横比は維持して拡大縮小 */
+    margin: 0 0 14px 3% !important; /* 左に寄せる */
   }
 }
 
