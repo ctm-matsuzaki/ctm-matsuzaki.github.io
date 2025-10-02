@@ -759,3 +759,45 @@ footer a:hover {
 .site-footer a{ color:#fff !important; text-decoration:none !important; }
 .site-footer a:hover{ text-decoration: underline !important; }
 .site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
+
+/* ===== Footer normalize (全ページ統一) ===== */
+.site-footer{
+  /* 画面幅いっぱい（親の幅制限を無視） */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+
+  background-color: var(--ctm-green-deep) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.site-footer .footer-inner{
+  max-width: min(1100px, 92%) !important;
+  margin: 0 auto !important;
+  padding: 28px 12px !important;
+  background: transparent !important;
+  text-align: center !important;
+}
+
+.site-footer .footer-nav ul{
+  list-style: none !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 18px !important;
+}
+
+.site-footer .footer-nav li{ margin: 0 !important; }
+.site-footer a{ color:#fff !important; text-decoration:none !important; }
+.site-footer a:hover{ text-decoration: underline !important; }
+.site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
+
+/* 横スクロール抑止（100vw使用時の保険） */
+html, body{ overflow-x: hidden; }
