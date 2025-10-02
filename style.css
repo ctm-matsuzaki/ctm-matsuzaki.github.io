@@ -715,11 +715,12 @@ footer a:hover {
   }
 }
 
+/* ===== スマホ専用：名前サイズを大きく・左寄せ ===== */
 @media (max-width: 768px) {
   .cmp-name {
-    font-size: 1.25rem; /* 経歴と同じくらいのサイズ */
-    text-align: left;   /* 左寄せ */
-    margin: 18px 0 10px 0; /* 上下の余白を微調整 */
+    font-size: 1.45rem;   /* 経歴と同等より少し大きめ */
+    text-align: left;     /* 左寄せ */
     display: block;
+    margin: 0 0 14px 6%;  /* 左余白を少し確保（調整可能） */
   }
 }
