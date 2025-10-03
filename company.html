@@ -2,192 +2,103 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>会社情報 | CTM</title>
-  <meta name="robots" content="index, follow" />
-  <meta name="description" content="会社情報（代表挨拶）。CTM（Clinic Total Management）の概要、理念、提供方針をご紹介します。">
+  <meta name="description" content="CTM（Clinic Total Management）の会社情報。理念・コンセプト・ミッション・ビジョン・バリューをご紹介します。">
   <link rel="stylesheet" href="style.css" />
-
-  <!-- このページ専用のちょい足しスタイル（既存CSSを壊さない用） -->
-  <style>
-    :root{
-      --ctm-green-ink: #165b33; /* 既存と同じ想定（無ければこの色が効きます） */
-    }
-
-    /* ヒーロー */
-    .hero-company{
-      position: relative;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .hero-company img{
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* ページ内共通ラッパー（中央寄せ＆適度な横幅） */
-    .cmp-wrap{
-      width: min(1100px, 92%);
-      margin: 0 auto;
-      padding: clamp(32px, 6vw, 64px) 0;
-    }
-
-    /* セクション見出し（緑・中央寄せ・大きめ） */
-    .cmp-heading{
-      text-align: center;
-      color: var(--ctm-green-ink);
-      font-weight: 700;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-      line-height: 1.35;
-      margin: 0 0 clamp(20px, 2.5vw, 28px);
-    }
-
-    /* リード文や本文の読みやすい中央寄せ */
-    .cmp-lead, .cmp-body{
-      width: min(900px, 100%);
-      margin: 0 auto;
-    }
-    .cmp-lead{
-      font-size: clamp(1rem, 1.7vw, 1.125rem);
-      line-height: 2;
-      text-align: center;
-      margin-bottom: clamp(28px, 4vw, 40px);
-    }
-    .cmp-body{
-      font-size: clamp(.95rem, 1.6vw, 1.05rem);
-      line-height: 2.1;
-      text-align: left;
-    }
-
-    /* 氏名画像（小さめ＆中央） */
-    .cmp-name{
-      display: block;
-      width: clamp(220px, 28vw, 360px);
-      height: auto;
-      margin: clamp(20px, 4vw, 36px) auto 0;
-    }
-
-    /* 各ブロックの余白 */
-    .cmp-section{
-      padding: clamp(28px, 5vw, 56px) 0;
-      border-top: 1px solid rgba(0,0,0,.06);
-    }
-    .cmp-section:first-of-type{
-      border-top: none;
-    }
-
-    /* 中見出し（緑・左寄せ） */
-    .cmp-subhead{
-      color: var(--ctm-green-ink);
-      font-family: "Noto Serif JP", serif;
-      font-weight: 700;
-      font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-      margin: 0 0 .8em;
-      line-height: 1.4;
-      text-align: left;
-      width: min(900px, 100%);
-      margin-left: auto; margin-right: auto;
-    }
-
-    /* バナー的な画像が重なって見えないよう、明示的に非表示（必要なら後で戻せます） */
-    .banner, .banner img{ display:none !important; }
-  </style>
+  <!-- このページ専用の追記用 -->
+  <link rel="stylesheet" href="company.css" />
 </head>
+<body>
 
-<body class="page-company">
-
-  <!-- ======= Hero（上部の1枚だけ） ======= -->
-  <section class="hero-company" aria-label="会社情報ヒーロー">
-    <!-- 重なり原因の2枚目を排除。ここは 23.jpg のみ表示 -->
-    <img src="images/23.jpg" alt="会社情報イメージ">
-  </section>
-
-  <!-- ======= 代表挨拶（中央寄せ & 緑見出し） ======= -->
-  <section class="cmp-wrap">
-    <h2 class="cmp-heading">代表挨拶</h2>
-
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">ご挨拶</h3>
-      <p class="cmp-body">
-        皆さま、こんにちは。Clinic Total Management（CTM）の松崎です。<br>
-        これまで私は、整形外科や美容皮膚科など複数のクリニックにおいて、現場業務から経営改善まで幅広く携わってまいりました。<br>
-        特に大切にしているのは、「院長の最大の理解者として、最高の2番手になること」です。<br><br>
-        クリニック経営において、院長が医療に専念できる環境こそが、最良の医療サービス提供につながります。<br>
-        そのために、私は現場出身者の“現場と視点”を活かして、人事・財務・業務フロー・ブランディングなど、ソフト面と経営面の両面からサポートを行っています。
-      </p>
-
-      <!-- 氏名画像（小さめ・中央） -->
-      <img class="cmp-name" src="images/氏名.png" alt="松﨑 忠将（Tadamas​a Matsuzaki）">
+  <!-- Hero：会社情報タイトル + 写真 -->
+  <header class="cmp-hero" role="banner" aria-label="会社情報 ヘッダー">
+    <div class="cmp-hero__imagewrap">
+      <img src="assets/img/company/hero.jpg" alt="会議中のビジネスシーン" loading="eager" decoding="async">
     </div>
-
-    <!-- ======= 会社理念 ======= -->
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">理念（Philosophy）</h3>
-      <p class="cmp-body">
-        私たちは「現場に寄り添い、医師とスタッフと患者さんが安心して働き・通院できる環境を整える」ことを掲げ、<br>
-        経営改善と現場運用の両輪で、チームが機能する診療体制づくりを支援します。
-      </p>
+    <div class="cmp-hero__title">
+      <p class="cmp-eyebrow">会社情報</p>
     </div>
+  </header>
 
-    <!-- ======= 提供コンセプト ======= -->
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">コンセプト（Concept）</h3>
-      <p class="cmp-body">
-        「ともに走る伴走型」。現場と数値（データ）をつなぎ、意思決定のスピードと精度を高める仕組みを構築。<br>
-        施策の実装と定着までを見届け、成果が出るまで伴走します。
-      </p>
-    </div>
-
-    <!-- ======= ミッション ======= -->
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">ミッション（Mission）</h3>
-      <p class="cmp-body">
-        来院動機づくりや収益性の最大化、職場満足度の向上を同時に実現するため、<br>
-        現場視点と経営視点の両面から、最適な運用と可視化を推進します。
-      </p>
-    </div>
-
-    <!-- ======= ビジョン ======= -->
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">ビジョン（Vision）</h3>
-      <p class="cmp-body">
-        医師・職員・患者さんが長く安心して関わり続けられる「持続可能なクリニックづくり」。<br>
-        地域に選ばれる医療体験の継続的な改善を目指します。
-      </p>
-    </div>
-
-    <!-- ======= バリュー ======= -->
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">バリュー（Value）</h3>
-      <div class="cmp-body">
-        <p><strong>① 実装まで伴走する</strong>（現場に根づくまで一緒に）</p>
-        <p><strong>② 数値で意思決定</strong>（KPIとコスト構造を見直し、伸ばす・締めるを明確に）</p>
-        <p><strong>③ チームで改善</strong>（組織運営のアップデート、職員満足の向上）</p>
-        <p><strong>④ 情報発信を設計</strong>（院内外コミュニケーション・ブランディング）</p>
+  <main id="main" class="cmp-main" role="main">
+    <!-- Philosophy -->
+    <section id="philosophy" class="cmp-block">
+      <div class="cmp-block__titleimg">
+        <img src="assets/img/company/philosophy.jpg" alt="Philosophy 理念" loading="lazy" decoding="async">
       </div>
-    </div>
-  </section>
+      <div class="cmp-container">
+        <h2 class="visually-hidden">理念</h2>
+        <p class="cmp-lead">
+          現場に寄り添い、医療に集中できる環境を整える。<br>
+          私たちは、クリニックで働くすべての人の声を聞き、院長が目指す医療を、経営という土台から支えます。
+        </p>
+      </div>
+    </section>
 
-  <!-- ======= 共通フッター（既存のまま） ======= -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <nav class="footer-nav" aria-label="フッターナビゲーション">
-        <ul>
-          <li><a href="/">ホーム</a></li>
-          <li><a href="/message.html">代表挨拶</a></li>
-          <li><a href="/company.html">会社情報</a></li>
-          <li><a href="/services.html">サービス</a></li>
-          <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLaSYFDRujj29M4iFk8TfAwb3Bp0GJlacJ2LYj97h7NQq/viewform"
-               target="_blank" rel="noopener">お問い合わせ</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="footer-copy">© 2025 CTM（クリニック トータル マネージメント）</div>
-    </div>
-  </footer>
+    <!-- Concept -->
+    <section id="concept" class="cmp-block cmp-block--dark">
+      <div class="cmp-block__titleimg">
+        <img src="assets/img/company/concept.jpg" alt="Concept コンセプト" loading="lazy" decoding="async">
+      </div>
+      <div class="cmp-container">
+        <h2 class="visually-hidden">コンセプト</h2>
+        <p class="cmp-catch">
+          主役は、院長とスタッフと患者様　CTMは、そのすぐそばで支え続ける
+        </p>
+        <p class="cmp-body">
+          CTMは、クリニックの経営・人事・財務をトータルで支える事務長代行サービスです。現場出身の強みを活かし、経営と現場、院長とスタッフ、理想と現実の橋渡しをします。「右腕」として、あらゆる声に応えながら、より良い医療の形を共に描いていきます。
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission" class="cmp-block">
+      <div class="cmp-block__titleimg">
+        <img src="assets/img/company/mission.jpg" alt="Mission ミッション" loading="lazy" decoding="async">
+      </div>
+      <div class="cmp-container">
+        <h2 class="visually-hidden">ミッション</h2>
+        <p class="cmp-catch">
+          医療の質を、経営の力で支える
+        </p>
+        <p class="cmp-body">
+          院長が本当にやりたい医療を実現するために、医療以外の全てを任せられる存在となり、クリニックの経営基盤を整え、チーム医療が機能する環境を創ります。
+        </p>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section id="vision" class="cmp-block cmp-block--dark">
+      <div class="cmp-block__titleimg">
+        <img src="assets/img/company/vision.jpg" alt="Vision ビジョン" loading="lazy" decoding="async">
+      </div>
+      <div class="cmp-container">
+        <h2 class="visually-hidden">ビジョン</h2>
+        <p class="cmp-body">
+          医師が医療に専念できる、あたりまえの職場環境をすべてのクリニックに。<br>
+          経営と現場が両立し、スタッフも院長も無理なく力を発揮できるクリニックを全国に広げていきます。医療に集中できる“健全な土台”が整っている――そんな職場が「普通に存在する選択肢」となる未来をつくります。
+        </p>
+      </div>
+    </section>
+
+    <!-- Value -->
+    <section id="value" class="cmp-block">
+      <div class="cmp-block__titleimg">
+        <img src="assets/img/company/value.jpg" alt="Value バリュー" loading="lazy" decoding="async">
+      </div>
+      <div class="cmp-container">
+        <h2 class="visually-hidden">バリュー</h2>
+        <ol class="cmp-values">
+          <li><strong>“右腕”であり“理解者”である</strong><br>院長の想いを形にし、その一歩先を見据えて提案できる存在であり続ける</li>
+          <li><strong>現場第一主義</strong><br>現場に出て、声を聞き、空気を感じる。すべての判断は、そこから始まる</li>
+          <li><strong>全員が報われる仕組みをつくる</strong><br>院長・スタッフ・患者様、それぞれが「ここにいてよかった」と思える環境を整える</li>
+          <li><strong>変化を恐れず、進化を支える</strong><br>理想の医療に近づくために、必要な変化に共に向き合う</li>
+          <li><strong>経営と医療の間に立つ“翻訳者”である</strong><br>現場の想いと経営のリアル、両方をつなぎ、最適な形に整える</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
 </body>
 </html>
