@@ -690,39 +690,43 @@ body {
   }
 }
 
-/* ===== Footer normalize (全ページ統一) ===== */
+/* Footer */
 .site-footer{
-  width: 100%;
-  margin: 0;
-  background-color: var(--ctm-green-deep) !important;
-  color: #fff !important;               /* ←← これを追加（全テキストを白に） */
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  background:#244119; /* or var(--ctm-green) */
+  color:#fff;
+  margin-top: clamp(40px,6vw,80px);
 }
-
-.site-footer .footer-inner{
-  max-width: min(1100px, 92%) !important;
-  margin: 0 auto !important;
-  padding: 28px 12px !important;
-  background: transparent !important;
-  text-align: center !important;
+.site-footer__inner{
+  width:min(1100px,92vw);
+  margin-inline:auto;
+  padding: clamp(24px,4vw,40px) 0;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
 }
-
-.site-footer .footer-nav ul{
-  list-style: none !important;
-  margin: 0 0 10px !important;
-  padding: 0 !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 18px !important;
+.site-footer__brand{
+  font-weight:800;
+  letter-spacing:.06em;
+  font-size: clamp(18px,2.2vw,22px);
 }
-
-.site-footer .footer-nav li{ margin: 0 !important; }
-.site-footer a{ color:#fff !important; text-decoration:none !important; }
-.site-footer a:hover{ text-decoration: underline !important; }
-.site-footer .footer-copy{ font-size:.9rem !important; opacity:.9 !important; }
+.site-footer__nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 24px;
+}
+.site-footer__nav a{
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+.site-footer__nav a:hover{
+  border-bottom-color:#fff;
+}
+.site-footer__copy{
+  opacity:.7;
+  font-size:13px;
+  margin-top:6px;
+}
 
 /* 横スクロール抑止（保険） */
 html, body{ overflow-x: hidden; }
