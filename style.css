@@ -838,3 +838,9 @@ html, body{ overflow-x: hidden; }
   .cmp-container{padding: 22px 0}
   .cmp-hero__title{inset:auto 0 6%}
 }
+
+/* Concept / Vision の帯色だけ指定（他は触らない） */
+#concept.cmp-block--dark,
+#vision.cmp-block--dark{
+  background:#244119 !important;
+}
