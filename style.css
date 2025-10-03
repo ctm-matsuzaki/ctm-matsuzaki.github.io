@@ -712,13 +712,13 @@ footer {
   margin-bottom: 10px;
 }
 
-.footer-nav a {
-  color: #fff;
+footer a {
+  color: #fff; /* 白文字 */
   text-decoration: none;
   margin: 0 10px;
 }
 
-.footer-nav a:hover {
+footer a:hover {
   text-decoration: underline;
 }
 
