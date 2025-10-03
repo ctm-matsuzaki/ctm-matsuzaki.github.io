@@ -139,17 +139,17 @@
 
   </section> <!-- ← ここで cmp-wrap を閉じる -->
 
-  <!-- ======= 共通フッター ======= -->
- <footer>
-  <div class="footer-content">
-    <p class="footer-logo">CTM | Clinic Total Management</p>
-    <nav class="footer-nav">
-      <a href="index.html">ホーム</a>
-      <a href="greeting.html">代表挨拶</a>
-      <a href="company.html">会社情報</a>
-      <a href="services.html">サービス</a>
-      <a href="contact.html">お問い合わせ</a>
-    </nav>
-    <p class="footer-copy">© 2025 CTM（クリニック トータル マネージメント）</p>
-  </div>
+<!-- Global Footer -->
+<footer class="global-footer" role="contentinfo">
+  <nav class="global-footer__nav" aria-label="フッターナビ">
+    <a href="index.html">ホーム</a>
+    <a href="greeting.html">代表挨拶</a>
+    <a href="company.html">会社情報</a>
+    <a href="services.html">サービス</a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
 </footer>
+<script>
+  (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+</script>
