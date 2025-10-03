@@ -845,3 +845,13 @@ html, body{ overflow-x: hidden; }
 #vision.cmp-block--dark{
   background:#244119 !important;
 }
+
+/* モバイル時、見出し画像を拡大表示 */
+@media (max-width: 640px){
+  .cmp-block__titleimg{ overflow: hidden; }          /* はみ出しを隠す */
+  .cmp-block__titleimg img{
+    transform: scale(1.18);                          /* 拡大率はお好みで */
+    transform-origin: center;
+    display:block;
+  }
+}
