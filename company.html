@@ -6,15 +6,112 @@
   <title>会社情報 | CTM</title>
   <meta name="description" content="CTM（Clinic Total Management）の会社情報。理念・コンセプト・ミッション・ビジョン・バリューをご紹介します。">
   <link rel="stylesheet" href="style.css" />
-  <!-- このページ専用の追記用 -->
-  <link rel="stylesheet" href="company.css" />
+
+  <!-- このページ専用のスタイル（既存のstyle.cssを壊さない独立クラス） -->
+  <style>
+    :root{
+      --ctm-green: #264a27;
+      --ctm-green-deep: #213B1F;
+      --ctm-mint: #ADE7D1;
+      --ctm-ink: #224A33;
+    }
+    /* アクセシブル隠し見出し */
+    .visually-hidden{
+      position:absolute!important;clip:rect(1px,1px,1px,1px);
+      width:1px;height:1px;overflow:hidden;white-space:nowrap;
+    }
+
+    /* レイアウト共通 */
+    .cmp-main{background:#fff;color:#243126}
+    .cmp-container{
+      width:min(1100px, 92vw);
+      margin-inline:auto;
+      padding: clamp(20px, 3vw, 40px) 0;
+    }
+    .cmp-lead{
+      font-size: clamp(16px, 2.2vw, 22px);
+      line-height:1.9; text-align:center; color:#23402b;
+    }
+    .cmp-catch{
+      font-weight:700; text-align:center;
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height:1.8; color:#23402b; margin-bottom:.6em;
+    }
+    .cmp-body{
+      font-size: clamp(15px, 2vw, 20px);
+      line-height:1.9; text-align:center; color:#23402b;
+    }
+
+    /* ヒーロー */
+    .cmp-hero{position:relative; isolation:isolate;}
+    .cmp-hero__imagewrap{aspect-ratio: 21/6; width:100%; overflow:hidden; background:#e9efe9;}
+    .cmp-hero__imagewrap img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
+    .cmp-hero__title{position:absolute; inset:auto 0 8%; display:grid; place-items:center; pointer-events:none;}
+    .cmp-eyebrow{
+      display:inline-block; background:#fff; color:var(--ctm-green);
+      padding:.35em .8em; border-radius:999px; font-weight:700;
+      font-size: clamp(14px, 1.8vw, 18px); letter-spacing:.08em;
+    }
+
+    /* セクション */
+    .cmp-block{margin-top: clamp(24px, 4vw, 48px);}
+    .cmp-block__titleimg img{width:100%; height:auto; display:block;}
+    .cmp-block--dark{background:var(--ctm-green-deep);}
+    .cmp-block--dark .cmp-catch, .cmp-block--dark .cmp-body{color:#fff}
+
+    /* Value一覧 */
+    .cmp-values{
+      list-style:none; padding:0; margin:0;
+      display:grid; gap: clamp(14px, 2.2vw, 20px);
+      max-width:900px; margin-inline:auto;
+    }
+    .cmp-values li{
+      text-align:center; font-size:clamp(15px,2vw,19px);
+      line-height:1.9; color:#23402b;
+    }
+    .cmp-values li strong{
+      display:block; font-size:clamp(16px,2.2vw,20px);
+      margin-bottom:.2em; color:#173a24;
+    }
+
+    /* フッター */
+    .site-footer{
+      background:var(--ctm-green-deep);
+      color:#fff; margin-top: clamp(40px,6vw,80px);
+    }
+    .site-footer__inner{
+      width:min(1100px,92vw); margin-inline:auto;
+      padding: clamp(24px,4vw,40px) 0;
+      display:grid; gap:16px;
+    }
+    .site-footer__brand{
+      font-weight:800; letter-spacing:.06em;
+      font-size: clamp(18px,2.2vw,22px);
+    }
+    .site-footer__nav{
+      display:flex; flex-wrap:wrap; gap:14px 24px;
+    }
+    .site-footer__nav a{
+      color:#fff; text-decoration:none; border-bottom:1px solid transparent;
+    }
+    .site-footer__nav a:hover{border-bottom-color:#fff}
+    .site-footer__copy{
+      opacity:.7; font-size:13px; margin-top:6px;
+    }
+
+    @media (max-width:640px){
+      .cmp-container{padding:22px 0}
+      .cmp-hero__title{inset:auto 0 6%}
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Hero：会社情報タイトル + 写真 -->
   <header class="cmp-hero" role="banner" aria-label="会社情報 ヘッダー">
     <div class="cmp-hero__imagewrap">
-      <img src="assets/img/company/hero.jpg" alt="会議中のビジネスシーン" loading="eager" decoding="async">
+      <img src="images/20.jpg" alt="会議中のビジネスシーン">
     </div>
     <div class="cmp-hero__title">
       <p class="cmp-eyebrow">会社情報</p>
@@ -25,7 +122,7 @@
     <!-- Philosophy -->
     <section id="philosophy" class="cmp-block">
       <div class="cmp-block__titleimg">
-        <img src="assets/img/company/philosophy.jpg" alt="Philosophy 理念" loading="lazy" decoding="async">
+        <img src="images/14.jpg" alt="Philosophy 理念">
       </div>
       <div class="cmp-container">
         <h2 class="visually-hidden">理念</h2>
@@ -39,7 +136,7 @@
     <!-- Concept -->
     <section id="concept" class="cmp-block cmp-block--dark">
       <div class="cmp-block__titleimg">
-        <img src="assets/img/company/concept.jpg" alt="Concept コンセプト" loading="lazy" decoding="async">
+        <img src="images/15.jpg" alt="Concept コンセプト">
       </div>
       <div class="cmp-container">
         <h2 class="visually-hidden">コンセプト</h2>
@@ -55,13 +152,11 @@
     <!-- Mission -->
     <section id="mission" class="cmp-block">
       <div class="cmp-block__titleimg">
-        <img src="assets/img/company/mission.jpg" alt="Mission ミッション" loading="lazy" decoding="async">
+        <img src="images/16.jpg" alt="Mission ミッション">
       </div>
       <div class="cmp-container">
         <h2 class="visually-hidden">ミッション</h2>
-        <p class="cmp-catch">
-          医療の質を、経営の力で支える
-        </p>
+        <p class="cmp-catch">医療の質を、経営の力で支える</p>
         <p class="cmp-body">
           院長が本当にやりたい医療を実現するために、医療以外の全てを任せられる存在となり、クリニックの経営基盤を整え、チーム医療が機能する環境を創ります。
         </p>
@@ -71,7 +166,7 @@
     <!-- Vision -->
     <section id="vision" class="cmp-block cmp-block--dark">
       <div class="cmp-block__titleimg">
-        <img src="assets/img/company/vision.jpg" alt="Vision ビジョン" loading="lazy" decoding="async">
+        <img src="images/17.jpg" alt="Vision ビジョン">
       </div>
       <div class="cmp-container">
         <h2 class="visually-hidden">ビジョン</h2>
@@ -85,20 +180,38 @@
     <!-- Value -->
     <section id="value" class="cmp-block">
       <div class="cmp-block__titleimg">
-        <img src="assets/img/company/value.jpg" alt="Value バリュー" loading="lazy" decoding="async">
+        <img src="images/18.jpg" alt="Value バリュー">
       </div>
       <div class="cmp-container">
         <h2 class="visually-hidden">バリュー</h2>
         <ol class="cmp-values">
-          <li><strong>“右腕”であり“理解者”である</strong><br>院長の想いを形にし、その一歩先を見据えて提案できる存在であり続ける</li>
-          <li><strong>現場第一主義</strong><br>現場に出て、声を聞き、空気を感じる。すべての判断は、そこから始まる</li>
-          <li><strong>全員が報われる仕組みをつくる</strong><br>院長・スタッフ・患者様、それぞれが「ここにいてよかった」と思える環境を整える</li>
-          <li><strong>変化を恐れず、進化を支える</strong><br>理想の医療に近づくために、必要な変化に共に向き合う</li>
-          <li><strong>経営と医療の間に立つ“翻訳者”である</strong><br>現場の想いと経営のリアル、両方をつなぎ、最適な形に整える</li>
+          <li><strong>“右腕”であり“理解者”である</strong>院長の想いを形にし、その一歩先を見据えて提案できる存在であり続ける</li>
+          <li><strong>現場第一主義</strong>現場に出て、声を聞き、空気を感じる。すべての判断は、そこから始まる</li>
+          <li><strong>全員が報われる仕組みをつくる</strong>院長・スタッフ・患者様、それぞれが「ここにいてよかった」と思える環境を整える</li>
+          <li><strong>変化を恐れず、進化を支える</strong>理想の医療に近づくために、必要な変化に共に向き合う</li>
+          <li><strong>経営と医療の間に立つ“翻訳者”である</strong>現場の想いと経営のリアル、両方をつなぎ、最適な形に整える</li>
         </ol>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">CTM | Clinic Total Management</div>
+      <nav class="site-footer__nav" aria-label="フッターナビ">
+        <a href="index.html">ホーム</a>
+        <a href="services.html">サービス</a>
+        <a href="company.html">会社情報</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+      <div class="site-footer__copy">© <span id="ycopy"></span> CTM. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // 西暦の自動更新（フッター）
+    document.getElementById('ycopy').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
