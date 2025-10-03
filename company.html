@@ -126,21 +126,24 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__brand">CTM | Clinic Total Management</div>
-      <nav class="site-footer__nav">
-        <a href="index.html">ホーム</a>
-        <a href="services.html">サービス</a>
-        <a href="company.html">会社情報</a>
-        <a href="greeting.html">代表挨拶</a>
-        <a href="contact.html">お問い合わせ</a>
-      </nav>
-      <div class="site-footer__copy">© <span id="ycopy"></span> CTM. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>document.getElementById('ycopy').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">CTM | Clinic Total Management</div>
+    <nav class="site-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="services.html">サービス</a>
+      <a href="company.html">会社情報</a>
+      <a href="greeting.html">代表挨拶</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <div class="site-footer__copy">© <span id="ycopy"></span> CTM. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+  // 年号自動
+  (function(){
+    var el=document.getElementById('ycopy');
+    if(el) el.textContent=new Date().getFullYear();
+  })();
+</script>
