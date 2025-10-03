@@ -643,42 +643,6 @@ body {
   }
 }
 
-/* 代表挨拶ページ */
-.philosophy {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 900px;
-}
-
-.philosophy .catch {
-  color: #165b33; /* 緑色 */
-  font-size: 2.5rem; /* 見出しと同じサイズ */
-  margin-bottom: 20px;
-}
-
-.philosophy .lead-center {
-  text-align: center;
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.page-title {
-  text-align: center;
-  color: var(--ctm-ink);
-  font-weight: 800;
-  font-size: clamp(28px, 4vw, 40px);
-}
-
-.hero__panel {
-  background: rgba(255,255,255,0.85);
-  padding: 40px 24px;
-  border-radius: 12px;
-  max-width: 960px;
-  margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
 /* ===== 名前画像（松﨑 忠将） レスポンシブ調整 ===== */
 .cmp-name{
   display:block;
@@ -762,3 +726,115 @@ body {
 
 /* 横スクロール抑止（保険） */
 html, body{ overflow-x: hidden; }
+
+/* CTM共通トークン（未定義時のフォールバック） */
+:root{
+  --ctm-green: var(--ctm-green, #184d2b);
+  --ctm-green-deep: var(--ctm-green-deep, #213B1F);
+  --ctm-mint: var(--ctm-mint, #ADE7D1);
+  --ctm-ink: var(--ctm-ink, #1c2d22);
+}
+
+/* アクセシビリティ用：画面には出さない見出し */
+.visually-hidden{
+  position:absolute!important;clip:rect(1px,1px,1px,1px);
+  width:1px;height:1px;overflow:hidden;white-space:nowrap;
+}
+
+/* レイアウト共通 */
+.cmp-main{background:#fff;color:#243126}
+.cmp-container{
+  width:min(1100px, 92vw);
+  margin-inline:auto;
+  padding: clamp(20px, 3vw, 40px) 0;
+}
+.cmp-lead{
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height:1.9;
+  text-align:center;
+  color:#23402b;
+}
+.cmp-catch{
+  font-weight:700;
+  text-align:center;
+  font-size: clamp(18px, 2.4vw, 24px);
+  line-height:1.8;
+  color:#23402b;
+  margin-bottom: .6em;
+}
+.cmp-body{
+  font-size: clamp(15px, 2vw, 20px);
+  line-height:1.9;
+  text-align:center;
+  color:#23402b;
+}
+
+/* Hero */
+.cmp-hero{position:relative; isolation:isolate;}
+.cmp-hero__imagewrap{
+  aspect-ratio: 21/6;   /* 横長ヒーロー */
+  width: 100%;
+  overflow: hidden;
+  background:#e9efe9;
+}
+.cmp-hero__imagewrap img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  display:block;
+}
+.cmp-hero__title{
+  position:absolute; inset:auto 0 8%; display:grid; place-items:center;
+}
+.cmp-eyebrow{
+  display:inline-block;
+  background:#fff;
+  color:var(--ctm-green);
+  padding:.35em .8em;
+  border-radius:999px;
+  font-weight:700;
+  font-size: clamp(14px, 1.8vw, 18px);
+  letter-spacing:.08em;
+}
+
+/* セクション共通 */
+.cmp-block{margin-top: clamp(24px, 4vw, 48px);}
+.cmp-block__titleimg{
+  width:100%;
+  display:block;
+  border:0;
+}
+.cmp-block__titleimg img{
+  width:100%; height:auto; display:block;
+}
+
+/* ダーク帯（Concept / Vision） */
+.cmp-block--dark{
+  background:var(--ctm-green-deep);
+}
+.cmp-block--dark .cmp-catch,
+.cmp-block--dark .cmp-body{color:#fff}
+
+/* Value箇条書き */
+.cmp-values{
+  list-style: none;
+  padding:0; margin:0;
+  display:grid; gap: clamp(14px, 2.2vw, 20px);
+  max-width: 900px; margin-inline:auto;
+}
+.cmp-values li{
+  text-align:center;
+  font-size: clamp(15px, 2vw, 19px);
+  line-height:1.9;
+  color:#23402b;
+}
+.cmp-values li strong{
+  display:block;
+  font-size: clamp(16px, 2.2vw, 20px);
+  margin-bottom:.2em;
+  color:#173a24;
+}
+
+/* 余白微調整（モバイル密度を上げすぎない） */
+@media (max-width: 640px){
+  .cmp-container{padding: 22px 0}
+  .cmp-hero__title{inset:auto 0 6%}
+}
