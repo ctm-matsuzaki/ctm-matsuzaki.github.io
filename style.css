@@ -759,8 +759,8 @@ html, body{ overflow-x: hidden; }
   text-align:center;
   font-size: clamp(18px, 2.4vw, 24px);
   line-height:1.8;
+  margin-bottom:.6em;
   color:#23402b;
-  margin-bottom: .6em;
 }
 .cmp-body{
   font-size: clamp(15px, 2vw, 20px);
