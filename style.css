@@ -819,17 +819,16 @@ footer { margin-top: 0 !important; }
   font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
-/* 箇条書きの点を削除して中央寄せ */
 #faq .faq-a ul {
   list-style: none;
-  padding: 0;
-  margin: 1rem auto;
-  display: inline-block;
-  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
 }
 
-#faq .faq-a ul li::before {
-  content: ""; /* 点を削除 */
+#faq .faq-a li {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 /* ===== 区切り線を緑に統一 ===== */
