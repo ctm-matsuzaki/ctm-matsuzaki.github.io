@@ -691,33 +691,57 @@ html, body{ overflow-x: hidden; }
   }
 }
 
-/* ===== TOP：FAQの見本スタイル ===== */
-#faq{ width:min(1000px, 92vw); margin: 0 auto; }
-#faq h2{
-  text-align:center;
-  font-size: clamp(22px, 3vw, 28px);
-  margin: 0 0 clamp(18px, 3vw, 28px);
-}
+/* ===== FAQ 見出し（2段＆中央寄せ） ===== */
 
-.faq-q{
-  text-align:center;
-  font-weight: 700;
-  font-size: clamp(18px, 2.6vw, 22px);
-  margin: 0 0 14px;
-  position: relative;
-  padding-top: 18px;
-}
-
-.faq-a{
-  max-width: 900px; margin: 0 auto;
+/* セクション幅と中央寄せ */
+#faq{
+  width: min(1040px, 92vw);
+  margin: clamp(48px, 7vw, 96px) auto;
   text-align: center;
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 2;
-  color:#263b2d;
 }
-.faq-a ul{ list-style:none; padding:0; margin: 8px 0 0; }
-.faq-a ul li{ margin: 4px 0; }
-.faq-a ul li::before{ content:"・"; margin-right:.4em; }
+
+/* 見出し 1行目：よくあるご質問 */
+#faq .faq-title{
+  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  color: #222;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  line-height: 1.25;
+  letter-spacing: .02em;
+  margin: 0 0 .4rem;
+  text-align: center;
+}
+
+/* 見出し 2行目：FAQ（緑） */
+#faq .faq-title span{
+  display: block;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: clamp(1.0rem, 2.2vw, 1.4rem);
+  color: var(--ctm-green);
+  letter-spacing: .08em;
+  margin-top: .25rem;
+}
+
+/* Q見出し（本文も中央寄せに寄せる） */
+#faq .faq-q{
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  margin: 0 0 .8rem;
+}
+
+/* A本文は中央寄せ、最大幅で読みやすく */
+#faq .faq-a{
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  text-align: center;
+  line-height: 1.95;
+  color: #263b2d;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+}
+
+/* 箇条書きは“全体は中央*
 
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
 footer a,
