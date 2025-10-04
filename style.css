@@ -290,95 +290,6 @@ body {
 }
 
 /* =========================
-   Responsive
-   ========================= */
-@media (max-width: 900px) {
-  .company-grid {
-    grid-template-columns: 1fr;    /* スマホでは縦並び */
-  }
-  .company-img {
-    height: 48vw;                  /* 上半分に写真 */
-  }
-  .company-text {
-    padding: clamp(32px, 6vw, 64px);
-  }
-}
-
-/* =========================
-   FAQ（強制上書き・中央寄せ版）
-   ========================= */
-#faq.faq-section{
-  max-width: 960px !important;
-  margin: clamp(48px,8vw,96px) auto !important;
-  padding: 0 clamp(12px,3vw,24px) !important;
-  text-align: center !important;
-}
-
-#faq .faq-title{
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 800;
-  color: var(--ctm-green-deep);
-  font-size: clamp(1.6rem,3.4vw,2rem);
-  line-height: 1.2;
-  margin: 0 0 .4rem !important;
-}
-
-#faq .faq-title span{
-  display: block;
-  font-weight: 400;
-  font-size: clamp(.9rem,2.2vw,1.1rem);
-  color: var(--ctm-green-ink);
-}
-
-#faq .faq-item{ 
-  margin: clamp(24px,6vw,48px) 0 !important; 
-}
-
-#faq .faq-q{
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.1rem,2.6vw,1.35rem);
-  margin: 0 0 .6rem !important;
-}
-
-#faq .faq-a{
-  font-family: "Noto Serif JP", serif;
-  font-size: clamp(1rem,2.2vw,1.1rem);
-  line-height: 1.9;
-  margin: 0 0 1rem !important;
-}
-
-#faq .faq-a.lead{ margin-bottom: .6rem !important; }
-
-/* 箇条書き（中央に置きつつ、項目は左揃え） */
-#faq .faq-list{
-  list-style: none;
-  padding: 0;
-  margin: .6rem auto 1.2rem !important;
-  display: inline-block;      /* コンテンツ幅に合わせて中央配置 */
-  text-align: left;           /* 箇条書きは左揃え */
-}
-#faq .faq-list li{
-  margin: .35em 0;
-  padding-left: 1.2em;
-  position: relative;
-}
-#faq .faq-list li::before{
-  content: "・";
-  position: absolute;
-  left: 0;
-  color: var(--ctm-green-deep);
-}
-
-/* 区切り線（必ず中央&緑） */
-#faq .faq-divider{
-  border: none !important;
-  border-top: 2px solid var(--ctm-green-deep) !important;
-  width: min(60%, 560px) !important;
-  margin: clamp(16px,4vw,28px) auto 0 !important;
-}
-
-/* =========================
    Services 2-column section
    ========================= */
 .svc-section{
@@ -599,31 +510,6 @@ body {
   }
 }
 
-/* ===== 名前画像（松﨑 忠将） レスポンシブ調整 ===== */
-.cmp-name{
-  display:block;
-  height:auto;
-  /* PC：少し左寄り（内側 8%）＆大きめ */
-  width: clamp(420px, 40vw, 680px) !important;
-  margin: 24px auto 12px 8% !important;
-}
-
-@media (max-width: 1024px){
-  .cmp-name{
-    width: clamp(380px, 56vw, 640px) !important;
-    margin: 22px auto 12px auto !important; /* 中央寄せ */
-  }
-}
-
-/* ===== スマホ専用：名前画像の高さを経歴タイトルに揃える ===== */
-@media (max-width: 768px) {
-  .cmp-name {
-    height: 2.2rem !important;   /* 経歴タイトル(h3)と同等の高さに調整 */
-    width: auto !important;      /* 縦横比は維持して拡大縮小 */
-    margin: 0 0 14px 3% !important; /* 左に寄せる */
-  }
-}
-
 /* ===== 名前画像（松﨑 忠将） レスポンシブ最終版 ===== */
 .cmp-name{
   display:block;
@@ -684,14 +570,6 @@ footer a:hover {
 
 /* 横スクロール抑止（保険） */
 html, body{ overflow-x: hidden; }
-
-/* CTM共通トークン（未定義時のフォールバック） */
-:root{
-  --ctm-green: var(--ctm-green, #184d2b);
-  --ctm-green-deep: var(--ctm-green-deep, #213B1F);
-  --ctm-mint: var(--ctm-mint, #ADE7D1);
-  --ctm-ink: var(--ctm-ink, #1c2d22);
-}
 
 /* アクセシビリティ用：画面には出さない見出し */
 .visually-hidden{
@@ -811,44 +689,6 @@ html, body{ overflow-x: hidden; }
     transform-origin: center;
     display:block;
   }
-}
-
-/* ===== TOP：Company 帯（見本どおり 2カラム&深緑） ===== */
-#home-company{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 420px;
-  overflow: hidden;
-}
-
-#home-company .col-text{
-  background: #244119;          /* 指定の深緑（見本と同じ） */
-  color: #fff;
-  padding: clamp(24px, 5vw, 64px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: clamp(10px, 2vw, 18px);
-}
-#home-company .col-text h2,
-#home-company .col-text h3,
-#home-company .col-text p{ color:#fff; margin:0; }
-#home-company .col-text .more{
-  display:inline-block; color:#fff; text-decoration:none;
-  margin-top: clamp(10px, 2vw, 16px);
-}
-#home-company .col-text .more:hover{ opacity:.9; }
-#home-company .col-img{ position: relative; }
-#home-company .col-img img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit: cover; object-position: center;
-}
-
-/* スマホ時は縦並び（画像 → テキスト） */
-@media (max-width: 768px){
-  #home-company{ grid-template-columns: 1fr; min-height: auto; }
-  #home-company .col-img{ aspect-ratio: 16/9; position: relative; }
-  #home-company .col-img img{ position:absolute; }
 }
 
 /* ===== TOP：FAQの見本スタイル ===== */
