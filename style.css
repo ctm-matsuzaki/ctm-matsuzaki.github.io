@@ -883,15 +883,16 @@ html, body{ overflow-x: hidden; }
 .faq-a ul li{ margin: 4px 0; }
 .faq-a ul li::before{ content:"・"; margin-right:.4em; }
 
-.faq-q::before{
-  content:""; 
-  position:absolute; 
-  left:50%; 
-  transform:translateX(-50%);
-  top:0; 
-  width: 220px;                /* 長めの線 */
-  height: 3px;                 /* 太めの線 */
-  background: var(--ctm-green);/* 緑色 */
+.faq-q::before {
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  top:0!important;
+  width: 220px!important;       /* 長め */
+  height: 3px!important;        /* 太め */
+  background: var(--ctm-green)!important; /* 緑色 */
+  display:block!important;
 }
 
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
