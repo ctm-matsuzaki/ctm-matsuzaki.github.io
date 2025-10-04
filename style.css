@@ -762,73 +762,40 @@ section[id="contact"] .hero-image {
 }
 footer { margin-top: 0 !important; }
 
-/* ===== FAQタイトル（2段＆線を緑に） ===== */
-#faq .faq-title {
-  text-align: center;
-  margin-bottom: 2.5rem !important;
-  position: relative;
-  padding-top: 2.5rem;
+/* ===== FAQ全体 ===== */
+#faq {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1em;
 }
 
-#faq .faq-title::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 2px;
-  background: var(--ctm-green); /* 線を緑に */
-}
-
-#faq .faq-title {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 3.2vw, 2rem);
-  color: var(--ctm-green-deep);
-  line-height: 1.2;
-}
-
-#faq .faq-title span {
-  display: block;
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  color: var(--ctm-green);
-  margin-top: 6px;
-}
-
-/* ===== Q部分を緑色で強調 ===== */
+/* ===== 質問（Q） ===== */
 #faq .faq-q {
-  text-align: center;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-size: clamp(1.2rem, 2.6vw, 1.5rem);
   color: var(--ctm-green);
-  margin: 2.5rem 0 1.2rem;
+  margin: 2em 0 0.8em;
+  border-bottom: 1px solid var(--ctm-green);
+  display: inline-block; /* 線を文字幅に合わせる */
+  padding-bottom: 0.3em;
+  text-align: left;
 }
 
-/* ===== A部分の本文 ===== */
+/* ===== 回答（A） ===== */
 #faq .faq-a {
-  text-align: center;
-  font-family: "Noto Sans JP", sans-serif;
-  color: #1d1d1d;
-  line-height: 1.9;
+  font-family: "Noto Serif JP", serif;
+  color: #111d10;
   font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.9;
+  margin-bottom: 1.5em;
+  text-align: left;
 }
 
-#faq .faq-a ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
+/* ===== 箇条書き（リスト） ===== */
+#faq .faq-a ul,
 #faq .faq-a li {
   list-style: none;
-  padding-left: 0;
   margin-left: 0;
-}
-
-/* ===== 区切り線を緑に統一 ===== */
-.faq-item {
-  border-top: 2px solid var(--ctm-green) !important;
+  padding-left: 0;
 }
