@@ -791,9 +791,15 @@ footer { margin-top: 0 !important; }
 }
 
 /* ===== 箇条書き（リスト） ===== */
-#faq .faq-a ul,
-#faq .faq-a li {
-  list-style: none;
+#faq .faq-a ul {
+  list-style: none;        /* 点を消す */
   padding-left: 0;
   margin-left: 0;
+  text-align: center;      /* 全体を中央寄せ */
+}
+
+#faq .faq-a li {
+  list-style: none;        /* 各項目の点も完全削除 */
+  margin: 0.3em 0;         /* 行間を少しとる */
+  text-align: center;      /* 各行のテキストも中央寄せ */
 }
