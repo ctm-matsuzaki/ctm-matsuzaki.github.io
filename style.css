@@ -934,3 +934,38 @@ footer{ margin-top: 0 !important; }
   object-fit: cover;
   display: block;
 }
+
+/* ===== FAQ 線（強制表示） ===== */
+#faq .faq-q {
+  position: relative !important;
+  padding-top: 20px !important;
+}
+#faq .faq-q::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 0 !important;
+  width: 220px !important;       /* 線の長さ（長め） */
+  height: 3px !important;        /* 線の太さ（短い線と同じ） */
+  background: var(--ctm-green) !important; /* 緑色 */
+  display: block !important;
+}
+
+/* ===== CONTACT画像高さ調整（2/3に縮小） ===== */
+.contact-section img,
+.contact-hero img {
+  height: 66vh !important;   /* 現在の約2/3の高さに */
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* ===== CONTACTとフッターの隙間を消す ===== */
+.contact-section,
+.contact-hero {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+footer {
+  margin-top: 0 !important;
+}
