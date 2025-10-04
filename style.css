@@ -771,31 +771,29 @@ footer { margin-top: 0 !important; }
 
 /* ===== 質問（Q） ===== */
 #faq .faq-q {
+  text-align: center;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-size: clamp(1.2rem, 2.6vw, 1.5rem);
   color: var(--ctm-green);
-  margin: 2em 0 0.8em;
-  border-bottom: 1px solid var(--ctm-green);
-  display: inline-block; /* 線を文字幅に合わせる */
-  padding-bottom: 0.3em;
-  text-align: left;
+  margin: 2.5rem 0 1.2rem;
+  border: none; /* 下線を削除 */
 }
 
 /* ===== 回答（A） ===== */
 #faq .faq-a {
+  text-align: center;
   font-family: "Noto Serif JP", serif;
   color: #111d10;
   font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.9;
-  margin-bottom: 1.5em;
-  text-align: left;
+  margin-bottom: 2em;
 }
 
 /* ===== 箇条書き（リスト） ===== */
 #faq .faq-a ul,
 #faq .faq-a li {
   list-style: none;
-  margin-left: 0;
   padding-left: 0;
+  margin-left: 0;
 }
