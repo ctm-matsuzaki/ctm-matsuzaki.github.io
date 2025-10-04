@@ -769,57 +769,47 @@ footer { margin-top: 0 !important; }
   padding: 2em 1em;
 }
 
-/* ===== 質問（Q） ===== */
+/* ===== FAQ 最終オーバーライド（style.css の末尾に貼り付け） ===== */
+
+/* Q：中央寄せ。下線/疑似要素の線は完全オフ */
 #faq .faq-q {
-  text-align: center;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
-  color: var(--ctm-green);
-  margin: 2.5rem 0 1.2rem;
-  border: none; /* 下線を削除 */
+  text-align: center !important;
+  border: none !important;
+  margin: 2.5rem 0 1.2rem !important;
+}
+#faq .faq-q::before,
+#faq .faq-q::after {
+  content: none !important;
+  display: none !important;
 }
 
-/* ===== 回答（A） ===== */
+/* A：本文中央寄せ */
 #faq .faq-a {
-  text-align: center;
-  font-family: "Noto Serif JP", serif;
-  color: #111d10;
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  line-height: 1.9;
-  margin-bottom: 2em;
+  text-align: center !important;
+  margin-bottom: 2em !important;
 }
 
-/* ===== 箇条書き（リスト） ===== */
-#faq .faq-a ul {
-  list-style: none;        /* 点を消す */
-  padding-left: 0;
-  margin-left: 0;
-  text-align: center;      /* 全体を中央寄せ */
-}
-
-#faq .faq-a li {
-  list-style: none;        /* 各項目の点も完全削除 */
-  margin: 0.3em 0;         /* 行間を少しとる */
-  text-align: center;      /* 各行のテキストも中央寄せ */
-}
-
-/* ===== FAQの箇条書きを完全に無印・中央寄せ ===== */
+/* 箇条書き：点を完全に消して中央寄せ */
 #faq ul,
 #faq ol {
-  list-style: none !important;     /* 点/番号をゼロに */
+  list-style: none !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
-  text-align: center;              /* 行全体を中央寄せ */
+  text-align: center !important;
 }
-
 #faq li {
   list-style: none !important;
-  text-align: center;              /* 各行のテキストも中央寄せ */
-  margin: 0.35em 0;
+  text-align: center !important;
+  margin: 0.35em 0 !important;
 }
+/* 一部ブラウザで残るマーカー対策 */
+#faq li::marker { content: "" !important; }
 
-/* Safari/一部ブラウザで残るマーカー対策 */
-#faq li::marker {
-  content: "" !important;
+/* FAQ内の横線（<hr>）を非表示 → “戻る”原因の正体 */
+#faq hr,
+#faq .faq-hr {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
