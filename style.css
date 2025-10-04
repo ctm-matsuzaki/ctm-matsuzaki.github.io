@@ -883,6 +883,17 @@ html, body{ overflow-x: hidden; }
 .faq-a ul li{ margin: 4px 0; }
 .faq-a ul li::before{ content:"・"; margin-right:.4em; }
 
+.faq-q::before{
+  content:""; 
+  position:absolute; 
+  left:50%; 
+  transform:translateX(-50%);
+  top:0; 
+  width: 220px;                /* ← 長め（以前の長い線と同じくらい） */
+  height: 3px;                 /* ← 太め */
+  background: var(--ctm-green);/* ← 緑色 */
+}
+
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
 footer a,
 .global-footer a{ color:#fff !important; text-decoration: underline; text-underline-offset:3px; }
