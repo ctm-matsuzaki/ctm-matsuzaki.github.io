@@ -836,3 +836,47 @@ section[id="contact"] .hero-image {
   padding-bottom: 0 !important;
 }
 footer { margin-top: 0 !important; }
+
+/* ===== よくあるご質問タイトルを2段・中央寄せで整える ===== */
+#faq .faq-title {
+  text-align: center;
+  margin-bottom: 2.5rem !important;
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+#faq .faq-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;          /* 線の長さ（見本に近づけ） */
+  height: 2px;           /* 線の太さ */
+  background: var(--ctm-green);
+}
+
+/* 日本語タイトルと英語タイトルを上下に整列 */
+#faq .faq-title {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2rem);
+  color: var(--ctm-green-deep);
+  line-height: 1.2;
+}
+
+#faq .faq-title span {
+  display: block;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--ctm-green);
+  margin-top: 6px;
+}
+
+/* 全体を中央寄せ */
+#faq {
+  text-align: center;
+  width: min(900px, 90%);
+  margin: 0 auto;
+}
