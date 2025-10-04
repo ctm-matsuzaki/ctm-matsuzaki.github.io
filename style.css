@@ -805,9 +805,6 @@ footer { margin-top: 0 !important; }
   font-size: clamp(1.2rem, 2.6vw, 1.5rem);
   color: var(--ctm-green);
   margin: 2.5rem 0 1.2rem;
-  border-bottom: 1px solid var(--ctm-green);
-  display: inline-block; /* 線の長さを文字幅に合わせる場合 */
-  padding-bottom: 0.3em;
 }
 
 /* ===== A部分の本文 ===== */
