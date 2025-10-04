@@ -769,9 +769,9 @@ footer { margin-top: 0 !important; }
   padding: 2em 1em;
 }
 
-/* ===== FAQ 最終オーバーライド（style.css の末尾に貼り付け） ===== */
+/* ===== FAQ 見た目の最終オーバーライド ===== */
 
-/* Q：中央寄せ。下線/疑似要素の線は完全オフ */
+/* Q：中央寄せ・下線なし */
 #faq .faq-q {
   text-align: center !important;
   border: none !important;
@@ -783,33 +783,35 @@ footer { margin-top: 0 !important; }
   display: none !important;
 }
 
-/* A：本文中央寄せ */
+/* A：中央寄せ */
 #faq .faq-a {
   text-align: center !important;
   margin-bottom: 2em !important;
 }
 
-/* 箇条書き：点を完全に消して中央寄せ */
-#faq ul,
-#faq ol {
+/* 箇条書き：正しいリストを中央寄せ＆点なし */
+#faq .faq-list {
   list-style: none !important;
   padding-left: 0 !important;
-  margin-left: 0 !important;
+  margin: 0 auto 1.2em !important;
   text-align: center !important;
 }
-#faq li {
+#faq .faq-list li {
   list-style: none !important;
-  text-align: center !important;
   margin: 0.35em 0 !important;
+  text-align: center !important;
 }
-/* 一部ブラウザで残るマーカー対策 */
-#faq li::marker { content: "" !important; }
 
-/* FAQ内の横線（<hr>）を非表示 → “戻る”原因の正体 */
-#faq hr,
-#faq .faq-hr {
-  display: none !important;
+/* タイトル下の <hr> は表示、Q/A間の <hr> は非表示 */
+#faq .faq-title + hr {
+  display: block !important;
+  height: 1px !important;
+  background: #cfcfcf !important;
   border: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
+  margin: 1.2rem 0 !important;
+}
+/* QやAの直後にある区切り線は消す */
+#faq .faq-q + hr,
+#faq .faq-a + hr {
+  display: none !important;
 }
