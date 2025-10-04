@@ -819,8 +819,8 @@ html, body{ overflow-x: hidden; }
   grid-template-columns: 1fr 1fr;
   min-height: 420px;
   overflow: hidden;
-  border-radius: 12px;          /* 角丸は任意。不要なら削除 */
 }
+
 #home-company .col-text{
   background: #244119;          /* 指定の深緑（見本と同じ） */
   color: #fff;
@@ -835,7 +835,6 @@ html, body{ overflow-x: hidden; }
 #home-company .col-text p{ color:#fff; margin:0; }
 #home-company .col-text .more{
   display:inline-block; color:#fff; text-decoration:none;
-  border-bottom: 1px solid currentColor; padding-bottom: 2px;
   margin-top: clamp(10px, 2vw, 16px);
 }
 #home-company .col-text .more:hover{ opacity:.9; }
@@ -861,7 +860,7 @@ html, body{ overflow-x: hidden; }
 }
 .faq-item{
   padding: clamp(26px, 4vw, 40px) 0;
-  border-top: 1px solid #d8e1db;
+  border-top: 2px solid var(--ctm-green-deep);
 }
 .faq-item:first-child{ border-top: none; }
 .faq-q{
@@ -872,10 +871,7 @@ html, body{ overflow-x: hidden; }
   position: relative;
   padding-top: 18px;
 }
-.faq-q::before{
-  content:""; position:absolute; left:50%; transform:translateX(-50%);
-  top:0; width: 120px; height:2px; background:#486a54; /* 細いライン */
-}
+
 .faq-a{
   max-width: 900px; margin: 0 auto;
   text-align: center;
@@ -890,3 +886,32 @@ html, body{ overflow-x: hidden; }
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
 footer a,
 .global-footer a{ color:#fff !important; text-decoration: underline; text-underline-offset:3px; }
+
+/* ====== 修正まとめ（末尾追記でOK） ====== */
+
+/* 会社情報：角丸なし & MOREの下線なし */
+#home-company{ border-radius: 0 !important; }
+#home-company .col-text .more{
+  border: none !important;
+  padding-bottom: 0 !important;
+}
+
+/* FAQ：長い線を「緑＆太く」に、短い緑線は消す */
+.faq-item{
+  border-top: 2px solid var(--ctm-green-deep) !important;
+}
+.faq-q::before{ display: none !important; }
+
+/* お問い合わせ：画像高さを約2/3に、下の余白をゼロに */
+.contact-hero .hero-image,
+.contact .hero-image,
+#contact .hero-image{
+  height: 26vh !important;   /* 40vh → 約2/3 */
+}
+
+/* お問い合わせブロックとフッターの隙間を無くす */
+.contact-hero, .contact, #contact{
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+footer{ margin-top: 0 !important; }
