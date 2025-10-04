@@ -241,96 +241,52 @@ body {
 @media (max-width: 1024px){ .svc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr; } }
 
-/* =========================
-   Company（PC: 左=写真 / 右=緑テキスト、SP: 上下）
-   ========================= */
-.company-cta{
-  padding: 0;                     /* 全体に背景は付けない */
-  background: transparent;
-}
-
-.company-grid{
+/* ===== TOP：Company 帯（見本どおり 2カラム&深緑） ===== */
+#home-company{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* PCは左右2分割 */
-  min-height: clamp(320px, 42vw, 520px);  /* セクションの基準高さ */
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 12px; /* 任意 */
 }
 
-/* 左：写真（背景で全面表示） */
-.company-img{
-  min-height: inherit;                                /* ← 親のmin-heightを継承して高さを確保 */
-  background: url('images/8.jpeg') center / cover no-repeat;
-}
-
-/* 右：テキスト（緑背景＋白文字） */
-.company-text{
-  min-height: inherit;
-  background: var(--ctm-green-deep) !important;
+/* 左：テキスト帯 */
+#home-company .col-text{
+  background: #244119; /* 見本の深緑 */
   color: #fff;
-  padding: clamp(32px, 5vw, 72px);
-  /* display: flex; ← 削除 */
-  /* align-items: center; ← 削除 */
+  padding: clamp(24px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 18px);
 }
-
-/* テキストの横幅を制御して2行に収める */
-.company-text > *{ margin: 0; }
-.company-title{
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 700;
-  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
-  color: #fff;
-  margin: 0 0 0.5em;
-}
-
-.company-subtitle{
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-  color: #eaf4ee;
-  margin: 0 0 1.2em;
-}
-
-/* 説明文の幅を調整して2行にする */
-.company-text .lead {
-  color:#eaf4ee;
-  text-align:left;
-  margin:0 0 1.2rem;
-  line-height:1.9;
-  max-width: 90%;   /* ← 横幅を広げる */
-  font-size: 1.05rem; /* ← 少し小さめにして改行を減らす */
-}
-
-/* MOREボタンを大きめに */
-.company-more{
+#home-company .col-text h2,
+#home-company .col-text h3,
+#home-company .col-text p{ color:#fff; margin:0; }
+#home-company .col-text .more{
   display:inline-block;
-  font-weight:700;
   color:#fff;
   text-decoration:none;
-  padding: 0.6rem 1.2rem;  /* 少し広めに */
-  font-size: 1.1rem;       /* ← 本文テキストと同じサイズに調整 */
-  border:none !important;  /* 枠を消す */
-  outline:none;
-  background: none;
-  margin-top: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  margin-top: clamp(10px, 2vw, 16px);
+}
+#home-company .col-text .more:hover{ opacity:.9; }
+
+/* 右：写真 */
+#home-company .col-img{ position: relative; }
+#home-company .col-img img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.company-more:hover{ opacity: .85; }
-
-/* ---------- Responsive（SPは上下） ---------- */
-@media (max-width: 900px){
-  .company-grid{
-    grid-template-columns: 1fr;   /* 縦並び */
-  }
-  .company-img{
-    min-height: unset;
-    height: 56vw;                 /* 写真の見える高さを確保 */
-  }
-  .company-text{
-    min-height: unset;
-    padding: clamp(28px, 6vw, 56px);
-  }
-  .company-text .lead{
-    max-width: none;              /* SPは幅制限解除（読みやすさ優先） */
-  }
+/* スマホ時は縦並び（画像 → テキスト） */
+@media (max-width: 768px){
+  #home-company{ grid-template-columns: 1fr; min-height: auto; }
+  #home-company .col-img{ aspect-ratio: 16/9; position: relative; }
+  #home-company .col-img img{ position:absolute; }
 }
 
 /* =========================
