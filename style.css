@@ -803,3 +803,23 @@ footer { margin-top: 0 !important; }
   margin: 0.3em 0;         /* 行間を少しとる */
   text-align: center;      /* 各行のテキストも中央寄せ */
 }
+
+/* ===== FAQの箇条書きを完全に無印・中央寄せ ===== */
+#faq ul,
+#faq ol {
+  list-style: none !important;     /* 点/番号をゼロに */
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-align: center;              /* 行全体を中央寄せ */
+}
+
+#faq li {
+  list-style: none !important;
+  text-align: center;              /* 各行のテキストも中央寄せ */
+  margin: 0.35em 0;
+}
+
+/* Safari/一部ブラウザで残るマーカー対策 */
+#faq li::marker {
+  content: "" !important;
+}
