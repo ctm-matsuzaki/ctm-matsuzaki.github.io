@@ -1,233 +1,124 @@
 /* =========================================================
-   CTM Global Styles  — 2025/10/04 リセット & 競合解消版
-   （このファイルで全置換してください）
+   CTM Global Styles  — 2025-10-04 見本準拠・競合解消版
    ========================================================= */
 
-/* ============ Color Tokens ============ */
+/* ============ Tokens ============ */
 :root{
-  --ctm-green: #264a27;        /* ベースの緑（既存のUI全般） */
-  --ctm-green-ink: #224A33;    /* 濃いめの緑（本文/見出し） */
-  --ctm-green-deep: #244119;   /* 帯・フッター・見本で使う深緑（指定色） */
+  --ctm-green: #264a27;        /* 既存ベース */
+  --ctm-green-ink: #224A33;    /* テキスト用濃緑 */
+  --ctm-green-deep: #244119;   /* 見本の深緑（Company帯/フッター/Concept帯） */
 }
 
-/* ============ Reset & Base ============ */
-html, body { margin:0; padding:0; border:0; overflow-x:hidden; }
-*, *::before, *::after { box-sizing:border-box; }
-img, picture, figure { display:block; margin:0; max-width:100%; height:auto; }
+/* ============ Reset ============ */
+html,body{margin:0;padding:0;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+img,picture,figure{display:block;max-width:100%;height:auto;margin:0}
+body{font-family:system-ui,-apple-system,"Noto Sans JP",Arial,sans-serif;line-height:1.6;color:#333;background:#fff}
+.visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+.container{width:min(1100px,92%);margin-inline:auto}
 
-body{
-  font-family: system-ui, -apple-system, "Noto Sans JP", Arial, sans-serif;
-  line-height:1.6;
-  color:#333;
-  background:#fff;
-}
-
-/* アクセシビリティ：視覚非表示 */
-.visually-hidden{
-  position:absolute!important;clip:rect(1px,1px,1px,1px);
-  width:1px;height:1px;overflow:hidden;white-space:nowrap;
-}
-
-/* ============ 共通レイアウト ============ */
-.container{ width:min(1100px, 92%); margin-inline:auto; }
-
-/* ===== Hero（各ページ） ===== */
-.hero{
-  position:relative; width:100%;
-  min-height:70svh; display:flex; align-items:flex-end;
-  background-size:cover; background-position:center;
-  padding:0 0 4vh;
-}
-.hero__inner{
-  width:min(96%, 1240px);
-  margin-left:clamp(8px, 3vw, 40px);
-  text-align:left;
-}
-.hero__title{
-  font-family:"Noto Serif JP", serif;
-  font-weight:700; color:#285444;
-  font-size:clamp(2.6rem, 6.4vw, 4.2rem);
-  line-height:1.32; margin:0 0 .6rem;
-}
-.hero__lead{
-  font-family:"Noto Serif JP", serif;
-  font-size:clamp(1.05rem, 2.6vw, 1.4rem);
-  line-height:1.75; color:#285444; margin:0;
-}
+/* ============ HERO（TOP/各ページ） ============ */
+.hero{position:relative;width:100%;min-height:70svh;display:flex;align-items:flex-end;background-size:cover;background-position:center;padding:0 0 4vh}
+.hero__inner{width:min(96%,1240px);margin-left:clamp(8px,3vw,40px)}
+.hero__title{font-family:"Noto Serif JP",serif;font-weight:700;color:#285444;font-size:clamp(2.6rem,6.4vw,4.2rem);line-height:1.32;margin:0 0 .6rem}
+.hero__lead{font-family:"Noto Serif JP",serif;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;color:#285444;margin:0}
 @media (max-width:768px){
-  .hero__inner{
-    background:rgba(240,240,240,.85);
-    padding:14px 16px; border-radius:6px;
-    display:inline-block; width:auto; max-width:min(96%, 720px);
-    margin-left:clamp(12px,5vw,24px);
-  }
+  .hero__inner{background:rgba(240,240,240,.85);display:inline-block;padding:14px 16px;border-radius:6px}
 }
 
-/* ===== セクション ===== */
-.section{ padding:clamp(48px, 8vw, 96px) 0; }
-.section--dark{ background:var(--ctm-green); color:#fff; }
+/* ============ 共通セクション ============ */
+.section{padding:clamp(48px,8vw,96px) 0}
+.section-title{color:var(--ctm-green);text-align:center;font-weight:800;font-size:clamp(1.2rem,3.2vw,2rem);line-height:1.5;margin:0 auto clamp(24px,4vw,32px)}
+.lead{text-align:center;line-height:1.9;font-size:clamp(1.05rem,2.5vw,1.25rem);color:#254233}
 
-.section-title{
-  color:var(--ctm-green); text-align:center; font-weight:800;
-  font-size:clamp(1.2rem, 3.2vw, 2rem); line-height:1.5;
-  margin:0 auto clamp(24px, 4vw, 32px);
-}
-.section--dark .section-title{ color:#fff; }
-
-.lead{ text-align:center; line-height:1.9; font-size:clamp(1.05rem, 2.5vw, 1.25rem); color:#254233; }
-.section--dark .lead{ color:#eaf4ee; }
-
-/* =========================================================
-   会社情報ページ（company.html）専用 スタイル
-   ========================================================= */
-.cmp-main{ background:#fff; color:#243126; }
-.cmp-container{ width:min(1100px, 92vw); margin-inline:auto; padding:clamp(20px, 3vw, 40px) 0; }
-
-.cmp-lead{ font-size:clamp(16px, 2.2vw, 22px); line-height:1.9; text-align:center; color:#23402b; }
-.cmp-catch{ font-weight:700; text-align:center; font-size:clamp(18px, 2.4vw, 24px); line-height:1.8; margin-bottom:.6em; color:#23402b; }
-.cmp-body{ font-size:clamp(15px, 2vw, 20px); line-height:1.9; text-align:center; color:#23402b; }
-
-.cmp-hero{ position:relative; }
-.cmp-hero__imagewrap{ aspect-ratio:21/6; width:100%; overflow:hidden; background:#e9efe9; }
-.cmp-hero__imagewrap img{ width:100%; height:100%; object-fit:cover; object-position:center; }
-
-.cmp-block{ margin-top:clamp(24px, 4vw, 48px); }
-.cmp-block__titleimg img{ width:100%; height:auto; display:block; }
-
-/* Concept / Vision の帯色は #244119 固定（他の緑は未変更） */
-.cmp-block--dark{ background:var(--ctm-green-deep); }
-#concept.cmp-block--dark, #vision.cmp-block--dark{ background:#244119 !important; }
-.cmp-block--dark .cmp-catch, .cmp-block--dark .cmp-body{ color:#fff; }
-
-/* モバイル：タイトル画像を少し拡大 */
-@media (max-width:640px){
-  .cmp-block__titleimg{ overflow:hidden; }
-  .cmp-block__titleimg img{ transform:scale(1.18); transform-origin:center; }
-}
-
-/* Value 箇条書き */
-.cmp-values{ list-style:none; padding:0; margin:0; display:grid; gap:clamp(14px, 2.2vw, 20px); max-width:900px; margin-inline:auto; }
-.cmp-values li{ text-align:center; font-size:clamp(15px, 2vw, 19px); line-height:1.9; color:#23402b; }
-.cmp-values li strong{ display:block; font-size:clamp(16px, 2.2vw, 20px); margin-bottom:.2em; color:#173a24; }
-
-/* =========================================================
-   TOP（index.html）— Company帯 / FAQ（見本どおり）
-   ========================================================= */
-/* Company帯（左：深緑テキスト、右：写真） */
-#home-company{
-  display:grid; grid-template-columns:1fr 1fr;
-  min-height:420px; overflow:hidden;
-}
-#home-company .col-text{
-  background:#244119; color:#fff;
-  padding:clamp(24px, 5vw, 64px);
-  display:flex; flex-direction:column; justify-content:center; gap:clamp(10px, 2vw, 18px);
-}
-#home-company .col-text h2,
-#home-company .col-text p{ color:#fff; margin:0; }
-#home-company .col-text .more{
-  display:inline-block; color:#fff; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:2px; margin-top:clamp(10px, 2vw, 16px);
-}
-#home-company .col-text .more:hover{ opacity:.9; }
-#home-company .col-img{ position:relative; }
-#home-company .col-img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
-
-/* モバイル：縦並び（画像→テキスト） */
-@media (max-width:768px){
-  #home-company{ grid-template-columns:1fr; min-height:auto; }
-  #home-company .col-img{ aspect-ratio:16/9; position:relative; }
-  #home-company .col-img img{ position:absolute; }
-}
-
-/* FAQ（中央寄せの見本スタイル） */
-#faq{ width:min(1000px, 92vw); margin:0 auto; }
-#faq h2{ text-align:center; font-size:clamp(22px, 3vw, 28px); margin:0 0 clamp(18px, 3vw, 28px); }
-.faq-item{ padding:clamp(26px, 4vw, 40px) 0; border-top:1px solid #d8e1db; }
-.faq-item:first-child{ border-top:none; }
-.faq-q{
-  text-align:center; font-weight:700; font-size:clamp(18px, 2.6vw, 22px);
-  margin:0 0 14px; position:relative; padding-top:18px;
-}
-.faq-q::before{ content:""; position:absolute; left:50%; transform:translateX(-50%); top:0; width:120px; height:2px; background:#486a54; }
-.faq-a{ max-width:900px; margin:0 auto; text-align:center; font-size:clamp(15px, 2vw, 18px); line-height:2; color:#263b2d; }
-.faq-a ul{ list-style:none; padding:0; margin:8px 0 0; }
-.faq-a ul li{ margin:4px 0; }
-.faq-a ul li::before{ content:"・"; margin-right:.4em; }
-
-/* =========================================================
-   Services（カード/2カラム解説）— 重複削除して集約
-   ========================================================= */
-.section--svc{ background:#f4f4f4; }
-
-/* サービスのカードグリッド */
-.svc-grid{
-  list-style:none; padding:0; margin:clamp(16px, 3vw, 24px) 0 0;
-  display:grid; grid-template-columns:repeat(4, 1fr); gap:clamp(16px, 3vw, 24px);
-}
-.svc-card{
-  background:#fff; border-radius:16px; overflow:hidden;
-  box-shadow:0 8px 28px rgba(0,0,0,.08);
-  display:flex; flex-direction:column; height:100%;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.svc-card:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.12); }
-.svc-img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-.svc-card .svc-title{
-  font-family:"Noto Serif JP", serif; font-weight:800; color:var(--ctm-green);
-  font-size:clamp(1.05rem, 1.8vw, 1.25rem); margin:12px 16px 6px; line-height:1.35;
-}
-.svc-card .svc-desc{ font-size:clamp(.95rem, 1.4vw, 1.05rem); line-height:1.9; color:#254233; margin:0 16px 16px; }
-
-@media (max-width:1024px){ .svc-grid{ grid-template-columns:repeat(2, 1fr); } }
-@media (max-width:560px){ .svc-grid{ grid-template-columns:1fr; } }
-
-/* サービス詳細 2カラム（左右交互対応） */
-.svc-wrap{ width:min(1100px, 92%); margin:0 auto; padding:clamp(40px, 6vw, 72px) 0; }
-.svc-row{
-  display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(24px, 5vw, 56px);
-  align-items:center; margin:clamp(40px, 6vw, 80px) 0; background:rgba(240,240,240,.6);
-  padding:30px; border-radius:8px;
-}
-.svc-col.media img{ width:100%; display:block; border-radius:8px; object-fit:cover; box-shadow:0 8px 28px rgba(0,0,0,.08); }
-.svc-col.text h2{
-  font-family:"Noto Serif JP", serif; font-weight:800; color:var(--ctm-green);
-  font-size:clamp(1.4rem, 3vw, 2rem); line-height:1.35; margin:0 0 .6em;
-}
-.svc-col.text p{ font-size:clamp(1rem, 2.2vw, 1.1rem); line-height:1.9; color:#254233; margin:0 0 .8em; }
-.svc-col.text ul{ margin:.2em 0 0; padding-left:1.2em; color:#254233; line-height:1.9; font-size:clamp(.98rem, 2vw, 1.05rem); }
-.svc-col.text li{ margin:.1em 0; }
-
-/* 交互（PC） */
-.svc-row.rev .svc-col.media{ order:2; }
-.svc-row.rev .svc-col.text{ order:1; }
-
-/* モバイルは縦積み */
+/* ============ TOP：グレーの課題セクション ============ */
+.problems{background:#eee;padding:clamp(56px,7vw,96px) 0}
+.problem-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;margin:clamp(32px,6vw,72px) 0}
+.problem-row.reverse .media{order:2}
+.problem-row.reverse .text{order:1}
+.problem-col.media img{width:100%;border-radius:8px;object-fit:cover;box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.problem-col.text h2{font-weight:800;font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.35;margin:0 0 .6em;color:#111}
+.problem-col.text p{font-family:"Noto Serif JP",serif;font-size:clamp(1rem,2vw,1.15rem);line-height:1.9;color:#254233;margin:0}
 @media (max-width:900px){
-  .svc-row{ grid-template-columns:1fr; gap:18px; margin:clamp(18px, 6vw, 36px) 0; }
-  .svc-row.rev .svc-col.media, .svc-row.rev .svc-col.text{ order:initial; }
+  .problem-row{grid-template-columns:1fr;gap:18px}
+  .problem-row.reverse .media,.problem-row.reverse .text{order:initial}
 }
 
-/* =========================================================
-   代表挨拶（greeting.html）— 名前画像サイズだけ残す
-   ========================================================= */
-.cmp-name{ display:block; height:auto; width:clamp(420px, 40vw, 680px); margin:24px auto 12px clamp(24px, 4vw, 32px); }
-@media (max-width:1024px){ .cmp-name{ width:clamp(380px, 56vw, 640px); margin:22px 0 12px clamp(20px, 4.5vw, 32px); } }
-@media (max-width:768px){ .cmp-name{ width:min(92%, 560px); margin:18px 0 14px clamp(16px, 5vw, 24px); } }
+/* ============ 中央の大見出し（細い下線） ============ */
+.section-lead{display:block;text-align:center;font-weight:800;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.35;margin:clamp(40px,6vw,72px) 0 .8rem;color:#111}
+.section-lead + .section-underline{width:min(620px,40%);height:2px;background:#486a54;margin:.2rem auto 0}
+.section-lead-note{font-family:"Noto Serif JP",serif;text-align:center;color:var(--ctm-green-ink)}
 
-/* =========================================================
-   Footer（全ページ共通）
-   ========================================================= */
-footer{
-  background:#244119; color:#fff; text-align:center;
-  padding:30px 20px; margin-top:50px;
+/* ============ サービス（4カード） ============ */
+.section--svc{background:#fff}
+.svc-grid{list-style:none;padding:0;margin:clamp(20px,4vw,32px) 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,3.2vw,28px)}
+.svc-card{background:#fff;border-radius:8px;overflow:hidden}
+.svc-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.svc-card .svc-title{font-family:"Noto Serif JP",serif;font-weight:800;color:var(--ctm-green);font-size:clamp(1.1rem,2vw,1.35rem);margin:14px 6px 6px 0}
+.svc-card .svc-desc{font-size:clamp(.98rem,1.6vw,1.1rem);line-height:1.9;color:#263b2d;margin:0}
+@media (max-width:1024px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+/* ============ TOP：Company 深緑帯（左テキスト / 右画像） ============ */
+#home-company{display:grid;grid-template-columns:1fr 1fr;min-height:420px;overflow:hidden}
+#home-company .col-text{background:#244119!important;color:#fff;padding:clamp(24px,5vw,64px);display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,2vw,18px)}
+#home-company .col-text h2,#home-company .col-text p{color:#fff;margin:0}
+#home-company .col-text .more{display:inline-block;color:#fff;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;margin-top:clamp(10px,2vw,16px)}
+#home-company .col-img{position:relative}
+#home-company .col-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+@media (max-width:768px){
+  #home-company{grid-template-columns:1fr;min-height:auto}
+  #home-company .col-img{aspect-ratio:16/9;position:relative}
+  #home-company .col-img img{position:absolute}
 }
-.footer-content{ max-width:1200px; margin:0 auto; }
-.footer-logo{ font-weight:bold; margin-bottom:10px; }
-.footer-nav{ margin-bottom:10px; }
-footer a, footer a:link, footer a:visited{ color:#fff !important; text-decoration:underline; text-underline-offset:3px; }
-footer a:hover{ opacity:.9; }
-.footer-copy{ font-size:.9rem; }
 
-/* =========================================================
-   ここまで
-   ========================================================= */
+/* ============ FAQ（見本） ============ */
+#faq{width:min(1000px,92vw);margin:0 auto}
+#faq h2{text-align:center;font-size:clamp(22px,3vw,28px);margin:0 0 clamp(18px,3vw,28px)}
+.faq-item{padding:clamp(26px,4vw,40px) 0;border-top:1px solid #d8e1db}
+.faq-item:first-child{border-top:none}
+.faq-q{text-align:center;font-weight:700;font-size:clamp(18px,2.6vw,22px);margin:0 0 14px;position:relative;padding-top:18px}
+.faq-q::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:0;width:120px;height:2px;background:#486a54}
+.faq-a{max-width:900px;margin:0 auto;text-align:center;font-size:clamp(15px,2vw,18px);line-height:2;color:#263b2d}
+.faq-a ul{list-style:none;padding:0;margin:8px 0 0}
+.faq-a ul li{margin:4px 0}
+.faq-a ul li::before{content:"・";margin-right:.4em}
+
+/* ============ 会社情報（Concept / Vision 帯だけ指定色） ============ */
+.cmp-block{margin-top:clamp(24px,4vw,48px)}
+.cmp-block__titleimg img{width:100%;height:auto}
+.cmp-block--dark{background:var(--ctm-green-deep)!important;color:#fff}
+.cmp-block--dark .cmp-catch,.cmp-block--dark .cmp-body{color:#fff}
+@media (max-width:640px){
+  .cmp-block__titleimg{overflow:hidden}
+  .cmp-block__titleimg img{transform:scale(1.18);transform-origin:center}
+}
+
+/* ============ サービス詳細（2カラム解説：左右交互） ============ */
+.svc-wrap{width:min(1100px,92%);margin:0 auto;padding:clamp(40px,6vw,72px) 0}
+.svc-row{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,56px);align-items:center;margin:clamp(40px,6vw,80px) 0;background:rgba(240,240,240,.6);padding:30px;border-radius:8px}
+.svc-col.media img{width:100%;display:block;border-radius:8px;object-fit:cover;box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.svc-col.text h2{font-family:"Noto Serif JP",serif;font-weight:800;color:var(--ctm-green);font-size:clamp(1.4rem,3vw,2rem);line-height:1.35;margin:0 0 .6em}
+.svc-col.text p{font-size:clamp(1rem,2.2vw,1.1rem);line-height:1.9;color:#254233;margin:0 0 .8em}
+.svc-col.text ul{margin:.2em 0 0;padding-left:1.2em;color:#254233;line-height:1.9;font-size:clamp(.98rem,2vw,1.05rem)}
+.svc-col.text li{margin:.1em 0}
+.svc-row.rev .svc-col.media{order:2}
+.svc-row.rev .svc-col.text{order:1}
+@media (max-width:900px){
+  .svc-row{grid-template-columns:1fr;gap:18px;margin:clamp(18px,6vw,36px) 0}
+  .svc-row.rev .svc-col.media,.svc-row.rev .svc-col.text{order:initial}
+}
+
+/* ============ 代表挨拶：名前画像だけ最小限 ============ */
+.cmp-name{display:block;height:auto;width:clamp(420px,40vw,680px);margin:24px auto 12px clamp(24px,4vw,32px)}
+@media (max-width:1024px){.cmp-name{width:clamp(380px,56vw,640px);margin:22px 0 12px clamp(20px,4.5vw,32px)}}
+@media (max-width:768px){.cmp-name{width:min(92%,560px);margin:18px 0 14px clamp(16px,5vw,24px)}}
+
+/* ============ フッター（全ページ統一） ============ */
+footer{background:#244119;color:#fff;text-align:center;padding:30px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto}
+.footer-logo{font-weight:bold;margin-bottom:10px}
+.footer-nav{margin-bottom:10px}
+footer a,footer a:link,footer a:visited{color:#fff!important;text-decoration:underline;text-underline-offset:3px}
+footer a:hover{opacity:.9}
+.footer-copy{font-size:.9rem}
