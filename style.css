@@ -263,14 +263,6 @@ body {
 #home-company .col-text h2,
 #home-company .col-text h3,
 #home-company .col-text p{ color:#fff; margin:0; }
-#home-company .col-text .more{
-  display:inline-block;
-  color:#fff;
-  text-decoration:none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
-  margin-top: clamp(10px, 2vw, 16px);
-}
 #home-company .col-text .more:hover{ opacity:.9; }
 
 /* 右：写真 */
@@ -691,58 +683,6 @@ html, body{ overflow-x: hidden; }
   }
 }
 
-/* ===== FAQ 見出し（2段＆中央寄せ） ===== */
-
-/* セクション幅と中央寄せ */
-#faq{
-  width: min(1040px, 92vw);
-  margin: clamp(48px, 7vw, 96px) auto;
-  text-align: center;
-}
-
-/* 見出し 1行目：よくあるご質問 */
-#faq .faq-title{
-  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
-  font-weight: 800;
-  color: #222;
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
-  line-height: 1.25;
-  letter-spacing: .02em;
-  margin: 0 0 .4rem;
-  text-align: center;
-}
-
-/* 見出し 2行目：FAQ（緑） */
-#faq .faq-title span{
-  display: block;
-  font-family: "Noto Serif JP", serif;
-  font-weight: 500;
-  font-size: clamp(1.0rem, 2.2vw, 1.4rem);
-  color: var(--ctm-green);
-  letter-spacing: .08em;
-  margin-top: .25rem;
-}
-
-/* Q見出し（本文も中央寄せに寄せる） */
-#faq .faq-q{
-  text-align: center;
-  font-weight: 700;
-  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
-  margin: 0 0 .8rem;
-}
-
-/* A本文は中央寄せ、最大幅で読みやすく */
-#faq .faq-a{
-  max-width: 900px;
-  margin: 0 auto 1rem;
-  text-align: center;
-  line-height: 1.95;
-  color: #263b2d;
-  font-size: clamp(1rem, 2.2vw, 1.125rem);
-}
-
-/* 箇条書きは“全体は中央*
-
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
 footer a,
 .global-footer a{ color:#fff !important; text-decoration: underline; text-underline-offset:3px; }
@@ -777,12 +717,6 @@ footer{ margin-top: 0 !important; }
   display: block;
 }
 
-/* ===== FAQ 線（強制表示） ===== */
-#faq .faq-q {
-  position: relative !important;
-  padding-top: 20px !important;
-}
-
 /* ===== CONTACTとフッターの隙間を消す ===== */
 .contact-section,
 .contact-hero {
@@ -793,15 +727,6 @@ footer {
   margin-top: 0 !important;
 }
 
-/* ===== CONTACT：ヒーロー画像の高さを約2/3に ===== */
-#contact .hero-image,
-.contact-hero .hero-image,
-section[id="contact"] .hero-image {
-  height: 26vh !important;     /* 40vh の約2/3 */
-  object-fit: cover !important;
-  display: block !important;
-}
-
 /* 背景で指定されている場合に備えて */
 #contact .svc-hero,
 #contact .svc-hero-bg {
@@ -837,7 +762,7 @@ section[id="contact"] .hero-image {
 }
 footer { margin-top: 0 !important; }
 
-/* ===== よくあるご質問タイトルを2段・中央寄せで整える ===== */
+/* ===== FAQタイトル（2段＆線を緑に） ===== */
 #faq .faq-title {
   text-align: center;
   margin-bottom: 2.5rem !important;
@@ -851,12 +776,11 @@ footer { margin-top: 0 !important; }
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;          /* 線の長さ（見本に近づけ） */
-  height: 2px;           /* 線の太さ */
-  background: var(--ctm-green);
+  width: 140px;
+  height: 2px;
+  background: var(--ctm-green); /* 線を緑に */
 }
 
-/* 日本語タイトルと英語タイトルを上下に整列 */
 #faq .faq-title {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
@@ -874,9 +798,38 @@ footer { margin-top: 0 !important; }
   margin-top: 6px;
 }
 
-/* 全体を中央寄せ */
-#faq {
+/* ===== Q部分を緑色で強調 ===== */
+#faq .faq-q {
   text-align: center;
-  width: min(900px, 90%);
-  margin: 0 auto;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  color: var(--ctm-green); /* Qを緑に */
+  margin: 2.5rem 0 1.2rem;
+}
+
+/* ===== A部分の本文 ===== */
+#faq .faq-a {
+  text-align: center;
+  font-family: "Noto Sans JP", sans-serif;
+  color: #1d1d1d;
+  line-height: 1.9;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+/* 箇条書きの点を削除して中央寄せ */
+#faq .faq-a ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  display: inline-block;
+  text-align: left;
+}
+
+#faq .faq-a ul li::before {
+  content: ""; /* 点を削除 */
+}
+
+/* ===== 区切り線を緑に統一 ===== */
+.faq-item {
+  border-top: 2px solid var(--ctm-green) !important;
 }
