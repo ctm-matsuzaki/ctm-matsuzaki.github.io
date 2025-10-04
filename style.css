@@ -889,9 +889,9 @@ html, body{ overflow-x: hidden; }
   left:50%; 
   transform:translateX(-50%);
   top:0; 
-  width: 220px;                /* ← 長め（以前の長い線と同じくらい） */
-  height: 3px;                 /* ← 太め */
-  background: var(--ctm-green);/* ← 緑色 */
+  width: 220px;                /* 長めの線 */
+  height: 3px;                 /* 太めの線 */
+  background: var(--ctm-green);/* 緑色 */
 }
 
 /* （念のため）フッターのリンク色が青/紫にならないよう強制 */
