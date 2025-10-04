@@ -769,30 +769,27 @@ footer {
   margin-top: 0 !important;
 }
 
-/* ===== FAQ 線（長さ=長い方／太さ=短い線と同じ／色=緑） ===== */
-#faq .faq-q { position: relative !important; padding-top: 20px !important; }
-
-#faq .faq-q::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: 0 !important;
-  width: 220px !important;      /* 長い線の長さ */
-  height: 3px !important;       /* 太さ（短い線と同じ） */
-  background: var(--ctm-green) !important;
+/* ===== CONTACT：ヒーロー画像の高さを約2/3に ===== */
+#contact .hero-image,
+.contact-hero .hero-image,
+section[id="contact"] .hero-image {
+  height: 26vh !important;     /* 40vh の約2/3 */
+  object-fit: cover !important;
   display: block !important;
 }
 
-/* hrタグ( .faq-divider ) の見た目を統一して必ず出す */
-#faq hr.faq-divider {
-  border: 0 !important;
-  height: 3px !important;
-  background: var(--ctm-green) !important;
-  width: min(60%, 560px) !important;     /* “長い方”の長さ */
-  margin: 28px auto !important;
-  display: block !important;
+/* 背景で指定されている場合に備えて */
+#contact .svc-hero,
+#contact .svc-hero-bg {
+  min-height: 26vh !important;
 }
+
+/* CONTACT とフッターの隙間をなくす */
+#contact, .contact-hero, .contact-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+footer { margin-top: 0 !important; }
 
 /* ===== CONTACT：ヒーロー画像の高さを約2/3に ===== */
 #contact .hero-image,
