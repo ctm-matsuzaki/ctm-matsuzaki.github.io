@@ -488,37 +488,38 @@ body {
   }
 }
 
-/* ===== 名前画像（松﨑 忠将） 拡大＋左寄せ（2.5倍版） ===== */
+/* ===== 名前画像（松﨑 忠将） 左寄せ＋サイズ115％ ===== */
 img.cmp-name {
   display: block;
   height: auto !important;
-  width: 132% !important;          /* デスクトップ：約2.5倍拡大 */
+  width: 115% !important;          /* ← 約1.15倍に変更 */
   max-width: none !important;
-  margin: 0 0 16px 0 !important;   /* 左寄せ（中央寄せ解除） */
+  margin: 0 0 16px 0 !important;
   position: relative;
-  left: -18%;                      /* 左方向へ寄せる（調整可） */
-  transform: translateY(-8px);     /* 経歴見出しの上に寄せる */
+  left: -40%;                      /* ← 左にしっかり寄せる */
+  transform: translateY(-6px);     /* 経歴見出しに近づける */
 }
 
 /* タブレット（1024px以下） */
 @media (max-width: 1024px) {
   img.cmp-name {
-    width: 220% !important;        /* やや縮小（画面に収まるように） */
-    left: -12%;
+    width: 105% !important;
+    left: -30%;
     margin: 0 0 14px 0 !important;
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 }
 
 /* スマホ（768px以下） */
 @media (max-width: 768px) {
   img.cmp-name {
-    width: 150% !important;        /* スマホ時は抑えめ */
-    left: -2%;
+    width: 150% !important;
+    left: -20%;
     margin: 0 0 12px 0 !important;
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 }
+
 
 footer {
   background-color: #244119; /* 深緑 */
