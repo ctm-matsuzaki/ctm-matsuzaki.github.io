@@ -488,29 +488,35 @@ body {
   }
 }
 
-/* ===== 名前画像（松﨑 忠将） 拡大＋左寄せ ===== */
-.cmp-name {
+/* ===== 名前画像（松﨑 忠将） 拡大＋左寄せ（2.5倍版） ===== */
+img.cmp-name {
   display: block;
-  height: auto;
-  width: 250%;                 /* ← 元の約2.5倍サイズに強制拡大 */
-  max-width: none !important;  /* ← 既存のclamp上限を無効化 */
-  margin: 0 0 16px 0;          /* ← 左寄せ（autoを消す） */
+  height: auto !important;
+  width: 250% !important;          /* デスクトップ：約2.5倍拡大 */
+  max-width: none !important;
+  margin: 0 0 16px 0 !important;   /* 左寄せ（中央寄せ解除） */
   position: relative;
-  left: -20%;                  /* ← 画像の中央基準を左へ寄せる（必要に応じて±調整） */
-  transform: translateY(-10px); /* ← 経歴の上へ少し近づける */
+  left: -18%;                      /* 左方向へ寄せる（調整可） */
+  transform: translateY(-8px);     /* 経歴見出しの上に寄せる */
 }
 
-@media (max-width: 1024px){
-  .cmp-name{
-    width: clamp(380px, 56vw, 640px);
-    margin: 22px 0 12px clamp(20px, 4.5vw, 32px); /* タブレットも左寄せ */
+/* タブレット（1024px以下） */
+@media (max-width: 1024px) {
+  img.cmp-name {
+    width: 220% !important;        /* やや縮小（画面に収まるように） */
+    left: -12%;
+    margin: 0 0 14px 0 !important;
+    transform: translateY(-6px);
   }
 }
 
-@media (max-width: 768px){
-  .cmp-name{
-    width: min(92%, 560px);                /* スマホ：もっと大きく */
-    margin: 18px 0 14px clamp(16px, 5vw, 24px); /* スマホ：経歴見出しと揃う位置に左寄せ */
+/* スマホ（768px以下） */
+@media (max-width: 768px) {
+  img.cmp-name {
+    width: 180% !important;        /* スマホ時は抑えめ */
+    left: -8%;
+    margin: 0 0 12px 0 !important;
+    transform: translateY(-4px);
   }
 }
 
