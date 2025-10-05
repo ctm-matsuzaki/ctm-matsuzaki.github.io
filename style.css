@@ -492,7 +492,7 @@ body {
 img.cmp-name {
   display: block;
   height: auto !important;
-  width: 250% !important;          /* デスクトップ：約2.5倍拡大 */
+  width: 120% !important;          /* デスクトップ：約2.5倍拡大 */
   max-width: none !important;
   margin: 0 0 16px 0 !important;   /* 左寄せ（中央寄せ解除） */
   position: relative;
