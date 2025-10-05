@@ -334,10 +334,6 @@ body {
   margin: 0;
 }
 
-/* 交互：右画像にしたい行へ .reverse を付与 */
-.svc-row.reverse .svc-media{ order:2; }
-.svc-row.reverse .svc-body { order:1; }
-
 /* === Services：スマホは常に「画像 → テキスト」 === */
 @media (max-width: 900px){
   .svc-row{
@@ -793,3 +789,16 @@ footer { margin-top: 0 !important; }
 .svc-grid{ grid-template-columns: repeat(4, 1fr) !important; }           /* PC */
 @media (max-width: 1024px){ .svc-grid{ grid-template-columns: repeat(2, 1fr) !important; } } /* タブレット */
 @media (max-width: 560px){  .svc-grid{ grid-template-columns: 1fr !important; } }            /* スマホ */
+
+/* ===== TOP Service カードを 4列（PC）/ 2列（Tablet）/ 1列（SP）に固定 ===== */
+.section--svc .svc-grid{
+  display:grid !important;
+  grid-template-columns: repeat(4, minmax(0,1fr)) !important; /* PC:4 */
+  gap: clamp(16px, 3vw, 24px) !important;
+}
+@media (max-width:1024px){
+  .section--svc .svc-grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; } /* TB:2 */
+}
+@media (max-width:560px){
+  .section--svc .svc-grid{ grid-template-columns: 1fr !important; } /* SP:1 */
+}
