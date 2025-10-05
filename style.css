@@ -117,7 +117,7 @@ body {
 .section-lead::after {
   content: "";
   display: block;
-  height: 2px;
+  height: 1px;
   background: currentColor;
   width: 100%;
   margin-top: 8px;
@@ -190,7 +190,7 @@ body {
 .service-title::after {
   content: "";
   display: block;
-  height: 2px;
+  height: 1px;
   background: var(--ctm-green);
   width: 100%;
   margin: 8px auto 0;
