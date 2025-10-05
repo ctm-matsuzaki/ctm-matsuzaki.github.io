@@ -514,7 +514,7 @@ img.cmp-name {
 @media (max-width: 768px) {
   img.cmp-name {
     width: 150% !important;
-    left: -20%;
+    left: 0%;
     margin: 0 0 12px 0 !important;
     transform: translateY(-2px);
   }
