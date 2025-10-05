@@ -338,15 +338,15 @@ body {
 .svc-row.reverse .svc-media{ order:2; }
 .svc-row.reverse .svc-body { order:1; }
 
-/* モバイル：縦積み */
 @media (max-width: 900px){
   .svc-row{
     grid-template-columns: 1fr;
     gap: 18px;
     margin: clamp(18px, 6vw, 36px) 0;
   }
-  .svc-row.reverse .svc-media,
-  .svc-row.reverse .svc-body{ order: initial; }
+  /* スマホは常に 画像 → テキスト */
+  .svc-row .svc-media{ order: 1 !important; }
+  .svc-row .svc-body { order: 2 !important; }
 }
 
 /* =========================
