@@ -975,3 +975,22 @@ footer { margin-top: 0 !important; }
   list-style:none;
   margin:.35em 0;
   f
+
+   /* ==== FAQ 調整（線OFF／緑ライン延長／FAQ文字サイズUP） ==== */
+
+/* 1) FAQ見出しの下のグレー線を削除 */
+#faq .faq-title::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* 2) Qの上の緑ラインを少し長めに（レスポンシブ） */
+#faq .faq-q::before{
+  width: clamp(180px, 24vw, 280px) !important; /* 旧:160px */
+}
+
+/* 3) 見出し2行目「FAQ」の文字をQと同じサイズに */
+#faq .faq-title span,
+#faq .faq-title .en{
+  font-size: clamp(1.1rem, 2.3vw, 1.6rem) !important;
+}
