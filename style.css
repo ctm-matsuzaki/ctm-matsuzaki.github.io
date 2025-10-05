@@ -762,183 +762,39 @@ section[id="contact"] .hero-image {
 }
 footer { margin-top: 0 !important; }
 
-/* ===== FAQ全体 ===== */
-#faq {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2em 1em;
-}
-
-/* ===== FAQ 見た目の最終オーバーライド ===== */
-
-/* Q：中央寄せ・下線なし */
-#faq .faq-q {
-  text-align: center !important;
-  border: none !important;
-  margin: 2.5rem 0 1.2rem !important;
-}
-#faq .faq-q::before,
-#faq .faq-q::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* A：中央寄せ */
-#faq .faq-a {
-  text-align: center !important;
-  margin-bottom: 2em !important;
-}
-
-/* 箇条書き：正しいリストを中央寄せ＆点なし */
-#faq .faq-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 0 auto 1.2em !important;
-  text-align: center !important;
-}
-#faq .faq-list li {
-  list-style: none !important;
-  margin: 0.35em 0 !important;
-  text-align: center !important;
-}
-
-/* タイトル下の <hr> は表示、Q/A間の <hr> は非表示 */
-#faq .faq-title + hr {
-  display: block !important;
-  height: 1px !important;
-  background: #cfcfcf !important;
-  border: 0 !important;
-  margin: 1.2rem 0 !important;
-}
-/* QやAの直後にある区切り線は消す */
-#faq .faq-q + hr,
-#faq .faq-a + hr {
-  display: none !important;
-}
-/* ===== FAQ 見本どおりの最終オーバーライド ===== */
-
-/* セクション全体 */
-#faq{max-width:1000px;margin:0 auto;padding:64px 24px;}
-
-/* 見出し（日本語大、英語小） */
-#faq .faq-title{
-  font-family:"Noto Sans JP",sans-serif;
-  font-weight:700;
-  font-size:clamp(1.6rem,3vw,2.2rem);
-  color:#111;
-  text-align:center;
-  margin:0 0 .3rem;
-}
-#faq .faq-sub{
-  font-family:"Noto Serif JP",serif;
-  font-weight:400;
-  font-size:clamp(.95rem,1.5vw,1.05rem);
-  color:var(--ctm-green);
-  letter-spacing:.08em;
-  text-align:center;
-  margin:0;
-}
-/* タイトル下に薄い区切り線（見本） */
-#faq hr{
-  display:none; /* まず全部オフ */
-}
-#faq .faq-sub + hr{
-  display:block !important;
-  height:1px !important;
-  background:#cfcfcf !important;
-  border:0 !important;
-  width:90%;
-  max-width:800px;
-  margin:16px auto 36px !important;
-}
-
-/* 各ブロック */
-#faq .faq-block{margin:56px 0;text-align:center;}
-
-/* Q：中央寄せ + 上に短い緑ライン */
-#faq .faq-q{
-  font-family:"Noto Sans JP",sans-serif;
-  font-weight:700;
-  color:var(--ctm-green);
-  font-size:clamp(1.1rem,2.3vw,1.6rem);
-  margin:24px 0 16px;
-  position:relative;
-}
-#faq .faq-q::before{
-  content:"";
-  display:block;
-  width:160px;
-  height:2px;
-  background:var(--ctm-green);
-  margin:0 auto 16px;
-  opacity:.65;
-}
-
-/* A：本文（リードは少し太く） */
-#faq .faq-a{
-  font-family:"Noto Serif JP",serif;
-  color:#111d10;
-  font-size:clamp(1rem,1.8vw,1.1rem);
-  line-height:1.9;
-  margin:0 0 16px;
-}
-#faq .faq-a-lead{font-weight:700;}
-
-/* 箇条書き：中央寄せ／ブラウザ依存の点は消し、疑似要素で「・」表示 */
-#faq .faq-list{list-style:none;padding:0;margin:12px 0 12px;text-align:center;}
-#faq .faq-list li{
-  list-style:none;
-  margin:.35em 0;
-  font-family:"Noto Serif JP",serif;
-  text-align:center;
-}
-#faq .faq-list li::before{
-  content:"・";
-  margin-right:.4em;
-}
-
-/* ===== FAQ 最終オーバーライド（index.html の #faq 用） ===== */
+/* ====== FAQ（決定版：index.html 用） ====== */
 
 /* セクション */
 #faq{max-width:1000px;margin:0 auto;padding:64px 24px;}
 
-/* 見出し（日本語＋英語） */
+/* 見出し：日本語＋英語（FAQ） */
 #faq .faq-title{
   font-family:"Noto Sans JP",sans-serif;
   font-weight:700;
-  font-size:clamp(1.6rem,3vw,2.2rem);
   color:#111;
   text-align:center;
   margin:0;
-  position:relative;
+  font-size:clamp(1.6rem,3vw,2.2rem); /* 日本語の大見出し */
 }
-/* spanにクラス有無どちらでも対応 */
+/* “FAQ” を Q と同じサイズ＆緑色に */
 #faq .faq-title span,
 #faq .faq-title .en{
-  display:block !important;
+  display:block;
   font-family:"Noto Serif JP",serif;
   font-weight:400;
-  font-size:clamp(.95rem,1.5vw,1.05rem);
-  color:var(--ctm-green) !important;
   letter-spacing:.08em;
-  margin-top:.25rem !important;
+  margin-top:.25rem;
+  color:var(--ctm-green);
+  font-size:clamp(1.1rem,2.3vw,1.6rem); /* ← Q と同サイズ */
 }
-/* 見出し下の薄いグレー線 */
-#faq .faq-title::after{
-  content:"";
-  display:block;
-  height:1px;
-  background:#cfcfcf;
-  width:90%;
-  max-width:800px;
-  margin:16px auto 36px;
-}
+/* 見出し下のグレー線は出さない（常に無効） */
+#faq .faq-title::after{content:none!important;display:none!important;}
 
 /* 各Q/Aブロック（旧 .faq-item も拾う） */
 #faq .faq-block,
 #faq .faq-item{margin:56px 0;text-align:center;}
 
-/* Q：中央寄せ＋上に短い緑ライン */
+/* Q：中央寄せ＋上に緑ライン（少し長め） */
 #faq .faq-q{
   font-family:"Noto Sans JP",sans-serif;
   font-weight:700;
@@ -947,18 +803,17 @@ footer { margin-top: 0 !important; }
   margin:24px 0 16px;
   position:relative;
 }
-/* 過去の「線オフ」を上書きして必ず出す */
 #faq .faq-q::before{
-  content:"" !important;
-  display:block !important;
-  width:160px;
+  content:"";
+  display:block;
+  width:clamp(200px, 24vw, 320px); /* ← 長めに */
   height:2px;
   background:var(--ctm-green);
   margin:0 auto 16px;
   opacity:.65;
 }
 
-/* A：本文（リードは太字） */
+/* A 本文（リードは太字） */
 #faq .faq-a{
   font-family:"Noto Serif JP",serif;
   color:#111d10;
@@ -969,9 +824,17 @@ footer { margin-top: 0 !important; }
 #faq .faq-a.lead,
 #faq .faq-a-lead{font-weight:700;}
 
-/* 箇条書き：中央寄せ、ネイティブの点は消し、疑似要素で「・」表示 */
+/* 箇条書き：中央寄せ、ネイティブの黒点は消し、疑似要素で「・」表示 */
 #faq .faq-list{list-style:none;padding:0;margin:12px 0;text-align:center;}
 #faq .faq-list li{
   list-style:none;
   margin:.35em 0;
-  f
+  font-family:"Noto Serif JP",serif;
+}
+#faq .faq-list li::before{
+  content:"・";
+  margin-right:.4em;
+}
+
+/* 旧区切り線は強制で非表示（保険） */
+#faq .faq-divider, #faq hr{display:none!important;}
