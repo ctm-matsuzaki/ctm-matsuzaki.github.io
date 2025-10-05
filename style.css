@@ -492,7 +492,7 @@ body {
 img.cmp-name {
   display: block;
   height: auto !important;
-  width: 120% !important;          /* デスクトップ：約2.5倍拡大 */
+  width: 150% !important;          /* デスクトップ：約2.5倍拡大 */
   max-width: none !important;
   margin: 0 0 16px 0 !important;   /* 左寄せ（中央寄せ解除） */
   position: relative;
@@ -513,7 +513,7 @@ img.cmp-name {
 /* スマホ（768px以下） */
 @media (max-width: 768px) {
   img.cmp-name {
-    width: 180% !important;        /* スマホ時は抑えめ */
+    width: 150% !important;        /* スマホ時は抑えめ */
     left: -8%;
     margin: 0 0 12px 0 !important;
     transform: translateY(-4px);
