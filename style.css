@@ -838,3 +838,21 @@ footer { margin-top: 0 !important; }
 
 /* 旧区切り線は強制で非表示（保険） */
 #faq .faq-divider, #faq hr{display:none!important;}
+
+/* Company帯：moreリンクを常に白（訪問済みでも紫にしない） */
+#home-company .col-text .more,
+#home-company .col-text .more:link,
+#home-company .col-text .more:visited,
+#home-company .col-text .more:hover,
+#home-company .col-text .more:active,
+#home-company .col-text .more:focus {
+  color: #fff !important;
+  text-decoration: none;   /* 下線を出したくない場合 */
+  border: none;            /* 以前の下線風ボーダーもオフ */
+}
+
+/* フォーカス可視化（任意） */
+#home-company .col-text .more:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
+}
