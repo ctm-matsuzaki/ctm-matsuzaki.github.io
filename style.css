@@ -239,6 +239,37 @@ body {
   margin: 0 16px 16px;
 }
 
+/* ▼ Fallback：.svc-grid > li に .svc-card が無くてもカード化する */
+.svc-grid > li:not(.svc-card){
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 28px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.svc-grid > li:not(.svc-card) .svc-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+}
+.svc-grid > li:not(.svc-card) .svc-title{
+  font-family:'Noto Serif JP', serif;
+  font-weight:800;
+  color:var(--ctm-green);
+  font-size:clamp(1.05rem,1.8vw,1.25rem);
+  margin:12px 16px 6px;
+  line-height:1.35;
+}
+.svc-grid > li:not(.svc-card) .svc-desc{
+  font-size:clamp(.95rem,1.4vw,1.05rem);
+  line-height:1.9;
+  color:#254233;
+  margin:0 16px 16px;
+}
+
 /* ===== TOP：Company 帯（見本どおり 2カラム&深緑） ===== */
 #home-company{
   display: grid;
@@ -347,6 +378,14 @@ body {
   gap: clamp(24px, 5vw, 56px);
   align-items: center;
   margin: clamp(40px, 6vw, 80px) 0;
+}
+
+/* ▼ services.html の各ブロックをカード見えにする */
+.svc-row{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 28px rgba(0,0,0,.08);
+  padding: clamp(16px, 3vw, 28px);
 }
 
 .svc-col.media img{
