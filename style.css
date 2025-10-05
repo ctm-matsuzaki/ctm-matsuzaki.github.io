@@ -496,7 +496,7 @@ img.cmp-name {
   max-width: none !important;
   margin: 0 0 16px 0 !important;
   position: relative;
-  left: -40%;                      /* ← 左にしっかり寄せる */
+  left: 0%;                      /* ← 左にしっかり寄せる */
   transform: translateY(-6px);     /* 経歴見出しに近づける */
 }
 
@@ -504,7 +504,7 @@ img.cmp-name {
 @media (max-width: 1024px) {
   img.cmp-name {
     width: 105% !important;
-    left: -30%;
+    left: 0%;
     margin: 0 0 14px 0 !important;
     transform: translateY(-4px);
   }
