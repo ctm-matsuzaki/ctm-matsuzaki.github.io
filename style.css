@@ -293,15 +293,6 @@ body {
   margin: 0 auto;
 }
 
-/* 1ブロック（左右2カラム） */
-.svc-row{
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;   /* 左：テキストやや広めにする場合は 1fr 1.05fr に */
-  align-items: center;
-  gap: clamp(24px, 5vw, 56px);
-  margin: clamp(24px, 5vw, 64px) 0;
-}
-
 /* 画像 */
 .svc-media{
   margin:0;
@@ -438,13 +429,6 @@ body {
   overflow: hidden;
 }
 
-.hero-image {
-  width: 100%;
-  height: 40vh; /* 画面高さの40%に調整 */
-  object-fit: cover; /* 縦横比を保ちつつトリミング */
-  display: block;
-}
-
 .svc-hero-text {
   position: absolute;
   top: 50%;
@@ -473,14 +457,6 @@ body {
   color: #165b33; /* 緑色 */
   margin: 40px 0 20px;
   font-weight: 700;
-}
-
-/* 4つのサービス項目に背景を付ける */
-.svc-row {
-  background: rgba(240, 240, 240, 0.6); /* 薄いグレー */
-  padding: 30px;
-  border-radius: 8px; /* 角を少し丸める */
-  margin-bottom: 40px; /* 各ブロックの間隔 */
 }
 
 /* スマホ用 (768px以下) */
@@ -683,32 +659,12 @@ html, body{ overflow-x: hidden; }
   }
 }
 
-/* （念のため）フッターのリンク色が青/紫にならないよう強制 */
-footer a,
-.global-footer a{ color:#fff !important; text-decoration: underline; text-underline-offset:3px; }
-
-/* ====== 修正まとめ（末尾追記でOK） ====== */
-
 /* 会社情報：角丸なし & MOREの下線なし */
 #home-company{ border-radius: 0 !important; }
 #home-company .col-text .more{
   border: none !important;
   padding-bottom: 0 !important;
 }
-
-/* お問い合わせ：画像高さを約2/3に、下の余白をゼロに */
-.contact-hero .hero-image,
-.contact .hero-image,
-#contact .hero-image{
-  height: 26vh !important;   /* 40vh → 約2/3 */
-}
-
-/* お問い合わせブロックとフッターの隙間を無くす */
-.contact-hero, .contact, #contact{
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-footer{ margin-top: 0 !important; }
 
 .hero-image {
   width: 100%;
@@ -717,28 +673,11 @@ footer{ margin-top: 0 !important; }
   display: block;
 }
 
-/* ===== CONTACTとフッターの隙間を消す ===== */
-.contact-section,
-.contact-hero {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-footer {
-  margin-top: 0 !important;
-}
-
 /* 背景で指定されている場合に備えて */
 #contact .svc-hero,
 #contact .svc-hero-bg {
   min-height: 26vh !important;
 }
-
-/* CONTACT とフッターの隙間をなくす */
-#contact, .contact-hero, .contact-section {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-footer { margin-top: 0 !important; }
 
 /* ===== CONTACT：ヒーロー画像の高さを約2/3に ===== */
 #contact .hero-image,
@@ -747,12 +686,6 @@ section[id="contact"] .hero-image {
   height: 26vh !important;     /* 40vh の約2/3 */
   object-fit: cover !important;
   display: block !important;
-}
-
-/* 背景で指定されている場合に備えて */
-#contact .svc-hero,
-#contact .svc-hero-bg {
-  min-height: 26vh !important;
 }
 
 /* CONTACT とフッターの隙間をなくす */
@@ -839,20 +772,10 @@ footer { margin-top: 0 !important; }
 /* 旧区切り線は強制で非表示（保険） */
 #faq .faq-divider, #faq hr{display:none!important;}
 
-/* Company帯：moreリンクを常に白（訪問済みでも紫にしない） */
-#home-company .col-text .more,
-#home-company .col-text .more:link,
-#home-company .col-text .more:visited,
-#home-company .col-text .more:hover,
-#home-company .col-text .more:active,
-#home-company .col-text .more:focus {
+/* === Company帯の more を常に白に固定（visited でも紫禁止）=== */
+#home-company .col-text a.more:any-link {
   color: #fff !important;
-  text-decoration: none;   /* 下線を出したくない場合 */
-  border: none;            /* 以前の下線風ボーダーもオフ */
+  -webkit-text-fill-color: #fff !important; /* Safari 対策 */
+  text-decoration: none !important;
 }
-
-/* フォーカス可視化（任意） */
-#home-company .col-text .more:focus-visible {
-  outline: 2px dashed #fff;
-  outline-offset: 2px;
-}
+#home-company .col-text a.more:hover { opacity: .9; }
