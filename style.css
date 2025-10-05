@@ -815,3 +815,84 @@ footer { margin-top: 0 !important; }
 #faq .faq-a + hr {
   display: none !important;
 }
+/* ===== FAQ 見本どおりの最終オーバーライド ===== */
+
+/* セクション全体 */
+#faq{max-width:1000px;margin:0 auto;padding:64px 24px;}
+
+/* 見出し（日本語大、英語小） */
+#faq .faq-title{
+  font-family:"Noto Sans JP",sans-serif;
+  font-weight:700;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  color:#111;
+  text-align:center;
+  margin:0 0 .3rem;
+}
+#faq .faq-sub{
+  font-family:"Noto Serif JP",serif;
+  font-weight:400;
+  font-size:clamp(.95rem,1.5vw,1.05rem);
+  color:var(--ctm-green);
+  letter-spacing:.08em;
+  text-align:center;
+  margin:0;
+}
+/* タイトル下に薄い区切り線（見本） */
+#faq hr{
+  display:none; /* まず全部オフ */
+}
+#faq .faq-sub + hr{
+  display:block !important;
+  height:1px !important;
+  background:#cfcfcf !important;
+  border:0 !important;
+  width:90%;
+  max-width:800px;
+  margin:16px auto 36px !important;
+}
+
+/* 各ブロック */
+#faq .faq-block{margin:56px 0;text-align:center;}
+
+/* Q：中央寄せ + 上に短い緑ライン */
+#faq .faq-q{
+  font-family:"Noto Sans JP",sans-serif;
+  font-weight:700;
+  color:var(--ctm-green);
+  font-size:clamp(1.1rem,2.3vw,1.6rem);
+  margin:24px 0 16px;
+  position:relative;
+}
+#faq .faq-q::before{
+  content:"";
+  display:block;
+  width:160px;
+  height:2px;
+  background:var(--ctm-green);
+  margin:0 auto 16px;
+  opacity:.65;
+}
+
+/* A：本文（リードは少し太く） */
+#faq .faq-a{
+  font-family:"Noto Serif JP",serif;
+  color:#111d10;
+  font-size:clamp(1rem,1.8vw,1.1rem);
+  line-height:1.9;
+  margin:0 0 16px;
+}
+#faq .faq-a-lead{font-weight:700;}
+
+/* 箇条書き：中央寄せ／ブラウザ依存の点は消し、疑似要素で「・」表示 */
+#faq .faq-list{list-style:none;padding:0;margin:12px 0 12px;text-align:center;}
+#faq .faq-list li{
+  list-style:none;
+  margin:.35em 0;
+  font-family:"Noto Serif JP",serif;
+  text-align:center;
+}
+#faq .faq-list li::before{
+  content:"・";
+  margin-right:.4em;
+}
