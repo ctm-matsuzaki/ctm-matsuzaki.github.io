@@ -238,8 +238,6 @@ body {
   color: #254233;
   margin: 0 16px 16px;
 }
-@media (max-width: 1024px){ .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr; } }
 
 /* ===== TOP：Company 帯（見本どおり 2カラム&深緑） ===== */
 #home-company{
@@ -332,21 +330,6 @@ body {
   line-height:1.9;
   font-size: clamp(1rem, 2.2vw, 1.125rem);
   margin: 0;
-}
-
-/* === Services：スマホは常に「画像 → テキスト」 === */
-@media (max-width: 900px){
-  .svc-row{
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin: clamp(18px, 6vw, 36px) 0;
-  }
-  /* 両系統に対応（.svc-media/.svc-body と .svc-col.* のどちらでも効く） */
-  .svc-row .svc-media,
-  .svc-row .svc-col.media{ order: 1 !important; }
-
-  .svc-row .svc-body,
-  .svc-row .svc-col.text{ order: 2 !important; }
 }
 
 /* =========================
@@ -784,11 +767,6 @@ footer { margin-top: 0 !important; }
   .svc-row .svc-col.media{ order: 1 !important; }
   .svc-row .svc-col.text { order: 2 !important; }
 }
-
-/* ===== TOPのサービスカード（.svc-grid）列数を明示（上書き用） ===== */
-.svc-grid{ grid-template-columns: repeat(4, 1fr) !important; }           /* PC */
-@media (max-width: 1024px){ .svc-grid{ grid-template-columns: repeat(2, 1fr) !important; } } /* タブレット */
-@media (max-width: 560px){  .svc-grid{ grid-template-columns: 1fr !important; } }            /* スマホ */
 
 /* ===== TOP Service カードを 4列（PC）/ 2列（Tablet）/ 1列（SP）に固定 ===== */
 .section--svc .svc-grid{
