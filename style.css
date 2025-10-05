@@ -488,13 +488,16 @@ body {
   }
 }
 
-/* ===== 名前画像（松﨑 忠将） レスポンシブ最終版 ===== */
-.cmp-name{
-  display:block;
-  height:auto;
-  width: clamp(420px, 40vw, 680px);        /* PC：大きめ */
-  margin: 24px auto 12px clamp(24px, 4vw, 32px); /* PC：左に寄せる */
+/* ===== 名前画像（松﨑 忠将） レスポンシブ最終版（調整後） ===== */
+.cmp-name {
+  display: block;
+  height: auto;
+  width: clamp(520px, 48vw, 740px);         /* ← 画像をやや大きく */
+  margin: 12px 0 20px clamp(8px, 6vw, 60px); /* ← 左に寄せて、下余白を広げる */
+  position: relative;
+  top: 0;                                   /* 経歴のすぐ上に自然配置 */
 }
+
 
 @media (max-width: 1024px){
   .cmp-name{
