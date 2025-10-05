@@ -771,3 +771,25 @@ footer { margin-top: 0 !important; }
   text-decoration: none !important;
 }
 #home-company .col-text a.more:hover { opacity: .9; }
+
+/* ===== Services：スマホは常に「画像 → テキスト」 ===== */
+@media (max-width: 900px){
+  /* 2カラムの説明ブロック（services.html 想定）を1カラムに */
+  .svc-row{
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+  /* パターンA：.svc-media（画像） / .svc-body（テキスト） */
+  .svc-row .svc-media{ order: 1 !important; }
+  .svc-row .svc-body { order: 2 !important; }
+
+  /* パターンB：.svc-col.media（画像） / .svc-col.text（テキスト） */
+  .svc-row .svc-col.media{ order: 1 !important; }
+  .svc-row .svc-col.text { order: 2 !important; }
+}
+
+/* ===== TOPのサービスカード（.svc-grid）列数を明示（上書き用） ===== */
+.svc-grid{ grid-template-columns: repeat(4, 1fr) !important; }           /* PC */
+@media (max-width: 1024px){ .svc-grid{ grid-template-columns: repeat(2, 1fr) !important; } } /* タブレット */
+@media (max-width: 560px){  .svc-grid{ grid-template-columns: 1fr !important; } }            /* スマホ */
