@@ -492,11 +492,11 @@ body {
 img.cmp-name {
   display: block;
   height: auto !important;
-  width: 90% !important;          /* ← 約1.15倍に変更 */
+  width: 85% !important;          /* ← 約1.15倍に変更 */
   max-width: none !important;
   margin: 0 0 16px 0 !important;
   position: relative;
-  left: 10%;                      /* ← 左にしっかり寄せる */
+  left: 5%;                      /* ← 左にしっかり寄せる */
   transform: translateY(-6px);     /* 経歴見出しに近づける */
 }
 
