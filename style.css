@@ -840,10 +840,11 @@ footer { margin-top: 0 !important; }
   background: transparent;
 }
 
-.site-header.is-solid{
-  background: #264a27;
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+.site-header.is-solid {
+  background: rgba(38, 74, 39, 0.88); /* ← 透明度を加えて“薄い緑”に変更 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 .site-header__inner{
   height: 64px; display:flex; align-items:center; justify-content:space-between;
   width:min(1100px,92%); margin:0 auto;
