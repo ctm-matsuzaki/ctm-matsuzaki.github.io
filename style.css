@@ -831,7 +831,7 @@ footer { margin-top: 0 !important; }
   .section--svc .svc-grid{ grid-template-columns: 1fr !important; } /* SP:1 */
 }
 
-/* ===== Global Header（透明 → スクロールで緑） ===== */
+/* ===== Global Header（常時 薄いグリーン・中央寄せ） ===== */
 .site-header {
   position: fixed;
   top: 0;
@@ -839,49 +839,64 @@ footer { margin-top: 0 !important; }
   left: 0;
   right: 0;
   width: 100%;
+  background: rgba(38, 74, 39, 0.9); /* ← 薄いグリーン固定 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   backdrop-filter: saturate(150%) blur(6px);
-  transition: background-color .28s ease, box-shadow .28s ease;
-  background: transparent;
 }
 
-/* スクロール後（薄い緑・影付き） */
-.site-header.is-solid {
-  background: rgba(38, 74, 39, 0.88); /* ← 薄い緑 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-.site-header.is-solid .gnav_list a {
-  color: #fff;
-}
-
-/* 内部レイアウト */
 .site-header_inner {
-  height: 64px;
+  height: 70px;
+  width: min(1200px, 94%);
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: min(1100px, 92%);
-  margin: 0 auto;
+  justify-content: center; /* ← 中央寄せ */
+  gap: 40px;
 }
 
-/* ナビゲーション */
+/* 不要なボタン類は非表示（「メニューを開閉」など） */
+.gnav__toggle,
+.gnav_toggle {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* ナビゲーション（中央揃え） */
 .gnav_list {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.gnav_list a {
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding: 4px 0;
-}
-.gnav_list a:hover {
-  border-bottom-color: #fff;
+  justify-content: center;
+  align-items: center;
 }
 
+.gnav_list a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+.gnav_list a:hover {
+  opacity: 0.8;
+}
+
+/* スマホ時 */
+@media (max-width: 768px) {
+  .site-header_inner {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .gnav_list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 /* ハンバーガーボタン（PCでは非表示） */
 .gnav__toggle {
   display: none;
