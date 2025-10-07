@@ -912,4 +912,76 @@ footer { margin-top: 0 !important; }
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   }
 
-  .gn
+/* =========================
+   Mobile Hamburger (right / no text)
+   ========================= */
+@media (max-width: 980px){
+
+  /* 左上のCTMリンクはスマホでは非表示 */
+  .brand { display: none !important; }
+
+  /* 右上：ハンバーガー本体（文字は消す） */
+  .gnav__toggle{
+    position: relative;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;      /* 右寄せ */
+    margin-right: 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0;           /* 「メニューを開閉」などの文字を非表示 */
+    color: transparent;     /* 念のため */
+    z-index: 1001;
+  }
+
+  /* 三本線（擬似要素1つ＋box-shadowで3本に） */
+  .gnav__toggle::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 14px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow:
+      0 7px 0 0 #fff,      /* 2本目 */
+      0 14px 0 0 #fff;     /* 3本目 */
+  }
+
+  /* ヘッダー内レイアウト微調整（中央寄せ＆高さ） */
+  .site-header__inner{
+    height: 56px;
+    padding: 0 8px;
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 開いたメニュー：全幅・透過グリーン */
+  .gnav__list{
+    position: fixed;
+    top: calc(56px + env(safe-area-inset-top));
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    background: rgba(38,74,39,0.82);
+    backdrop-filter: blur(6px) saturate(140%);
+    padding: 10px 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  }
+  .gnav__list.is-open{ display:flex; }
+
+  .gnav__list a{
+    display:block;
+    padding:12px 6px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    border-bottom:1px solid rgba(255,255,255,.16);
+  }
+  .gnav__list li:last-child a{ border-bottom:0; }
+}
