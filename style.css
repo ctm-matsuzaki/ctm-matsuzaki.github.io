@@ -833,11 +833,13 @@ footer { margin-top: 0 !important; }
 
 /* ===== Global Header（透明 → スクロールで緑） ===== */
 .site-header{
-  position: sticky; top: 0; z-index: 1000;
+  position: fixed; top: 0; z-index: 1000;
+  left: 0; right: 0; width: 100%;
   backdrop-filter: saturate(150%) blur(6px);
   transition: background-color .28s ease, box-shadow .28s ease;
   background: transparent;
 }
+
 .site-header.is-solid{
   background: #264a27;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
