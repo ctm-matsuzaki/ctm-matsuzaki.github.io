@@ -98,6 +98,28 @@
   </style>
 </head>
 
+  <script>
+(function(){
+  var header = document.querySelector('.site-header');
+  var solidAt = 100;
+  function onScroll(){
+    if(window.scrollY > solidAt){ header.classList.add('is-solid'); }
+    else{ header.classList.remove('is-solid'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll);
+
+  var btn = document.querySelector('.gnav__toggle');
+  var menu = document.getElementById('gnav-menu');
+  if(btn && menu){
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true':'false');
+    });
+  }
+})();
+</script>
+
 <body class="page-company">
 
   <!-- ▼ ここに追加 ▼ -->
