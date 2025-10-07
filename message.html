@@ -126,8 +126,11 @@
 <header class="site-header" role="banner" aria-label="グローバルヘッダー">
   <div class="site-header_inner">
     <nav class="gnav" aria-label="グローバルナビゲーション">
-      <button class="gnav_toggle" aria-controls="gnav-menu" aria-expanded="false">メニューを開閉</button>
-      <ul id="gnav-menu" class="gnav_list">
+     <!-- 置換後（129〜133行目あたり） -->
+<button class="gnav_toggle" aria-controls="gnav-menu" aria-expanded="false" aria-label="メニュー">
+  <span></span>
+</button>
+ <ul id="gnav-menu" class="gnav_list">
         <li><a href="index.html">ホーム</a></li>
         <li><a href="message.html">代表挨拶</a></li>
         <li><a href="company.html">会社情報</a></li>
