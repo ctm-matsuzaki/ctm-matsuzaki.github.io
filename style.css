@@ -832,33 +832,91 @@ footer { margin-top: 0 !important; }
 }
 
 /* ===== Global Header（透明 → スクロールで緑） ===== */
-.site-header{
-  position: fixed; top: 0; z-index: 1000;
-  left: 0; right: 0; width: 100%;
+.site-header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  width: 100%;
   backdrop-filter: saturate(150%) blur(6px);
   transition: background-color .28s ease, box-shadow .28s ease;
   background: transparent;
 }
 
+/* スクロール後（薄い緑・影付き） */
 .site-header.is-solid {
-  background: rgba(38, 74, 39, 0.88); /* ← 透明度を加えて“薄い緑”に変更 */
+  background: rgba(38, 74, 39, 0.88); /* ← 薄い緑 */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
-.site-header__inner{
-  height: 64px; display:flex; align-items:center; justify-content:space-between;
-  width:min(1100px,92%); margin:0 auto;
+.site-header.is-solid .gnav_list a {
+  color: #fff;
 }
-.brand{font-weight:800; letter-spacing:.06em; color:#fff; text-decoration:none; font-size:20px;}
-.gnav__list{display:flex; gap:24px; list-style:none; margin:0; padding:0;}
-.gnav__list a{color:#fff; text-decoration:none; font-weight:700; border-bottom:2px solid transparent; padding:4px 0;}
-.gnav__list a:hover{border-bottom-color:#fff;}
-.gnav__toggle{display:none; background:none; border:0; color:#fff; font-size:22px; line-height:1;}
-@media (max-width: 900px){
-  .gnav__toggle{display:block;}
-  .gnav__list{position: fixed; inset:64px 0 auto 0;
-    background:#264a27; display:none; flex-direction:column; gap:0;}
-  .gnav__list li{border-top:1px solid rgba(255,255,255,.18);}  
-  .gnav__list a{display:block; padding:14px 20px;}
-  .gnav__list.is-open{display:flex;}
+
+/* 内部レイアウト */
+.site-header_inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ナビゲーション */
+.gnav_list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gnav_list a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 0;
+}
+.gnav_list a:hover {
+  border-bottom-color: #fff;
+}
+
+/* ハンバーガーボタン（PCでは非表示） */
+.gnav__toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* スマホ用スタイル */
+@media (max-width: 900px) {
+  .gnav__toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+  }
+  .gnav_list {
+    position: fixed;
+    top: 56px;
+    left: 12px;
+    background: rgba(38, 74, 39, 0.92);
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 8px;
+    padding: 14px 20px;
+  }
+  .gnav_list a {
+    display: block;
+    padding: 10px 0;
+    color: #fff;
+  }
+  .gnav_list.is-open {
+    display: flex;
+  }
 }
