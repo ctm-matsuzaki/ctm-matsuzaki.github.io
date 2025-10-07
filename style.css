@@ -935,3 +935,43 @@ footer { margin-top: 0 !important; }
     display: flex;
   }
 }
+
+/* === SPハンバーガー（<=980px） === */
+@media (max-width: 980px){
+
+  /* トグルボタン（右上）を表示 */
+  .gnav_toggle{
+    display:block !important;
+    position: relative;
+    width: 44px; height: 44px;
+    border: 0; background: transparent; color:#fff;
+    cursor: pointer;
+  }
+  /* 3本線（見た目） */
+  .gnav_toggle::before, .gnav_toggle::after, .gnav_toggle span{
+    content:""; display:block; height:2px; background:#fff;
+    margin:7px 0; border-radius:2px;
+  }
+
+  /* メニュー本体はデフォルト非表示にしてドロップダウンに */
+  .gnav_list{
+    position: fixed; top: 64px; left: 0; right: 0;
+    display: none;                     /* ← ここがポイント */
+    flex-direction: column;
+    gap: 0;
+    background: rgba(38,74,39,0.80);   /* 薄いグリーン＋透過 */
+    padding: 10px 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  }
+  /* 開いた時（.is-open がJSで付く） */
+  .gnav_list.is-open{ display:flex; }
+
+  /* 各リンクの見た目（区切り＆押しやすい余白） */
+  .gnav_list a{
+    display:block;
+    padding: 12px 6px;
+    color:#fff; text-decoration:none; font-weight:700;
+    border-bottom: 1px solid rgba(255,255,255,.16);
+  }
+  .gnav_list li:last-child a{ border-bottom:0; }
+}
