@@ -919,3 +919,45 @@ footer { margin-top: 0 !important; }
   .gnav{ display:none; }            /* PC横並びは消す */
   .gnav-toggle{ display:block; margin-left:auto; }  /* 右上に表示 */
 }
+/* =========================
+   Header 調整（PCの文字サイズ・間隔／CTM非表示／スマホの被り防止）
+   ========================= */
+
+/* どの画面幅でも「CTM」ロゴは非表示にする（HTML編集不要） */
+.brand { display: none !important; }
+
+/* PC（≧981px）：メニュー文字を少し大きく＆間隔を少し広げる */
+@media (min-width: 981px) {
+  .site-header__inner {
+    /* PCは右寄せでスッキリ見せる */
+    justify-content: flex-end !important;
+  }
+  .gnav_list {
+    gap: 0 32px !important;             /* ← 間隔を少し広げる（お好みで28〜36px） */
+  }
+  .gnav_list a {
+    font-size: 17px !important;         /* ← 文字を少し大きく */
+    line-height: 1.2;
+  }
+}
+
+/* スマホ（≤980px）：ヒーロー画像と固定ヘッダーの「被り」を防ぐ */
+@media (max-width: 980px) {
+  /* 固定ヘッダーの実高さぶん空ける（あなたのCSSでは56px） */
+  .hero-company { 
+    margin-top: 56px !important;        /* ← ここで被り解消 */
+  }
+
+  /* 右上ハンバーガーの位置安定（念のため） */
+  .gnav_toggle {
+    position: absolute !important;
+    top: 10px; 
+    right: 12px;                        /* ← 右上固定 */
+  }
+}
+
+/* 任意：ヘッダーの薄いグリーンを “常時” 少しだけ濃く見せたい場合は下を有効化
+.site-header.is-solid { 
+  background: rgba(38, 74, 57, 0.66) !important;
+}
+*/
