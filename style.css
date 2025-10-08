@@ -961,3 +961,50 @@ footer { margin-top: 0 !important; }
   background: rgba(38, 74, 57, 0.66) !important;
 }
 */
+
+/* =========================
+   Header 改良版（2025/10/08更新）
+   ========================= */
+
+/* PCメニュー調整：文字サイズ＆間隔アップ */
+@media (min-width: 981px) {
+  .gnav_list {
+    gap: 0 48px !important;      /* ← 間隔を広げる（前は32px） */
+  }
+  .gnav_list a {
+    font-size: 18.5px !important; /* ← 文字サイズをさらに大きく */
+    letter-spacing: 0.05em;       /* ← わずかに文字間を広げて高級感 */
+    font-weight: 700;
+  }
+}
+
+/* スマホメニュー開いたときに背景と重ならないようにする */
+@media (max-width: 980px) {
+  .gnav-drawer {
+    position: fixed;
+    inset: 0;                             /* 画面全体を覆う */
+    background: rgba(38, 74, 39, 0.95);   /* 濃い緑で背景を覆う */
+    backdrop-filter: blur(4px);           /* 軽くぼかして上品に */
+    padding-top: 70px;                    /* 上に余白を作る（ヘッダー分） */
+    z-index: 999;                         /* 最前面に表示 */
+  }
+  .gnav-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 85%;
+    text-align: center;
+  }
+  .gnav-drawer li + li {
+    margin-top: 18px;                     /* 項目間に余白を追加 */
+  }
+  .gnav-drawer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;                      /* ← スマホで押しやすいサイズに拡大 */
+    font-weight: 700;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+  }
+}
