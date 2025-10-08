@@ -963,31 +963,59 @@ footer { margin-top: 0 !important; }
 */
 
 /* =========================
-   Header 改良版（2025/10/08更新）
+   Header（スマホメニュー最終調整版）
+   背景色統一 + フェードインアニメーション追加
    ========================= */
 
-/* PCメニュー調整：文字サイズ＆間隔アップ */
+/* PCメニュー（再掲：文字サイズ＆間隔アップ） */
 @media (min-width: 981px) {
   .gnav_list {
-    gap: 0 48px !important;      /* ← 間隔を広げる（前は32px） */
+    gap: 0 48px !important;
   }
   .gnav_list a {
-    font-size: 18.5px !important; /* ← 文字サイズをさらに大きく */
-    letter-spacing: 0.05em;       /* ← わずかに文字間を広げて高級感 */
+    font-size: 18.5px !important;
+    letter-spacing: 0.05em;
     font-weight: 700;
   }
 }
 
-/* スマホメニュー開いたときに背景と重ならないようにする */
+/* スマホメニュー（背景色＋アニメーション付き） */
 @media (max-width: 980px) {
+  /* 開閉アニメーション */
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ドロワーメニュー（閉じてる状態） */
   .gnav-drawer {
     position: fixed;
-    inset: 0;                             /* 画面全体を覆う */
-    background: rgba(38, 74, 39, 0.95);   /* 濃い緑で背景を覆う */
-    backdrop-filter: blur(4px);           /* 軽くぼかして上品に */
-    padding-top: 70px;                    /* 上に余白を作る（ヘッダー分） */
-    z-index: 999;                         /* 最前面に表示 */
+    inset: 0;
+    background: rgba(38, 74, 39, 0.92); /* ← ヘッダーと同じ薄い緑トーン */
+    backdrop-filter: blur(3px);
+    padding-top: 70px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
   }
+
+  /* 開いたとき */
+  .gnav-drawer.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeSlideIn 0.5s ease forwards;
+  }
+
+  /* メニューリスト */
   .gnav-drawer ul {
     list-style: none;
     padding: 0;
@@ -996,15 +1024,26 @@ footer { margin-top: 0 !important; }
     text-align: center;
   }
   .gnav-drawer li + li {
-    margin-top: 18px;                     /* 項目間に余白を追加 */
+    margin-top: 18px;
   }
   .gnav-drawer a {
     color: #fff;
     text-decoration: none;
-    font-size: 20px;                      /* ← スマホで押しやすいサイズに拡大 */
+    font-size: 20px;
     font-weight: 700;
     display: block;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.25);
+    transition: opacity 0.3s ease;
+  }
+  .gnav-drawer a:hover {
+    opacity: 0.7;
+  }
+
+  /* ハンバーガーボタン位置 */
+  .gnav_toggle {
+    position: absolute !important;
+    top: 10px;
+    right: 14px;
   }
 }
