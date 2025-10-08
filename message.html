@@ -90,26 +90,38 @@
 
 <body class="page-company">
 
-  <!-- ======== ヘッダー（共通ナビ） ======== -->
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="index.html" class="brand">CTM</a>
+ <!-- ===== Global Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">CTM</a>
 
-      <!-- ハンバーガーボタン -->
-      <button class="gnav_toggle" aria-controls="gnav-menu" aria-expanded="false" aria-label="メニュー">
-        <span></span>
-      </button>
+    <!-- PCメニュー（横並び） -->
+    <nav class="gnav" aria-label="グローバルナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="services.html">サービス</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
+    </nav>
 
-      <!-- ナビメニュー -->
-      <ul id="gnav-menu" class="gnav_list">
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </div>
-  </header>
+    <!-- SPハンバーガー -->
+    <button class="gnav-toggle" id="gnavToggle" aria-controls="gnavDrawer" aria-expanded="false" aria-label="メニューを開閉">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- SP用ドロワーメニュー -->
+<nav class="gnav-drawer" id="gnavDrawer" aria-label="グローバルナビ（モバイル）">
+  <ul>
+    <li><a href="index.html">ホーム</a></li>
+    <li><a href="message.html">代表挨拶</a></li>
+    <li><a href="company.html">会社情報</a></li>
+    <li><a href="services.html">サービス</a></li>
+    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+  </ul>
+</nav>
+
 
   <!-- ======= Hero（上部画像） ======= -->
   <section class="hero-company" aria-label="会社情報ヒーロー">
@@ -157,34 +169,44 @@
     <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
   </footer>
 
-  <!-- ======= フッター年自動更新 + ナビ開閉 ======= -->
-  <script>
-  (function(){
-    // 年自動更新
-    var y=document.getElementById('gf-year');
-    if(y) y.textContent=new Date().getFullYear();
+<script>
+(function(){
+  var header  = document.getElementById('siteHeader');
+  var toggle  = document.getElementById('gnavToggle');
+  var drawer  = document.getElementById('gnavDrawer');
 
-    // ヘッダー背景スクロール変化
-    var header=document.querySelector('.site-header');
-    var solidAt=100;
-    function onScroll(){
-      if(window.scrollY>solidAt){header&&header.classList.add('is-solid');}
-      else{header&&header.classList.remove('is-solid');}
-    }
-    onScroll();
-    window.addEventListener('scroll',onScroll);
+  /* スクロールで “重なる感じ” に切り替え */
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if(y > 10){ header.classList.add('is-overlay'); }
+    else      { header.classList.remove('is-overlay'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
 
-    // ハンバーガー開閉
-    var btn=document.querySelector('.gnav_toggle');
-    var menu=document.getElementById('gnav-menu');
-    if(btn&&menu){
-      btn.addEventListener('click',function(){
-        var open=menu.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded',open?'true':'false');
-      });
-    }
-  })();
-  </script>
+  /* SPハンバーガー開閉 */
+  if(toggle && drawer){
+    toggle.addEventListener('click', function(){
+      var open = drawer.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true':'false');
+      // 背景スクロール抑止（必要なら）
+      document.documentElement.style.overflow = open ? 'hidden':'';
+      document.body.style.overflow = open ? 'hidden':'';
+    });
+
+    // リンクを押したら自動で閉じる
+    drawer.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        drawer.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded','false');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+})();
+</script>
+
 
 </body>
 </html>
