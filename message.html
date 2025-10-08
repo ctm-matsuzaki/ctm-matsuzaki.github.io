@@ -123,9 +123,26 @@
 <body class="page-company">
 
   <!-- ▼ ここに追加 ▼ -->
-<header class="site-header" role="banner" aria-label="グローバルヘッダー">
-  <div class="site-header_inner">
-    <nav class="gnav" aria-label="グローバルナビゲーション">
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">CTM</a>
+
+    <!-- ハンバーガーボタン -->
+    <button class="gnav_toggle" aria-controls="gnav-menu" aria-expanded="false" aria-label="メニュー">
+      <span></span>
+    </button>
+
+    <!-- ナビメニュー -->
+    <ul id="gnav-menu" class="gnav_list">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="message.html">代表挨拶</a></li>
+      <li><a href="company.html">会社情報</a></li>
+      <li><a href="services.html">サービス</a></li>
+      <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+    </ul>
+  </div>
+</header>
+
      <!-- 置換後（129〜133行目あたり） -->
 <ul id="gnav-menu" class="gnav_list">
   <li><a href="index.html">ホーム</a></li>
