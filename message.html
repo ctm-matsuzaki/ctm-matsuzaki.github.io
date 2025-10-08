@@ -90,6 +90,72 @@
 
 <body class="page-company">
 
+  <!-- ===== Global Header（共通） ===== -->
+<header class="site-header" role="banner" aria-label="グローバルヘッダー">
+  <div class="site-header__inner">
+    <!-- PC用ナビ -->
+    <nav aria-label="グローバルナビ">
+      <ul class="gnav_list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="message.html">代表挨拶</a></li>
+        <li><a href="company.html">会社情報</a></li>
+        <li><a href="services.html">サービス</a></li>
+        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- 右上ハンバーガー -->
+    <button class="gnav_toggle" aria-controls="gnav-drawer" aria-expanded="false" aria-label="メニュー">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- スマホ用ドロワー -->
+<nav id="gnav-drawer" class="gnav-drawer" aria-label="モバイルメニュー" hidden>
+  <ul>
+    <li><a href="index.html">ホーム</a></li>
+    <li><a href="message.html">代表挨拶</a></li>
+    <li><a href="company.html">会社情報</a></li>
+    <li><a href="services.html">サービス</a></li>
+    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+  <script>
+(function () {
+  var btn = document.querySelector('.gnav_toggle');
+  var drawer = document.getElementById('gnav-drawer');
+  if (!btn || !drawer) return;
+
+  var html = document.documentElement;
+
+  function open() {
+    drawer.classList.add('is-open');
+    drawer.removeAttribute('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    html.classList.add('no-scroll');
+  }
+  function close() {
+    drawer.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    html.classList.remove('no-scroll');
+    // 退場アニメ後にhiddenを戻す（アクセシビリティ配慮）
+    setTimeout(function(){ if(!drawer.classList.contains('is-open')) drawer.setAttribute('hidden',''); }, 400);
+  }
+
+  btn.addEventListener('click', function () {
+    drawer.classList.contains('is-open') ? close() : open();
+  });
+  drawer.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') close(); // メニュー選択で閉じる
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
+
  <!-- ===== Global Header ===== -->
 <header class="site-header" id="siteHeader">
   <div class="site-header__inner">
