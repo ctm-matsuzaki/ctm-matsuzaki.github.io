@@ -985,3 +985,87 @@ footer { margin-top: 0 !important; }
   .brand{ display:none !important; }
 }
 
+/* =========================================
+   PC & モバイル共通ナビゲーション修正版
+   ========================================= */
+
+/* PC（横並び） */
+@media (min-width: 981px){
+  .brand {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+  .gnav_toggle {
+    display: none !important;
+  }
+  .gnav_list {
+    display: flex !important;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    position: static !important;
+    box-shadow: none !important;
+  }
+  .gnav_list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  .gnav_list a:hover {
+    border-bottom: 2px solid #fff;
+  }
+}
+
+/* モバイル（ハンバーガー） */
+@media (max-width: 980px){
+  .brand { display: none !important; }
+
+  .gnav_toggle{
+    display:block !important;
+    position:fixed;
+    top: calc(10px + env(safe-area-inset-top));
+    right: 14px;
+    z-index: 1200;
+    width: 42px; height: 42px;
+    background: transparent; border:0; padding:0; cursor:pointer;
+  }
+  .gnav_toggle span{
+    position:absolute; left:8px; right:8px; top:50%;
+    height:2px; background:#fff; transform:translateY(-50%);
+    border-radius:2px; display:block;
+  }
+  .gnav_toggle::before, .gnav_toggle::after{
+    content:""; position:absolute; left:8px; right:8px; height:2px;
+    background:#fff; border-radius:2px; display:block;
+  }
+  .gnav_toggle::before{ top:12px; }
+  .gnav_toggle::after { bottom:12px; }
+
+  .gnav_list{
+    position: fixed;
+    top: calc(56px + env(safe-area-inset-top));
+    right: 14px;
+    left: auto;
+    width: clamp(180px, 60vw, 240px);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(38,74,57,0.88);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    z-index: 1100;
+  }
+  .gnav_list.is-open{ display:flex; }
+  .gnav_list a{
+    color:#fff; text-decoration:none; font-weight:700;
+    font-size:16px; padding:6px 4px;
+  }
+}
