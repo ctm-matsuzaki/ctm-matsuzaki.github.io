@@ -1,192 +1,82 @@
 <!DOCTYPE html>
-<html lang="ja" data-page="index">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CTM | トップ</title>
-  <meta name="description" content="Clinic Total Management（CTM）の公式サイト。事務長代行・医療経営コンサルティング。">
-  <style>
-    :root{
-      --ctm-green:#264a27;
-      --ctm-green-deep:#213B1F;
-      --ctm-green-ink:#224A33;
-      --ctm-mint:#ADE7D1; /* ヘッダー薄い緑 */
-      --ink:#333;
-      --bg:#fff;
-      --header-h:64px;
-      --z-header:1000; --z-drawer:1100;
-      --radius:14px;
-      --ease:cubic-bezier(.2,.7,.2,1);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-    a{color:var(--ctm-green-ink);text-decoration:none}
-    img{max-width:100%;display:block}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CTM | トップ</title>
+<meta name="description" content="Clinic Total Management（CTM）公式サイト。事務長代行・医療経営コンサルティング。">
+<style>
+  :root{
+    --ctm-green:#264a27;
+    --ctm-green-deep:#213B1F;
+    --ctm-green-ink:#224A33;
+    --header-bg:#ADE7D1; /* 薄い緑 */
+    --ink:#333; --bg:#fff;
+    --wrap:max(92%,1100px);
+    --header-h:64px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  a{color:var(--ctm-green-ink);text-decoration:none}
+  img{max-width:100%;display:block}
 
-    /* ===== Header ===== */
-    .site-header{
-      position:sticky;top:0;z-index:var(--z-header);
-      height:var(--header-h);background:var(--ctm-mint);
-      display:flex;align-items:center;isolation:isolate;
-      transition:box-shadow .25s var(--ease), background-color .25s var(--ease);
-    }
-    .site-header.scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}
-    .container{width:min(1100px,92%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}
-    .brand__name{font-weight:700;color:var(--ctm-green-deep);letter-spacing:.02em}
-    nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}
-    nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
-    nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
-    nav a[aria-current="page"]::after{
-      content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px
-    }
+  /* Header */
+  .site-header{position:sticky;top:0;height:var(--header-h);background:var(--header-bg);display:flex;align-items:center;z-index:1000}
+  .container{width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}
+  .brand__name{font-weight:700;color:var(--ctm-green-deep);letter-spacing:.02em}
 
-    /* Hamburger */
-    .hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent}
-    .hamb span,.hamb::before,.hamb::after{
-      content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-green-deep);transition:transform .25s var(--ease),opacity .2s var(--ease)
-    }
-    .hamb span{top:19px}
-    .hamb::before{top:12px}
-    .hamb::after{top:26px}
-    .hamb[aria-expanded="true"] span{opacity:0}
-    .hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
-    .hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+  nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+  nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
+  nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
+  nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
 
-    /* Drawer */
-    .drawer{
-      position:fixed;inset:0;z-index:var(--z-drawer);display:grid;grid-template-rows:auto 1fr;
-      background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ease), background .25s var(--ease)
-    }
-    .drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}
-    .drawer__panel{
-      margin:0;background:var(--ctm-mint);border-radius:0 0 var(--radius) var(--radius);
-      transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ease),opacity .25s var(--ease)
-    }
-    .drawer[aria-hidden="false"] .drawer__panel{transform:translateY(0);opacity:1}
-    .drawer nav{padding:10px 16px 20px}
-    .drawer ul{display:grid;gap:8px}
-    .drawer a{display:block;padding:14px 10px;font-weight:700;border-radius:10px}
-    .drawer a:hover{background:rgba(0,0,0,.06)}
+  main{padding:24px 0}
+  .hero{min-height:52svh;display:grid;place-items:center;padding:40px 0;background:linear-gradient(180deg,#f6fffb,transparent)}
+  .hero h1{margin:0 0 10px;font-size:clamp(26px,3.6vw,40px);color:var(--ctm-green-deep)}
+  .hero p{margin:0;color:#444}
 
-    /* Desktop show / Mobile hide */
-    @media (min-width: 980px){
-      .hamb{display:none}
-      .desktop-nav{display:block}
-      .drawer{display:none}
-    }
-    @media (max-width: 979.98px){
-      .desktop-nav{display:none}
-      .hamb{display:inline-block}
-    }
-
-    /* Layout */
-    main{padding-top:clamp(16px, 16px + 2vh, 28px)}
-    .hero{min-height:56svh;display:grid;place-items:center;padding:40px 0;background:linear-gradient(180deg,#f6fffb,transparent)}
-    .hero h1{font-size:clamp(26px,3.6vw,40px);margin:0 0 10px;color:var(--ctm-green-deep);letter-spacing:.02em}
-    .hero p{margin:0;color:#444}
-
-    footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}
-    .footer-inner{width:min(1100px,92%);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .copy{font-size:13px}
-  </style>
+  footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}
+  .footer-inner{width:var(--wrap);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .copy{font-size:13px}
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header" id="header">
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="CTM Home">
+      <span class="brand__logo" aria-hidden="true"></span><span class="brand__name">CTM</span>
+    </a>
+    <nav aria-label="主要メニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="message.html">代表挨拶</a></li>
+        <li><a href="company.html">会社情報</a></li>
+        <li><a href="services.html">サービス</a></li>
+        <li><a href="https://forms.gle/xxxxxxxx" target="_blank" rel="noopener">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
     <div class="container">
-      <a href="index.html" class="brand" aria-label="CTM Home">
-        <span class="brand__logo" aria-hidden="true"></span>
-        <span class="brand__name">CTM</span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="主要メニュー">
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="company.html">会社情報</a></li>
-          <li><a href="services.html">サービス</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-
-      <button class="hamb" aria-label="メニュー" aria-controls="drawer" aria-expanded="false"><span></span></button>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <aside class="drawer" id="drawer" aria-hidden="true">
-      <div class="drawer__panel">
-        <nav aria-label="モバイルメニュー">
-          <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="company.html">会社情報</a></li>
-            <li><a href="services.html">サービス</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-          </ul>
-        </nav>
+      <div>
+        <h1>Clinic Total Management</h1>
+        <p>院長の最大の理解者・最高の2番手。事務長代行／医療経営の伴走支援。</p>
       </div>
-    </aside>
-  </header>
-
-  <main>
-    <!-- ここから下を既存トップページの本文に置き換えてください -->
-    <section class="hero">
-      <div class="container">
-        <div>
-          <h1>Clinic Total Management</h1>
-          <p>院長の最大の理解者・最高の2番手。事務長代行／医療経営の伴走支援。</p>
-        </div>
-      </div>
-    </section>
-    <!-- ↑ここまで仮置き -->
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="copy">© CTM</div>
-      <div>運営：Clinic Total Management</div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <script>
-    // Active Nav
-    (function(){
-      const page = document.documentElement.getAttribute('data-page'); // "index" など
-      const setActive = (root)=> {
-        root?.querySelectorAll('a').forEach(a=>{
-          const href = (a.getAttribute('href')||'').trim();
-          const key = href.replace('.html','');
-          if(key === page){ a.setAttribute('aria-current','page'); }
-        });
-      };
-      setActive(document.querySelector('.desktop-nav'));
-      setActive(document.querySelector('#drawer'));
-    })();
-
-    // Drawer toggle with fade
-    (function(){
-      const btn = document.querySelector('.hamb');
-      const drawer = document.getElementById('drawer');
-      const toggle = (open)=> {
-        btn.setAttribute('aria-expanded', String(open));
-        drawer.setAttribute('aria-hidden', String(!open));
-        document.body.style.overflow = open ? 'hidden' : '';
-      };
-      btn.addEventListener('click', ()=> toggle(btn.getAttribute('aria-expanded')!=='true'));
-      drawer.addEventListener('click', (e)=> {
-        if(e.target === drawer) toggle(false);
-      });
-      document.addEventListener('keydown', (e)=> { if(e.key==='Escape') toggle(false); });
-
-      // Header shadow on scroll
-      const header = document.getElementById('header');
-      const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY>4);
-      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-    })();
-  </script>
+<footer>
+  <div class="footer-inner">
+    <div class="copy">© CTM</div>
+    <div>運営：Clinic Total Management</div>
+  </div>
+</footer>
 </body>
 </html>
-
