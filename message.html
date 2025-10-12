@@ -1,278 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <title>会社情報 | CTM</title>
-  <meta name="robots" content="index, follow" />
-  <meta name="description" content="会社情報（代表挨拶）。CTM（Clinic Total Management）の概要、理念、提供方針をご紹介します。">
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- ページ専用スタイル（代表挨拶ページ用） -->
-  <style>
-    :root{
-      --ctm-green-ink: #165b33;
-    }
-
-    /* ヒーロー */
-    .hero-company{
-      position: relative;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .hero-company img{
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* ページ中央寄せラッパー */
-    .cmp-wrap{
-      width: min(1100px, 92%);
-      margin: 0 auto;
-      padding: clamp(32px, 6vw, 64px) 0;
-    }
-
-    /* 見出し（中央・緑） */
-    .cmp-heading{
-      text-align: center;
-      color: var(--ctm-green-ink);
-      font-weight: 700;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-      line-height: 1.35;
-      margin: 0 0 clamp(20px, 2.5vw, 28px);
-    }
-
-    /* 本文 */
-    .cmp-body{
-      width: min(900px, 100%);
-      margin: 0 auto;
-      font-size: clamp(.95rem, 1.6vw, 1.05rem);
-      line-height: 2.1;
-      text-align: left;
-    }
-
-    /* 氏名画像 */
-    .cmp-name{
-      display: block;
-      width: clamp(220px, 28vw, 360px);
-      height: auto;
-      margin: clamp(20px, 4vw, 36px) auto 0;
-    }
-
-    /* 各ブロック */
-    .cmp-section{
-      padding: clamp(28px, 5vw, 56px) 0;
-      border-top: 1px solid rgba(0,0,0,.06);
-    }
-    .cmp-section:first-of-type{ border-top: none; }
-
-    /* サブ見出し */
-    .cmp-subhead{
-      color: var(--ctm-green-ink);
-      font-family: "Noto Serif JP", serif;
-      font-weight: 700;
-      font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-      margin: 0 0 .8em;
-      line-height: 1.4;
-      text-align: left;
-      width: min(900px, 100%);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* バナー非表示 */
-    .banner, .banner img{ display:none !important; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>代表挨拶 | CTM</title>
+<meta name="description" content="CTM 代表挨拶。理念、想い、医療現場に寄り添う経営支援について。">
+<style>
+  :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--header-bg:#ADE7D1;--ink:#333;--bg:#fff;--wrap:max(92%,1100px);--header-h:64px}
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  a{color:var(--ctm-green-ink);text-decoration:none}img{max-width:100%;display:block}
+  .site-header{position:sticky;top:0;height:var(--header-h);background:var(--header-bg);display:flex;align-items:center;z-index:1000}
+  .container{width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep)}
+  nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+  nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
+  nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
+  nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
+  main{padding:24px 0}
+  .wrap{width:var(--wrap);margin:24px auto}
+  .grid{display:grid;gap:22px;grid-template-columns:1.2fr .8fr}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:20px}
+  footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:var(--wrap);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
+</style>
 </head>
-
-<body class="page-company">
-
-  <!-- ===== Global Header（共通） ===== -->
-<header class="site-header" role="banner" aria-label="グローバルヘッダー">
-  <div class="site-header__inner">
-    <!-- PC用ナビ -->
-    <nav aria-label="グローバルナビ">
-      <ul class="gnav_list">
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
+    <nav aria-label="主要メニュー">
+      <ul>
         <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
+        <li><a href="message.html" aria-current="page">代表挨拶</a></li>
         <li><a href="company.html">会社情報</a></li>
         <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+        <li><a href="https://forms.gle/xxxxxxxx" target="_blank" rel="noopener">お問い合わせ</a></li>
       </ul>
     </nav>
-
-    <!-- 右上ハンバーガー -->
-    <button class="gnav_toggle" aria-controls="gnav-drawer" aria-expanded="false" aria-label="メニュー">
-      <span></span>
-    </button>
   </div>
 </header>
 
-<!-- スマホ用ドロワー -->
-<nav id="gnav-drawer" class="gnav-drawer" aria-label="モバイルメニュー" hidden>
-  <ul>
-    <li><a href="index.html">ホーム</a></li>
-    <li><a href="message.html">代表挨拶</a></li>
-    <li><a href="company.html">会社情報</a></li>
-    <li><a href="services.html">サービス</a></li>
-    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-  </ul>
-</nav>
-
-  <script>
-(function () {
-  var btn = document.querySelector('.gnav_toggle');
-  var drawer = document.getElementById('gnav-drawer');
-  if (!btn || !drawer) return;
-
-  var html = document.documentElement;
-
-  function open() {
-    drawer.classList.add('is-open');
-    drawer.removeAttribute('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-    html.classList.add('no-scroll');
-  }
-  function close() {
-    drawer.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
-    html.classList.remove('no-scroll');
-    // 退場アニメ後にhiddenを戻す（アクセシビリティ配慮）
-    setTimeout(function(){ if(!drawer.classList.contains('is-open')) drawer.setAttribute('hidden',''); }, 400);
-  }
-
-  btn.addEventListener('click', function () {
-    drawer.classList.contains('is-open') ? close() : open();
-  });
-  drawer.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') close(); // メニュー選択で閉じる
-  });
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') close();
-  });
-})();
-</script>
-
- <!-- ===== Global Header ===== -->
-<header class="site-header" id="siteHeader">
-  <div class="site-header__inner">
-    <a href="index.html" class="brand">CTM</a>
-
-    <!-- PCメニュー（横並び） -->
-    <nav class="gnav" aria-label="グローバルナビ">
-      <a href="index.html">ホーム</a>
-      <a href="message.html">代表挨拶</a>
-      <a href="company.html">会社情報</a>
-      <a href="services.html">サービス</a>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
-    </nav>
-
-    <!-- SPハンバーガー -->
-    <button class="gnav-toggle" id="gnavToggle" aria-controls="gnavDrawer" aria-expanded="false" aria-label="メニューを開閉">
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<!-- SP用ドロワーメニュー -->
-<nav class="gnav-drawer" id="gnavDrawer" aria-label="グローバルナビ（モバイル）">
-  <ul>
-    <li><a href="index.html">ホーム</a></li>
-    <li><a href="message.html">代表挨拶</a></li>
-    <li><a href="company.html">会社情報</a></li>
-    <li><a href="services.html">サービス</a></li>
-    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-  </ul>
-</nav>
-
-
-  <!-- ======= Hero（上部画像） ======= -->
-  <section class="hero-company" aria-label="会社情報ヒーロー">
-    <img src="images/23.jpg" alt="会社情報イメージ">
-  </section>
-
-  <!-- ======= 代表挨拶 ======= -->
-  <section class="cmp-wrap">
-    <h2 class="cmp-heading">代表挨拶</h2>
-
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">ご挨拶</h3>
-      <p class="cmp-body">
-        皆さま、こんにちは。Clinic Total Management（CTM）の松崎です。<br>
-        これまで私は、整形外科や美容皮膚科など複数のクリニックにおいて、現場業務から経営改善まで幅広く携わってまいりました。<br>
-        特に大切にしているのは、「院長の最大の理解者として、最高の2番手になること」です。<br><br>
-        クリニック経営において、院長が医療に専念できる環境こそが、最良の医療サービス提供につながります。<br>
-        そのために、私は現場出身者の“現場と視点”を活かして、人事・財務・業務フロー・ブランディングなど、ソフト面と経営面の両面からサポートを行っています。
-      </p>
-    </div>
-
-    <!-- ======== 経歴 ======== -->
-    <div class="cmp-section" style="border-top:none;">
-      <img class="cmp-name" src="name.png" alt="松﨑 忠将（Tadamasa Matsuzaki）">
-      <h3 class="cmp-subhead">経歴</h3>
-      <p class="cmp-body">
-        柔道整復師 / 事務長代行 / 医療経営コンサルタント <br><br>
-        約20年にわたり、医療現場における実務マネジメントやクリニック運営に携わってきました。<br>
-        整形外科を中心とした医療法人での運営・管理業務・実績構築の経験に加え、複数クリニックを束ねる事務長として、経営・人事・財務・広報の全般に精通。<br><br>
-        2023年以降は、MS法人組織で美容皮膚科・皮膚科・内科・健診・整形外科など複数診療科クリニックの現場や評価に従事。<br>
-        現在は独立し、事務長代行サービス「Clinic Total Management （CTM）」として、新規開業支援・経営改善・組織改革・事務長代行・人材採用サポートなど、クリニックに最適化したコンサルティングを行っています。
-      </p>
+<main>
+  <section class="wrap">
+    <h1>代表挨拶</h1>
+    <div class="grid">
+      <article class="card">
+        <p>（本文を差し替え）</p>
+      </article>
+      <aside class="card">
+        <img src="assets/message_photo.jpg" alt="代表写真（差し替え）">
+      </aside>
     </div>
   </section>
+</main>
 
-  <!-- ======= フッター ======= -->
-  <footer class="global-footer" role="contentinfo">
-    <nav class="global-footer__nav" aria-label="フッターナビ">
-      <a href="index.html">ホーム</a>
-      <a href="message.html">代表挨拶</a>
-      <a href="company.html">会社情報</a>
-      <a href="services.html">サービス</a>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
-    </nav>
-    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
-  </footer>
-
-<script>
-(function(){
-  var header  = document.getElementById('siteHeader');
-  var toggle  = document.getElementById('gnavToggle');
-  var drawer  = document.getElementById('gnavDrawer');
-
-  /* スクロールで “重なる感じ” に切り替え */
-  function onScroll(){
-    var y = window.scrollY || document.documentElement.scrollTop;
-    if(y > 10){ header.classList.add('is-overlay'); }
-    else      { header.classList.remove('is-overlay'); }
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
-
-  /* SPハンバーガー開閉 */
-  if(toggle && drawer){
-    toggle.addEventListener('click', function(){
-      var open = drawer.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true':'false');
-      // 背景スクロール抑止（必要なら）
-      document.documentElement.style.overflow = open ? 'hidden':'';
-      document.body.style.overflow = open ? 'hidden':'';
-    });
-
-    // リンクを押したら自動で閉じる
-    drawer.addEventListener('click', function(e){
-      if(e.target.tagName === 'A'){
-        drawer.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded','false');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }
-    });
-  }
-})();
-</script>
-
-
+<footer><div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div></footer>
 </body>
 </html>
+
