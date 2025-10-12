@@ -1,254 +1,192 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page="index">
 <head>
   <meta charset="UTF-8">
-  <title>CTM | Clinic Total Management</title>
-
-  <!-- フォント -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800&family=Noto+Serif+JP:wght@400;700;800&display=swap" rel="stylesheet">
-
-  <!-- 基本SEO -->
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ctm-matsuzaki.github.io/">
-  <meta name="description" content="Clinic Total Management は、院長の“最大の理解者”として現場で動く経営支援。経営分析・人事労務・業務フロー改善・マーケティングを実務で伴走します。">
-
-  <!-- モバイル対応 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <!-- 置換前）style.css?v=20250928a / 20250928b など -->
-<link rel="stylesheet" href="style.css?v=20251005a">
-
-  <!-- OG/Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="CTM（クリニック トータル マネージメント）">
-  <meta property="og:title" content="CTM | Clinic Total Management">
-  <meta property="og:description" content="院長の“最大の理解者”。経営分析・人事労務・業務改善・マーケティングを現場で伴走支援。">
-  <meta property="og:url" content="https://ctm-matsuzaki.github.io/">
-  <meta property="og:image" content="https://ctm-matsuzaki.github.io/images/1.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- （補助）フルブリード＆Contactの最小ユーティリティ
-       ※ すでに style.css にあれば削除可 -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CTM | トップ</title>
+  <meta name="description" content="Clinic Total Management（CTM）の公式サイト。事務長代行・医療経営コンサルティング。">
   <style>
-      .contact-section {
-      position: relative; min-height: 80vh;
-      background-image: url('images/contact-bg.jpeg');
-      background-size: cover; background-position: center; background-repeat: no-repeat;
-      display: flex; justify-content: center; align-items: center;
+    :root{
+      --ctm-green:#264a27;
+      --ctm-green-deep:#213B1F;
+      --ctm-green-ink:#224A33;
+      --ctm-mint:#ADE7D1; /* ヘッダー薄い緑 */
+      --ink:#333;
+      --bg:#fff;
+      --header-h:64px;
+      --z-header:1000; --z-drawer:1100;
+      --radius:14px;
+      --ease:cubic-bezier(.2,.7,.2,1);
     }
-    .contact-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
-    .contact-title { font-size: 3.6rem; line-height: 1.05; color: #2c4a27; margin: 0; font-family: 'Noto Serif JP', serif; letter-spacing: 1px; }
-    .contact-button { display: inline-block; padding: 16px 32px; background: #fff; color: #000; font-weight: bold; font-size: 1.2rem; border: 1px solid #000; border-radius: 4px; text-decoration: none; }
-    @media (max-width: 768px){ .contact-title{ font-size: 2.6rem; } .contact-button{ padding:12px 24px; font-size:1rem; } }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+    a{color:var(--ctm-green-ink);text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ===== Header ===== */
+    .site-header{
+      position:sticky;top:0;z-index:var(--z-header);
+      height:var(--header-h);background:var(--ctm-mint);
+      display:flex;align-items:center;isolation:isolate;
+      transition:box-shadow .25s var(--ease), background-color .25s var(--ease);
+    }
+    .site-header.scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}
+    .container{width:min(1100px,92%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}
+    .brand__name{font-weight:700;color:var(--ctm-green-deep);letter-spacing:.02em}
+    nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}
+    nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
+    nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
+    nav a[aria-current="page"]::after{
+      content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px
+    }
+
+    /* Hamburger */
+    .hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent}
+    .hamb span,.hamb::before,.hamb::after{
+      content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-green-deep);transition:transform .25s var(--ease),opacity .2s var(--ease)
+    }
+    .hamb span{top:19px}
+    .hamb::before{top:12px}
+    .hamb::after{top:26px}
+    .hamb[aria-expanded="true"] span{opacity:0}
+    .hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* Drawer */
+    .drawer{
+      position:fixed;inset:0;z-index:var(--z-drawer);display:grid;grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ease), background .25s var(--ease)
+    }
+    .drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}
+    .drawer__panel{
+      margin:0;background:var(--ctm-mint);border-radius:0 0 var(--radius) var(--radius);
+      transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ease),opacity .25s var(--ease)
+    }
+    .drawer[aria-hidden="false"] .drawer__panel{transform:translateY(0);opacity:1}
+    .drawer nav{padding:10px 16px 20px}
+    .drawer ul{display:grid;gap:8px}
+    .drawer a{display:block;padding:14px 10px;font-weight:700;border-radius:10px}
+    .drawer a:hover{background:rgba(0,0,0,.06)}
+
+    /* Desktop show / Mobile hide */
+    @media (min-width: 980px){
+      .hamb{display:none}
+      .desktop-nav{display:block}
+      .drawer{display:none}
+    }
+    @media (max-width: 979.98px){
+      .desktop-nav{display:none}
+      .hamb{display:inline-block}
+    }
+
+    /* Layout */
+    main{padding-top:clamp(16px, 16px + 2vh, 28px)}
+    .hero{min-height:56svh;display:grid;place-items:center;padding:40px 0;background:linear-gradient(180deg,#f6fffb,transparent)}
+    .hero h1{font-size:clamp(26px,3.6vw,40px);margin:0 0 10px;color:var(--ctm-green-deep);letter-spacing:.02em}
+    .hero p{margin:0;color:#444}
+
+    footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}
+    .footer-inner{width:min(1100px,92%);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .copy{font-size:13px}
   </style>
 </head>
-
 <body>
-
-  <!-- ========== Hero ========== -->
-  <section class="hero" style="background-image:url('images/1.png');">
-    <div class="hero__inner">
-      <h1 class="hero__title">“院長の最大の理解者”として、<br>　　　　　ともに走るパートナー</h1>
-      <p class="hero__lead">Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
-    </div>
-  </section>
-
-  <!-- ========== Problem Teaser（帯） ========== -->
-  <section class="section has-bgword" data-word="">
+  <!-- Header -->
+  <header class="site-header" id="header">
     <div class="container">
-      <h2 class="section-title">「忙しさの中で、気づけば手がまわらない…」</h2>
-      <p class="lead">そんな日々を、少しでも変えるお手伝いを</p>
-      <hr class="section-divider">
+      <a href="index.html" class="brand" aria-label="CTM Home">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__name">CTM</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamb" aria-label="メニュー" aria-controls="drawer" aria-expanded="false"><span></span></button>
     </div>
-  </section>
 
-  <!-- ========== Problems ========== -->
-  <section class="problems">
-    <div class="container">
+    <!-- Mobile Drawer -->
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__panel">
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
 
-      <!-- ブロック1：画像 左 ／ テキスト 右 -->
-      <div class="problem-row">
-        <div class="problem-col media">
-          <img src="images/2.png" alt="書類の山と女性医師">
-        </div>
-        <div class="problem-col text">
-          <h2>「時間が足りない」と感じるのは、問題のサイン</h2>
-          <p>
-            請求、採用、マネジメント——<br>
-            重要なのに、後回しにされがちな業務が山積みになっていませんか？<br>
-            見直せば、もっと医療に集中できるはずです
-          </p>
+  <main>
+    <!-- ここから下を既存トップページの本文に置き換えてください -->
+    <section class="hero">
+      <div class="container">
+        <div>
+          <h1>Clinic Total Management</h1>
+          <p>院長の最大の理解者・最高の2番手。事務長代行／医療経営の伴走支援。</p>
         </div>
       </div>
+    </section>
+    <!-- ↑ここまで仮置き -->
+  </main>
 
-      <!-- ブロック2：テキスト 左 ／ 画像 右 -->
-      <div class="problem-row reverse">
-        <div class="problem-col text">
-          <h2>外来対応に追われ、見直す時間もない</h2>
-          <p>
-            人手不足、業務の属人化、非効率な運用…<br>
-            目の前の患者対応に手一杯で、経営のことまで手が回らないと感じていませんか？
-          </p>
-        </div>
-        <div class="problem-col media">
-          <img src="images/3.png" alt="外来の行列と受付">
-        </div>
-      </div>
-
+  <footer>
+    <div class="footer-inner">
+      <div class="copy">© CTM</div>
+      <div>運営：Clinic Total Management</div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ========== 「院長先生の最大の理解者〜」 ========== -->
-  <section class="section understanding">
-    <div class="container" style="text-align:center;">
-      <h2 class="section-lead">院長先生の最大の理解者であり、最高の2番手としてお手伝いします</h2>
-    </div>
-  </section>
+  <script>
+    // Active Nav
+    (function(){
+      const page = document.documentElement.getAttribute('data-page'); // "index" など
+      const setActive = (root)=> {
+        root?.querySelectorAll('a').forEach(a=>{
+          const href = (a.getAttribute('href')||'').trim();
+          const key = href.replace('.html','');
+          if(key === page){ a.setAttribute('aria-current','page'); }
+        });
+      };
+      setActive(document.querySelector('.desktop-nav'));
+      setActive(document.querySelector('#drawer'));
+    })();
 
-  <!-- ========== Service（カードグリッド） ========== -->
-  <section class="section section--svc" id="service">
-    <div class="container">
-      <h3 class="service-title">Service</h3>
+    // Drawer toggle with fade
+    (function(){
+      const btn = document.querySelector('.hamb');
+      const drawer = document.getElementById('drawer');
+      const toggle = (open)=> {
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+      btn.addEventListener('click', ()=> toggle(btn.getAttribute('aria-expanded')!=='true'));
+      drawer.addEventListener('click', (e)=> {
+        if(e.target === drawer) toggle(false);
+      });
+      document.addEventListener('keydown', (e)=> { if(e.key==='Escape') toggle(false); });
 
-      <ul class="svc-grid">
-        <li class="svc-card">
-          <img src="images/4.jpeg" alt="経営分析" class="svc-img">
-          <h3 class="svc-title">経営分析</h3>
-          <p class="svc-desc">
-            診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全な財務運営を支援。将来を見据えた収益改善策をご提案します。
-          </p>
-        </li>
+      // Header shadow on scroll
+      const header = document.getElementById('header');
+      const onScroll = ()=> header.classList.toggle('scrolled', window.scrollY>4);
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+  </script>
+</body>
+</html>
 
-        <li class="svc-card">
-          <img src="images/5.jpeg" alt="人事労務支援" class="svc-img">
-          <h3 class="svc-title">人事労務支援</h3>
-          <p class="svc-desc">
-            採用活動から就業規則の整備、勤怠・給与管理までをサポート。スタッフが安心して働ける環境づくりを、実務レベルで支援します。
-          </p>
-        </li>
-
-        <li class="svc-card">
-          <img src="images/6.jpeg" alt="業務フロー改善" class="svc-img">
-          <h3 class="svc-title">業務フロー改善</h3>
-          <p class="svc-desc">
-            受付から診察、会計までの一連の流れを見直し、負担を軽減。患者様にとって分かりやすく快適な導線を整備します。
-          </p>
-        </li>
-
-        <li class="svc-card">
-          <img src="images/7.jpeg" alt="マーケティング戦略" class="svc-img">
-          <h3 class="svc-title">マーケティング戦略</h3>
-          <p class="svc-desc">
-            地域特性や競合を分析し、来院につながる戦略を立案。WEB導線、紙媒体、SNS投稿の作成まで一貫して支援します。
-          </p>
-        </li>
-      </ul>
-
-      <div style="text-align:right; margin-top:1rem;">
-        <a href="services.html" style="color:#375c3b; text-decoration:none; font-weight:700;">more &gt;</a>
-      </div>
-    </div>
-  </section>
-
- <!-- ====== Company（TOP用帯・見本どおり） ====== -->
-<section id="home-company">
-  <!-- 左：テキスト -->
-  <div class="col-text">
-    <h2>Company</h2>
-    <h3>会社情報</h3>
-    <p>医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、<br>
-       持続可能なクリニックづくりを実現します。</p>
-    <a href="company.html" class="more">more &gt;</a>
-  </div>
-
-  <!-- 右：画像 -->
-  <div class="col-img">
-    <img src="images/8.jpeg" alt="会社情報">
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section id="faq" class="faq-section">
-  <h2 class="faq-title">よくあるご質問<span class="en">FAQ</span></h2>
-
-  <!-- 1つ目 -->
-  <div class="faq-block">
-    <p class="faq-q">Q. どのような業務をお願いできますか？</p>
-
-    <p class="faq-a faq-a-lead">
-      A. 経営に関わる幅広い業務を対象としており、たとえば以下のような支援が可能です。
-    </p>
-
-    <ul class="faq-list">
-      <li>経営戦略の立案とサポート</li>
-      <li>院内備品管理や契約手続きなど、総務業務全般</li>
-      <li>財務状況の分析と改善提案</li>
-      <li>人事労務支援、採用活動・組織体制の整備</li>
-      <li>現場オペレーションの見直しとマニュアル化</li>
-      <li>ブランディング・SNS等情報発信の設計</li>
-    </ul>
-
-    <p class="faq-a">
-      院長が医療に集中できるよう、実務も含めて現場に深く関与しながら支援いたします。
-    </p>
-  </div>
-
-  <!-- 2つ目 -->
-  <div class="faq-block">
-    <p class="faq-q">Q. どんなクリニックに対応していますか？</p>
-    <p class="faq-a">
-      A. 診療科やクリニックの形態を問わず対応可能です。これまで保険診療・自費診療ともに実績があります。
-    </p>
-  </div>
-
-  <!-- 3つ目 -->
-  <div class="faq-block">
-    <p class="faq-q">Q. 費用はどのように決まりますか？</p>
-
-    <p class="faq-a faq-a-lead">
-      A. ご依頼の業務範囲や訪問頻度によりお見積りいたします。以下は一例です。
-    </p>
-
-    <ul class="faq-list">
-      <li>月2回の訪問対応：100,000円〜（税抜）</li>
-      <li>月2回のオンライン対応：50,000円〜（税抜）</li>
-    </ul>
-
-    <p class="faq-a">内容に応じて柔軟に対応しますので、お気軽にご相談ください。</p>
-  </div>
-
-  <!-- 4つ目（任意） -->
-  <div class="faq-block">
-    <p class="faq-q">Q. 導入までの流れを教えてください</p>
-    <ul class="faq-list">
-      <li>お問い合わせ</li>
-      <li>初回ヒアリング（訪問またはオンライン）</li>
-      <li>ご提案・お見積り</li>
-      <li>ご契約・キックオフ</li>
-    </ul>
-  </div>
-</section>
-<!-- /FAQ -->
-
-  <!-- ========== Contact（フル幅背景） ========== -->
-  <section class="contact-section full-bleed" aria-labelledby="contact-title">
-    <div class="contact-inner">
-      <h2 id="contact-title" class="contact-title">CONTACT</h2>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button" rel="noopener">お問い合わせはこちら</a>
-    </div>
-  </section>
-
- <!-- Global Footer -->
-<footer class="global-footer" role="contentinfo">
-  <nav class="global-footer__nav" aria-label="フッターナビ">
-    <a href="index.html">ホーム</a>
-    <a href="message.html">代表挨拶</a>
-    <a href="company.html">会社情報</a>
-    <a href="services.html">サービス</a>
-   <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
-  </nav>
-  <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
-</footer>
-<script>
-  (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
-</script>
