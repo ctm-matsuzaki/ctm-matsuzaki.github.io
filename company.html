@@ -1,91 +1,52 @@
 <!DOCTYPE html>
-<html lang="ja" data-page="company">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>会社情報 | CTM</title>
-  <meta name="description" content="CTMの会社情報・代表挨拶。理念や提供方針、概要をご紹介します。">
-  <!-- ヘッダー共通CSS/JSは index.html と同一。以下、全く同じブロックです -->
-  <style>/* === 共通スタイル（indexと同一） === */
-    :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--ctm-mint:#ADE7D1;--ink:#333;--bg:#fff;--header-h:64px;--z-header:1000;--z-drawer:1100;--radius:14px;--ease:cubic-bezier(.2,.7,.2,1)}
-    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-    a{color:var(--ctm-green-ink);text-decoration:none}img{max-width:100%;display:block}
-    .site-header{position:sticky;top:0;z-index:var(--z-header);height:var(--header-h);background:var(--ctm-mint);display:flex;align-items:center;isolation:isolate;transition:box-shadow .25s var(--ease),background-color .25s var(--ease)}
-    .site-header.scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}.container{width:min(1100px,92%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep);letter-spacing:.02em}
-    nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
-    nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
-    .hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent}
-    .hamb span,.hamb::before,.hamb::after{content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-green-deep);transition:transform .25s var(--ease),opacity .2s var(--ease)}
-    .hamb span{top:19px}.hamb::before{top:12px}.hamb::after{top:26px}.hamb[aria-expanded="true"] span{opacity:0}.hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}.hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
-    .drawer{position:fixed;inset:0;z-index:var(--z-drawer);display:grid;grid-template-rows:auto 1fr;background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ease),background .25s var(--ease)}
-    .drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}.drawer__panel{margin:0;background:var(--ctm-mint);border-radius:0 0 var(--radius) var(--radius);transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ease),opacity .25s var(--ease)}
-    .drawer[aria-hidden="false"] .drawer__panel{transform:translateY(0);opacity:1}.drawer nav{padding:10px 16px 20px}.drawer ul{display:grid;gap:8px}.drawer a{display:block;padding:14px 10px;font-weight:700;border-radius:10px}.drawer a:hover{background:rgba(0,0,0,.06)}
-    @media (min-width:980px){.hamb{display:none}.desktop-nav{display:block}.drawer{display:none}}
-    @media (max-width:979.98px){.desktop-nav{display:none}.hamb{display:inline-block}}
-    main{padding-top:clamp(16px, 16px + 2vh, 28px)}footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:min(1100px,92%);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
-    .page-title{width:min(1100px,92%);margin:28px auto 6px;color:var(--ctm-green-deep);letter-spacing:.02em}
-    .lead{width:min(1100px,92%);margin:0 auto 18px;color:#444}
-    .grid{width:min(1100px,92%);margin:20px auto;display:grid;gap:22px;grid-template-columns: 1.2fr .8fr}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
-    .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:20px}
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>会社情報 | CTM</title>
+<meta name="description" content="CTMの会社概要、理念、提供方針。">
+<style>
+  :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--header-bg:#ADE7D1;--ink:#333;--bg:#fff;--wrap:max(92%,1100px);--header-h:64px}
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  a{color:var(--ctm-green-ink);text-decoration:none}img{max-width:100%;display:block}
+  .site-header{position:sticky;top:0;height:var(--header-h);background:var(--header-bg);display:flex;align-items:center;z-index:1000}
+  .container{width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep)}
+  nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px;flex-wrap:wrap}
+  nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
+  nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
+  nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
+  main{padding:24px 0}
+  .wrap{width:var(--wrap);margin:24px auto}
+  .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:20px}
+  footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:var(--wrap);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
+</style>
 </head>
 <body>
-  <header class="site-header" id="header">
-    <div class="container">
-      <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
-      <nav class="desktop-nav" aria-label="主要メニュー">
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="company.html">会社情報</a></li>
-          <li><a href="services.html">サービス</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-      <button class="hamb" aria-label="メニュー" aria-controls="drawer" aria-expanded="false"><span></span></button>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
+    <nav aria-label="主要メニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="message.html">代表挨拶</a></li>
+        <li><a href="company.html" aria-current="page">会社情報</a></li>
+        <li><a href="services.html">サービス</a></li>
+        <li><a href="https://forms.gle/xxxxxxxx" target="_blank" rel="noopener">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap">
+    <h1>会社情報 / 代表挨拶</h1>
+    <div class="card">
+      <p>（本文を差し替え）</p>
     </div>
-    <aside class="drawer" id="drawer" aria-hidden="true">
-      <div class="drawer__panel">
-        <nav aria-label="モバイルメニュー">
-          <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="company.html">会社情報</a></li>
-            <li><a href="services.html">サービス</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-  </header>
+  </section>
+</main>
 
-  <main>
-    <!-- ここから既存の代表挨拶・会社情報本文を入れてください -->
-    <h1 class="page-title">会社情報 / 代表挨拶</h1>
-    <p class="lead">院長の最大の理解者・最高の2番手として、現場に寄り添う経営支援を行います。</p>
-
-    <div class="grid">
-      <article class="card">
-        <!-- 代表挨拶テキスト（差し替え） -->
-        <h2>代表挨拶</h2>
-        <p>（本文を差し替え）</p>
-      </article>
-      <aside class="card">
-        <!-- 写真ボックス（右側配置、スマホでは下） -->
-        <img src="assets/company_photo.jpg" alt="CTM 代表近影（差し替え）">
-      </aside>
-    </div>
-    <!-- ↑ここまで本文差し替え -->
-  </main>
-
-  <footer>
-    <div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div>
-  </footer>
-
-  <script>
-    (function(){const page=document.documentElement.getAttribute('data-page');const setActive=(r)=>{r?.querySelectorAll('a').forEach(a=>{const href=(a.getAttribute('href')||'').trim();const key=href.replace('.html','');if(key===page){a.setAttribute('aria-current','page');}})};setActive(document.querySelector('.desktop-nav'));setActive(document.querySelector('#drawer'));})();
-    (function(){const btn=document.querySelector('.hamb');const drawer=document.getElementById('drawer');const toggle=(o)=>{btn.setAttribute('aria-expanded',String(o));drawer.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':''};btn.addEventListener('click',()=>toggle(btn.getAttribute('aria-expanded')!=='true'));drawer.addEventListener('click',(e)=>{if(e.target===drawer)toggle(false)});document.addEventListener('keydown',(e)=>{if(e.key==='Escape')toggle(false)});const header=document.getElementById('header');const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>4);onScroll();window.addEventListener('scroll',onScroll,{passive:true});})();
-  </script>
+<footer><div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div></footer>
 </body>
 </html>
