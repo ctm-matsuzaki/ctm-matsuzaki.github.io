@@ -1,214 +1,91 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page="company">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>会社情報 | CTM</title>
-  <meta name="description" content="CTM（Clinic Total Management）の会社情報。理念・コンセプト・ミッション・ビジョン・バリューをご紹介します。">
-  <link rel="stylesheet" href="style.css" />
-
-  <style>
-    :root{
-      --ctm-green: #264a27;       /* ベースの緑 */
-      --ctm-green-deep: #2F5633;  /* Concept/Vision用に少し明るめ */
-      --ctm-mint: #ADE7D1;
-      --ctm-ink: #224A33;
-    }
-
-    .visually-hidden{
-      position:absolute!important;clip:rect(1px,1px,1px,1px);
-      width:1px;height:1px;overflow:hidden;white-space:nowrap;
-    }
-
-    .cmp-main{background:#fff;color:#243126}
-    .cmp-container{
-      width:min(1100px, 92vw);
-      margin-inline:auto;
-      padding: clamp(20px, 3vw, 40px) 0;
-    }
-    .cmp-lead{font-size: clamp(16px, 2.2vw, 22px); line-height:1.9; text-align:center; color:#23402b;}
-    .cmp-catch{font-weight:700; text-align:center; font-size: clamp(18px, 2.4vw, 24px); line-height:1.8; color:#23402b; margin-bottom:.6em;}
-    .cmp-body{font-size: clamp(15px, 2vw, 20px); line-height:1.9; text-align:center; color:#23402b;}
-
-    /* Hero */
-    .cmp-hero{position:relative; isolation:isolate;}
-    .cmp-hero__imagewrap{aspect-ratio: 21/6; width:100%; overflow:hidden;}
-    .cmp-hero__imagewrap img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
-
-    /* Section */
-    .cmp-block{margin-top: clamp(24px, 4vw, 48px);}
-    .cmp-block__titleimg img{width:100%; height:auto; display:block;}
-    .cmp-block--dark{background:var(--ctm-green-deep);}
-    .cmp-block--dark .cmp-catch, .cmp-block--dark .cmp-body{color:#fff}
-
-    /* Value */
-    .cmp-values{list-style:none; padding:0; margin:0; display:grid; gap: clamp(14px, 2.2vw, 20px); max-width:900px; margin-inline:auto;}
-    .cmp-values li{text-align:center; font-size:clamp(15px,2vw,19px); line-height:1.9; color:#23402b;}
-    .cmp-values li strong{display:block; font-size:clamp(16px,2.2vw,20px); margin-bottom:.2em; color:#173a24;}
-
-    /* Footer */
-    .site-footer{background:var(--ctm-green); color:#fff; margin-top: clamp(40px,6vw,80px);}
-    .site-footer__inner{width:min(1100px,92vw); margin-inline:auto; padding: clamp(24px,4vw,40px) 0; display:grid; gap:16px;}
-    .site-footer__brand{font-weight:800; letter-spacing:.06em; font-size: clamp(18px,2.2vw,22px);}
-    .site-footer__nav{display:flex; flex-wrap:wrap; gap:14px 24px;}
-    .site-footer__nav a{color:#fff; text-decoration:none; border-bottom:1px solid transparent;}
-    .site-footer__nav a:hover{border-bottom-color:#fff}
-    .site-footer__copy{opacity:.7; font-size:13px; margin-top:6px;}
-
-    @media (max-width:640px){
-      .cmp-container{padding:22px 0}
-    }
+  <meta name="description" content="CTMの会社情報・代表挨拶。理念や提供方針、概要をご紹介します。">
+  <!-- ヘッダー共通CSS/JSは index.html と同一。以下、全く同じブロックです -->
+  <style>/* === 共通スタイル（indexと同一） === */
+    :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--ctm-mint:#ADE7D1;--ink:#333;--bg:#fff;--header-h:64px;--z-header:1000;--z-drawer:1100;--radius:14px;--ease:cubic-bezier(.2,.7,.2,1)}
+    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+    a{color:var(--ctm-green-ink);text-decoration:none}img{max-width:100%;display:block}
+    .site-header{position:sticky;top:0;z-index:var(--z-header);height:var(--header-h);background:var(--ctm-mint);display:flex;align-items:center;isolation:isolate;transition:box-shadow .25s var(--ease),background-color .25s var(--ease)}
+    .site-header.scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}.container{width:min(1100px,92%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep);letter-spacing:.02em}
+    nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
+    nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
+    .hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent}
+    .hamb span,.hamb::before,.hamb::after{content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-green-deep);transition:transform .25s var(--ease),opacity .2s var(--ease)}
+    .hamb span{top:19px}.hamb::before{top:12px}.hamb::after{top:26px}.hamb[aria-expanded="true"] span{opacity:0}.hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}.hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+    .drawer{position:fixed;inset:0;z-index:var(--z-drawer);display:grid;grid-template-rows:auto 1fr;background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ease),background .25s var(--ease)}
+    .drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}.drawer__panel{margin:0;background:var(--ctm-mint);border-radius:0 0 var(--radius) var(--radius);transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ease),opacity .25s var(--ease)}
+    .drawer[aria-hidden="false"] .drawer__panel{transform:translateY(0);opacity:1}.drawer nav{padding:10px 16px 20px}.drawer ul{display:grid;gap:8px}.drawer a{display:block;padding:14px 10px;font-weight:700;border-radius:10px}.drawer a:hover{background:rgba(0,0,0,.06)}
+    @media (min-width:980px){.hamb{display:none}.desktop-nav{display:block}.drawer{display:none}}
+    @media (max-width:979.98px){.desktop-nav{display:none}.hamb{display:inline-block}}
+    main{padding-top:clamp(16px, 16px + 2vh, 28px)}footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:min(1100px,92%);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
+    .page-title{width:min(1100px,92%);margin:28px auto 6px;color:var(--ctm-green-deep);letter-spacing:.02em}
+    .lead{width:min(1100px,92%);margin:0 auto 18px;color:#444}
+    .grid{width:min(1100px,92%);margin:20px auto;display:grid;gap:22px;grid-template-columns: 1.2fr .8fr}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:20px}
   </style>
 </head>
-
 <body>
-<!-- ===== Global Header（共通） ===== -->
-<header class="site-header" role="banner" aria-label="グローバルヘッダー">
-  <div class="site-header__inner">
-    <!-- PC用ナビ -->
-    <nav aria-label="グローバルナビ">
-      <ul class="gnav_list">
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </nav>
-
-    <!-- 右上ハンバーガー -->
-    <button class="gnav_toggle" aria-controls="gnav-drawer" aria-expanded="false" aria-label="メニュー">
-      <span></span>
-    </button>
-  </div>
-</header>
-
-  <script>
-(function () {
-  var btn = document.querySelector('.gnav_toggle');
-  var drawer = document.getElementById('gnav-drawer');
-  if (!btn || !drawer) return;
-
-  var html = document.documentElement;
-
-  function open() {
-    drawer.classList.add('is-open');
-    drawer.removeAttribute('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-    html.classList.add('no-scroll');
-  }
-  function close() {
-    drawer.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
-    html.classList.remove('no-scroll');
-    // 退場アニメ後にhiddenを戻す（アクセシビリティ配慮）
-    setTimeout(function(){ if(!drawer.classList.contains('is-open')) drawer.setAttribute('hidden',''); }, 400);
-  }
-
-  btn.addEventListener('click', function () {
-    drawer.classList.contains('is-open') ? close() : open();
-  });
-  drawer.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') close(); // メニュー選択で閉じる
-  });
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') close();
-  });
-})();
-</script>
-
-<!-- スマホ用ドロワー -->
-<nav id="gnav-drawer" class="gnav-drawer" aria-label="モバイルメニュー" hidden>
-  <ul>
-    <li><a href="index.html">ホーム</a></li>
-    <li><a href="message.html">代表挨拶</a></li>
-    <li><a href="company.html">会社情報</a></li>
-    <li><a href="services.html">サービス</a></li>
-    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-  </ul>
-</nav>
-
-  <!-- Hero -->
-  <header class="cmp-hero">
-    <div class="cmp-hero__imagewrap">
-      <img src="images/20.jpg" alt="会議中のビジネスシーン">
+  <header class="site-header" id="header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
+      <nav class="desktop-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamb" aria-label="メニュー" aria-controls="drawer" aria-expanded="false"><span></span></button>
     </div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__panel">
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
   </header>
 
-  <main id="main" class="cmp-main">
+  <main>
+    <!-- ここから既存の代表挨拶・会社情報本文を入れてください -->
+    <h1 class="page-title">会社情報 / 代表挨拶</h1>
+    <p class="lead">院長の最大の理解者・最高の2番手として、現場に寄り添う経営支援を行います。</p>
 
-   <section id="philosophy" class="cmp-block">
-  <div class="cmp-block__titleimg"><img src="images/14.jpg" alt="Philosophy 理念"></div>
-  <div class="cmp-container">
-    <h2 class="visually-hidden">理念</h2>
-    <p class="cmp-catch">現場に寄り添い、医療に集中できる環境を整える</p>
-    <p class="cmp-body">私たちは、クリニックで働くすべての人の声を聞き、院長が目指す医療を、経営という土台から支えます。</p>
-  </div>
-</section>
-
-    <!-- Concept -->
-   <section id="concept" class="cmp-block cmp-block--dark">
-  <div class="cmp-block__titleimg"><img src="images/15.jpg" alt="Concept コンセプト"></div>
-  <div class="cmp-container">
-    <h2 class="visually-hidden">コンセプト</h2>
-    <p class="cmp-catch">主役は、院長とスタッフと患者様　CTMは、そのすぐそばで支え続ける</p>
-    <p class="cmp-body">
-      CTMは、クリニックの経営・人事・財務をトータルで支える事務長代行サービスです。現場出身の強みを活かし、<br>
-      経営と現場、院長とスタッフ、理想と現実の橋渡しをします。<br>
-      「右腕」として、あらゆる声に応えながら、より良い医療の形を共に描いていきます。
-    </p>
-  </div>
-</section>
-
-    <!-- Mission -->
-  <section id="mission" class="cmp-block">
-  <div class="cmp-block__titleimg"><img src="images/16.jpg" alt="Mission ミッション"></div>
-  <div class="cmp-container">
-    <h2 class="visually-hidden">ミッション</h2>
-    <p class="cmp-catch">医療の質を、経営の力で支える</p>
-    <p class="cmp-body">
-      院長が本当にやりたい医療を実現するために、医療以外の全てを任せられる存在となり、クリニックの経営基盤を整え、<br>
-      チーム医療が機能する環境を創ります。
-    </p>
-  </div>
-</section>
-
-  <section id="vision" class="cmp-block cmp-block--dark">
-  <div class="cmp-block__titleimg"><img src="images/17.jpg" alt="Vision ビジョン"></div>
-  <div class="cmp-container">
-    <h2 class="visually-hidden">ビジョン</h2>
-    <p class="cmp-catch">医師が医療に専念できる、あたりまえの職場環境をすべてのクリニックに</p>
-    <p class="cmp-body">経営と現場が両立し、スタッフも院長も無理なく力を発揮できるクリニックを全国に広げていきます。医療に集中できる“健全な土台”が整っている――そんな職場が「普通に存在する選択肢」となる未来をつくります。</p>
-  </div>
-</section>
-
-    <!-- Value -->
-    <section id="value" class="cmp-block">
-      <div class="cmp-block__titleimg"><img src="images/18.jpg" alt="Value バリュー"></div>
-      <div class="cmp-container">
-        <h2 class="visually-hidden">バリュー</h2>
-        <ol class="cmp-values">
-          <li><strong>“右腕”であり“理解者”である</strong>院長の想いを形にし、その一歩先を見据えて提案できる存在であり続ける</li>
-          <li><strong>現場第一主義</strong>現場に出て、声を聞き、空気を感じる。すべての判断は、そこから始まる</li>
-          <li><strong>全員が報われる仕組みをつくる</strong>院長・スタッフ・患者様、それぞれが「ここにいてよかった」と思える環境を整える</li>
-          <li><strong>変化を恐れず、進化を支える</strong>理想の医療に近づくために、必要な変化に共に向き合う</li>
-          <li><strong>経営と医療の間に立つ“翻訳者”である</strong>現場の想いと経営のリアル、両方をつなぎ、最適な形に整える</li>
-        </ol>
-      </div>
-    </section>
+    <div class="grid">
+      <article class="card">
+        <!-- 代表挨拶テキスト（差し替え） -->
+        <h2>代表挨拶</h2>
+        <p>（本文を差し替え）</p>
+      </article>
+      <aside class="card">
+        <!-- 写真ボックス（右側配置、スマホでは下） -->
+        <img src="assets/company_photo.jpg" alt="CTM 代表近影（差し替え）">
+      </aside>
+    </div>
+    <!-- ↑ここまで本文差し替え -->
   </main>
 
-<!-- Global Footer -->
-<footer class="global-footer" role="contentinfo">
-  <nav class="global-footer__nav" aria-label="フッターナビ">
-    <a href="index.html">ホーム</a>
-    <a href="message.html">代表挨拶</a>
-    <a href="company.html">会社情報</a>
-    <a href="services.html">サービス</a>
-   <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
-  </nav>
-  <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
-</footer>
-<script>
-  (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
-</script>
+  <footer>
+    <div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div>
+  </footer>
+
+  <script>
+    (function(){const page=document.documentElement.getAttribute('data-page');const setActive=(r)=>{r?.querySelectorAll('a').forEach(a=>{const href=(a.getAttribute('href')||'').trim();const key=href.replace('.html','');if(key===page){a.setAttribute('aria-current','page');}})};setActive(document.querySelector('.desktop-nav'));setActive(document.querySelector('#drawer'));})();
+    (function(){const btn=document.querySelector('.hamb');const drawer=document.getElementById('drawer');const toggle=(o)=>{btn.setAttribute('aria-expanded',String(o));drawer.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':''};btn.addEventListener('click',()=>toggle(btn.getAttribute('aria-expanded')!=='true'));drawer.addEventListener('click',(e)=>{if(e.target===drawer)toggle(false)});document.addEventListener('keydown',(e)=>{if(e.key==='Escape')toggle(false)});const header=document.getElementById('header');const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>4);onScroll();window.addEventListener('scroll',onScroll,{passive:true});})();
+  </script>
+</body>
+</html>
