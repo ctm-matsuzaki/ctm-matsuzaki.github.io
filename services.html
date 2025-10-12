@@ -1,186 +1,88 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-page="services">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>サービス案内 | CTM（クリニック トータル マネージメント）</title>
-  <meta name="robots" content="index, follow">
-  <meta name="description" content="事務長代行サービスのご案内。経営分析／人事労務支援／業務フロー改善／マーケティングを、現場で実装・定着まで支援します。">
-  <link rel="stylesheet" href="style.css?v=svc-2">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>サービス | CTM</title>
+  <meta name="description" content="事務長代行、開業支援、採用・人事、財務・補助金、集患・ブランディングなどCTMの提供サービス。">
+  <style>/* 共通ヘッダーCSS（indexと同一） */ :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--ctm-mint:#ADE7D1;--ink:#333;--bg:#fff;--header-h:64px;--z-header:1000;--z-drawer:1100;--radius:14px;--ease:cubic-bezier(.2,.7,.2,1)}
+  *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  a{color:var(--ctm-green-ink);text-decoration:none}img{max-width:100%;display:block}
+  .site-header{position:sticky;top:0;z-index:var(--z-header);height:var(--header-h);background:var(--ctm-mint);display:flex;align-items:center;transition:box-shadow .25s var(--ease)}
+  .site-header.scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}.container{width:min(1100px,92%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep)}
+  nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}nav a{display:inline-block;padding:10px 6px;font-weight:600}
+  nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
+  .hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent}
+  .hamb span,.hamb::before,.hamb::after{content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-green-deep);transition:transform .25s var(--ease),opacity .2s var(--ease)}
+  .hamb span{top:19px}.hamb::before{top:12px}.hamb::after{top:26px}.hamb[aria-expanded="true"] span{opacity:0}.hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}.hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+  .drawer{position:fixed;inset:0;z-index:var(--z-drawer);display:grid;grid-template-rows:auto 1fr;background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ease),background .25s var(--ease)}
+  .drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}.drawer__panel{margin:0;background:var(--ctm-mint);border-radius:0 0 var(--radius) var(--radius);transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ease),opacity .25s var(--ease)}
+  .drawer[aria-hidden="false"] .drawer__panel{transform:translateY(0);opacity:1}.drawer nav{padding:10px 16px 20px}.drawer ul{display:grid;gap:8px}.drawer a{display:block;padding:14px 10px;font-weight:700;border-radius:10px}.drawer a:hover{background:rgba(0,0,0,.06)}
+  @media (min-width:980px){.hamb{display:none}.desktop-nav{display:block}.drawer{display:none}}
+  @media (max-width:979.98px){.desktop-nav{display:none}.hamb{display:inline-block}}
+  main{padding-top:clamp(16px, 16px + 2vh, 28px)}
+  .wrap{width:min(1100px,92%);margin:24px auto}
+  .cards{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+  @media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+  @media (max-width:620px){.cards{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:18px}
+  footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:min(1100px,92%);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
+  </style>
 </head>
-<body class="page-services">
-<!-- ===== Global Header（共通） ===== -->
-<header class="site-header" role="banner" aria-label="グローバルヘッダー">
-  <div class="site-header__inner">
-    <!-- PC用ナビ -->
-    <nav aria-label="グローバルナビ">
-      <ul class="gnav_list">
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </nav>
-
-    <!-- 右上ハンバーガー -->
-    <button class="gnav_toggle" aria-controls="gnav-drawer" aria-expanded="false" aria-label="メニュー">
-      <span></span>
-    </button>
-  </div>
-</header>
-
-  <script>
-(function () {
-  var btn = document.querySelector('.gnav_toggle');
-  var drawer = document.getElementById('gnav-drawer');
-  if (!btn || !drawer) return;
-
-  var html = document.documentElement;
-
-  function open() {
-    drawer.classList.add('is-open');
-    drawer.removeAttribute('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-    html.classList.add('no-scroll');
-  }
-  function close() {
-    drawer.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
-    html.classList.remove('no-scroll');
-    // 退場アニメ後にhiddenを戻す（アクセシビリティ配慮）
-    setTimeout(function(){ if(!drawer.classList.contains('is-open')) drawer.setAttribute('hidden',''); }, 400);
-  }
-
-  btn.addEventListener('click', function () {
-    drawer.classList.contains('is-open') ? close() : open();
-  });
-  drawer.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') close(); // メニュー選択で閉じる
-  });
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') close();
-  });
-})();
-</script>
-
-<!-- スマホ用ドロワー -->
-<nav id="gnav-drawer" class="gnav-drawer" aria-label="モバイルメニュー" hidden>
-  <ul>
-    <li><a href="index.html">ホーム</a></li>
-    <li><a href="message.html">代表挨拶</a></li>
-    <li><a href="company.html">会社情報</a></li>
-    <li><a href="services.html">サービス</a></li>
-    <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-  </ul>
-</nav>
-
-<!-- ======= Hero (背景画像＋テキスト) ======= -->
-<section class="svc-hero">
-  <div class="svc-hero-bg">
-    <img src="images/22.jpg" alt="サービス背景" class="hero-image">
-  </div>
-  <div class="svc-hero-text">
-    <h1>事務長代行サービス</h1>
-    <p>経営分析・人事労務・業務改善・マーケティングまで包括的に支援し、院長が診療に専念できる環境を整えます。</p>
-  </div>
-</section>
-
-
-  <!-- ====== Service 本文 ====== -->
- <main class="svc-wrap">
- <h2 class="service-main-title">Service</h2>
-
-    <!-- 01 経営分析 -->
-    <article id="analysis" class="svc-row">
-      <figure class="svc-col media">
-        <img src="images/4.jpeg" alt="経営分析" loading="lazy" decoding="async">
-      </figure>
-      <div class="svc-col text">
-        <h2>経営分析</h2>
-        <p>
-          会計（税理士）と連携し、収益・費用の収支バランスを分解。診療報酬・自費の構成、コスト構造を見直し、
-          「どこを伸ばし、どこを締めるか」を数値で可視化します。
-        </p>
+<body>
+  <header class="site-header" id="header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
+      <nav class="desktop-nav" aria-label="主要メニュー">
         <ul>
-          <li>KPI設計（患者数・単価・再診率・キャッシュフロー 等）</li>
-          <li>月次レビュー（外来/部門/医師/曜日別の実績可視化）</li>
-          <li>PL改善（売上構成・固定費/変動費の見直し・改善テーマ特定）</li>
-          <li>保険/自費ポートフォリオ設計・粗利改善シミュレーション</li>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
+      </nav>
+      <button class="hamb" aria-label="メニュー" aria-controls="drawer" aria-expanded="false"><span></span></button>
+    </div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__panel">
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
       </div>
-    </article>
+    </aside>
+  </header>
 
-    <!-- 02 人事労務支援 -->
-    <article id="hr" class="svc-row rev">
-      <div class="svc-col text">
-        <h2>人事労務支援</h2>
-        <p>
-          採用から評価・定着までの人事サイクルを現場運用と両輪で整えます。労務リスクを抑えつつ人件費と労働時間を最適化。
-        </p>
-        <ul>
-          <li>採用設計（求人票・面接設計・評価基準の明確化）</li>
-          <li>勤怠/シフト体制の是正・就業規則/手当設計の見直し</li>
-          <li>評価制度の運用・賃金テーブル設計・1on1導入</li>
-          <li>人手不足/欠員時の業務再配分・応援体制設計</li>
-        </ul>
+  <main>
+    <!-- ここから既存のサービス本文に置換 -->
+    <section class="wrap">
+      <h1>サービス</h1>
+      <div class="cards">
+        <article class="card"><h2>事務長代行</h2><p>（本文差し替え）</p></article>
+        <article class="card"><h2>開業支援</h2><p>（本文差し替え）</p></article>
+        <article class="card"><h2>採用・人事</h2><p>（本文差し替え）</p></article>
+        <article class="card"><h2>財務・補助金</h2><p>（本文差し替え）</p></article>
+        <article class="card"><h2>集患・ブランド</h2><p>（本文差し替え）</p></article>
+        <article class="card"><h2>その他支援</h2><p>（本文差し替え）</p></article>
       </div>
-      <figure class="svc-col media">
-        <img src="images/5.jpeg" alt="人事労務支援" loading="lazy" decoding="async">
-      </figure>
-    </article>
-
-    <!-- 03 業務フロー改善 -->
-    <article id="workflow" class="svc-row">
-      <figure class="svc-col media">
-        <img src="images/6.jpeg" alt="業務フロー改善" loading="lazy" decoding="async">
-      </figure>
-      <div class="svc-col text">
-        <h2>業務フロー改善</h2>
-        <p>
-          受付〜診療〜会計までの導線・帳票・オペレーションを見直し、スタッフ負担を軽減。患者さまにもわかりやすい導線に最適化します。
-        </p>
-        <ul>
-          <li>受付/会計のタイムスタディ・滞留箇所の特定</li>
-          <li>問診票/帳票の再設計・電子化・テンプレート整備</li>
-          <li>レイアウト/導線最適化（院内サイン・動線設計）</li>
-          <li>マニュアル/チェックリストの整備と定着支援</li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- 04 マーケティング戦略 -->
-    <article id="marketing" class="svc-row rev">
-      <div class="svc-col text">
-        <h2>マーケティング戦略</h2>
-        <p>
-          地域特性と競合状況を分析し、来院につながる導線を設計。メッセージ・見せ方を統一し、Web/院内/紹介を連動させます。
-        </p>
-        <ul>
-          <li>ブランド設計（トーン&ビジュアル/コピー/院内掲示）</li>
-          <li>Web導線（HP/SEO・MEO・SNS・投稿運用）</li>
-          <li>院内導線（パンフ/掲示/サイン/説明スライド）</li>
-          <li>紹介スキームの設計（紹介カード/説明トーク整備）</li>
-        </ul>
-      </div>
-      <figure class="svc-col media">
-        <img src="images/7.jpeg" alt="マーケティング戦略" loading="lazy" decoding="async">
-      </figure>
-    </article>
-
+    </section>
+    <!-- ↑ここまで -->
   </main>
 
-<!-- Global Footer -->
-<footer class="global-footer" role="contentinfo">
-  <nav class="global-footer__nav" aria-label="フッターナビ">
-    <a href="index.html">ホーム</a>
-    <a href="message.html">代表挨拶</a>
-    <a href="company.html">会社情報</a>
-    <a href="services.html">サービス</a>
-   <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
-  </nav>
-  <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
-</footer>
-<script>
-  (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
-</script>
+  <footer>
+    <div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div>
+  </footer>
+
+  <script>
+    (function(){const p=document.documentElement.getAttribute('data-page');const setA=r=>r?.querySelectorAll('a').forEach(a=>{const k=(a.getAttribute('href')||'').trim().replace('.html','');if(k===p)a.setAttribute('aria-current','page')});setA(document.querySelector('.desktop-nav'));setA(document.querySelector('#drawer'));})();
+    (function(){const b=document.querySelector('.hamb'),d=document.getElementById('drawer');const t=o=>{b.setAttribute('aria-expanded',String(o));d.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':''};b.addEventListener('click',()=>t(b.getAttribute('aria-expanded')!=='true'));d.addEventListener('click',e=>{if(e.target===d)t(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape')t(false)});const h=document.getElementById('header');const s=()=>h.classList.toggle('scrolled',scrollY>4);s();addEventListener('scroll',s,{passive:true});})();
+  </script>
+</body>
+</html>
+
