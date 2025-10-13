@@ -1062,3 +1062,17 @@ footer { margin-top: 0 !important; }
 .ctm-close::before{ transform:rotate(45deg); }
 .ctm-close::after{ transform:rotate(-45deg); }
 .ctm-close:active{ transform:translateY(1px); }
+
+/* ===== ヒーロー見出しの行揃え（スマホ専用指定） ===== */
+.hero__title .hero-line2{ display:block; }
+
+/* PCではインデントを付けて今までの見た目を再現（数値は好みで微調整OK） */
+@media (min-width: 769px){
+  .hero__title .hero-line2{ padding-left: 4.5em; } /* ←PCのインデント量 */
+}
+
+/* スマホでは左寄せ＆インデント解除（“として、”で改行した直後を左に合わせる） */
+@media (max-width: 768px){
+  .hero__title{ text-align: left; }
+  .hero__title .hero-line2{ padding-left: 0; }
+}
