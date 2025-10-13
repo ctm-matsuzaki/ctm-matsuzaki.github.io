@@ -257,3 +257,81 @@
         <li>院内備品管理や契約手続きなど、総務業務全般</li>
         <li>財務状況の分析と改善提案</li>
         <li>人事労務支援、採用活動・組織体制の整備</li>
+        <li>現場オペレーションの見直しとマニュアル化</li>
+        <li>ブランディング・SNS等情報発信の設計</li>
+      </ul>
+      <p class="faq-a">院長が医療に集中できるよう、実務も含めて現場に深く関与しながら支援いたします。</p>
+    </div>
+
+    <div class="faq-block">
+      <p class="faq-q">Q. どんなクリニックに対応していますか？</p>
+      <p class="faq-a">A. 診療科やクリニックの形態を問わず対応可能です。これまで保険診療・自費診療ともに実績があります。</p>
+    </div>
+
+    <div class="faq-block">
+      <p class="faq-q">Q. 費用はどのように決まりますか？</p>
+      <p class="faq-a faq-a-lead">A. ご依頼の業務範囲や訪問頻度によりお見積りいたします。以下は一例です。</p>
+      <ul class="faq-list">
+        <li>月2回の訪問対応：100,000円〜（税抜）</li>
+        <li>月2回のオンライン対応：50,000円〜（税抜）</li>
+      </ul>
+      <p class="faq-a">内容に応じて柔軟に対応しますので、お気軽にご相談ください。</p>
+    </div>
+
+    <div class="faq-block">
+      <p class="faq-q">Q. 導入までの流れを教えてください</p>
+      <ul class="faq-list">
+        <li>お問い合わせ</li>
+        <li>初回ヒアリング（訪問またはオンライン）</li>
+        <li>ご提案・お見積り</li>
+        <li>ご契約・キックオフ</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== Contact（フル幅背景） ========== -->
+  <section class="contact-section full-bleed" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <h2 id="contact-title" class="contact-title">CONTACT</h2>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button" rel="noopener">お問い合わせはこちら</a>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer" role="contentinfo">
+    <nav class="global-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="services.html">サービス</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
+    </nav>
+    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
+  </footer>
+
+  <script>
+    // フッター年号
+    (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+
+    // ヘッダー：ドロワー開閉＆スクロール影
+    (function(){
+      var btn=document.querySelector('.ctm-hamb');
+      var drawer=document.getElementById('ctm-drawer');
+      var header=document.getElementById('ctm-header');
+
+      function toggle(open){
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      if(btn && drawer){
+        btn.addEventListener('click', function(){ toggle(btn.getAttribute('aria-expanded')!=='true'); });
+        drawer.addEventListener('click', function(e){ if(e.target===drawer) toggle(false); });
+        document.addEventListener('keydown', function(e){ if(e.key==='Escape') toggle(false); });
+      }
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY>4); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+  </script>
+</body>
+</html>
