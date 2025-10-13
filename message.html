@@ -207,36 +207,28 @@
 <body class="page-company">
 
   <!-- ========== Site Header（ガラス調固定・右寄せ・ロゴ無し） ========== -->
-  <header class="ctm-header" id="ctm-header">
-    <div class="ctm-container">
-      <nav class="ctm-nav" aria-label="主要メニュー">
+ <header class="ctm-header" id="ctm-header">
+  <div class="ctm-container">
+    <nav class="ctm-nav" aria-label="主要メニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="message.html" aria-current="page">代表挨拶</a></li>
+        <li><a href="company.html">会社情報</a></li>
+        <li><a href="services.html">サービス</a></li>
+        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+    <div class="ctm-drawer__panel">
+      <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+      <nav aria-label="モバイルメニュー">
         <ul>
           <li><a href="index.html">ホーム</a></li>
-          <li><a href="message.html">代表挨拶</a></li>
-          <li><a href="company.html" aria-current="page">会社情報</a></li>
-          <li><a href="services.html">サービス</a></li>
-          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-        </ul>
-      </nav>
-      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
-      <div class="ctm-drawer__panel">
-        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
-        <nav aria-label="モバイルメニュー">
-          <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="message.html">代表挨拶</a></li>
-            <li><a href="company.html" aria-current="page">会社情報</a></li>
-            <li><a href="services.html">サービス</a></li>
-            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-  </header>
+          <li><a href="mes
 
   <!-- ======= Hero（上部の1枚だけ） ======= -->
   <section class="hero-company" aria-label="会社情報ヒーロー">
