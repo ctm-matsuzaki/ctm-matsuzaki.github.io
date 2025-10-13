@@ -1,60 +1,259 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>サービス | CTM</title>
-<meta name="description" content="事務長代行、開業支援、採用・人事、財務・補助金、集患・ブランディング等の提供サービス。">
-<style>
-  :root{--ctm-green:#264a27;--ctm-green-deep:#213B1F;--ctm-green-ink:#224A33;--header-bg:#ADE7D1;--ink:#333;--bg:#fff;--wrap:max(92%,1100px);--header-h:64px}
-  *{box-sizing:border-box}html,body{margin:0;padding:0}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-  a{color:var(--ctm-green-ink);text-decoration:none}
-  .site-header{position:sticky;top:0;height:var(--header-h);background:var(--header-bg);display:flex;align-items:center;z-index:1000}
-  .container{width:var(--wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .brand{display:flex;align-items:center;gap:10px}.brand__logo{width:36px;height:36px;border-radius:50%;background:var(--ctm-green)}.brand__name{font-weight:700;color:var(--ctm-green-deep)}
-  nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px;flex-wrap:wrap}
-  nav a{display:inline-block;padding:10px 6px;font-weight:600;letter-spacing:.03em}
-  nav a[aria-current="page"]{position:relative;color:var(--ctm-green-deep)}
-  nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-green-deep);border-radius:2px}
-  main{padding:24px 0}
-  .wrap{width:var(--wrap);margin:24px auto}
-  .cards{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
-  @media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
-  @media (max-width:620px){.cards{grid-template-columns:1fr}}
-  .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06);padding:18px}
-  footer{margin-top:60px;padding:28px 0;background:#f5f7f6;color:#555}.footer-inner{width:var(--wrap);margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.copy{font-size:13px}
-</style>
-</head>
-<body>
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="brand" aria-label="CTM Home"><span class="brand__logo"></span><span class="brand__name">CTM</span></a>
-    <nav aria-label="主要メニュー">
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html" aria-current="page">サービス</a></li>
-        <li><a href="https://forms.gle/xxxxxxxx" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <meta charset="UTF-8">
+  <title>CTM | Clinic Total Management</title>
 
-<main>
-  <section class="wrap">
-    <h1>サービス</h1>
-    <div class="cards">
-      <article class="card"><h2>事務長代行</h2><p>（本文差し替え）</p></article>
-      <article class="card"><h2>開業支援</h2><p>（本文差し替え）</p></article>
-      <article class="card"><h2>採用・人事</h2><p>（本文差し替え）</p></article>
-      <article class="card"><h2>財務・補助金</h2><p>（本文差し替え）</p></article>
-      <article class="card"><h2>集患・ブランディング</h2><p>（本文差し替え）</p></article>
-      <article class="card"><h2>その他支援</h2><p>（本文差し替え）</p></article>
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800&family=Noto+Serif+JP:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- 基本SEO -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ctm-matsuzaki.github.io/">
+  <meta name="description" content="Clinic Total Management は、院長の“最大の理解者”として現場で動く経営支援。経営分析・人事労務・業務フロー改善・マーケティングを実務で伴走します。">
+
+  <!-- モバイル対応 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 置換前）style.css?v=20250928a / 20250928b など -->
+  <link rel="stylesheet" href="style.css?v=20251005a">
+
+  <!-- ヘッダー専用（既存CSSに影響しないよう名前空間化） -->
+  <style id="ctm-header-style">
+    :root{
+      --ctm-header-bg:#ADE7D1;        /* ヘッダー薄い緑（代表挨拶と同色） */
+      --ctm-header-ink:#213B1F;       /* 文字色（深い緑） */
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
+    .ctm-header{position:sticky;top:0;z-index:var(--ctm-z-header);height:var(--ctm-header-height);background:var(--ctm-header-bg);display:flex;align-items:center;transition:box-shadow .25s var(--ctm-ease)}
+    .ctm-header.is-scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}
+    .ctm-container{width:var(--ctm-wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .ctm-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .ctm-brand__logo{width:36px;height:36px;border-radius:50%;background:#264a27}
+    .ctm-brand__name{font-weight:700;letter-spacing:.02em;color:var(--ctm-header-ink)}
+    .ctm-nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}
+    .ctm-nav a{display:inline-block;padding:10px 6px;font-weight:700;letter-spacing:.03em;color:var(--ctm-header-ink);text-decoration:none}
+    .ctm-nav a[aria-current="page"]{position:relative}
+    .ctm-nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-header-ink);border-radius:2px}
+
+    /* ハンバーガー */
+    .ctm-hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent;cursor:pointer}
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-header-ink);transition:transform .25s var(--ctm-ease),opacity .2s var(--ctm-ease)}
+    .ctm-hamb span{top:19px}
+    .ctm-hamb::before{top:12px}
+    .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* ドロワー */
+    .ctm-drawer{position:fixed;inset:0;z-index:var(--ctm-z-drawer);display:grid;grid-template-rows:auto 1fr;background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ctm-ease),background .25s var(--ctm-ease)}
+    .ctm-drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}
+    .ctm-drawer__panel{margin:0;background:var(--ctm-header-bg);border-radius:0 0 var(--ctm-radius) var(--ctm-radius);transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ctm-ease),opacity .25s var(--ctm-ease)}
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{transform:translateY(0);opacity:1}
+    .ctm-drawer nav{padding:10px 16px 20px}
+    .ctm-drawer ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+    .ctm-drawer a{display:block;padding:14px 10px;font-weight:800;border-radius:10px;color:var(--ctm-header-ink);text-decoration:none}
+    .ctm-drawer a:hover{background:rgba(0,0,0,.06)}
+
+    /* レスポンシブ */
+    @media (min-width:980px){
+      .ctm-hamb{display:none}
+      .ctm-nav{display:block}
+      .ctm-drawer{display:none}
+    }
+    @media (max-width:979.98px){
+      .ctm-nav{display:none}
+      .ctm-hamb{display:inline-block}
+    }
+  </style>
+
+  <!-- （補助）フルブリード＆Contactの最小ユーティリティ ※既存style.cssにあれば削除可 -->
+  <style>
+    .contact-section { position: relative; min-height: 80vh;
+      background-image: url('images/contact-bg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;
+      display: flex; justify-content: center; align-items: center; }
+    .contact-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    .contact-title { font-size: 3.6rem; line-height: 1.05; color: #2c4a27; margin: 0; font-family: 'Noto Serif JP', serif; letter-spacing: 1px; }
+    .contact-button { display: inline-block; padding: 16px 32px; background: #fff; color: #000; font-weight: bold; font-size: 1.2rem; border: 1px solid #000; border-radius: 4px; text-decoration: none; }
+    @media (max-width: 768px){ .contact-title{ font-size: 2.6rem; } .contact-button{ padding:12px 24px; font-size:1rem; } }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== Header（フェードイン＆スマホ重なり対策） ========== -->
+  <header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <a href="index.html" class="ctm-brand" aria-label="CTM Home">
+        <span class="ctm-brand__logo" aria-hidden="true"></span>
+        <span class="ctm-brand__name">CTM</span>
+      </a>
+
+      <nav class="ctm-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html" aria-current="page">ホーム</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html" aria-current="page">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+
+  <!-- ========== Hero ========== -->
+  <section class="hero" style="background-image:url('images/1.png');">
+    <div class="hero__inner">
+      <h1 class="hero__title">“院長の最大の理解者”として、<br>　　　　　ともに走るパートナー</h1>
+      <p class="hero__lead">Clinic Total Management は、院長の理想を現場で実現する伴走者です</p>
     </div>
   </section>
-</main>
 
-<footer><div class="footer-inner"><div class="copy">© CTM</div><div>運営：Clinic Total Management</div></div></footer>
-</body>
-</html>
+  <!-- ========== Problem Teaser（帯） ========== -->
+  <section class="section has-bgword" data-word="">
+    <div class="container">
+      <h2 class="section-title">「忙しさの中で、気づけば手がまわらない…」</h2>
+      <p class="lead">そんな日々を、少しでも変えるお手伝いを</p>
+      <hr class="section-divider">
+    </div>
+  </section>
+
+  <!-- ========== Problems ========== -->
+  <section class="problems">
+    <div class="container">
+
+      <!-- ブロック1：画像 左 ／ テキスト 右 -->
+      <div class="problem-row">
+        <div class="problem-col media">
+          <img src="images/2.png" alt="書類の山と女性医師">
+        </div>
+        <div class="problem-col text">
+          <h2>「時間が足りない」と感じるのは、問題のサイン</h2>
+          <p>
+            請求、採用、マネジメント——<br>
+            重要なのに、後回しにされがちな業務が山積みになっていませんか？<br>
+            見直せば、もっと医療に集中できるはずです
+          </p>
+        </div>
+      </div>
+
+      <!-- ブロック2：テキスト 左 ／ 画像 右 -->
+      <div class="problem-row reverse">
+        <div class="problem-col text">
+          <h2>外来対応に追われ、見直す時間もない</h2>
+          <p>
+            人手不足、業務の属人化、非効率な運用…<br>
+            目の前の患者対応に手一杯で、経営のことまで手が回らないと感じていませんか？
+          </p>
+        </div>
+        <div class="problem-col media">
+          <img src="images/3.png" alt="外来の行列と受付">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== 「院長先生の最大の理解者〜」 ========== -->
+  <section class="section understanding">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-lead">院長先生の最大の理解者であり、最高の2番手としてお手伝いします</h2>
+    </div>
+  </section>
+
+  <!-- ========== Service（カードグリッド） ========== -->
+  <section class="section section--svc" id="service">
+    <div class="container">
+      <h3 class="service-title">Service</h3>
+
+      <ul class="svc-grid">
+        <li class="svc-card">
+          <img src="images/4.jpeg" alt="経営分析" class="svc-img">
+          <h3 class="svc-title">経営分析</h3>
+          <p class="svc-desc">
+            診療報酬や自費収入のバランス、コスト構造を分析し、医療法人としての健全な財務運営を支援。将来を見据えた収益改善策をご提案します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/5.jpeg" alt="人事労務支援" class="svc-img">
+          <h3 class="svc-title">人事労務支援</h3>
+          <p class="svc-desc">
+            採用活動から就業規則の整備、勤怠・給与管理までをサポート。スタッフが安心して働ける環境づくりを、実務レベルで支援します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/6.jpeg" alt="業務フロー改善" class="svc-img">
+          <h3 class="svc-title">業務フロー改善</h3>
+          <p class="svc-desc">
+            受付から診察、会計までの一連の流れを見直し、負担を軽減。患者様にとって分かりやすく快適な導線を整備します。
+          </p>
+        </li>
+
+        <li class="svc-card">
+          <img src="images/7.jpeg" alt="マーケティング戦略" class="svc-img">
+          <h3 class="svc-title">マーケティング戦略</h3>
+          <p class="svc-desc">
+            地域特性や競合を分析し、来院につながる戦略を立案。WEB導線、紙媒体、SNS投稿の作成まで一貫して支援します。
+          </p>
+        </li>
+      </ul>
+
+      <div style="text-align:right; margin-top:1rem;">
+        <a href="services.html" style="color:#375c3b; text-decoration:none; font-weight:700;">more &gt;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Company（TOP用帯） ====== -->
+  <section id="home-company">
+    <div class="col-text">
+      <h2>Company</h2>
+      <h3>会社情報</h3>
+      <p>医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、<br>
+         持続可能なクリニックづくりを実現します。</p>
+      <a href="company.html" class="more">more &gt;</a>
+    </div>
+    <div class="col-img">
+      <img src="images/8.jpeg" alt="会社情報">
+    </div>
+  </section>
+
+  <!-- ===== FAQ（同一ページ内セクション） ===== -->
+  <section id="faq" class="faq-section">
+    <h2 class="faq-title">よくあるご質問<span class="en">FAQ</span></h2>
+
+    <div class="faq-block">
+      <p class="faq-q">Q. どのような業務をお願いできますか？</p>
+      <p class="faq-a faq-a-lead">A. 経営に関わる幅広い業務を対象としており、たとえば以下のような支援が可能です。</p>
+      <ul class="faq-list">
+        <li>経営戦略の立案とサポート</li>
+        <li>院内備品管理や契約手続きなど、総務業務全般</li>
+        <li>財務状況の分析と改善提案</li>
+        <li>人事労務支援、採用活動・組織体制の整備</li>
