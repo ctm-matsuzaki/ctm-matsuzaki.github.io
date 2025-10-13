@@ -1047,3 +1047,18 @@ footer { margin-top: 0 !important; }
     right: 14px;
   }
 }
+/* ドロワーパネルは位置基準にする（×を右上に配置） */
+.ctm-drawer__panel{ position:relative; }
+
+/* 閉じるボタン（右上の×） */
+.ctm-close{
+  position:absolute; top:6px; right:4px;
+  width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+}
+.ctm-close::before,.ctm-close::after{
+  content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+  background:var(--ctm-ink); border-radius:2px;
+}
+.ctm-close::before{ transform:rotate(45deg); }
+.ctm-close::after{ transform:rotate(-45deg); }
+.ctm-close:active{ transform:translateY(1px); }
