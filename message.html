@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <title>会社情報 | CTM</title>
+  <title>代表挨拶 | CTM</title>
   <meta name="robots" content="index, follow" />
-  <meta name="description" content="会社情報（代表挨拶）。CTM（Clinic Total Management）の概要、理念、提供方針をご紹介します。">
+  <meta name="description" content="CTM（Clinic Total Management）の代表挨拶。現場と経営の両輪で、院長の“最大の理解者”として伴走します。">
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ヘッダー（ガラス調・固定・右寄せ・モバイルドロワー） -->
+  <!-- 共通ヘッダー（ガラス調固定・右寄せ・モバイルドロワー） -->
   <style id="ctm-header-style">
     :root{
       --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
@@ -20,8 +20,6 @@
       --ctm-z-header:1000;
       --ctm-z-drawer:1100;
     }
-
-    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
     .ctm-header{
       position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
       height:var(--ctm-header-height);
@@ -35,214 +33,98 @@
       padding-top: env(safe-area-inset-top, 0px);
     }
     .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
-
-    .ctm-container{
-      width:var(--ctm-wrap); margin:0 auto;
-      display:flex; align-items:center; gap:16px;
-      justify-content:flex-end; /* ロゴ無しなので右寄せ */
-    }
+    .ctm-container{ width:var(--ctm-wrap); margin:0 auto; display:flex; align-items:center; gap:16px; justify-content:flex-end; }
     @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
-
-    .ctm-nav ul{
-      margin:0; padding:0; list-style:none;
-      display:flex; gap:32px;               /* メニュー間隔広め */
-    }
-    .ctm-nav a{
-      display:inline-block; padding:10px 6px;
-      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
-      color:var(--ctm-ink); text-decoration:none;
-      text-underline-offset:4px;
-    }
+    .ctm-nav ul{ margin:0; padding:0; list-style:none; display:flex; gap:32px; }
+    .ctm-nav a{ display:inline-block; padding:10px 6px; font-weight:800; letter-spacing:.06em; color:var(--ctm-ink); text-decoration:none; text-underline-offset:4px; }
     .ctm-nav a[aria-current="page"]{ position:relative; }
-    .ctm-nav a[aria-current="page"]::after{
-      content:""; position:absolute; left:0; right:0; bottom:6px;
-      height:2px; background:var(--ctm-ink); border-radius:2px;
-    }
-
-    /* ハンバーガー */
+    .ctm-nav a[aria-current="page"]::after{ content:""; position:absolute; left:0; right:0; bottom:6px; height:2px; background:var(--ctm-ink); border-radius:2px; }
     .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
-    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
-      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
-      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
-    }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{ content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink); transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease); }
     .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
     .ctm-hamb[aria-expanded="true"] span{opacity:0}
     .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
     .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
-
-    /* モバイルドロワー */
-    .ctm-drawer{
-      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
-      display:grid; grid-template-rows:auto 1fr;
-      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
-      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
-    }
+    .ctm-drawer{ position:fixed; inset:0; z-index:var(--ctm-z-drawer); display:grid; grid-template-rows:auto 1fr; background:rgba(0,0,0,.0); opacity:0; pointer-events:none; transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease); }
     .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
-    .ctm-drawer__panel{
-      position:relative; /* ×配置用 */
-      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
-      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
-      -webkit-backdrop-filter: saturate(140%) blur(12px);
-      backdrop-filter: saturate(140%) blur(12px);
-      transform:translateY(-12px); opacity:.0;
-      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
-    }
+    .ctm-drawer__panel{ position:relative; margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius); background: rgba(var(--ctm-glass-mint), .9); -webkit-backdrop-filter: saturate(140%) blur(12px); backdrop-filter: saturate(140%) blur(12px); transform:translateY(-12px); opacity:.0; transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease); }
     .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
     .ctm-drawer nav{ padding:10px 16px 20px; }
     .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
     .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
     .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
-
-    /* ×ボタン */
-    .ctm-close{
-      position:absolute; top:6px; right:4px;
-      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
-    }
-    .ctm-close::before,.ctm-close::after{
-      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
-      background:var(--ctm-ink); border-radius:2px;
-    }
-    .ctm-close::before{ transform:rotate(45deg); }
-    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close{ position:absolute; top:6px; right:4px; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-close::before,.ctm-close::after{ content:""; position:absolute; left:10px; right:10px; top:19px; height:2px; background:var(--ctm-ink); border-radius:2px; }
+    .ctm-close::before{ transform:rotate(45deg); } .ctm-close::after{ transform:rotate(-45deg); }
     .ctm-close:active{ transform:translateY(1px); }
-
-    /* 表示切替 */
     @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
     @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
-
-    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    /* 本文がヘッダーの下から始まるように */
     body{ padding-top: var(--ctm-header-height); }
-    */
   </style>
 
-  <!-- このページ専用のちょい足しスタイル（既存CSSを壊さない用） -->
+  <!-- ページ固有（代表挨拶） -->
   <style>
-    :root{
-      --ctm-green-ink: #165b33; /* 既存と同じ想定（無ければこの色が効きます） */
-    }
-
-    /* ヒーロー */
-    .hero-company{
-      position: relative;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .hero-company img{
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* ページ内共通ラッパー（中央寄せ＆適度な横幅） */
-    .cmp-wrap{
-      width: min(1100px, 92%);
-      margin: 0 auto;
-      padding: clamp(32px, 6vw, 64px) 0;
-    }
-
-    /* セクション見出し（緑・中央寄せ・大きめ） */
-    .cmp-heading{
-      text-align: center;
-      color: var(--ctm-green-ink);
-      font-weight: 700;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-      line-height: 1.35;
-      margin: 0 0 clamp(20px, 2.5vw, 28px);
-    }
-
-    /* リード文や本文の読みやすい中央寄せ */
-    .cmp-lead, .cmp-body{
-      width: min(900px, 100%);
-      margin: 0 auto;
-    }
-    .cmp-lead{
-      font-size: clamp(1rem, 1.7vw, 1.125rem);
-      line-height: 2;
-      text-align: center;
-      margin-bottom: clamp(28px, 4vw, 40px);
-    }
-    .cmp-body{
-      font-size: clamp(.95rem, 1.6vw, 1.05rem);
-      line-height: 2.1;
-      text-align: left;
-    }
-
-    /* 氏名画像（小さめ＆中央） */
-    .cmp-name{
-      display: block;
-      width: clamp(220px, 28vw, 360px);
-      height: auto;
-      margin: clamp(20px, 4vw, 36px) auto 0;
-    }
-
-    /* 各ブロックの余白 */
-    .cmp-section{
-      padding: clamp(28px, 5vw, 56px) 0;
-      border-top: 1px solid rgba(0,0,0,.06);
-    }
-    .cmp-section:first-of-type{
-      border-top: none;
-    }
-
-    /* 中見出し（緑・左寄せ） */
-    .cmp-subhead{
-      color: var(--ctm-green-ink);
-      font-family: "Noto Serif JP", serif;
-      font-weight: 700;
-      font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-      margin: 0 0 .8em;
-      line-height: 1.4;
-      text-align: left;
-      width: min(900px, 100%);
-      margin-left: auto; margin-right: auto;
-    }
-
-    /* バナー的な画像が重なって見えないよう、明示的に非表示（必要なら後で戻せます） */
-    .banner, .banner img{ display:none !important; }
+    :root{ --ctm-green-ink:#165b33; }
+    .hero-message{ position:relative; line-height:0; }
+    .hero-message img{ width:100%; height:auto; display:block; object-fit:cover; }
+    .wrap{ width:min(1100px,92%); margin:0 auto; padding: clamp(32px,6vw,64px) 0; }
+    .ttl{ text-align:center; color:var(--ctm-green-ink); font-family:"Noto Serif JP",serif; font-weight:700; font-size: clamp(1.6rem,3.2vw,2.2rem); margin:0 0 clamp(20px,2.5vw,28px); }
+    .subttl{ color:var(--ctm-green-ink); font-family:"Noto Serif JP",serif; font-weight:700; font-size: clamp(1.25rem,2.6vw,1.6rem); margin:0 0 .8em; line-height:1.4; width:min(900px,100%); margin-left:auto; margin-right:auto; }
+    .lead,.body{ width:min(900px,100%); margin:0 auto; }
+    .lead{ font-size: clamp(1rem,1.7vw,1.125rem); line-height:2; text-align:center; margin-bottom: clamp(28px,4vw,40px); }
+    .body{ font-size: clamp(.95rem,1.6vw,1.05rem); line-height:2.1; text-align:left; }
+    .name-img{ display:block; width: clamp(220px,28vw,360px); height:auto; margin: clamp(20px,4vw,36px) auto 0; }
+    .section{ padding: clamp(28px,5vw,56px) 0; border-top:1px solid rgba(0,0,0,.06); }
+    .section:first-of-type{ border-top:none; }
   </style>
 </head>
+<body class="page-message">
 
-<body class="page-company">
-
-  <!-- ========== Site Header（ガラス調固定・右寄せ・ロゴ無し） ========== -->
- <header class="ctm-header" id="ctm-header">
-  <div class="ctm-container">
-    <nav class="ctm-nav" aria-label="主要メニュー">
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="message.html" aria-current="page">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </nav>
-    <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
-  </div>
-
-  <!-- Mobile Drawer -->
-  <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
-    <div class="ctm-drawer__panel">
-      <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
-      <nav aria-label="モバイルメニュー">
+  <!-- 共通ヘッダー -->
+  <header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <nav class="ctm-nav" aria-label="主要メニュー">
         <ul>
           <li><a href="index.html">ホーム</a></li>
-          <li><a href="mes
+          <li><a href="message.html" aria-current="page">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+    </div>
 
-  <!-- ======= Hero（上部の1枚だけ） ======= -->
-  <section class="hero-company" aria-label="会社情報ヒーロー">
-    <!-- 重なり原因の2枚目を排除。ここは 23.jpg のみ表示 -->
-    <img src="images/23.jpg" alt="会社情報イメージ">
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="message.html" aria-current="page">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-message" aria-label="代表挨拶ヒーロー">
+    <img src="images/23.jpg" alt="代表挨拶イメージ">
   </section>
 
-  <!-- ======= 代表挨拶（中央寄せ & 緑見出し） ======= -->
-  <section class="cmp-wrap">
-    <h2 class="cmp-heading">代表挨拶</h2>
+  <!-- 本文 -->
+  <section class="wrap">
+    <h1 class="ttl">代表挨拶</h1>
 
-    <div class="cmp-section">
-      <h3 class="cmp-subhead">ご挨拶</h3>
-      <p class="cmp-body">
+    <div class="section">
+      <h2 class="subttl">ご挨拶</h2>
+      <p class="body">
         皆さま、こんにちは。Clinic Total Management（CTM）の松崎です。<br>
         これまで私は、整形外科や美容皮膚科など複数のクリニックにおいて、現場業務から経営改善まで幅広く携わってまいりました。<br>
         特に大切にしているのは、「院長の最大の理解者として、最高の2番手になること」です。<br><br>
@@ -251,12 +133,10 @@
       </p>
     </div>
 
-    <!-- ======== 経歴 ======== -->
-    <div class="cmp-section" style="border-top:none;">
-      <!-- 氏名画像（経歴の直前に表示） -->
-      <img class="cmp-name" src="name.png" alt="松﨑 忠将（Tadamasa Matsuzaki）">
-      <h3 class="cmp-subhead">経歴</h3>
-      <p class="cmp-body">
+    <div class="section" style="border-top:none;">
+      <img class="name-img" src="name.png" alt="松﨑 忠将（Tadamasa Matsuzaki）">
+      <h2 class="subttl">経歴</h2>
+      <p class="body">
         柔道整復師 / 事務長代行 / 医療経営コンサルタント <br><br>
         約20年にわたり、医療現場における実務マネジメントやクリニック運営に携わってきました。<br>
         整形外科を中心とした医療法人での運営・管理業務・実績構築の経験に加え、複数クリニックを束ねる事務長として、経営・人事・財務・広報の全般に精通。<br><br>
@@ -264,13 +144,13 @@
         現在は独立し、事務長代行サービス「Clinic Total Management （CTM）」として、新規開業支援・経営改善・組織改革・事務長代行・人材採用サポートなど、クリニックに最適化したコンサルティングを行っています。
       </p>
     </div>
-  </section> <!-- ← ここで cmp-wrap を閉じる -->
+  </section>
 
-  <!-- Global Footer -->
+  <!-- フッター（既存のまま） -->
   <footer class="global-footer" role="contentinfo">
     <nav class="global-footer__nav" aria-label="フッターナビ">
       <a href="index.html">ホーム</a>
-      <a href="message.html">代表挨拶</a>
+      <a href="message.html" aria-current="page">代表挨拶</a>
       <a href="company.html">会社情報</a>
       <a href="services.html">サービス</a>
       <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
@@ -279,10 +159,10 @@
   </footer>
 
   <script>
-    // フッター年号
+    // 年号
     (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
 
-    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
+    // ヘッダー：開閉 & スクロール
     (function(){
       var btn    = document.querySelector('.ctm-hamb');
       var drawer = document.getElementById('ctm-drawer');
@@ -294,31 +174,14 @@
         drawer.setAttribute('aria-hidden', String(!open));
         document.body.style.overflow = open ? 'hidden' : '';
       }
-
       if(btn && drawer){
-        // ハンバーガーで開閉
-        btn.addEventListener('click', function(){
-          toggle(btn.getAttribute('aria-expanded')!=='true');
-        });
-        // 背景タップで閉じる
-        drawer.addEventListener('click', function(e){
-          if(e.target === drawer) toggle(false);
-        });
-        // ×ボタンで閉じる
-        var closeB = drawer.querySelector('.ctm-close');
-        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
-        // メニューリンクで閉じる
-        drawer.querySelectorAll('a').forEach(function(a){
-          a.addEventListener('click', function(){ toggle(false); });
-        });
-        // Escキーで閉じる
-        document.addEventListener('keydown', function(e){
-          if(e.key === 'Escape') toggle(false);
-        });
+        btn.addEventListener('click', function(){ toggle(btn.getAttribute('aria-expanded')!=='true'); });
+        drawer.addEventListener('click', function(e){ if(e.target===drawer) toggle(false); });
+        var closeB = drawer.querySelector('.ctm-close'); if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ toggle(false); }); });
+        document.addEventListener('keydown', function(e){ if(e.key==='Escape') toggle(false); });
       }
-
-      // スクロールでガラス濃度＆影
-      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY>4); }
       onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     })();
   </script>
