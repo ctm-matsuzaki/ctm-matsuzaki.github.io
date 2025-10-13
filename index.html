@@ -32,26 +32,27 @@
   }
 
   /* ===== ヘッダー（すりガラス／透過） ===== */
-  .ctm-header{
-    position:sticky; top:0; z-index:var(--ctm-z-header);
-    height:var(--ctm-header-height);
+ /* 既存の .ctm-header をこれで上書き */
+.ctm-header{
+  position: fixed;          /* ← sticky から fixed へ */
+  top: 0; left: 0; right: 0;
+  z-index: var(--ctm-z-header);
+  height: var(--ctm-header-height);
+  --glass-alpha: .18;
+  background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(38,74,39,.12);
+  display: flex; align-items: center;
+  transition: box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+  /* iOSノッチ対策（対応端末のみ効く） */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.ctm-header.is-scrolled{
+  --glass-alpha: .34;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+}
 
-    /* 透明度は変数 --glass-alpha で管理（スクロール時に少し濃く） */
-    --glass-alpha: .18;
-    background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
-
-    /* ガラス効果（非対応ブラウザは自然にフォールバック） */
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    backdrop-filter: saturate(140%) blur(10px);
-
-    border-bottom: 1px solid rgba(38,74,39,.12);
-    display:flex; align-items:center;
-    transition: box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
-  }
-  .ctm-header.is-scrolled{
-    --glass-alpha: .34;
-    box-shadow: 0 6px 14px rgba(0,0,0,.08);
-  }
 
   /* コンテナは右寄せ（ロゴ無し構成） */
   .ctm-container{
