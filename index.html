@@ -15,122 +15,124 @@
   <!-- モバイル対応 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 置換前）style.css?v=20250928a / 20250928b など -->
+  <!-- 既存スタイル（そのまま） -->
   <link rel="stylesheet" href="style.css?v=20251005a">
 
-<style id="ctm-header-style">
-  :root{
-    /* ガラス風：ミント寄りのCTMグリーン（R,G,Bの並びで保持） */
-    --ctm-glass-mint: 173,231,209;  /* #ADE7D1 */
-    --ctm-ink:#264a27;
-    --ctm-header-height:64px;
-    --ctm-wrap:max(92%,1100px);
-    --ctm-ease:cubic-bezier(.2,.7,.2,1);
-    --ctm-radius:14px;
-    --ctm-z-header:1000;
-    --ctm-z-drawer:1100;
-  }
+  <!-- ヘッダー（ガラス調・固定・右寄せ・モバイルドロワー） -->
+  <style id="ctm-header-style">
+    :root{
+      --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
+      --ctm-ink:#264a27;
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
 
-  /* ===== ヘッダー（すりガラス／透過） ===== */
- /* 既存の .ctm-header をこれで上書き */
-.ctm-header{
-  position: fixed;          /* ← sticky から fixed へ */
-  top: 0; left: 0; right: 0;
-  z-index: var(--ctm-z-header);
-  height: var(--ctm-header-height);
-  --glass-alpha: .18;
-  background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
-  backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid rgba(38,74,39,.12);
-  display: flex; align-items: center;
-  transition: box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
-  /* iOSノッチ対策（対応端末のみ効く） */
-  padding-top: env(safe-area-inset-top, 0px);
-}
-.ctm-header.is-scrolled{
-  --glass-alpha: .34;
-  box-shadow: 0 6px 14px rgba(0,0,0,.08);
-}
+    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
+    .ctm-header{
+      position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
+      height:var(--ctm-header-height);
+      --glass-alpha:.18;
+      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(38,74,39,.12);
+      display:flex; align-items:center;
+      transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
 
+    .ctm-container{
+      width:var(--ctm-wrap); margin:0 auto;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-end; /* ロゴ無しなので右寄せ */
+    }
+    @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
 
-  /* コンテナは右寄せ（ロゴ無し構成） */
-  .ctm-container{
-    width:var(--ctm-wrap); margin:0 auto;
-    display:flex; align-items:center; gap:16px;
-    justify-content:flex-end;
-  }
-  @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
+    .ctm-nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; gap:32px;               /* メニュー間隔広め */
+    }
+    .ctm-nav a{
+      display:inline-block; padding:10px 6px;
+      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
+      color:var(--ctm-ink); text-decoration:none;
+      text-underline-offset:4px;
+    }
+    .ctm-nav a[aria-current="page"]{ position:relative; }
+    .ctm-nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:6px;
+      height:2px; background:var(--ctm-ink); border-radius:2px;
+    }
 
-  /* ナビ（文字間隔UP & 右寄せ） */
-  .ctm-nav ul{
-    margin:0; padding:0; list-style:none;
-    display:flex; gap:32px;            /* ← アイテム間隔を広めに */
-  }
-  .ctm-nav a{
-    display:inline-block; padding:10px 6px;
-    font-weight:800;
-    letter-spacing:.06em;               /* ← 文字間隔UP */
-    color:var(--ctm-ink); text-decoration:none;
-    text-underline-offset: 4px;
-  }
-  .ctm-nav a[aria-current="page"]{ position:relative }
-  .ctm-nav a[aria-current="page"]::after{
-    content:""; position:absolute; left:0; right:0; bottom:6px;
-    height:2px; background:var(--ctm-ink); border-radius:2px;
-  }
+    /* ハンバーガー */
+    .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
+      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
+    }
+    .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
 
-  /* ハンバーガー */
-  .ctm-hamb{
-    display:none; position:relative; width:40px; height:40px;
-    border:0; background:transparent; cursor:pointer;
-  }
-  .ctm-hamb span, .ctm-hamb::before, .ctm-hamb::after{
-    content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
-    transition: transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
-  }
-  .ctm-hamb span{ top:19px } .ctm-hamb::before{ top:12px } .ctm-hamb::after{ top:26px }
-  .ctm-hamb[aria-expanded="true"] span{ opacity:0 }
-  .ctm-hamb[aria-expanded="true"]::before{ transform:translateY(7px) rotate(45deg) }
-  .ctm-hamb[aria-expanded="true"]::after{ transform:translateY(-7px) rotate(-45deg) }
+    /* モバイルドロワー */
+    .ctm-drawer{
+      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
+      display:grid; grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
+      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
+    .ctm-drawer__panel{
+      position:relative; /* ×配置用 */
+      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      backdrop-filter: saturate(140%) blur(12px);
+      transform:translateY(-12px); opacity:.0;
+      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
+    .ctm-drawer nav{ padding:10px 16px 20px; }
+    .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
+    .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
 
-  /* ドロワー（モバイル時も薄いガラス色） */
-  .ctm-drawer{
-    position:fixed; inset:0; z-index:var(--ctm-z-drawer);
-    display:grid; grid-template-rows:auto 1fr;
-    background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
-    transition: opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
-  }
-  .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2) }
-  .ctm-drawer__panel{
-    margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
-    background: rgba(var(--ctm-glass-mint), .9);      /* モバイルは視認性重視でやや濃い */
-    -webkit-backdrop-filter: saturate(140%) blur(12px);
-    backdrop-filter: saturate(140%) blur(12px);
-    transform:translateY(-12px); opacity:.0;
-    transition: transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
-  }
-  .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1 }
-  .ctm-drawer nav{ padding:10px 16px 20px }
-  .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none }
-  .ctm-drawer a{
-    display:block; padding:14px 10px; font-weight:800; border-radius:10px;
-    color:var(--ctm-ink); text-decoration:none;
-  }
-  .ctm-drawer a:hover{ background:rgba(0,0,0,.06) }
+    /* ×ボタン */
+    .ctm-close{
+      position:absolute; top:6px; right:4px;
+      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+    }
+    .ctm-close::before,.ctm-close::after{
+      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+      background:var(--ctm-ink); border-radius:2px;
+    }
+    .ctm-close::before{ transform:rotate(45deg); }
+    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close:active{ transform:translateY(1px); }
 
-  /* 表示切替 */
-  @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
-  @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
-</style>
+    /* 表示切替 */
+    @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+    @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
 
+    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    body{ padding-top: var(--ctm-header-height); }
+    */
+  </style>
 
-
-  <!-- （補助）フルブリード＆Contactの最小ユーティリティ ※既存style.cssにあれば削除可 -->
+  <!-- （補助）Contact用ユーティリティ ※style.cssにあれば削除可 -->
   <style>
-    .contact-section { position: relative; min-height: 80vh;
-      background-image: url('images/contact-bg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;
-      display: flex; justify-content: center; align-items: center; }
+    .contact-section {
+      position: relative; min-height: 80vh;
+      background-image: url('images/contact-bg.jpeg');
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      display: flex; justify-content: center; align-items: center;
+    }
     .contact-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
     .contact-title { font-size: 3.6rem; line-height: 1.05; color: #2c4a27; margin: 0; font-family: 'Noto Serif JP', serif; letter-spacing: 1px; }
     .contact-button { display: inline-block; padding: 16px 32px; background: #fff; color: #000; font-weight: bold; font-size: 1.2rem; border: 1px solid #000; border-radius: 4px; text-decoration: none; }
@@ -140,26 +142,11 @@
 
 <body>
 
-  
-<header class="ctm-header" id="ctm-header">
-  <div class="ctm-container">
-    <!-- ロゴ＆CTM文字は削除 -->
-    <nav class="ctm-nav" aria-label="主要メニュー">
-      <ul>
-        <li><a href="index.html" aria-current="page">ホーム</a></li>
-        <li><a href="message.html">代表挨拶</a></li>
-        <li><a href="company.html">会社情報</a></li>
-        <li><a href="services.html">サービス</a></li>
-        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-      </ul>
-    </nav>
-    <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
-  </div>
-
-  <!-- Mobile Drawer（中身は従来のまま） -->
-  <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
-    <div class="ctm-drawer__panel">
-      <nav aria-label="モバイルメニュー">
+  <!-- ========== Header ========== -->
+  <header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <!-- ロゴ＆サイト名は削除、ナビのみ右寄せ -->
+      <nav class="ctm-nav" aria-label="主要メニュー">
         <ul>
           <li><a href="index.html" aria-current="page">ホーム</a></li>
           <li><a href="message.html">代表挨拶</a></li>
@@ -168,10 +155,25 @@
           <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
         </ul>
       </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
     </div>
-  </aside>
-</header>
 
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html" aria-current="page">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
 
   <!-- ========== Hero ========== -->
   <section class="hero" style="background-image:url('images/1.png');">
@@ -278,7 +280,7 @@
     </div>
   </section>
 
-  <!-- ====== Company（TOP用帯） ====== -->
+  <!-- ====== Company（TOP用帯・見本どおり） ====== -->
   <section id="home-company">
     <div class="col-text">
       <h2>Company</h2>
@@ -292,7 +294,7 @@
     </div>
   </section>
 
-  <!-- ===== FAQ（同一ページ内セクション） ===== -->
+  <!-- ===== FAQ ===== -->
   <section id="faq" class="faq-section">
     <h2 class="faq-title">よくあるご質問<span class="en">FAQ</span></h2>
 
@@ -360,23 +362,43 @@
     // フッター年号
     (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
 
-    // ヘッダー：ドロワー開閉＆スクロール影
+    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
     (function(){
-      var btn=document.querySelector('.ctm-hamb');
-      var drawer=document.getElementById('ctm-drawer');
-      var header=document.getElementById('ctm-header');
+      var btn    = document.querySelector('.ctm-hamb');
+      var drawer = document.getElementById('ctm-drawer');
+      var header = document.getElementById('ctm-header');
 
       function toggle(open){
+        if(!btn || !drawer) return;
         btn.setAttribute('aria-expanded', String(open));
         drawer.setAttribute('aria-hidden', String(!open));
         document.body.style.overflow = open ? 'hidden' : '';
       }
+
       if(btn && drawer){
-        btn.addEventListener('click', function(){ toggle(btn.getAttribute('aria-expanded')!=='true'); });
-        drawer.addEventListener('click', function(e){ if(e.target===drawer) toggle(false); });
-        document.addEventListener('keydown', function(e){ if(e.key==='Escape') toggle(false); });
+        // ハンバーガーで開閉
+        btn.addEventListener('click', function(){
+          toggle(btn.getAttribute('aria-expanded')!=='true');
+        });
+        // 背景タップで閉じる
+        drawer.addEventListener('click', function(e){
+          if(e.target === drawer) toggle(false);
+        });
+        // ×ボタンで閉じる
+        var closeB = drawer.querySelector('.ctm-close');
+        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        // メニューリンクで閉じる
+        drawer.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ toggle(false); });
+        });
+        // Escキーで閉じる
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') toggle(false);
+        });
       }
-      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY>4); }
+
+      // スクロールでガラス濃度＆影
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
       onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     })();
   </script>
