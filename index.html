@@ -18,60 +18,82 @@
   <!-- 置換前）style.css?v=20250928a / 20250928b など -->
   <link rel="stylesheet" href="style.css?v=20251005a">
 
-  <!-- ヘッダー専用（既存CSSに影響しないよう名前空間化） -->
-  <style id="ctm-header-style">
-    :root{
-      --ctm-header-bg:#ADE7D1;        /* ヘッダー薄い緑（代表挨拶と同色） */
-      --ctm-header-ink:#213B1F;       /* 文字色（深い緑） */
-      --ctm-header-height:64px;
-      --ctm-wrap:max(92%,1100px);
-      --ctm-ease:cubic-bezier(.2,.7,.2,1);
-      --ctm-radius:14px;
-      --ctm-z-header:1000;
-      --ctm-z-drawer:1100;
-    }
-    .ctm-header{position:sticky;top:0;z-index:var(--ctm-z-header);height:var(--ctm-header-height);background:var(--ctm-header-bg);display:flex;align-items:center;transition:box-shadow .25s var(--ctm-ease)}
-    .ctm-header.is-scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}
-    .ctm-container{width:var(--ctm-wrap);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .ctm-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .ctm-brand__logo{width:36px;height:36px;border-radius:50%;background:#264a27}
-    .ctm-brand__name{font-weight:700;letter-spacing:.02em;color:var(--ctm-header-ink)}
-    .ctm-nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}
-    .ctm-nav a{display:inline-block;padding:10px 6px;font-weight:700;letter-spacing:.03em;color:var(--ctm-header-ink);text-decoration:none}
-    .ctm-nav a[aria-current="page"]{position:relative}
-    .ctm-nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ctm-header-ink);border-radius:2px}
+<style id="ctm-header-style">
+  :root{
+    /* 透過の薄いCTMグリーン（#264a27 -> rgb(38,74,39)） */
+    --ctm-header-bg: rgba(38,74,39,.22);
+    --ctm-header-ink:#264a27;
+    --ctm-header-height:64px;
+    --ctm-wrap:max(92%,1100px);
+    --ctm-ease:cubic-bezier(.2,.7,.2,1);
+    --ctm-radius:14px;
+    --ctm-z-header:1000;
+    --ctm-z-drawer:1100;
+  }
+  .ctm-header{
+    position:sticky;top:0;z-index:var(--ctm-z-header);
+    height:var(--ctm-header-height);
+    background:var(--ctm-header-bg);
+    /* 透過時の読みやすさUP（対応ブラウザのみ適用） */
+    -webkit-backdrop-filter:saturate(120%) blur(6px);
+    backdrop-filter:saturate(120%) blur(6px);
+    display:flex;align-items:center;
+    transition:box-shadow .25s var(--ctm-ease)
+  }
+  .ctm-header.is-scrolled{box-shadow:0 6px 14px rgba(0,0,0,.08)}
+  .ctm-container{
+    width:var(--ctm-wrap);margin:0 auto;
+    display:flex;align-items:center;gap:16px;
+    justify-content:space-between;
+  }
+  /* デスクトップ時はナビを中央寄せ（左のロゴがなくなるため） */
+  @media (min-width:980px){ .ctm-container{justify-content:center;} }
 
-    /* ハンバーガー */
-    .ctm-hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent;cursor:pointer}
-    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-header-ink);transition:transform .25s var(--ctm-ease),opacity .2s var(--ctm-ease)}
-    .ctm-hamb span{top:19px}
-    .ctm-hamb::before{top:12px}
-    .ctm-hamb::after{top:26px}
-    .ctm-hamb[aria-expanded="true"] span{opacity:0}
-    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
-    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+  .ctm-nav ul{margin:0;padding:0;list-style:none;display:flex;gap:22px}
+  .ctm-nav a{
+    display:inline-block;padding:10px 6px;
+    font-weight:700;letter-spacing:.03em;
+    color:var(--ctm-header-ink);text-decoration:none
+  }
+  .ctm-nav a[aria-current="page"]{position:relative}
+  .ctm-nav a[aria-current="page"]::after{
+    content:"";position:absolute;left:0;right:0;bottom:4px;
+    height:2px;background:var(--ctm-header-ink);border-radius:2px
+  }
 
-    /* ドロワー */
-    .ctm-drawer{position:fixed;inset:0;z-index:var(--ctm-z-drawer);display:grid;grid-template-rows:auto 1fr;background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ctm-ease),background .25s var(--ctm-ease)}
-    .ctm-drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}
-    .ctm-drawer__panel{margin:0;background:var(--ctm-header-bg);border-radius:0 0 var(--ctm-radius) var(--ctm-radius);transform:translateY(-12px);opacity:.0;transition:transform .25s var(--ctm-ease),opacity .25s var(--ctm-ease)}
-    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{transform:translateY(0);opacity:1}
-    .ctm-drawer nav{padding:10px 16px 20px}
-    .ctm-drawer ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
-    .ctm-drawer a{display:block;padding:14px 10px;font-weight:800;border-radius:10px;color:var(--ctm-header-ink);text-decoration:none}
-    .ctm-drawer a:hover{background:rgba(0,0,0,.06)}
+  /* ハンバーガー */
+  .ctm-hamb{display:none;position:relative;width:40px;height:40px;border:0;background:transparent;cursor:pointer}
+  .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+    content:"";position:absolute;left:9px;right:9px;height:2px;background:var(--ctm-header-ink);
+    transition:transform .25s var(--ctm-ease),opacity .2s var(--ctm-ease)
+  }
+  .ctm-hamb span{top:19px}
+  .ctm-hamb::before{top:12px}
+  .ctm-hamb::after{top:26px}
+  .ctm-hamb[aria-expanded="true"] span{opacity:0}
+  .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+  .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
 
-    /* レスポンシブ */
-    @media (min-width:980px){
-      .ctm-hamb{display:none}
-      .ctm-nav{display:block}
-      .ctm-drawer{display:none}
-    }
-    @media (max-width:979.98px){
-      .ctm-nav{display:none}
-      .ctm-hamb{display:inline-block}
-    }
-  </style>
+  /* ドロワー */
+  .ctm-drawer{position:fixed;inset:0;z-index:var(--ctm-z-drawer);display:grid;grid-template-rows:auto 1fr;
+    background:rgba(0,0,0,.0);opacity:0;pointer-events:none;transition:opacity .25s var(--ctm-ease),background .25s var(--ctm-ease)}
+  .ctm-drawer[aria-hidden="false"]{opacity:1;pointer-events:auto;background:rgba(0,0,0,.2)}
+  .ctm-drawer__panel{
+    margin:0;background:var(--ctm-header-bg);
+    transform:translateY(-12px);opacity:.0;border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+    transition:transform .25s var(--ctm-ease),opacity .25s var(--ctm-ease)
+  }
+  .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{transform:translateY(0);opacity:1}
+  .ctm-drawer nav{padding:10px 16px 20px}
+  .ctm-drawer ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+  .ctm-drawer a{display:block;padding:14px 10px;font-weight:800;border-radius:10px;color:var(--ctm-header-ink);text-decoration:none}
+  .ctm-drawer a:hover{background:rgba(0,0,0,.06)}
+
+  /* レスポンシブ表示切替 */
+  @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+  @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
+</style>
+
 
   <!-- （補助）フルブリード＆Contactの最小ユーティリティ ※既存style.cssにあれば削除可 -->
   <style>
@@ -87,15 +109,26 @@
 
 <body>
 
-  <!-- ========== Header（フェードイン＆スマホ重なり対策） ========== -->
-  <header class="ctm-header" id="ctm-header">
-    <div class="ctm-container">
-      <a href="index.html" class="ctm-brand" aria-label="CTM Home">
-        <span class="ctm-brand__logo" aria-hidden="true"></span>
-        <span class="ctm-brand__name">CTM</span>
-      </a>
+  
+<header class="ctm-header" id="ctm-header">
+  <div class="ctm-container">
+    <!-- ロゴ＆CTM文字は削除 -->
+    <nav class="ctm-nav" aria-label="主要メニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="message.html">代表挨拶</a></li>
+        <li><a href="company.html">会社情報</a></li>
+        <li><a href="services.html">サービス</a></li>
+        <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+  </div>
 
-      <nav class="ctm-nav" aria-label="主要メニュー">
+  <!-- Mobile Drawer（中身は従来のまま） -->
+  <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+    <div class="ctm-drawer__panel">
+      <nav aria-label="モバイルメニュー">
         <ul>
           <li><a href="index.html" aria-current="page">ホーム</a></li>
           <li><a href="message.html">代表挨拶</a></li>
@@ -104,27 +137,10 @@
           <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
         </ul>
       </nav>
-
-      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false">
-        <span></span>
-      </button>
     </div>
+  </aside>
+</header>
 
-    <!-- Mobile Drawer -->
-    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
-      <div class="ctm-drawer__panel">
-        <nav aria-label="モバイルメニュー">
-          <ul>
-            <li><a href="index.html" aria-current="page">ホーム</a></li>
-            <li><a href="message.html">代表挨拶</a></li>
-            <li><a href="company.html">会社情報</a></li>
-            <li><a href="services.html">サービス</a></li>
-            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-  </header>
 
   <!-- ========== Hero ========== -->
   <section class="hero" style="background-image:url('images/1.png');">
