@@ -491,10 +491,10 @@ body {
 /* 名前画像（松﨑 忠将）最終版：PC用 */
 .name-img {
   display: block;
-  width: 760px !important;
+  width: 790px !important;
   height: auto !important;
   margin-top: 40px !important;
-  margin-left: 80px !important;
+  margin-left: 40px !important;
 }
 
 /* スマホ用（768px以下）：大きく・左寄せに変更 */
