@@ -495,18 +495,19 @@ body {
   text-align: left; /* ← 強制的に左寄せ */
 }
 
-.name-img {
-  display: block;
-  width: clamp(480px, 52vw, 680px);  /* ← サイズを大幅に拡大 */
-  height: auto;
-  margin-left: 0;                    /* ← 左端に寄せる */
-  margin-right: auto;                /* ← 右は自動余白 */
+/* 名前画像：経歴見出しの上・左揃え・大きめ */
+.name-img{
+  display:block;
+  width: clamp(520px, 48vw, 760px); /* ← 大きくする */
+  height:auto;
+  margin: clamp(20px,4vw,36px) 0 0 0; /* ← auto を消して左寄せ */
 }
 
-@media (max-width: 768px) {
-  .name-img {
-    width: min(80vw, 400px);
-    margin: 0 auto;
+/* スマホは少し小さく＋中央でOK（読みやすさ優先） */
+@media (max-width: 768px){
+  .name-img{
+    width: min(78vw, 380px);
+    margin: 12px auto 0;
   }
 }
 
