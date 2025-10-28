@@ -488,28 +488,23 @@ body {
   }
 }
 
-/* === 名前画像（松﨑 忠将） 最終調整 v2 === */
-.name-wrap {
-  width: min(900px, 100%);
-  margin: clamp(12px, 3vw, 18px) auto 0;
-  text-align: left; /* ← 強制的に左寄せ */
-}
+ /* 氏名画像（小さめ＆中央） */
+    .cmp-name{
+      display: block;
+      width: clamp(220px, 28vw, 360px);
+      height: auto;
+      margin: clamp(20px, 4vw, 36px) auto 0;
+    }
 
-/* 名前画像：経歴見出しの上・左揃え・大きめ */
-.name-img{
-  display:block;
-  width: clamp(520px, 48vw, 760px); /* ← 大きくする */
-  height:auto;
-  margin: clamp(20px,4vw,36px) 0 0 0; /* ← auto を消して左寄せ */
-}
+    /* 各ブロックの余白 */
+    .cmp-section{
+      padding: clamp(28px, 5vw, 56px) 0;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .cmp-section:first-of-type{
+      border-top: none;
+    }
 
-/* スマホは少し小さく＋中央でOK（読みやすさ優先） */
-@media (max-width: 768px){
-  .name-img{
-    width: min(78vw, 380px);
-    margin: 12px auto 0;
-  }
-}
 
 footer {
   background-color: #244119; /* 深緑 */
