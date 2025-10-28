@@ -488,22 +488,25 @@ body {
   }
 }
 
-/* === 名前画像（松﨑 忠将） 最終調整 === */
+/* === 名前画像（松﨑 忠将） 最終調整 v2 === */
 .name-wrap {
   width: min(900px, 100%);
   margin: clamp(12px, 3vw, 18px) auto 0;
+  text-align: left; /* ← 強制的に左寄せ */
 }
 
 .name-img {
   display: block;
-  width: clamp(340px, 36vw, 520px);  /* ← 経歴と釣り合う大きさ */
+  width: clamp(480px, 52vw, 680px);  /* ← サイズを大幅に拡大 */
   height: auto;
-  margin: 0;
+  margin-left: 0;                    /* ← 左端に寄せる */
+  margin-right: auto;                /* ← 右は自動余白 */
 }
 
 @media (max-width: 768px) {
   .name-img {
-    width: min(70vw, 360px);
+    width: min(80vw, 400px);
+    margin: 0 auto;
   }
 }
 
