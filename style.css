@@ -488,21 +488,20 @@ body {
   }
 }
 
-/* === 名前画像（松崎 忠将） 最終調整 === */
-img.name-img {
-  display: block;
-  width: 200px !important;     /* 大きさ調整：前の最終形と同等 */
+/* === 名前画像（松﨑 忠将） 最終版 === */
+.name-img {
+  display: block !important;
+  width: 300px !important;         /* ← 以前の最終形に合わせて固定サイズ */
   height: auto !important;
-  margin: 20px auto 10px !important;  /* 中央寄せ */
+  margin: 20px auto 0 !important;  /* ← 中央寄せ＋上に少し余白 */
 }
 
-@media (max-width: 768px){
-  img.name-img {
-    width: min(58vw, 220px) !important;
-    margin: 16px auto 10px !important;
+@media (max-width: 768px) {
+  .name-img {
+    width: min(60vw, 260px) !important;  /* ← スマホ時は自動縮小 */
+    margin: 18px auto 0 !important;
   }
 }
-
 
 footer {
   background-color: #244119; /* 深緑 */
