@@ -1061,3 +1061,21 @@ footer { margin-top: 0 !important; }
   .hero__title{ text-align: left; }
   .hero__title .hero-line2{ padding-left: 0; }
 }
+
+ /* 名前画像（松﨑 忠将）最終版：大きく左寄せ */
+.name-img {
+  display: block;
+  width: 720px !important;       /* ← 経歴見出しよりかなり存在感を出す */
+  height: auto !important;
+  margin-top: 40px !important;
+  margin-left: 0 !important;     /* ← 完全左寄せ */
+  margin-right: auto !important;
+}
+
+/* スマホ用にサイズを調整 */
+@media (max-width: 768px) {
+  .name-img {
+    width: 85vw !important;
+    margin: 24px auto 0 !important;
+  }
+}
