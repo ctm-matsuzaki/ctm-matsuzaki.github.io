@@ -488,23 +488,23 @@ body {
   }
 }
 
- /* 名前画像（松﨑 忠将）最終版：大きく左寄せ */
+/* 名前画像（松﨑 忠将）最終微調整 */
 .name-img {
   display: block;
-  width: 720px !important;       /* ← 経歴見出しよりかなり存在感を出す */
+  width: 760px !important;       /* ← ほんの少し拡大 */
   height: auto !important;
   margin-top: 40px !important;
-  margin-left: 0 !important;     /* ← 完全左寄せ */
-  margin-right: auto !important;
+  margin-left: 80px !important;  /* ← 左端から少し右へ移動 */
 }
 
-/* スマホ用にサイズを調整 */
+/* スマホ時は中央寄せ＆自動縮小 */
 @media (max-width: 768px) {
   .name-img {
     width: 85vw !important;
     margin: 24px auto 0 !important;
   }
 }
+
 
 footer {
   background-color: #244119; /* 深緑 */
