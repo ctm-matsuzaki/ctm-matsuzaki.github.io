@@ -1054,12 +1054,12 @@ footer { margin-top: 0 !important; }
   margin-left: 80px !important;
 }
 
-/* スマホ用：サイズアップ＋少し右寄せ */
+/* スマホ用：左に戻し＋上に近づけ＋さらに大きく */
 @media (max-width: 768px) {
   .name-img {
-    width: 110vw !important;        /* ← さらに大きく（画面幅よりやや広く） */
-    margin-top: 24px !important;
-    margin-left: 3vw !important;    /* ← 文字1文字分右へ調整 */
-    transform: none !important;     /* ← 左ズレを解除 */
+    width: 120vw !important;        /* ← さらに拡大して存在感アップ */
+    margin-top: 10px !important;    /* ← 上へ寄せる */
+    margin-left: 1vw !important;    /* ← 少し左に戻す */
+    transform: none !important;
   }
 }
