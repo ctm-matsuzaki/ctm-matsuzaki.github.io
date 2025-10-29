@@ -1045,6 +1045,7 @@ footer { margin-top: 0 !important; }
 }
 
 /* 名前画像（松﨑 忠将）最終版：PC用 */
+/* PC用（現状維持） */
 .name-img {
   display: block;
   width: 760px !important;
@@ -1053,10 +1054,13 @@ footer { margin-top: 0 !important; }
   margin-left: 80px !important;
 }
 
-/* スマホ用（768px以下）：大きく・左寄せに変更 */
+/* スマホ用：さらに大きく・左寄せを強化 */
 @media (max-width: 768px) {
   .name-img {
-    width: 92vw !important;      /* ← スマホではできるだけ大きく */
-    margin: 20px 0 0 4vw !important; /* ← 左寄せに */
+    width: 100vw !important;        /* ← 画面いっぱいまで拡大 */
+    margin-top: 24px !important;
+    margin-left: 0 !important;      /* ← 完全左寄せ */
+    margin-right: auto !important;
+    transform: translateX(-3vw);    /* ← 少しだけ左にはみ出すように寄せる */
   }
 }
