@@ -91,6 +91,38 @@ gtag('config', 'G-JB8M4CBSRM');
     .name-img{ display:block; width: clamp(220px,28vw,360px); height:auto; margin: clamp(20px,4vw,36px) auto 0; }
     .section{ padding: clamp(28px,5vw,56px) 0; border-top:1px solid rgba(0,0,0,.06); }
     .section:first-of-type{ border-top:none; }
+    .achievements-intro{ margin-bottom: clamp(22px,3vw,32px); }
+    .achievement-grid{
+      width:min(980px,100%);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:clamp(16px,2.8vw,24px);
+    }
+    .achievement-card{
+      background:#fff;
+      border:1px solid rgba(22,91,51,.16);
+      border-top:4px solid var(--ctm-green-ink);
+      border-radius:10px;
+      padding:clamp(18px,2.5vw,24px);
+      box-shadow:0 10px 28px rgba(22,91,51,.08);
+    }
+    .achievement-card h3{
+      color:var(--ctm-green-ink);
+      font-family:"Noto Serif JP",serif;
+      font-size:clamp(1.05rem,1.8vw,1.2rem);
+      line-height:1.55;
+      margin:0 0 .75em;
+    }
+    .achievement-card p{
+      color:#243126;
+      font-size:clamp(.94rem,1.45vw,1rem);
+      line-height:1.95;
+      margin:0;
+    }
+    @media (max-width:900px){
+      .achievement-grid{ grid-template-columns:1fr; }
+    }
   </style>
     <!-- canonical / OGP / Twitter -->
   <link rel="canonical" href="https://ctm-matsuzaki.github.io/message.html">
@@ -201,6 +233,27 @@ gtag('config', 'G-JB8M4CBSRM');
 </p>
 
 
+    </div>
+
+    <div class="section">
+      <h2 class="subttl">主な支援実績</h2>
+      <p class="body achievements-intro">
+        これまで約20年にわたり、医療現場での実務経験に加え、理事・管理部門責任者・統括責任者・事務長として、複数の医療法人・クリニックの運営に携わってきました。以下はその一例です。
+      </p>
+      <div class="achievement-grid">
+        <article class="achievement-card">
+          <h3>スポーツ整形外科を中心とした医療法人</h3>
+          <p>3施設の事務長を兼任しながら、各施設の運営および法人全体の経営管理を担当。経営戦略の立案から採用・組織づくり・ブランディングまで幅広く携わり、院長と現場をつなぐ立場として組織運営を支援しました。</p>
+        </article>
+        <article class="achievement-card">
+          <h3>複数診療科を展開するクリニックグループ</h3>
+          <p>内科・皮膚科・美容皮膚科・眼科・乳腺外科などを展開するクリニックグループにて、業務改善・マーケティング・新規事業支援を担当。既存事業の改善に加え、新規事業の立ち上げ支援にも携わり、事業拡大をサポートしました。</p>
+        </article>
+        <article class="achievement-card">
+          <h3>整形外科クリニック</h3>
+          <p>4年間赤字経営が続いていたクリニックにおいて、組織改革・業務改善・医療DX推進を実施。スタッフの主体性向上と運営体制の再構築を行い、1年で黒字化を実現しました。</p>
+        </article>
+      </div>
     </div>
   </section>
  
