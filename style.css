@@ -270,6 +270,253 @@ body {
   margin:0 16px 16px;
 }
 
+/* =========================
+   TOP：導入事例スライダー
+   ========================= */
+.home-cases{
+  background:#fff;
+  padding: clamp(48px, 8vw, 88px) 0;
+  overflow:hidden;
+}
+.home-cases__head{
+  width:min(1100px, 92%);
+  margin:0 auto clamp(22px, 4vw, 34px);
+  text-align:center;
+}
+.home-cases__title{
+  font-family:"Noto Serif JP", serif;
+  color:var(--ctm-green);
+  font-size:clamp(1.7rem, 3.4vw, 2.25rem);
+  line-height:1.45;
+  margin:0 0 .55em;
+}
+.home-cases__lead{
+  color:#254233;
+  font-size:clamp(1rem, 2vw, 1.12rem);
+  line-height:1.9;
+  margin:0;
+}
+.cases-slider{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  padding: 4px 0 12px;
+}
+.cases-slider__track{
+  display:flex;
+  gap:18px;
+  width:max-content;
+  animation: cases-marquee 46s linear infinite;
+}
+.cases-slider:hover .cases-slider__track,
+.cases-slider:focus-within .cases-slider__track{
+  animation-play-state:paused;
+}
+.home-case-card{
+  display:flex;
+  flex-direction:column;
+  width:clamp(260px, 27vw, 340px);
+  min-height:280px;
+  padding:22px;
+  border:1px solid rgba(36,65,25,.14);
+  border-radius:8px;
+  background:#fff;
+  color:#254233;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.07);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.home-case-card:hover,
+.home-case-card:focus-visible{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(0,0,0,.12);
+  border-color:rgba(36,65,25,.34);
+  outline:none;
+}
+.home-case-card__meta{
+  color:#244119;
+  font-weight:800;
+  font-size:.92rem;
+  line-height:1.7;
+  margin:0 0 12px;
+}
+.home-case-card dl{
+  display:grid;
+  gap:10px;
+  margin:0;
+}
+.home-case-card div{
+  display:grid;
+  gap:2px;
+}
+.home-case-card dt{
+  color:#244119;
+  font-weight:800;
+  font-size:.88rem;
+}
+.home-case-card dd{
+  margin:0;
+  line-height:1.7;
+  font-size:.96rem;
+}
+.home-cases__action{
+  width:min(1100px, 92%);
+  margin:20px auto 0;
+  text-align:center;
+}
+.home-cases__button{
+  display:inline-block;
+  padding:13px 26px;
+  border:1px solid #244119;
+  border-radius:4px;
+  background:#244119;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  line-height:1.5;
+}
+.home-cases__button:hover{
+  background:#2f5523;
+}
+@keyframes cases-marquee{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(calc(-50% - 9px)); }
+}
+@media (max-width:768px){
+  .cases-slider{
+    width:100%;
+    padding-inline:4%;
+  }
+  .cases-slider__track{
+    animation-duration:60s;
+  }
+  .home-case-card{
+    width:min(82vw, 320px);
+    min-height:300px;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .cases-slider__track{
+    animation:none;
+  }
+}
+
+/* =========================
+   導入事例・支援実績ページ
+   ========================= */
+.cases-main{
+  background:#fff;
+  color:#254233;
+}
+.cases-hero{
+  padding: calc(64px + clamp(46px, 8vw, 86px)) 0 clamp(36px, 6vw, 64px);
+  background:linear-gradient(180deg, #f4f8f5 0%, #fff 100%);
+}
+.cases-container{
+  width:min(1100px, 92%);
+  margin:0 auto;
+}
+.cases-hero h1{
+  font-family:"Noto Serif JP", serif;
+  color:#244119;
+  font-size:clamp(2rem, 4.8vw, 3rem);
+  line-height:1.35;
+  margin:0 0 .6em;
+  text-align:center;
+}
+.cases-lead{
+  max-width:900px;
+  margin:0 auto;
+  font-size:clamp(1rem, 2vw, 1.16rem);
+  line-height:2;
+  text-align:center;
+}
+.cases-notes{
+  max-width:780px;
+  margin:24px auto 0;
+  padding:16px 20px;
+  border-left:4px solid #244119;
+  background:#f5f8f4;
+  border-radius:6px;
+  color:#35543a;
+  line-height:1.8;
+  font-size:.96rem;
+}
+.cases-list{
+  padding: clamp(34px, 6vw, 72px) 0;
+  background:#fff;
+}
+.case-card{
+  scroll-margin-top:96px;
+  border:1px solid rgba(36,65,25,.14);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 8px 26px rgba(0,0,0,.07);
+  padding:clamp(20px, 4vw, 34px);
+  margin:0 0 clamp(22px, 4vw, 34px);
+}
+.case-card__meta{
+  display:inline-block;
+  color:#244119;
+  background:#edf5ee;
+  border-radius:999px;
+  padding:7px 13px;
+  font-weight:800;
+  line-height:1.5;
+  font-size:.93rem;
+  margin:0 0 14px;
+}
+.case-card h2{
+  font-family:"Noto Serif JP", serif;
+  color:#244119;
+  font-size:clamp(1.35rem, 2.7vw, 1.9rem);
+  line-height:1.5;
+  margin:0 0 18px;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+}
+.case-block{
+  background:#fafcf9;
+  border-radius:8px;
+  padding:18px 20px;
+}
+.case-block--wide{
+  grid-column:1 / -1;
+}
+.case-block h3{
+  color:#244119;
+  font-size:1.02rem;
+  margin:0 0 10px;
+}
+.case-block ul{
+  margin:0;
+  padding-left:1.15em;
+  line-height:1.85;
+}
+.case-block li{
+  margin:.12em 0;
+}
+@media (max-width:768px){
+  .cases-hero{
+    padding-top:calc(64px + 34px);
+  }
+  .cases-lead{
+    text-align:left;
+  }
+  .case-grid{
+    grid-template-columns:1fr;
+  }
+  .case-block--wide{
+    grid-column:auto;
+  }
+  .case-card{
+    scroll-margin-top:118px;
+  }
+}
+
 /* ===== TOP：Company 帯（見本どおり 2カラム&深緑） ===== */
 #home-company{
   display: grid;
