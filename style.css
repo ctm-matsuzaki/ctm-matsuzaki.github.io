@@ -410,6 +410,8 @@ body {
 }
 .cases-hero{
   margin:0;
+  padding-top:var(--ctm-header-height, 64px);
+  background:#fff;
 }
 .cases-container{
   width:min(1100px, 92%);
@@ -667,6 +669,11 @@ body {
   position: relative;
   text-align: center;
   color: #2e5e2e; /* 緑色 */
+}
+
+.page-services .svc-hero {
+  padding-top: var(--ctm-header-height, 64px);
+  background: #fff;
 }
 
 .svc-hero-bg {
