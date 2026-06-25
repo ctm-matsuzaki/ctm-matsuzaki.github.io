@@ -216,7 +216,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li><a href="services.html">サービス</a></li>
           <li><a href="cases.html">導入事例</a></li>
           <li><a href="index.html#price">料金</a></li>
-          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
         </ul>
       </nav>
       <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
@@ -234,7 +234,7 @@ gtag('config', 'G-JB8M4CBSRM');
             <li><a href="services.html">サービス</a></li>
             <li><a href="cases.html">導入事例</a></li>
             <li><a href="index.html#price">料金</a></li>
-            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
@@ -499,7 +499,7 @@ gtag('config', 'G-JB8M4CBSRM');
         クリニック運営に関する課題について無料でご相談いただけます。<br>
         まずはお気軽に無料相談をお申し込みください。</p>
       <p class="faq-a">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAlcsYFDRdUjz9MAiFxTBfAwbJBpOGJ1acJ2lYjjt9hI7NQQ/viewform" target="_blank" rel="noopener" class="contact-button price-consult-button">無料相談を申し込む</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAlcsYFDRdUjz9MAiFxTBfAwbJBpOGJ1acJ2lYjjt9hI7NQQ/viewform" target="_blank" rel="noopener" class="contact-button price-consult-button" data-contact-event="contact_price">無料相談を申し込む</a>
       </p>
     </div>
 
@@ -521,7 +521,7 @@ gtag('config', 'G-JB8M4CBSRM');
   <section class="contact-section full-bleed" aria-labelledby="contact-title">
     <div class="contact-inner">
       <h2 id="contact-title" class="contact-title">CONTACT</h2>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button" rel="noopener">お問い合わせはこちら</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" class="contact-button" rel="noopener" data-contact-event="contact_top_cta">お問い合わせはこちら</a>
     </div>
   </section>
 
@@ -533,7 +533,7 @@ gtag('config', 'G-JB8M4CBSRM');
       <a href="company.html">会社情報</a>
       <a href="services.html">サービス</a>
       <a href="cases.html">導入事例</a>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_top_cta">お問い合わせ</a>
     </nav>
     <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
   </footer>
@@ -580,6 +580,20 @@ gtag('config', 'G-JB8M4CBSRM');
       // スクロールでガラス濃度＆影
       function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
       onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
     })();
   </script>
 </body>

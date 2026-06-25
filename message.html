@@ -169,7 +169,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li><a href="services.html">サービス</a></li>
           <li><a href="cases.html">導入事例</a></li>
           <li><a href="index.html#price">料金</a></li>
-          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
         </ul>
       </nav>
       <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
@@ -187,7 +187,7 @@ gtag('config', 'G-JB8M4CBSRM');
             <li><a href="services.html">サービス</a></li>
             <li><a href="cases.html">導入事例</a></li>
             <li><a href="index.html#price">料金</a></li>
-            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
           </ul>
         </nav>
       </div>
@@ -271,7 +271,7 @@ gtag('config', 'G-JB8M4CBSRM');
       <a href="company.html">会社情報</a>
       <a href="services.html">サービス</a>
       <a href="cases.html">導入事例</a>
-      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener">お問い合わせ</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_message">お問い合わせ</a>
     </nav>
     <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
   </footer>
@@ -301,6 +301,20 @@ gtag('config', 'G-JB8M4CBSRM');
       }
       function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY>4); }
       onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
     })();
   </script>
 </body>
