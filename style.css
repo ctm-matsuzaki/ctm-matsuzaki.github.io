@@ -1351,3 +1351,508 @@ footer { margin-top: 0 !important; }
     transform: none !important;
   }
 }
+
+/* =========================
+   クリニックの事務長とは
+   ========================= */
+.page-office-manager{
+  background:#fff;
+  color:#243126;
+  font-family:"Noto Sans JP", Arial, sans-serif;
+}
+.office-main{
+  background:#fff;
+  color:#243126;
+}
+.office-container{
+  width:min(1080px, 92%);
+  margin:0 auto;
+}
+.breadcrumb{
+  width:min(1080px, 92%);
+  margin:0 auto;
+  padding:calc(var(--ctm-header-height, 64px) + 18px) 0 14px;
+  color:#44634c;
+  font-size:.92rem;
+}
+.breadcrumb ol{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0;
+  padding:0;
+}
+.breadcrumb li + li::before{
+  content:">";
+  margin-right:8px;
+  color:#78917d;
+}
+.breadcrumb a{
+  color:#264a27;
+  text-decoration:none;
+  border-bottom:1px solid rgba(38,74,39,.32);
+}
+.office-hero{
+  position:relative;
+  min-height:clamp(430px, 54vw, 610px);
+  display:grid;
+  align-items:end;
+  overflow:hidden;
+  background:#edf4ef;
+}
+.office-hero__image{
+  position:absolute;
+  inset:0;
+}
+.office-hero__image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.9);
+}
+.office-hero__image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.74) 48%, rgba(255,255,255,.25) 100%);
+}
+.office-hero__text{
+  position:relative;
+  z-index:1;
+  width:min(1080px, 92%);
+  margin:0 auto;
+  padding:clamp(56px, 8vw, 92px) 0;
+  max-width:920px;
+}
+.office-kicker{
+  margin:0 0 12px;
+  color:#264a27;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.office-hero h1{
+  font-family:"Noto Serif JP", serif;
+  color:#244119;
+  font-size:clamp(2rem, 4.2vw, 3.4rem);
+  line-height:1.35;
+  margin:0 0 18px;
+}
+.office-hero p:last-child{
+  max-width:760px;
+  margin:0;
+  color:#254233;
+  font-size:clamp(1.02rem, 2vw, 1.22rem);
+  line-height:1.95;
+}
+.office-section{
+  padding:clamp(54px, 8vw, 92px) 0;
+  scroll-margin-top:96px;
+}
+.office-section--tint{
+  background:#f5f8f4;
+}
+.office-section--dark{
+  background:#244119;
+  color:#fff;
+}
+.office-prose{
+  max-width:900px;
+}
+.office-prose h2,
+.office-summary h2,
+.office-toc h2,
+.office-faq h2{
+  font-family:"Noto Serif JP", serif;
+  color:#244119;
+  font-size:clamp(1.55rem, 3vw, 2.1rem);
+  line-height:1.5;
+  margin:0 0 24px;
+}
+.office-section--dark h2,
+.office-section--dark p{
+  color:#fff;
+}
+.office-prose h3{
+  font-family:"Noto Serif JP", serif;
+  color:#244119;
+  font-size:clamp(1.22rem, 2.5vw, 1.55rem);
+  line-height:1.55;
+  margin:38px 0 14px;
+}
+.office-prose p{
+  color:#254233;
+  line-height:2;
+  font-size:clamp(1rem, 1.8vw, 1.08rem);
+  margin:0 0 1.15em;
+}
+.definition-box{
+  border-left:5px solid #244119;
+  background:#edf5ee;
+  padding:18px 22px;
+  border-radius:6px;
+  font-weight:800;
+}
+.office-summary{
+  padding:clamp(42px, 6vw, 70px) 0;
+  background:#fff;
+}
+.office-summary ul{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:14px 18px;
+  padding:0;
+  margin:0;
+}
+.office-summary li{
+  position:relative;
+  padding:16px 18px 16px 44px;
+  background:#f5f8f4;
+  border:1px solid rgba(36,65,25,.12);
+  border-radius:8px;
+  color:#254233;
+  font-weight:700;
+  line-height:1.7;
+}
+.office-summary li::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:24px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#244119;
+}
+.office-toc{
+  border:1px solid rgba(36,65,25,.14);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+  padding:clamp(22px, 4vw, 34px);
+  margin-bottom:clamp(20px, 4vw, 36px);
+}
+.office-toc ol{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px 24px;
+  margin:0;
+  padding-left:1.25em;
+  color:#244119;
+}
+.office-toc a{
+  color:#254233;
+  text-decoration:none;
+  border-bottom:1px solid rgba(38,74,39,.25);
+}
+.office-toc a:hover{
+  color:#244119;
+  border-bottom-color:#244119;
+}
+.table-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:26px 0;
+  border-radius:8px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.office-table{
+  width:100%;
+  min-width:720px;
+  border-collapse:collapse;
+  background:#fff;
+}
+.office-table--wide{
+  min-width:920px;
+}
+.office-table th,
+.office-table td{
+  border:1px solid rgba(36,65,25,.16);
+  padding:16px 18px;
+  vertical-align:middle;
+  line-height:1.75;
+  color:#254233;
+}
+.office-table thead th{
+  background:#244119;
+  color:#fff;
+  text-align:left;
+  font-weight:800;
+}
+.office-table tbody th{
+  background:#edf5ee;
+  color:#244119;
+  text-align:left;
+  font-weight:800;
+  width:20%;
+}
+.table-note{
+  font-size:.95rem !important;
+  color:#4b6250 !important;
+}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:22px;
+  margin:30px 0 34px;
+}
+.work-grid article{
+  border:1px solid rgba(36,65,25,.14);
+  border-radius:8px;
+  padding:24px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.work-icon{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#244119;
+  color:#fff;
+  font-weight:800;
+  margin-bottom:16px;
+}
+.work-grid h3{
+  margin:0 0 12px;
+  color:#244119;
+  font-size:1.18rem;
+}
+.work-grid h4{
+  margin:18px 0 8px;
+  color:#244119;
+  font-size:1rem;
+}
+.work-grid p{
+  font-size:.98rem;
+  line-height:1.9;
+}
+.work-grid ul{
+  margin:0;
+  padding-left:1.1em;
+  color:#254233;
+  line-height:1.85;
+}
+.timing-flow{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  align-items:stretch;
+  gap:14px;
+  margin:32px 0;
+}
+.timing-step{
+  display:grid;
+  gap:12px;
+  align-content:start;
+  min-height:170px;
+  padding:22px 18px;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid rgba(36,65,25,.16);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.timing-step span{
+  display:inline-grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#edf5ee;
+  color:#244119;
+  font-weight:800;
+}
+.timing-step p{
+  margin:0;
+  font-weight:800;
+  line-height:1.75;
+}
+.timing-step--goal{
+  background:#244119;
+}
+.timing-step--goal span{
+  background:#fff;
+}
+.timing-step--goal p{
+  color:#fff;
+}
+.timing-arrow{
+  width:24px;
+  position:relative;
+}
+.timing-arrow::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  width:24px;
+  height:2px;
+  background:#9aad9d;
+}
+.timing-arrow::after{
+  content:"";
+  position:absolute;
+  top:calc(50% - 5px);
+  right:0;
+  width:10px;
+  height:10px;
+  border-top:2px solid #9aad9d;
+  border-right:2px solid #9aad9d;
+  transform:rotate(45deg);
+}
+.ctm-style{
+  display:grid;
+  grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+  gap:clamp(24px, 5vw, 54px);
+  align-items:center;
+}
+.ctm-style figure{
+  margin:0;
+}
+.ctm-style img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:8px;
+}
+.ctm-style a{
+  color:#fff;
+  font-weight:800;
+  text-underline-offset:4px;
+}
+.office-faq .faq-title{
+  text-align:center;
+  color:#111;
+}
+.office-faq .faq-title .en{
+  display:block;
+  font-family:"Noto Serif JP",serif;
+  font-weight:400;
+  letter-spacing:.08em;
+  margin-top:.25rem;
+  color:#244119;
+  font-size:clamp(1.1rem,2.3vw,1.6rem);
+}
+.office-faq details{
+  max-width:900px;
+  margin:28px auto;
+  text-align:center;
+  border:0;
+}
+.office-faq summary{
+  list-style:none;
+  cursor:pointer;
+  color:#244119;
+  font-size:clamp(1.05rem,2vw,1.28rem);
+  font-weight:800;
+  line-height:1.75;
+  position:relative;
+  padding:18px 42px 12px;
+}
+.office-faq summary::-webkit-details-marker{
+  display:none;
+}
+.office-faq summary::before{
+  content:"";
+  display:block;
+  width:clamp(200px, 24vw, 320px);
+  height:2px;
+  background:#244119;
+  margin:0 auto 16px;
+  opacity:.65;
+}
+.office-faq summary::after{
+  content:"+";
+  position:absolute;
+  right:8px;
+  top:28px;
+  color:#244119;
+  font-size:1.4rem;
+}
+.office-faq details[open] summary::after{
+  content:"-";
+}
+.office-faq details div{
+  padding:0 24px 8px;
+}
+.office-faq p{
+  font-family:"Noto Serif JP", serif;
+  color:#111d10;
+  font-size:clamp(1rem,1.8vw,1.08rem);
+  line-height:1.9;
+  margin:0;
+}
+@media (max-width:900px){
+  .office-summary ul,
+  .office-toc ol,
+  .work-grid,
+  .ctm-style{
+    grid-template-columns:1fr;
+  }
+  .timing-flow{
+    grid-template-columns:1fr;
+  }
+  .timing-arrow{
+    width:100%;
+    height:22px;
+  }
+  .timing-arrow::before{
+    left:50%;
+    top:0;
+    width:2px;
+    height:22px;
+  }
+  .timing-arrow::after{
+    top:auto;
+    right:auto;
+    left:calc(50% - 5px);
+    bottom:0;
+    transform:rotate(135deg);
+  }
+}
+@media (max-width:640px){
+  .breadcrumb{
+    padding-top:calc(var(--ctm-header-height, 64px) + 14px);
+    font-size:.84rem;
+  }
+  .office-hero{
+    min-height:auto;
+  }
+  .office-hero__image{
+    position:relative;
+    aspect-ratio:16/9;
+  }
+  .office-hero__image::after{
+    background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.66));
+  }
+  .office-hero__text{
+    padding:28px 0 42px;
+  }
+  .office-section{
+    padding:46px 0;
+    scroll-margin-top:112px;
+  }
+  .office-table th,
+  .office-table td{
+    padding:13px 14px;
+    font-size:.94rem;
+  }
+  .work-grid article{
+    padding:20px;
+  }
+  .timing-step{
+    min-height:auto;
+  }
+  .office-faq summary{
+    padding-left:8px;
+    padding-right:34px;
+    text-align:left;
+  }
+  .office-faq details div{
+    padding-left:8px;
+    padding-right:8px;
+    text-align:left;
+  }
+}
