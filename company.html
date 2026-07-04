@@ -149,11 +149,6 @@ gtag('config', 'G-JB8M4CBSRM');
     .cmp-catch{font-weight:700; text-align:center; font-size: clamp(18px, 2.4vw, 24px); line-height:1.8; color:#23402b; margin-bottom:.6em;}
     .cmp-body{font-size: clamp(15px, 2vw, 20px); line-height:1.9; text-align:center; color:#23402b;}
 
-    /* Hero */
-    .cmp-hero{position:relative; isolation:isolate;}
-    .cmp-hero__imagewrap{aspect-ratio: 21/6; width:100%; overflow:hidden;}
-    .cmp-hero__imagewrap img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
-
     /* Section */
     .cmp-block{margin-top: clamp(24px, 4vw, 48px);}
     .cmp-block__titleimg img{width:100%; height:auto; display:block;}
@@ -238,15 +233,17 @@ gtag('config', 'G-JB8M4CBSRM');
     </ol>
   </nav>
 
-  <!-- Hero（ページ固有のビジュアル） -->
-  <header class="cmp-hero ctm-unified-hero">
-    <div class="cmp-hero__imagewrap">
-      <img src="images/20.jpg" alt="会議中のビジネスシーン">
+  <!-- Hero -->
+  <section class="office-hero">
+    <div class="office-hero__image">
+      <img src="images/20.jpg" alt="会議中のビジネスシーン" width="1600" height="600">
     </div>
-    <div class="cmp-hero__title">
+    <div class="office-hero__text">
+      <p class="office-kicker">Company</p>
       <h1>会社情報</h1>
+      <p>医療現場に寄り添い、経営とチーム運営を支える伴走型パートナーとして、持続可能なクリニックづくりを実現します。</p>
     </div>
-  </header>
+  </section>
 
   <main id="main" class="cmp-main">
 
