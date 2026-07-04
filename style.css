@@ -1421,6 +1421,33 @@ footer { margin-top: 0 !important; }
   text-decoration:none;
   border-bottom:1px solid rgba(38,74,39,.32);
 }
+.office-hero .site-breadcrumb--hero{
+  width:auto;
+  margin:0 0 18px;
+  padding:0;
+  display:inline-block;
+  color:#244119;
+  font-size:.9rem;
+  font-weight:700;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:999px;
+  box-shadow:0 8px 24px rgba(36,65,25,.12);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  padding:8px 14px;
+}
+.office-hero .site-breadcrumb--hero ol{
+  gap:7px;
+}
+.office-hero .site-breadcrumb--hero li + li::before{
+  color:rgba(36,65,25,.62);
+  margin-right:7px;
+}
+.office-hero .site-breadcrumb--hero a{
+  color:#244119;
+  border-bottom:1px solid rgba(36,65,25,.28);
+}
 .page-message .site-breadcrumb{
   padding-top:18px;
 }
@@ -1620,6 +1647,26 @@ footer { margin-top: 0 !important; }
   font-size:clamp(2rem, 4.2vw, 3.4rem);
   line-height:1.35;
   margin:0 0 18px;
+}
+.page-office-manager .office-hero-title{
+  margin-bottom:0;
+}
+.page-office-manager .office-hero-title__main,
+.page-office-manager .office-hero-title__sub{
+  display:block;
+}
+.page-office-manager .office-hero-title__main{
+  font-size:clamp(2.35rem, 5.1vw, 4.35rem);
+  line-height:1.16;
+  letter-spacing:.01em;
+}
+.page-office-manager .office-hero-title__sub{
+  margin-top:.35em;
+  font-family:"Noto Sans JP", system-ui, -apple-system, sans-serif;
+  font-size:clamp(1.08rem, 2.05vw, 1.48rem);
+  font-weight:800;
+  line-height:1.65;
+  letter-spacing:.02em;
 }
 .office-hero p:last-child{
   max-width:760px;
@@ -2053,6 +2100,19 @@ footer { margin-top: 0 !important; }
   }
   .office-hero__text{
     padding:24px 0 34px;
+  }
+  .office-hero .site-breadcrumb--hero{
+    margin-bottom:14px;
+    font-size:.84rem;
+    padding:7px 12px;
+  }
+  .page-office-manager .office-hero-title__main{
+    font-size:clamp(2rem, 9.2vw, 2.65rem);
+    line-height:1.18;
+  }
+  .page-office-manager .office-hero-title__sub{
+    font-size:clamp(1rem, 4.5vw, 1.16rem);
+    line-height:1.62;
   }
   .office-section{
     padding:46px 0;
