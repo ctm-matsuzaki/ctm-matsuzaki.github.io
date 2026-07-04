@@ -1628,6 +1628,9 @@ footer { margin-top: 0 !important; }
   font-size:clamp(1.02rem, 2vw, 1.22rem);
   line-height:1.95;
 }
+body:not(.page-office-manager) .office-hero{
+  min-height:clamp(280px, 21vw, 400px);
+}
 .office-section{
   padding:clamp(54px, 8vw, 92px) 0;
   scroll-margin-top:96px;
@@ -2050,6 +2053,12 @@ footer { margin-top: 0 !important; }
   }
   .office-hero__text{
     padding:28px 0 42px;
+  }
+  body:not(.page-office-manager) .office-hero__image{
+    aspect-ratio:21 / 6;
+  }
+  body:not(.page-office-manager) .office-hero__text{
+    padding:24px 0 34px;
   }
   .office-section{
     padding:46px 0;
