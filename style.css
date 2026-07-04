@@ -1577,7 +1577,7 @@ footer { margin-top: 0 !important; }
 }
 .office-hero{
   position:relative;
-  min-height:clamp(430px, 54vw, 610px);
+  min-height:clamp(260px, 21vw, 400px);
   display:grid;
   align-items:end;
   overflow:hidden;
@@ -1628,8 +1628,8 @@ footer { margin-top: 0 !important; }
   font-size:clamp(1.02rem, 2vw, 1.22rem);
   line-height:1.95;
 }
-body:not(.page-office-manager) .office-hero{
-  min-height:clamp(280px, 21vw, 400px);
+.office-lead-section{
+  padding:clamp(34px, 5vw, 54px) 0 0;
 }
 .office-section{
   padding:clamp(54px, 8vw, 92px) 0;
@@ -2046,18 +2046,12 @@ body:not(.page-office-manager) .office-hero{
   }
   .office-hero__image{
     position:relative;
-    aspect-ratio:16/9;
+    aspect-ratio:21/6;
   }
   .office-hero__image::after{
     background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.66));
   }
   .office-hero__text{
-    padding:28px 0 42px;
-  }
-  body:not(.page-office-manager) .office-hero__image{
-    aspect-ratio:21 / 6;
-  }
-  body:not(.page-office-manager) .office-hero__text{
     padding:24px 0 34px;
   }
   .office-section{
