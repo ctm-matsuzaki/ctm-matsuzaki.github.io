@@ -1448,9 +1448,6 @@ footer { margin-top: 0 !important; }
   color:#244119;
   border-bottom:1px solid rgba(36,65,25,.28);
 }
-.page-message .site-breadcrumb{
-  padding-top:18px;
-}
 .section-breadcrumb{
   width:min(1000px, 92%);
   margin:42px auto 0;
@@ -2054,9 +2051,6 @@ footer { margin-top: 0 !important; }
   .site-breadcrumb{
     padding-top:calc(var(--ctm-header-height, 64px) + 14px);
     font-size:.84rem;
-  }
-  .page-message .site-breadcrumb{
-    padding-top:14px;
   }
   .section-breadcrumb{
     font-size:.84rem;
