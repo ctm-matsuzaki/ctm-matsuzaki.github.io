@@ -1689,8 +1689,8 @@ footer { margin-top: 0 !important; }
   background:#f5f8f4;
 }
 .office-section--dark{
-  background:#244119;
-  color:#fff;
+  background:#edf5ee;
+  color:#254233;
 }
 .office-prose{
   max-width:900px;
@@ -1707,7 +1707,10 @@ footer { margin-top: 0 !important; }
 }
 .office-section--dark h2,
 .office-section--dark p{
-  color:#fff;
+  color:#254233;
+}
+.office-section--dark h2{
+  color:#244119;
 }
 .office-prose h3{
   font-family:"Noto Serif JP", serif;
@@ -1738,6 +1741,19 @@ footer { margin-top: 0 !important; }
 }
 .office-visual-split .office-visual{
   margin:0;
+}
+.office-outsourcing{
+  max-width:1080px;
+  grid-template-columns:minmax(0, 1.2fr) minmax(300px, .9fr);
+  gap:clamp(32px, 5vw, 64px);
+  align-items:center;
+}
+.office-outsourcing > div{
+  min-width:0;
+}
+.office-outsourcing .office-visual{
+  width:100%;
+  align-self:center;
 }
 .office-visual img{
   display:block;
@@ -1867,16 +1883,23 @@ footer { margin-top: 0 !important; }
   margin:30px 0 34px;
 }
 .work-grid article{
+  display:grid;
+  grid-template-columns:48px minmax(0, 1fr);
+  column-gap:16px;
+  row-gap:0;
+  align-items:start;
   border:1px solid rgba(36,65,25,.14);
   border-radius:8px;
-  padding:24px;
+  padding:20px;
   background:#fff;
   box-shadow:0 8px 24px rgba(0,0,0,.06);
 }
 .work-icon{
-  width:72px;
+  grid-column:1;
+  grid-row:1 / span 20;
+  width:44px;
   height:auto;
-  margin-bottom:18px;
+  margin:4px 0 0;
 }
 .work-icon img{
   width:100%;
@@ -1884,20 +1907,24 @@ footer { margin-top: 0 !important; }
   display:block;
 }
 .work-grid h3{
+  grid-column:2;
   margin:0 0 12px;
   color:#244119;
-  font-size:1.18rem;
+  font-size:1.08rem;
 }
 .work-grid h4{
+  grid-column:2;
   margin:18px 0 8px;
   color:#244119;
   font-size:1rem;
 }
 .work-grid p{
+  grid-column:2;
   font-size:.98rem;
   line-height:1.9;
 }
 .work-grid ul{
+  grid-column:2;
   margin:0;
   padding-left:1.1em;
   color:#254233;
@@ -1980,7 +2007,7 @@ footer { margin-top: 0 !important; }
   aspect-ratio:16/9;
   overflow:hidden;
   border-radius:8px;
-  box-shadow:0 10px 28px rgba(0,0,0,.22);
+  box-shadow:0 10px 28px rgba(36,65,25,.14);
 }
 .ctm-style img{
   width:100%;
@@ -1989,7 +2016,7 @@ footer { margin-top: 0 !important; }
   object-position:center center;
 }
 .ctm-style a{
-  color:#fff;
+  color:#244119;
   font-weight:800;
   text-underline-offset:4px;
 }
@@ -2008,53 +2035,27 @@ footer { margin-top: 0 !important; }
   font-size:clamp(1.1rem,2.3vw,1.6rem);
 }
 .office-faq__head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:clamp(18px, 4vw, 40px);
-  margin-bottom:28px;
+  margin-bottom:22px;
 }
-.office-faq details{
+.office-faq__list{
   max-width:900px;
-  margin:28px auto;
-  text-align:center;
-  border:0;
+  margin:0 auto;
+  display:grid;
+  gap:18px;
 }
-.office-faq summary{
-  list-style:none;
-  cursor:pointer;
+.office-faq__item{
+  background:#fff;
+  border:1px solid rgba(36,65,25,.14);
+  border-radius:8px;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+  padding:22px 26px;
+}
+.office-faq__item h3{
   color:#244119;
   font-size:clamp(1.05rem,2vw,1.28rem);
   font-weight:800;
   line-height:1.75;
-  position:relative;
-  padding:18px 42px 12px;
-}
-.office-faq summary::-webkit-details-marker{
-  display:none;
-}
-.office-faq summary::before{
-  content:"";
-  display:block;
-  width:clamp(200px, 24vw, 320px);
-  height:2px;
-  background:#244119;
-  margin:0 auto 16px;
-  opacity:.65;
-}
-.office-faq summary::after{
-  content:"+";
-  position:absolute;
-  right:8px;
-  top:28px;
-  color:#244119;
-  font-size:1.4rem;
-}
-.office-faq details[open] summary::after{
-  content:"-";
-}
-.office-faq details div{
-  padding:0 24px 8px;
+  margin:0 0 10px;
 }
 .office-faq p{
   font-family:"Noto Serif JP", serif;
@@ -2173,34 +2174,21 @@ footer { margin-top: 0 !important; }
     font-size:.94rem;
   }
   .work-grid article{
-    padding:20px;
+    padding:18px;
   }
   .work-icon{
-    width:56px;
-    height:56px;
+    width:40px;
   }
   .office-visual{
     margin:22px 0 28px;
   }
-  .office-faq__head{
-    display:grid;
-    gap:18px;
-    justify-items:start;
-  }
-  .office-visual--small{
-    width:min(100%, 260px);
-  }
   .timing-step{
     min-height:auto;
   }
-  .office-faq summary{
-    padding-left:8px;
-    padding-right:34px;
-    text-align:left;
+  .office-faq__item{
+    padding:18px;
   }
-  .office-faq details div{
-    padding-left:8px;
-    padding-right:8px;
-    text-align:left;
+  .office-faq__item h3{
+    font-size:1.02rem;
   }
 }
