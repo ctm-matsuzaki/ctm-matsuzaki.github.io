@@ -80,8 +80,15 @@ gtag('config', 'G-JB8M4CBSRM');
   <!-- ページ固有（代表挨拶） -->
   <style>
     :root{ --ctm-green-ink:#165b33; }
-    .hero-message{ position:relative; line-height:0; }
+    .hero-message{ position:relative; line-height:0; overflow:hidden; }
     .hero-message img{ width:100%; height:auto; display:block; object-fit:cover; }
+    .hero-message::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.74) 48%, rgba(255,255,255,.25) 100%); pointer-events:none; }
+    .hero-message__text{ position:absolute; z-index:1; left:50%; bottom:0; transform:translateX(-50%); width:min(1080px,92%); max-width:920px; padding:clamp(56px,8vw,92px) 0; line-height:1.5; }
+    .hero-message__title{ font-family:"Noto Serif JP",serif; color:#244119; font-size:clamp(2rem,4.2vw,3.4rem); font-weight:700; line-height:1.35; margin:0; }
+    @media (max-width:640px){
+      .hero-message__text{ padding:24px 0 34px; }
+      .hero-message__title{ font-size:clamp(1.8rem,8vw,2.45rem); }
+    }
     .wrap{ width:min(1100px,92%); margin:0 auto; padding: clamp(32px,6vw,64px) 0; }
     .ttl{ text-align:center; color:var(--ctm-green-ink); font-family:"Noto Serif JP",serif; font-weight:700; font-size: clamp(1.6rem,3.2vw,2.2rem); margin:0 0 clamp(20px,2.5vw,28px); }
     .subttl{ color:var(--ctm-green-ink); font-family:"Noto Serif JP",serif; font-weight:700; font-size: clamp(1.25rem,2.6vw,1.6rem); margin:0 0 .8em; line-height:1.4; width:min(900px,100%); margin-left:auto; margin-right:auto; }
@@ -196,16 +203,19 @@ gtag('config', 'G-JB8M4CBSRM');
     </aside>
   </header>
 
-  <nav class="site-breadcrumb" aria-label="パンくずリスト">
-    <ol>
-      <li><a href="index.html">ホーム</a></li>
-      <li aria-current="page">代表挨拶</li>
-    </ol>
-  </nav>
-
   <!-- Hero -->
   <section class="hero-message" aria-label="代表挨拶ヒーロー">
     <img src="images/23.jpg" alt="代表挨拶イメージ">
+    <div class="hero-message__text">
+      <nav class="site-breadcrumb site-breadcrumb--hero" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="index.html">ホーム</a></li>
+          <li aria-current="page">代表挨拶</li>
+        </ol>
+      </nav>
+      <p class="office-kicker">Message</p>
+      <p class="hero-message__title">代表挨拶</p>
+    </div>
   </section>
 
   <!-- 本文 -->

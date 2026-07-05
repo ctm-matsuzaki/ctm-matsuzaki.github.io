@@ -1421,7 +1421,8 @@ footer { margin-top: 0 !important; }
   text-decoration:none;
   border-bottom:1px solid rgba(38,74,39,.32);
 }
-.office-hero .site-breadcrumb--hero{
+.office-hero .site-breadcrumb--hero,
+.hero-message .site-breadcrumb--hero{
   width:auto;
   margin:0 0 18px;
   padding:0;
@@ -1437,14 +1438,17 @@ footer { margin-top: 0 !important; }
   -webkit-backdrop-filter:blur(6px);
   padding:8px 14px;
 }
-.office-hero .site-breadcrumb--hero ol{
+.office-hero .site-breadcrumb--hero ol,
+.hero-message .site-breadcrumb--hero ol{
   gap:7px;
 }
-.office-hero .site-breadcrumb--hero li + li::before{
+.office-hero .site-breadcrumb--hero li + li::before,
+.hero-message .site-breadcrumb--hero li + li::before{
   color:rgba(36,65,25,.62);
   margin-right:7px;
 }
-.office-hero .site-breadcrumb--hero a{
+.office-hero .site-breadcrumb--hero a,
+.hero-message .site-breadcrumb--hero a{
   color:#244119;
   border-bottom:1px solid rgba(36,65,25,.28);
 }
@@ -2097,7 +2101,8 @@ footer { margin-top: 0 !important; }
   .office-hero__text{
     padding:24px 0 34px;
   }
-  .office-hero .site-breadcrumb--hero{
+  .office-hero .site-breadcrumb--hero,
+  .hero-message .site-breadcrumb--hero{
     margin-bottom:14px;
     font-size:.84rem;
     padding:7px 12px;
