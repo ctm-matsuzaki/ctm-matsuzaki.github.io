@@ -1452,6 +1452,14 @@ footer { margin-top: 0 !important; }
   color:#244119;
   border-bottom:1px solid rgba(36,65,25,.28);
 }
+.page-message .site-breadcrumb--message-below{
+  padding:18px 0 0;
+  color:#44634c;
+}
+.page-message .site-breadcrumb--message-below a{
+  color:#264a27;
+  border-bottom:1px solid rgba(38,74,39,.32);
+}
 .section-breadcrumb{
   width:min(1000px, 92%);
   margin:42px auto 0;
@@ -2174,6 +2182,9 @@ footer { margin-top: 0 !important; }
     min-height:auto;
     margin-top:56px;
   }
+  .page-company .office-hero{
+    margin-top:64px;
+  }
   .office-hero__image{
     position:relative;
     aspect-ratio:21/6;
@@ -2189,6 +2200,10 @@ footer { margin-top: 0 !important; }
     margin-bottom:14px;
     font-size:.84rem;
     padding:7px 12px;
+  }
+  .page-message .site-breadcrumb--message-below{
+    padding-top:14px;
+    font-size:.84rem;
   }
   .page-office-manager .office-hero-title__main{
     font-size:inherit;
