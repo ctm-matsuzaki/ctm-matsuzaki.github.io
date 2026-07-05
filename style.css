@@ -1874,20 +1874,14 @@ footer { margin-top: 0 !important; }
   box-shadow:0 8px 24px rgba(0,0,0,.06);
 }
 .work-icon{
-  display:grid;
-  place-items:center;
   width:72px;
-  height:72px;
+  height:auto;
   margin-bottom:18px;
-  overflow:hidden;
-  border-radius:8px;
 }
 .work-icon img{
   width:100%;
-  height:100%;
+  height:auto;
   display:block;
-  object-fit:cover;
-  object-position:center center;
 }
 .work-grid h3{
   margin:0 0 12px;
