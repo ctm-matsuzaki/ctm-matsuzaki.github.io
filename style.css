@@ -1729,7 +1729,7 @@ footer { margin-top: 0 !important; }
   display:grid;
   grid-template-columns:minmax(0, 1.45fr) minmax(260px, .95fr);
   gap:clamp(28px, 5vw, 56px);
-  align-items:stretch;
+  align-items:center;
   max-width:1080px;
 }
 .office-visual-split > div{
@@ -1737,11 +1737,7 @@ footer { margin-top: 0 !important; }
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:clamp(24px, 3.4vw, 36px);
-  background:#fff;
-  border:1px solid rgba(36,65,25,.12);
-  border-radius:8px;
-  box-shadow:0 8px 24px rgba(36,65,25,.06);
+  padding:clamp(6px, 1.8vw, 18px) 0;
 }
 .office-visual-split > div > :last-child{
   margin-bottom:0;
@@ -1755,19 +1751,14 @@ footer { margin-top: 0 !important; }
 }
 .office-visual-split .office-visual{
   margin:0;
-  min-height:300px;
-  height:100%;
-  max-height:520px;
 }
 .office-outsourcing{
   max-width:1080px;
-  grid-template-columns:minmax(0, 1.08fr) minmax(300px, .92fr);
-  gap:clamp(28px, 4.5vw, 52px);
+  grid-template-columns:minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap:clamp(30px, 5vw, 58px);
 }
 .office-outsourcing .office-visual{
   width:100%;
-  min-height:320px;
-  max-height:430px;
 }
 .office-outsourcing .office-visual img{
   object-position:center center;
@@ -2017,14 +2008,11 @@ footer { margin-top: 0 !important; }
   display:grid;
   grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
   gap:clamp(24px, 5vw, 54px);
-  align-items:stretch;
+  align-items:center;
 }
 .ctm-style figure{
   margin:0;
   aspect-ratio:16/9;
-  min-height:320px;
-  height:100%;
-  max-height:460px;
   overflow:hidden;
   border-radius:8px;
   box-shadow:0 10px 28px rgba(36,65,25,.14);
@@ -2033,11 +2021,7 @@ footer { margin-top: 0 !important; }
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:clamp(24px, 3.6vw, 38px);
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(36,65,25,.12);
-  border-radius:8px;
-  box-shadow:0 8px 24px rgba(36,65,25,.06);
+  padding:clamp(8px, 2vw, 20px) 0;
 }
 .ctm-style .office-prose > :last-child{
   margin-bottom:0;
@@ -2109,12 +2093,9 @@ footer { margin-top: 0 !important; }
     gap:22px;
   }
   .office-visual-split > div{
-    padding:22px;
+    padding:0;
   }
   .office-visual-split .office-visual{
-    min-height:auto;
-    height:auto;
-    max-height:none;
     aspect-ratio:16/10;
   }
   .office-outsourcing .office-visual{
@@ -2122,13 +2103,10 @@ footer { margin-top: 0 !important; }
     aspect-ratio:16/9;
   }
   .ctm-style figure{
-    min-height:auto;
-    height:auto;
-    max-height:none;
     aspect-ratio:16/10;
   }
   .ctm-style .office-prose{
-    padding:22px;
+    padding:0;
   }
   .timing-flow{
     grid-template-columns:1fr;
