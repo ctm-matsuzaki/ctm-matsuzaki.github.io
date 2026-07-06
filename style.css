@@ -2297,3 +2297,44 @@ footer { margin-top: 0 !important; }
     font-size:1.02rem;
   }
 }
+
+/* =========================
+   Mobile Sticky CTA
+   ========================= */
+.mobile-sticky-cta{
+  display:none;
+}
+
+@media (max-width:768px){
+  body{
+    padding-bottom:calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .mobile-sticky-cta{
+    position:fixed;
+    left:16px;
+    right:16px;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index:950;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:52px;
+    padding:0 18px;
+    border-radius:10px;
+    background:var(--ctm-green-deep, #213B1F);
+    color:#fff;
+    font-weight:800;
+    letter-spacing:.04em;
+    line-height:1.4;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .mobile-sticky-cta:active{
+    transform:translateY(1px);
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+  }
+}
