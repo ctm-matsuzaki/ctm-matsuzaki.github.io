@@ -991,6 +991,43 @@ section[id="contact"] .hero-image {
 footer { margin-top: 0 !important; }
 
 /* ===== TOP Contact CTA ===== */
+.contact-section{
+  position:relative;
+  min-height:80vh;
+  background-image:url('images/contact-bg.jpeg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.contact-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  text-align:center;
+}
+.contact-title{
+  font-family:"Noto Serif JP", serif;
+  font-size:3.6rem;
+  line-height:1.05;
+  letter-spacing:1px;
+  color:#2c4a27;
+  margin:0;
+}
+.contact-button{
+  display:inline-block;
+  padding:16px 32px;
+  border:1px solid #000;
+  border-radius:4px;
+  background:#fff;
+  color:#000;
+  font-weight:700;
+  font-size:1.2rem;
+  text-decoration:none;
+}
 .contact-section.full-bleed{
   position:relative;
   min-height:clamp(360px, 42vw, 520px);
@@ -1060,6 +1097,15 @@ footer { margin-top: 0 !important; }
 }
 
 @media (max-width:768px){
+  .contact-title{
+    font-size:2.6rem;
+  }
+
+  .contact-button{
+    padding:12px 24px;
+    font-size:1rem;
+  }
+
   .contact-section.full-bleed{
     min-height:340px;
     padding:54px 20px 72px !important;
