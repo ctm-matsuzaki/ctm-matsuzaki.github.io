@@ -129,9 +129,28 @@ gtag('config', 'G-JB8M4CBSRM');
     @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
     @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
 
-    .price-text-link { margin: 1em 0 0; }
-    .price-text-link a { color: #264a27; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
-    .price-text-link a:hover { opacity: .82; }
+    .price-text-link { margin: 1.2em 0 0; }
+    .price-text-link a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: .72em 1.35em;
+      border: 1px solid #264a27;
+      border-radius: 999px;
+      background: #edf7f0;
+      color: #264a27;
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1.4;
+      box-shadow: 0 6px 16px rgba(38,74,39,.08);
+      transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .price-text-link a:hover {
+      background: #e1f0e6;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(38,74,39,.12);
+    }
 
     /* （任意）本文をヘッダー分だけ下げたい場合は有効化
     body{ padding-top: var(--ctm-header-height); }
@@ -265,7 +284,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li>PL改善（売上構成・固定費/変動費の見直し・改善テーマ特定）</li>
           <li>保険/自費ポートフォリオ設計・粗利改善シミュレーション</li>
         </ul>
-        <p class="price-text-link"><a href="index.html#price">料金はこちら</a></p>
+        <p class="price-text-link"><a href="index.html#price">料金の目安を見る →</a></p>
       </div>
     </article>
 
@@ -282,7 +301,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li>評価制度の運用・賃金テーブル設計・1on1導入</li>
           <li>人手不足/欠員時の業務再配分・応援体制設計</li>
         </ul>
-        <p class="price-text-link"><a href="index.html#price">料金はこちら</a></p>
+        <p class="price-text-link"><a href="index.html#price">料金の目安を見る →</a></p>
       </div>
       <figure class="svc-col media">
         <img src="images/5.jpeg" alt="人事労務支援" loading="lazy" decoding="async">
@@ -305,7 +324,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li>レイアウト/導線最適化（院内サイン・動線設計）</li>
           <li>マニュアル/チェックリストの整備と定着支援</li>
         </ul>
-        <p class="price-text-link"><a href="index.html#price">料金はこちら</a></p>
+        <p class="price-text-link"><a href="index.html#price">料金の目安を見る →</a></p>
       </div>
     </article>
 
@@ -322,7 +341,7 @@ gtag('config', 'G-JB8M4CBSRM');
           <li>院内導線（パンフ/掲示/サイン/説明スライド）</li>
           <li>紹介スキームの設計（紹介カード/説明トーク整備）</li>
         </ul>
-        <p class="price-text-link"><a href="index.html#price">料金はこちら</a></p>
+        <p class="price-text-link"><a href="index.html#price">料金の目安を見る →</a></p>
       </div>
       <figure class="svc-col media">
         <img src="images/7.jpeg" alt="マーケティング戦略" loading="lazy" decoding="async">

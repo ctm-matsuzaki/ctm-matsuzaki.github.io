@@ -706,6 +706,33 @@ body {
 
 .svc-col.text li { margin: .1em 0; }
 
+.price-text-link{
+  margin: 1.2em 0 0;
+}
+
+.price-text-link a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .72em 1.35em;
+  border: 1px solid var(--ctm-green, #264a27);
+  border-radius: 999px;
+  background: #edf7f0;
+  color: var(--ctm-green, #264a27);
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.4;
+  box-shadow: 0 6px 16px rgba(38,74,39,.08);
+  transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.price-text-link a:hover{
+  background: #e1f0e6;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(38,74,39,.12);
+}
+
 /* 偶数行は左右反転（PC） */
 .svc-row.rev .svc-col.media{ order: 2; }
 .svc-row.rev .svc-col.text { order: 1; }
@@ -1071,6 +1098,11 @@ footer { margin-top: 0 !important; }
   /* パターンB：.svc-col.media（画像） / .svc-col.text（テキスト） */
   .svc-row .svc-col.media{ order: 1 !important; }
   .svc-row .svc-col.text { order: 2 !important; }
+
+  .price-text-link a{
+    width: min(100%, 280px);
+    min-height: 48px !important;
+  }
 }
 
 /* ===== TOP Service カードを 4列（PC）/ 2列（Tablet）/ 1列（SP）に固定 ===== */
