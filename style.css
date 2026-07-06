@@ -1083,6 +1083,114 @@ footer { margin-top: 0 !important; }
 }
 #home-company .col-text a.more:hover { opacity: .9; }
 
+/* ===== First consultation reassurance block ===== */
+.first-consult-section{
+  background:#fff;
+  padding:clamp(52px, 8vw, 88px) 0;
+}
+
+.first-consult-container{
+  width:min(1040px, 92%);
+  margin:0 auto;
+}
+
+.first-consult-heading{
+  text-align:center;
+  margin:0 auto clamp(28px, 4vw, 40px);
+}
+
+.first-consult-heading h2{
+  font-family:"Noto Serif JP", serif;
+  color:var(--ctm-green, #264a27);
+  font-size:clamp(1.55rem, 3.2vw, 2.2rem);
+  line-height:1.55;
+  margin:0 0 12px;
+}
+
+.first-consult-heading p{
+  color:#254233;
+  font-weight:700;
+  line-height:1.8;
+  margin:0;
+}
+
+.first-consult-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);
+  gap:clamp(18px, 3vw, 28px);
+  align-items:stretch;
+}
+
+.first-consult-card{
+  background:#fff;
+  border:1px solid rgba(38,74,39,.12);
+  border-radius:12px;
+  padding:clamp(22px, 3vw, 32px);
+  box-shadow:0 10px 28px rgba(38,74,39,.07);
+}
+
+.first-consult-card--accent{
+  background:#f1f8f3;
+  border-color:rgba(38,74,39,.18);
+}
+
+.first-consult-card h3{
+  font-family:"Noto Serif JP", serif;
+  color:var(--ctm-green, #264a27);
+  font-size:clamp(1.18rem, 2.2vw, 1.45rem);
+  line-height:1.5;
+  margin:0 0 16px;
+}
+
+.first-consult-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.first-consult-list li{
+  position:relative;
+  padding-left:1.8em;
+  color:#254233;
+  line-height:1.9;
+  margin:.45em 0;
+}
+
+.first-consult-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.7em;
+  width:.78em;
+  height:.78em;
+  border-radius:50%;
+  background:#dceee4;
+  border:2px solid var(--ctm-green, #264a27);
+  box-shadow:inset 0 0 0 3px #fff;
+}
+
+@media (max-width:768px){
+  .first-consult-section{
+    padding:46px 0 52px;
+  }
+
+  .first-consult-heading{
+    text-align:left;
+  }
+
+  .first-consult-grid{
+    grid-template-columns:1fr;
+  }
+
+  .first-consult-card{
+    padding:22px 18px;
+  }
+
+  .first-consult-list li{
+    line-height:1.85;
+  }
+}
+
 /* ===== Services：スマホは常に「画像 → テキスト」 ===== */
 @media (max-width: 900px){
   /* 2カラムの説明ブロック（services.html 想定）を1カラムに */
