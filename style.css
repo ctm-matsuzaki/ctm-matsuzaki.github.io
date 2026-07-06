@@ -1172,18 +1172,29 @@ footer { margin-top: 0 !important; }
 
 /* ===== First consultation reassurance block ===== */
 .first-consult-section{
-  background:#fff;
+  background:#f7faf7;
   padding:clamp(52px, 8vw, 88px) 0;
 }
 
 .first-consult-container{
-  width:min(1040px, 92%);
+  width:min(1120px, 92%);
   margin:0 auto;
 }
 
+.consult-contact-layout{
+  display:grid;
+  grid-template-columns:minmax(0, 1.04fr) minmax(360px, .96fr);
+  gap:clamp(24px, 4vw, 44px);
+  align-items:stretch;
+}
+
+.consult-contact-copy{
+  min-width:0;
+}
+
 .first-consult-heading{
-  text-align:center;
-  margin:0 auto clamp(28px, 4vw, 40px);
+  text-align:left;
+  margin:0 0 clamp(22px, 3vw, 30px);
 }
 
 .first-consult-heading h2{
@@ -1203,8 +1214,8 @@ footer { margin-top: 0 !important; }
 
 .first-consult-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);
-  gap:clamp(18px, 3vw, 28px);
+  grid-template-columns:1fr;
+  gap:clamp(16px, 2.4vw, 22px);
   align-items:stretch;
 }
 
@@ -1256,13 +1267,30 @@ footer { margin-top: 0 !important; }
   box-shadow:inset 0 0 0 3px #fff;
 }
 
+.first-consult-section .contact-section.full-bleed{
+  min-height:100%;
+  height:100%;
+  padding:clamp(44px, 5vw, 72px) clamp(22px, 3vw, 36px) !important;
+  border-radius:16px;
+  box-shadow:0 14px 36px rgba(38,74,39,.12);
+}
+
+.first-consult-section .contact-section.full-bleed::before{
+  background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62));
+}
+
+.first-consult-section .contact-section.full-bleed .contact-inner{
+  width:min(100%, 420px);
+}
+
 @media (max-width:768px){
   .first-consult-section{
     padding:46px 0 52px;
   }
 
-  .first-consult-heading{
-    text-align:left;
+  .consult-contact-layout{
+    grid-template-columns:1fr;
+    gap:24px;
   }
 
   .first-consult-grid{
@@ -1275,6 +1303,12 @@ footer { margin-top: 0 !important; }
 
   .first-consult-list li{
     line-height:1.85;
+  }
+
+  .first-consult-section .contact-section.full-bleed{
+    min-height:340px;
+    height:auto;
+    border-radius:12px;
   }
 }
 
