@@ -1268,11 +1268,17 @@ footer { margin-top: 0 !important; }
 }
 
 .first-consult-section .contact-section.full-bleed{
-  min-height:100%;
-  height:100%;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+  height:auto;
   padding:clamp(44px, 5vw, 72px) clamp(22px, 3vw, 36px) !important;
   border-radius:16px;
   box-shadow:0 14px 36px rgba(38,74,39,.12);
+  background-size:cover;
+  background-position:center;
 }
 
 .first-consult-section .contact-section.full-bleed::before{
