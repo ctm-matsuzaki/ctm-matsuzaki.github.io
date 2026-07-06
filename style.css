@@ -478,14 +478,51 @@ body {
 .cases-cta__button:hover{
   background:#edf6ef;
 }
+.cases-concern{
+  max-width:780px;
+  margin:0 auto clamp(24px, 4vw, 34px);
+  padding:0 0 clamp(24px, 4vw, 34px);
+  border-bottom:1px solid rgba(255,255,255,.24);
+}
+.cases-concern__title{
+  font-family:"Noto Serif JP", serif;
+  font-size:clamp(1.35rem, 2.7vw, 1.85rem);
+  line-height:1.5;
+  margin:0 0 18px;
+  color:#fff;
+}
+.cases-concern__list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px 18px;
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:left;
+}
+.cases-concern__list li{
+  position:relative;
+  padding-left:1.6em;
+  color:#f4fbf5;
+  font-weight:700;
+  line-height:1.75;
+}
+.cases-concern__list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#d8ead8;
+  font-weight:800;
+}
 .case-card{
   scroll-margin-top:96px;
   border:1px solid rgba(36,65,25,.14);
   border-radius:8px;
   background:#fff;
   box-shadow:0 8px 26px rgba(0,0,0,.07);
-  padding:clamp(20px, 4vw, 34px);
-  margin:0 0 clamp(22px, 4vw, 34px);
+  padding:clamp(24px, 4.5vw, 40px);
+  margin:0 0 clamp(28px, 4.5vw, 42px);
 }
 .case-card__meta{
   display:inline-block;
@@ -503,18 +540,39 @@ body {
   color:#244119;
   font-size:clamp(1.35rem, 2.7vw, 1.9rem);
   line-height:1.5;
-  margin:0 0 18px;
+  margin:0 0 16px;
+}
+.case-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  margin:0 0 20px;
+  padding:0;
+}
+.case-tags li{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 11px;
+  border:1px solid rgba(36,65,25,.16);
+  border-radius:999px;
+  background:#edf5ee;
+  color:#244119;
+  font-size:.86rem;
+  font-weight:800;
+  line-height:1.35;
 }
 .case-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:16px;
+  gap:18px;
 }
 .case-block{
   background:#fafcf9;
   border-left:4px solid #244119;
   border-radius:8px;
-  padding:18px 20px;
+  padding:20px 22px;
 }
 .case-block--wide{
   grid-column:1 / -1;
@@ -522,16 +580,16 @@ body {
 .case-block h4{
   color:#244119;
   font-size:1.02rem;
-  margin:0 0 10px;
+  margin:0 0 12px;
   font-weight:800;
 }
 .case-block ul{
   margin:0;
   padding-left:1.15em;
-  line-height:1.85;
+  line-height:1.95;
 }
 .case-block li{
-  margin:.12em 0;
+  margin:.16em 0;
 }
 @media (max-width:768px){
   .cases-hero .svc-hero-text{
@@ -546,8 +604,27 @@ body {
   .case-card{
     scroll-margin-top:118px;
   }
+  .case-tags{
+    gap:7px;
+    margin-bottom:18px;
+  }
+  .case-tags li{
+    min-height:28px;
+    padding:4px 9px;
+    font-size:.82rem;
+  }
+  .case-block{
+    padding:18px 17px;
+  }
+  .case-block ul{
+    line-height:1.9;
+  }
   .cases-cta__inner{
     text-align:left;
+  }
+  .cases-concern__list{
+    grid-template-columns:1fr;
+    gap:8px;
   }
   .cases-cta__button{
     display:block;
