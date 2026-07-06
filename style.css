@@ -498,7 +498,7 @@ body {
   font-size:.93rem;
   margin:0 0 14px;
 }
-.case-card h2{
+.case-card__title{
   font-family:"Noto Serif JP", serif;
   color:#244119;
   font-size:clamp(1.35rem, 2.7vw, 1.9rem);
@@ -507,21 +507,23 @@ body {
 }
 .case-grid{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:18px;
+  grid-template-columns:1fr;
+  gap:16px;
 }
 .case-block{
   background:#fafcf9;
+  border-left:4px solid #244119;
   border-radius:8px;
   padding:18px 20px;
 }
 .case-block--wide{
   grid-column:1 / -1;
 }
-.case-block h3{
+.case-block h4{
   color:#244119;
   font-size:1.02rem;
   margin:0 0 10px;
+  font-weight:800;
 }
 .case-block ul{
   margin:0;
