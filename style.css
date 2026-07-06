@@ -998,6 +998,93 @@ section[id="contact"] .hero-image {
 }
 footer { margin-top: 0 !important; }
 
+/* ===== TOP Contact CTA ===== */
+.contact-section.full-bleed{
+  position:relative;
+  min-height:clamp(360px, 42vw, 520px);
+  padding:clamp(64px, 9vw, 104px) 24px !important;
+  isolation:isolate;
+  overflow:hidden;
+}
+
+.contact-section.full-bleed::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.58));
+  pointer-events:none;
+}
+
+.contact-section.full-bleed .contact-inner{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  width:min(92%, 680px);
+  margin:0 auto;
+  text-align:center;
+}
+
+.contact-section.full-bleed .contact-title{
+  color:var(--ctm-green, #264a27);
+  text-shadow:0 1px 8px rgba(255,255,255,.65);
+}
+
+.contact-section.full-bleed .contact-lead{
+  margin:0;
+  color:#254233;
+  font-weight:700;
+  line-height:1.9;
+  font-size:clamp(1rem, 2vw, 1.15rem);
+  text-shadow:0 1px 8px rgba(255,255,255,.7);
+}
+
+.contact-section.full-bleed .contact-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:min(320px, 100%);
+  min-height:56px;
+  padding:0 28px;
+  border:1px solid var(--ctm-green-deep, #213B1F);
+  border-radius:10px;
+  background:var(--ctm-green-deep, #213B1F);
+  color:#fff;
+  font-weight:800;
+  font-size:1.08rem;
+  letter-spacing:.04em;
+  line-height:1.4;
+  text-decoration:none;
+  box-shadow:0 12px 26px rgba(33,59,31,.22);
+}
+
+.contact-section.full-bleed .contact-button:active{
+  transform:translateY(1px);
+  box-shadow:0 8px 18px rgba(33,59,31,.22);
+}
+
+@media (max-width:768px){
+  .contact-section.full-bleed{
+    min-height:340px;
+    padding:54px 20px 72px !important;
+  }
+
+  .contact-section.full-bleed .contact-inner{
+    width:min(100%, 420px);
+    gap:14px;
+  }
+
+  .contact-section.full-bleed .contact-button{
+    width:min(100%, 320px);
+    min-height:54px;
+    font-size:1rem;
+  }
+}
+
 /* ====== FAQ（決定版：index.html 用） ====== */
 
 /* セクション */
