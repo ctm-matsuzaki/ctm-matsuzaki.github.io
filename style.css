@@ -79,6 +79,10 @@ body {
     margin-left: clamp(12px, 5vw, 24px);
     margin-bottom: 1vh;
   }
+
+  .hero + .section.has-bgword {
+    padding-top: 12px;
+  }
 }
 
 /* =========================
