@@ -2,7 +2,7 @@
 
 /* Header logo display */
 .ctm-logo{
-  width:clamp(220px, 20vw, 260px) !important;
+  width:clamp(255px, 23vw, 310px) !important;
   max-width:34vw !important;
   height:48px !important;
   background:transparent !important;
