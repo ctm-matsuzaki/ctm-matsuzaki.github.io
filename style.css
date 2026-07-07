@@ -5,11 +5,18 @@
   width:clamp(280px, 22vw, 340px) !important;
   max-width:34vw !important;
   height:52px !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  overflow:hidden !important;
 }
 
 .ctm-logo img{
   object-fit:cover !important;
   object-position:center !important;
+  background:transparent !important;
+  mix-blend-mode:multiply;
 }
 
 @media (max-width:979.98px){
