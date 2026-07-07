@@ -2,20 +2,20 @@
 
 /* Header logo display */
 .ctm-logo{
-  width:clamp(280px, 22vw, 340px) !important;
+  width:clamp(220px, 20vw, 260px) !important;
   max-width:34vw !important;
-  height:52px !important;
+  height:48px !important;
   background:transparent !important;
   border:0 !important;
   box-shadow:none !important;
   padding:0 !important;
-  overflow:hidden !important;
+  overflow:visible !important;
 }
 
 .ctm-logo img{
   content:url("images/ctm-logo-header.png");
   width:100% !important;
-  height:100% !important;
+  height:auto !important;
   object-fit:contain !important;
   object-position:center !important;
   background:transparent !important;
@@ -25,7 +25,7 @@
 
 @media (max-width:979.98px){
   .ctm-logo{
-    width:clamp(230px, 62vw, 280px) !important;
+    width:clamp(210px, 58vw, 240px) !important;
     max-width:calc(100vw - 88px) !important;
     height:48px !important;
   }
