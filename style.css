@@ -1,6 +1,6 @@
 @import url("style-base.css?v=20260708-logo");
 
-/* Header logo size adjustment */
+/* Header logo display */
 .ctm-logo{
   width:clamp(280px, 22vw, 340px) !important;
   max-width:34vw !important;
@@ -13,10 +13,14 @@
 }
 
 .ctm-logo img{
-  object-fit:cover !important;
+  content:url("images/ctm-logo-header.png");
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
   object-position:center !important;
   background:transparent !important;
-  mix-blend-mode:multiply;
+  filter:none !important;
+  opacity:1 !important;
 }
 
 @media (max-width:979.98px){
