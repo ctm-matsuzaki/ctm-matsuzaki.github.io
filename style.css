@@ -64,6 +64,11 @@ body {
   color: #285444;
 }
 @media (max-width: 768px) {
+  .hero {
+    min-height: 61svh;
+    padding-bottom: 2.5vh;
+  }
+
   .hero__inner {
     background: rgba(240, 240, 240, 0.85);
     padding: 14px 16px;
@@ -72,6 +77,7 @@ body {
     width: auto;
     max-width: min(96%, 720px);
     margin-left: clamp(12px, 5vw, 24px);
+    margin-bottom: 1vh;
   }
 }
 
