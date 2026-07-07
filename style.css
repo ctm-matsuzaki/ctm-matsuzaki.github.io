@@ -80,6 +80,16 @@ body {
     margin-bottom: 1vh;
   }
 
+  .hero__title {
+    font-size: clamp(1.2rem, 5.35vw, 2.6rem);
+    line-height: 1.42;
+  }
+
+  .hero__title .hero-line1,
+  .hero__title .hero-line2 {
+    white-space: nowrap;
+  }
+
   .hero + .section.has-bgword {
     padding-top: 12px;
   }
