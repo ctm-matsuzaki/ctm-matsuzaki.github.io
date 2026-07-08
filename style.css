@@ -2314,6 +2314,25 @@ footer { margin-top: 0 !important; }
   font-weight:800;
   width:20%;
 }
+#comparison .office-table th,
+#comparison .office-table td{
+  height:52px;
+  padding:18px 22px;
+  vertical-align:middle;
+}
+#comparison .office-table thead th{
+  background:#244119;
+  color:#fff;
+  font-weight:800;
+}
+#comparison .office-table th:nth-child(4),
+#comparison .office-table td:nth-child(4){
+  background:#f0f7f1;
+  font-weight:700;
+}
+#comparison .office-table tbody th:nth-child(4){
+  color:#244119;
+}
 .table-note{
   font-size:.95rem !important;
   color:#4b6250 !important;
@@ -2672,6 +2691,16 @@ footer { margin-top: 0 !important; }
   }
 }
 @media (hover:hover) and (pointer:fine){
+  #comparison .office-table tbody tr{
+    transition:background-color .2s ease;
+  }
+  #comparison .office-table tbody tr:hover th,
+  #comparison .office-table tbody tr:hover td{
+    background:#eef7ef;
+  }
+  #comparison .office-table tbody tr:hover td:nth-child(4){
+    background:#e7f2e8;
+  }
   .office-recommend-list li:hover{
     transform:translateY(-3px);
     box-shadow:0 10px 24px rgba(36,65,25,.1);
