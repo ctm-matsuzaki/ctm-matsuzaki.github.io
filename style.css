@@ -2160,6 +2160,43 @@ footer { margin-top: 0 !important; }
 .office-outsourcing .office-visual img{
   object-position:center center;
 }
+.office-recommend-list{
+  display:grid;
+  gap:18px;
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+}
+.office-recommend-list li{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:24px 26px;
+  border:1px solid #d7e8d9;
+  border-radius:16px;
+  background:#f5faf5;
+  color:#254233;
+  font-size:clamp(1rem, 1.8vw, 1.08rem);
+  line-height:1.85;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.office-recommend-list li::before{
+  content:"✓";
+  flex:0 0 22px;
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:2px solid #244119;
+  background:#edf5ee;
+  color:#244119;
+  font-size:.82rem;
+  font-weight:700;
+  line-height:1;
+}
 .office-visual img{
   display:block;
   width:100%;
@@ -2632,6 +2669,12 @@ footer { margin-top: 0 !important; }
   }
   .office-faq__item h3{
     font-size:1.02rem;
+  }
+}
+@media (hover:hover) and (pointer:fine){
+  .office-recommend-list li:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(36,65,25,.1);
   }
 }
 
