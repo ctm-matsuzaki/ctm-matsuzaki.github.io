@@ -67,3 +67,42 @@
     transform:translateX(-50%);
   }
 }
+
+/* Office manager comparison table */
+#comparison .office-table th,
+#comparison .office-table td{
+  height:52px;
+  padding:18px 22px;
+  vertical-align:middle;
+}
+
+#comparison .office-table thead th{
+  background:#244119;
+  color:#fff;
+  font-weight:800;
+}
+
+#comparison .office-table th:nth-child(4),
+#comparison .office-table td:nth-child(4){
+  background:#f0f7f1;
+  font-weight:700;
+}
+
+#comparison .office-table tbody th:nth-child(4){
+  color:#244119;
+}
+
+@media (hover:hover) and (pointer:fine){
+  #comparison .office-table tbody tr{
+    transition:background-color .2s ease;
+  }
+
+  #comparison .office-table tbody tr:hover th,
+  #comparison .office-table tbody tr:hover td{
+    background:#eef7ef;
+  }
+
+  #comparison .office-table tbody tr:hover td:nth-child(4){
+    background:#e7f2e8;
+  }
+}
