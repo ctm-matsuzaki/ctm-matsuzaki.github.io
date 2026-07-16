@@ -3,102 +3,184 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 import sys
-from tkinter import END, filedialog, messagebox, ttk
+from tkinter import BOTH, END, LEFT, X, filedialog, messagebox
+from tkinter.scrolledtext import ScrolledText
 import tkinter as tk
 
 from .excel_writer import MinutesExcelError, MinutesExcelWriter
+from .filename import build_output_filename
+from .models import AgendaItem, MeetingMinutes
 from .parser import MinutesParseError, MinutesParser
 from .version import __version__
 
 
 class MinutesToolApp(tk.Tk):
     TEMPLATE_FILENAME = "会議議事録テンプレ.xlsx"
+    COLOR_BG = "#1A1A1A"
+    COLOR_TITLE = "#FFFFFF"
+    COLOR_DESCRIPTION = "#DDDDDD"
+    COLOR_STATUS = "#AAAAAA"
+    COLOR_INPUT_BG = "#1E1E1E"
+    COLOR_INPUT_TEXT = "#FFFFFF"
+    COLOR_SELECTION = "#2F6B55"
+    COLOR_BUTTON_BG = "#3A3A3A"
+    COLOR_BUTTON_HOVER = "#4A4A4A"
+    COLOR_SCROLLBAR_BG = "#2C2C2C"
+    COLOR_SCROLLBAR_THUMB = "#555555"
+    APP_DISPLAY_NAME = "議事録作成ツール"
 
     def __init__(self) -> None:
         super().__init__()
-        self.title(f"CTM 議事録 Excel 作成ツール v{__version__}")
-        self.geometry("960x720")
+        self.title(f"{self.APP_DISPLAY_NAME} v{__version__}")
+        self.geometry("960x720+120+80")
         self.minsize(780, 560)
+        self.configure(bg=self.COLOR_BG)
 
         self.parser = MinutesParser()
         self.template_path = self._default_template_path()
 
         self._build_ui()
+        self.after(100, self._show_window)
 
     def _build_ui(self) -> None:
-        root = ttk.Frame(self, padding=12)
-        root.grid(row=0, column=0, sticky="nsew")
-        self.rowconfigure(0, weight=1)
-        self.columnconfigure(0, weight=1)
-        root.rowconfigure(1, weight=1)
-        root.columnconfigure(0, weight=1)
-
-        header = ttk.Frame(root)
-        header.grid(row=0, column=0, sticky="ew", pady=(0, 10))
-        header.columnconfigure(0, weight=1)
-
-        title_label = ttk.Label(header, text=f"CTM 議事録 Excel 作成ツール v{__version__}", font=("", 16, "bold"))
-        title_label.grid(row=0, column=0, sticky="w")
+        title_label = tk.Label(
+            self,
+            text=f"{self.APP_DISPLAY_NAME} v{__version__}",
+            bg=self.COLOR_BG,
+            fg=self.COLOR_TITLE,
+            font=("Helvetica", 16, "bold"),
+            anchor="w",
+        )
+        title_label.pack(fill=X, padx=16, pady=(16, 8))
 
         description = (
             "AIで作成した議事録テキストを中央の入力欄に貼り付け、"
             "画面下部の「Excel作成」を押してください。"
         )
-        description_label = ttk.Label(header, text=description, wraplength=860, justify="left")
-        description_label.grid(row=1, column=0, sticky="ew", pady=(6, 0))
+        description_label = tk.Label(
+            self,
+            text=description,
+            bg=self.COLOR_BG,
+            fg=self.COLOR_DESCRIPTION,
+            font=("Helvetica", 12),
+            justify="left",
+            anchor="w",
+        )
+        description_label.pack(fill=X, padx=16, pady=(0, 8))
+
+        self.text = ScrolledText(
+            self,
+            wrap="word",
+            undo=True,
+            bg=self.COLOR_INPUT_BG,
+            fg=self.COLOR_INPUT_TEXT,
+            insertbackground=self.COLOR_INPUT_TEXT,
+            selectbackground=self.COLOR_SELECTION,
+            selectforeground=self.COLOR_INPUT_TEXT,
+            relief="solid",
+            bd=1,
+            padx=8,
+            pady=8,
+            font=("Helvetica", 12),
+            width=80,
+            height=24,
+        )
+        if hasattr(self.text, "frame"):
+            self.text.frame.configure(bg=self.COLOR_BG)
+        if hasattr(self.text, "vbar"):
+            self.text.vbar.configure(
+                bg=self.COLOR_SCROLLBAR_THUMB,
+                activebackground=self.COLOR_SCROLLBAR_THUMB,
+                troughcolor=self.COLOR_SCROLLBAR_BG,
+                highlightbackground=self.COLOR_BG,
+                relief="flat",
+                bd=0,
+            )
+        self.text.pack(fill=BOTH, expand=True, padx=16, pady=(0, 8))
 
         self.status = tk.StringVar(value="準備完了")
-        status_label = ttk.Label(header, textvariable=self.status, foreground="#555555")
-        status_label.grid(row=2, column=0, sticky="ew", pady=(6, 0))
+        status_label = tk.Label(
+            self,
+            textvariable=self.status,
+            bg=self.COLOR_BG,
+            fg=self.COLOR_STATUS,
+            font=("Helvetica", 11),
+            anchor="w",
+        )
+        status_label.pack(fill=X, padx=16, pady=(0, 8))
 
-        text_frame = ttk.Frame(root)
-        text_frame.grid(row=1, column=0, sticky="nsew")
-        text_frame.rowconfigure(0, weight=1)
-        text_frame.columnconfigure(0, weight=1)
+        button_bar = tk.Frame(self, bg=self.COLOR_BG)
+        button_bar.pack(fill=X, padx=16, pady=(0, 16))
 
-        self.text = tk.Text(text_frame, wrap="word", undo=True)
-        y_scroll = ttk.Scrollbar(text_frame, orient="vertical", command=self.text.yview)
-        self.text.configure(yscrollcommand=y_scroll.set)
-        self.text.grid(row=0, column=0, sticky="nsew")
-        y_scroll.grid(row=0, column=1, sticky="ns")
+        create_button = self._make_button(
+            button_bar,
+            text="Excel作成",
+            command=self._create_excel,
+        )
+        create_button.pack(side=LEFT, padx=(0, 8))
 
-        button_bar = ttk.Frame(root)
-        button_bar.grid(row=2, column=0, sticky="ew", pady=(12, 0))
-        button_bar.columnconfigure(0, weight=1)
-        button_bar.columnconfigure(4, weight=1)
+        clear_button = self._make_button(button_bar, text="クリア", command=self._clear_text)
+        clear_button.pack(side=LEFT, padx=8)
 
-        create_button = ttk.Button(button_bar, text="Excel作成", command=self._create_excel, width=16)
-        create_button.grid(row=0, column=1, padx=6)
+        close_button = self._make_button(button_bar, text="終了", command=self.destroy)
+        close_button.pack(side=LEFT, padx=8)
 
-        clear_button = ttk.Button(button_bar, text="クリア", command=self._clear_text, width=16)
-        clear_button.grid(row=0, column=2, padx=6)
+    def _make_button(
+        self,
+        parent: tk.Widget,
+        text: str,
+        command,
+    ) -> tk.Button:
+        return tk.Button(
+            parent,
+            text=text,
+            command=command,
+            width=14,
+            height=1,
+            bg=self.COLOR_BUTTON_BG,
+            fg="#000000",
+            activebackground=self.COLOR_BUTTON_HOVER,
+            activeforeground=self.COLOR_TITLE,
+            relief="raised",
+            bd=1,
+            highlightthickness=0,
+            font=("Helvetica", 12),
+        )
 
-        close_button = ttk.Button(button_bar, text="終了", command=self.destroy, width=16)
-        close_button.grid(row=0, column=3, padx=6)
+    def _show_window(self) -> None:
+        self.update_idletasks()
+        self.deiconify()
+        self.lift()
+        self.focus_force()
+        try:
+            self.attributes("-topmost", True)
+            self.after(800, lambda: self.attributes("-topmost", False))
+        except tk.TclError:
+            pass
 
     def _create_excel(self) -> None:
         source_text = self.text.get("1.0", END).strip()
-        if not source_text:
-            messagebox.showerror("入力エラー", "議事録テキストを貼り付けてください。")
-            return
 
         try:
             minutes = self.parser.parse(source_text)
         except MinutesParseError as exc:
-            messagebox.showerror("解析エラー", str(exc))
-            self.status.set("解析エラーがあります。入力形式を確認してください。")
-            return
+            messagebox.showwarning("確認", "一部の項目を自動判定できませんでした。黄色セルを確認してください。")
+            minutes = MeetingMinutes(agendas=[AgendaItem(number=1, title="", content=[source_text] if source_text else [])])
         except Exception as exc:
-            messagebox.showerror("解析エラー", f"議事録の解析中にエラーが発生しました。\n{exc}")
-            self.status.set("解析エラーがあります。")
-            return
+            messagebox.showwarning(
+                "確認",
+                "一部の項目を自動判定できませんでした。黄色セルを確認してください。\n"
+                f"詳細: {exc}",
+            )
+            minutes = MeetingMinutes(agendas=[AgendaItem(number=1, title="", content=[source_text] if source_text else [])])
+        self.status.set("一部の項目を自動判定できない場合は、Excelの黄色セルを確認してください。")
 
         template_path = self._resolve_template_path()
         if template_path is None:
             self.status.set("テンプレート選択をキャンセルしました。")
             return
 
-        default_name = f"会議議事録_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
+        default_name = build_output_filename(minutes.meeting_name, minutes.date_time)
         output_path = filedialog.asksaveasfilename(
             title="Excelファイルの保存先を選択",
             defaultextension=".xlsx",

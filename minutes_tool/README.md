@@ -1,4 +1,4 @@
-# CTM 議事録 Excel 作成ツール v1.0.0
+# 議事録作成ツール v1.0.0
 
 AIで作成したテキスト議事録を貼り付け、CTM指定のExcelテンプレートへ自動入力するGUIツールです。
 WindowsとMacの両方で利用できます。
@@ -25,6 +25,7 @@ WindowsとMacの両方で利用できます。
 - `models.py`: データ定義
 - `version.py`: バージョン情報
 - `resources/会議議事録テンプレ.xlsx`: Excelテンプレート
+- `resources/icon.icns`: Macアプリ用アイコン
 - `output/会議議事録サンプル_v1.0.0.xlsx`: 実議事録サンプルから作成した動作確認用Excel
 - `USER_GUIDE_A4.md`: 一般ユーザー向けのA4一枚程度の使い方
 - `../run_minutes_tool.py`: 起動用ファイル
@@ -90,7 +91,7 @@ python run_minutes_tool.py
 ## エラーが出た場合
 
 - `議事録テキストを貼り付けてください`: 入力欄が空です。
-- `議題が見つかりませんでした`: `議題①` のような見出しが含まれているか確認してください。
+- `一部の項目を自動判定できませんでした。黄色セルを確認してください。`: Excelは作成できます。黄色セルに不足情報を追記してください。
 - `Excelテンプレートが見つかりません`: テンプレート選択画面で `会議議事録テンプレ.xlsx` を選択してください。
 - `Excelファイルを保存できませんでした`: 同名ファイルをExcelで開いている場合は閉じてください。保存先フォルダの権限も確認してください。
 
@@ -148,43 +149,73 @@ pip install -r requirements.txt
 3. PyInstallerでexeを作成します。
 
 ```bat
-pyinstaller --onefile --windowed --name CTM議事録作成ツール --add-data "minutes_tool\resources\会議議事録テンプレ.xlsx;minutes_tool\resources" run_minutes_tool.py
+pyinstaller --onefile --windowed --name 議事録作成ツール --add-data "minutes_tool\resources\会議議事録テンプレ.xlsx;minutes_tool\resources" run_minutes_tool.py
 ```
 
 4. 完成したexeを確認します。
 
 ```text
-dist\CTM議事録作成ツール.exe
+dist\議事録作成ツール.exe
 ```
 
-5. `dist\CTM議事録作成ツール.exe` を利用者のWindows PCへ配布します。
+5. `dist\議事録作成ツール.exe` を利用者のWindows PCへ配布します。
 
 ## Mac用アプリ（.app）の作成手順
 
 Pythonが入っていないMacで使う場合は、開発用のMacで `.app` を作成して配布します。
 
 1. Macでプロジェクトフォルダを開きます。
-2. 必要ライブラリをインストールします。
+
+```bash
+cd "/path/to/ctm-matsuzaki.github.io"
+```
+
+2. Python 3.13 と必要ライブラリを用意します。
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
-3. PyInstallerで `.app` を作成します。
+PyInstallerが未インストールの場合:
 
 ```bash
-python3 -m PyInstaller --windowed --name "CTM議事録作成ツール" --add-data "minutes_tool/resources/会議議事録テンプレ.xlsx:minutes_tool/resources" run_minutes_tool.py
+python3 -m pip install pyinstaller
+```
+
+3. PyInstallerで `.app` を作成します。通常はこちらを使います。
+
+```bash
+python3 -m PyInstaller CTM議事録作成ツール.spec
 ```
 
 4. 完成したアプリを確認します。
 
 ```text
-dist/CTM議事録作成ツール.app
+dist/議事録作成ツール.app
 ```
 
-5. `dist/CTM議事録作成ツール.app` を利用者のMacへ配布します。
+5. `dist/議事録作成ツール.app` を利用者のMacへ配布します。
 
 Macのセキュリティ設定により初回起動できない場合は、Finderでアプリを右クリックして `開く` を選択してください。
+
+### Macアプリの仕様
+
+- アプリ名: `議事録作成ツール`
+- 起動方法: `.app` をダブルクリック
+- ターミナル表示: なし
+- 同梱ファイル: `minutes_tool/resources/会議議事録テンプレ.xlsx`
+- アイコン: `minutes_tool/resources/icon.icns` を使用します。アイコンを差し替える場合は、同じ場所に新しい `.icns` を保存してから再ビルドします。
+
+### specを使わずに直接ビルドする場合
+
+```bash
+python3 -m PyInstaller \
+  --windowed \
+  --name "議事録作成ツール" \
+  --icon "minutes_tool/resources/icon.icns" \
+  --add-data "minutes_tool/resources/会議議事録テンプレ.xlsx:minutes_tool/resources" \
+  run_minutes_tool.py
+```
 
 ## 一般ユーザー向けの使い方
 

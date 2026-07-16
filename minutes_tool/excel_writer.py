@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 from copy import copy
+from math import ceil
 from pathlib import Path
 
 from openpyxl import load_workbook
 from openpyxl.cell.cell import MergedCell
+from openpyxl.formatting.rule import FormulaRule
+from openpyxl.styles import Alignment
+from openpyxl.styles import PatternFill
 from openpyxl.utils.exceptions import InvalidFileException
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -20,7 +24,7 @@ class MinutesExcelWriter:
 
     DYNAMIC_START_ROW = 10
     DYNAMIC_END_ROW = 39
-    AGENDA_BLOCK_HEIGHT = 5
+    AGENDA_BLOCK_HEIGHT = 6
     TODO_MIN_ROWS = 1
 
     def __init__(self, template_path: str | Path) -> None:
@@ -56,6 +60,9 @@ class MinutesExcelWriter:
         self._write_basic_info(sheet, minutes)
         self._rebuild_dynamic_area(sheet, minutes)
         self._write_next_meeting(sheet, minutes)
+        self._write_summary(sheet, minutes)
+        self._format_for_readability(sheet)
+        self._apply_missing_value_highlights(sheet)
 
         try:
             workbook.save(output)
@@ -98,6 +105,7 @@ class MinutesExcelWriter:
 
     def _rebuild_dynamic_area(self, sheet: Worksheet, minutes: MeetingMinutes) -> None:
         agenda_templates = self._capture_rows(sheet, 10, 14)
+        agenda_pending_template = self._capture_rows(sheet, 14, 14)[0]
         spacer_after_agenda = self._capture_rows(sheet, 25, 25)[0]
         todo_header_template = self._capture_rows(sheet, 26, 26)[0]
         todo_first_template = self._capture_rows(sheet, 27, 27)[0]
@@ -118,6 +126,8 @@ class MinutesExcelWriter:
             for offset, template in enumerate(agenda_templates):
                 self._apply_row_template(sheet, row + offset, template)
                 sheet.merge_cells(start_row=row + offset, start_column=3, end_row=row + offset, end_column=4)
+            self._apply_row_template(sheet, row + 5, agenda_pending_template)
+            sheet.merge_cells(start_row=row + 5, start_column=3, end_row=row + 5, end_column=4)
             self._write_agenda_block(sheet, row, agenda)
             row += self.AGENDA_BLOCK_HEIGHT
 
@@ -153,6 +163,8 @@ class MinutesExcelWriter:
 
         sheet.cell(row=row + 4, column=2).value = "決定事項"
         sheet.cell(row=row + 4, column=3).value = self._join_items(agenda.decisions)
+        sheet.cell(row=row + 5, column=2).value = "未決事項"
+        sheet.cell(row=row + 5, column=3).value = self._join_items(agenda.pending)
 
     def _write_todo_row(self, sheet: Worksheet, row: int, todo: TodoItem, previous_agenda: str | None) -> None:
         label = todo.agenda_label
@@ -169,13 +181,129 @@ class MinutesExcelWriter:
         date_time = minutes.next_meeting.date_time
         if minutes.next_meeting.note:
             date_time = f"{date_time}（{minutes.next_meeting.note}）" if date_time else minutes.next_meeting.note
-        sheet.cell(row=next_row + 1, column=2).value = f"日時：{date_time}" if date_time else "日時："
+        sheet.cell(row=next_row + 1, column=2).value = f"日時：{date_time}" if date_time else ""
         place = minutes.next_meeting.place
         if minutes.next_meeting.place_note:
             place = f"{place}（{minutes.next_meeting.place_note}）" if place else minutes.next_meeting.place_note
         sheet.cell(row=next_row + 2, column=2).value = (
-            f"場所：{place}" if place else "場所："
+            f"場所：{place}" if place else ""
         )
+
+    def _apply_missing_value_highlights(self, sheet: Worksheet) -> None:
+        yellow_fill = PatternFill(fill_type="solid", fgColor="FFF2CC")
+        ranges = [
+            "C4:C7",
+            f"C10:E{sheet.max_row}",
+            f"B{self._first_next_meeting_detail_row(sheet)}:B{self._last_next_meeting_detail_row(sheet)}",
+        ]
+        for cell_range in ranges:
+            start_cell = cell_range.split(":")[0]
+            sheet.conditional_formatting.add(
+                cell_range,
+                FormulaRule(formula=[f'LEN(TRIM({start_cell}&""))=0'], fill=yellow_fill),
+            )
+
+    def _first_next_meeting_detail_row(self, sheet: Worksheet) -> int:
+        next_row = self._find_next_meeting_row(sheet)
+        return (next_row + 1) if next_row else max(sheet.max_row, 1)
+
+    def _last_next_meeting_detail_row(self, sheet: Worksheet) -> int:
+        next_row = self._find_next_meeting_row(sheet)
+        return (next_row + 2) if next_row else max(sheet.max_row, 1)
+
+    def _write_summary(self, sheet: Worksheet, minutes: MeetingMinutes) -> None:
+        if not minutes.summary:
+            return
+        next_row = self._find_next_meeting_row(sheet)
+        if next_row is None:
+            start_row = sheet.max_row + 2
+        else:
+            start_row = next_row + 4
+
+        source_header = next_row if next_row else 40
+        source_body = next_row + 1 if next_row else 41
+        for row_number in range(start_row, start_row + 2):
+            source = source_header if row_number == start_row else source_body
+            template = self._capture_rows(sheet, source, source)[0]
+            self._apply_row_template(sheet, row_number, template)
+
+        sheet.cell(row=start_row, column=2).value = "【全体要約】"
+        sheet.cell(row=start_row + 1, column=2).value = self._join_items(minutes.summary)
+
+    def _format_for_readability(self, sheet: Worksheet) -> None:
+        widths = {
+            "A": 4,
+            "B": 24,
+            "C": 64,
+            "D": 18,
+            "E": 18,
+            "F": 4,
+        }
+        for column, width in widths.items():
+            sheet.column_dimensions[column].width = width
+
+        for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, min_col=1, max_col=5):
+            for cell in row:
+                if isinstance(cell, MergedCell):
+                    continue
+                cell.alignment = copy(cell.alignment)
+                cell.alignment = Alignment(
+                    horizontal=cell.alignment.horizontal,
+                    vertical=cell.alignment.vertical or "top",
+                    text_rotation=cell.alignment.text_rotation,
+                    wrap_text=True,
+                    shrink_to_fit=False,
+                    indent=cell.alignment.indent,
+                )
+
+        for row_number in range(1, sheet.max_row + 1):
+            height = self._estimate_row_height(sheet, row_number)
+            if height:
+                sheet.row_dimensions[row_number].height = height
+
+    def _estimate_row_height(self, sheet: Worksheet, row_number: int) -> float | None:
+        max_lines = 1
+        width_by_column = {
+            2: 24,
+            3: 64,
+            4: 18,
+            5: 18,
+        }
+        for column in range(2, 6):
+            cell = sheet.cell(row=row_number, column=column)
+            if isinstance(cell, MergedCell):
+                continue
+            value = cell.value
+            if value in (None, ""):
+                continue
+            text = str(value)
+            estimated_width = width_by_column.get(column, 16)
+            if column == 3 and self._is_merged_with_next_column(sheet, row_number, column):
+                estimated_width += width_by_column[4]
+            line_count = 0
+            for line in text.splitlines() or [""]:
+                line_count += max(1, ceil(self._display_length(line) / max(estimated_width, 1)))
+            max_lines = max(max_lines, line_count)
+
+        if max_lines <= 1:
+            return 22
+        return min(220, max(28, max_lines * 18))
+
+    def _display_length(self, text: str) -> int:
+        length = 0
+        for char in text:
+            length += 2 if ord(char) > 127 else 1
+        return length
+
+    def _is_merged_with_next_column(self, sheet: Worksheet, row_number: int, column: int) -> bool:
+        for merged_range in sheet.merged_cells.ranges:
+            if (
+                merged_range.min_row <= row_number <= merged_range.max_row
+                and merged_range.min_col == column
+                and merged_range.max_col >= column + 1
+            ):
+                return True
+        return False
 
     def _capture_rows(self, sheet: Worksheet, start: int, end: int) -> list[dict]:
         rows = []

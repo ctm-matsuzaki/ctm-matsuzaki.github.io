@@ -38,3 +38,4 @@ class MeetingMinutes:
     agendas: list[AgendaItem] = field(default_factory=list)
     todos: list[TodoItem] = field(default_factory=list)
     next_meeting: NextMeeting = field(default_factory=NextMeeting)
+    summary: list[str] = field(default_factory=list)

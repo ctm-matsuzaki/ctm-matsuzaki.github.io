@@ -7,7 +7,7 @@ from .models import AgendaItem, MeetingMinutes, NextMeeting, TodoItem
 
 
 AGENDA_MARKS = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
-SECTION_STOP_RE = re.compile(r"^(ToDo|ＴｏＤｏ|次回会議|次回日程|全体要約)\b")
+SECTION_STOP_RE = re.compile(r"^(ToDo|ＴｏＤｏ|次回会議|次回日程|全体要約|基本情報)\b")
 AGENDA_RE = re.compile(r"^議題\s*([①-⑳]|\d+|[０-９]+)[\s　:：]*(.*)$")
 SUBSECTION_NAMES = ("内容", "決定事項", "未決事項・継続検討事項", "未決事項", "継続検討事項")
 TODO_DUE_RE = re.compile(
@@ -27,7 +27,7 @@ ASSIGNEE_DUE_RE = re.compile(rf"^(?P<assignee>.+?)[\s　]+(?P<due>{DUE_WORD})$")
 
 
 class MinutesParseError(ValueError):
-    """Raised when pasted minutes text cannot be parsed into a useful structure."""
+    """Raised only when there is no text to process."""
 
 
 class MinutesParser:
@@ -40,7 +40,7 @@ class MinutesParser:
     def parse(self, text: str) -> MeetingMinutes:
         lines = self._normalize_lines(text)
         if not lines:
-            raise MinutesParseError("議事録の本文が空です。テキストを貼り付けてください。")
+            return MeetingMinutes()
 
         minutes = MeetingMinutes(
             meeting_name=self._find_basic_value(lines, "会議名"),
@@ -50,10 +50,11 @@ class MinutesParser:
             agendas=self._parse_agendas(lines),
             todos=self._parse_todos(lines),
             next_meeting=self._parse_next_meeting(lines),
+            summary=self._parse_summary(lines),
         )
 
         if not minutes.agendas:
-            raise MinutesParseError("議題が見つかりませんでした。「議題①」の形式で入力してください。")
+            minutes.agendas = [AgendaItem(number=1, title="", content=lines)]
         return minutes
 
     def _normalize_lines(self, text: str) -> list[str]:
@@ -66,9 +67,25 @@ class MinutesParser:
                 continue
             if re.fullmatch(r"\d+", line):
                 continue
+            line = self._clean_markdown_line(line)
             line = re.sub(r"^[・•\-●]\s*", "", line)
+            line = line.strip()
+            if not line:
+                continue
             lines.append(line)
         return lines
+
+    def _clean_markdown_line(self, line: str) -> str:
+        if line.startswith("|"):
+            return re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
+        line = re.sub(r"^#{1,6}\s*", "", line)
+        line = re.sub(r"\*\*(.*?)\*\*", r"\1", line)
+        line = re.sub(r"__(.*?)__", r"\1", line)
+        line = line.strip()
+        match = re.match(r"^(.+?)[\s　]*[:：][\s　]*(.*)$", line)
+        if match and match.group(1).strip() in {"会議名", "日時", "場所", "出席者"}:
+            return f"{match.group(1).strip()} {match.group(2).strip()}".strip()
+        return line
 
     def _find_basic_value(self, lines: list[str], label: str) -> str:
         for index, line in enumerate(lines):
@@ -80,11 +97,19 @@ class MinutesParser:
         return ""
 
     def _next_value(self, lines: list[str], index: int) -> str:
-        skip_labels = {"基本情報", *SUBSECTION_NAMES}
+        skip_labels = {"基本情報", "会議名", "日時", "場所", "出席者", *SUBSECTION_NAMES}
         for next_line in lines[index + 1 :]:
+            if self._is_section_heading(next_line):
+                return ""
             if next_line not in skip_labels:
                 return next_line
         return ""
+
+    def _is_section_heading(self, line: str) -> bool:
+        return bool(
+            AGENDA_RE.match(line)
+            or line in {"基本情報", "ToDo", "次回会議", "次回日程", "全体要約", *SUBSECTION_NAMES}
+        )
 
     def _parse_agendas(self, lines: list[str]) -> list[AgendaItem]:
         agendas: list[AgendaItem] = []
@@ -148,7 +173,13 @@ class MinutesParser:
                 end = index
                 break
 
-        rows = [line for line in lines[start + 1 : end] if line not in {"担当 期限 内容", "担当　期限　内容"}]
+        rows = [
+            line
+            for line in lines[start + 1 : end]
+            if line not in {"担当 期限 内容", "担当　期限　内容"}
+            and not self._is_markdown_todo_header(line)
+            and not self._is_markdown_separator_row(line)
+        ]
         return self._parse_todo_rows(rows)
 
     def _parse_todo_rows(self, rows: list[str]) -> list[TodoItem]:
@@ -218,7 +249,11 @@ class MinutesParser:
         return todos
 
     def _parse_single_todo_line(self, line: str) -> TodoItem | None:
+        if self._is_markdown_separator_row(line):
+            return None
         pipe_parts = [part.strip() for part in re.split(r"\s*\|\s*", line.strip("| ")) if part.strip()]
+        if len(pipe_parts) >= 3 and {"担当", "期限", "内容"}.issubset(set(pipe_parts[:3])):
+            return None
         if len(pipe_parts) >= 3:
             return TodoItem(assignee=pipe_parts[0], due_date=pipe_parts[1], content=" ".join(pipe_parts[2:]))
 
@@ -234,6 +269,14 @@ class MinutesParser:
                 content=match.group("content").strip(),
             )
         return None
+
+    def _is_markdown_separator_row(self, line: str) -> bool:
+        parts = [part.strip() for part in line.strip("| ").split("|") if part.strip()]
+        return bool(parts) and all(re.fullmatch(r":?-{3,}:?", part) for part in parts)
+
+    def _is_markdown_todo_header(self, line: str) -> bool:
+        parts = [part.strip() for part in line.strip("| ").split("|") if part.strip()]
+        return len(parts) >= 3 and parts[:3] == ["担当", "期限", "内容"]
 
     def _looks_like_name_fragment(self, line: str) -> bool:
         return bool(line) and not any(token in line for token in ("、", "。", "・", "を", "する", "確認", "整理"))
@@ -257,6 +300,12 @@ class MinutesParser:
             note=date_note,
             place_note=place_note,
         )
+
+    def _parse_summary(self, lines: list[str]) -> list[str]:
+        start = self._find_line_index(lines, {"全体要約"})
+        if start is None:
+            return []
+        return [line for line in lines[start + 1 :] if line and not line.startswith("※")]
 
     def _find_line_index(self, lines: list[str], candidates: set[str]) -> int | None:
         for index, line in enumerate(lines):
