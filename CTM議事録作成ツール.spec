@@ -17,6 +17,10 @@ a = Analysis(
             str(ROOT / "minutes_tool" / "resources" / "会議議事録テンプレ.xlsx"),
             "minutes_tool/resources",
         ),
+        (
+            str(ROOT / "minutes_tool" / "resources" / "会議議事録テンプレのコピー.xlsx"),
+            "minutes_tool/resources",
+        ),
     ],
     hiddenimports=[],
     hookspath=[],

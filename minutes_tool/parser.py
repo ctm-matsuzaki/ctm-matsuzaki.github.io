@@ -9,6 +9,7 @@ from .models import AgendaItem, MeetingMinutes, NextMeeting, TodoItem
 AGENDA_MARKS = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
 SECTION_STOP_RE = re.compile(r"^(ToDo|ＴｏＤｏ|次回会議|次回日程|全体要約|基本情報)\b")
 AGENDA_RE = re.compile(r"^議題\s*([①-⑳]|\d+|[０-９]+)[\s　:：]*(.*)$")
+SHORT_MEETING_LABELS = {"短い会議名", "短縮会議名", "会議名短縮", "会議名略称", "略称"}
 SUBSECTION_NAMES = ("内容", "決定事項", "未決事項・継続検討事項", "未決事項", "継続検討事項")
 TODO_DUE_RE = re.compile(
     r"^(?P<assignee>.+?)[\s　]+(?P<due>不明|未定|なし|"
@@ -44,6 +45,7 @@ class MinutesParser:
 
         minutes = MeetingMinutes(
             meeting_name=self._find_basic_value(lines, "会議名"),
+            short_meeting_name=self._find_first_basic_value(lines, SHORT_MEETING_LABELS),
             date_time=self._find_basic_value(lines, "日時"),
             place=self._find_basic_value(lines, "場所"),
             attendees=self._find_basic_value(lines, "出席者"),
@@ -83,9 +85,16 @@ class MinutesParser:
         line = re.sub(r"__(.*?)__", r"\1", line)
         line = line.strip()
         match = re.match(r"^(.+?)[\s　]*[:：][\s　]*(.*)$", line)
-        if match and match.group(1).strip() in {"会議名", "日時", "場所", "出席者"}:
+        if match and match.group(1).strip() in {"会議名", "日時", "場所", "出席者", *SHORT_MEETING_LABELS}:
             return f"{match.group(1).strip()} {match.group(2).strip()}".strip()
         return line
+
+    def _find_first_basic_value(self, lines: list[str], labels: set[str]) -> str:
+        for label in labels:
+            value = self._find_basic_value(lines, label)
+            if value:
+                return value
+        return ""
 
     def _find_basic_value(self, lines: list[str], label: str) -> str:
         for index, line in enumerate(lines):
@@ -97,7 +106,7 @@ class MinutesParser:
         return ""
 
     def _next_value(self, lines: list[str], index: int) -> str:
-        skip_labels = {"基本情報", "会議名", "日時", "場所", "出席者", *SUBSECTION_NAMES}
+        skip_labels = {"基本情報", "会議名", "日時", "場所", "出席者", *SHORT_MEETING_LABELS, *SUBSECTION_NAMES}
         for next_line in lines[index + 1 :]:
             if self._is_section_heading(next_line):
                 return ""
@@ -108,7 +117,7 @@ class MinutesParser:
     def _is_section_heading(self, line: str) -> bool:
         return bool(
             AGENDA_RE.match(line)
-            or line in {"基本情報", "ToDo", "次回会議", "次回日程", "全体要約", *SUBSECTION_NAMES}
+            or line in {"基本情報", "ToDo", "次回会議", "次回日程", "全体要約", *SHORT_MEETING_LABELS, *SUBSECTION_NAMES}
         )
 
     def _parse_agendas(self, lines: list[str]) -> list[AgendaItem]:
@@ -294,6 +303,8 @@ class MinutesParser:
         block = lines[start + 1 : end]
         date_time, date_note = self._find_value_with_notes(block, "日時")
         place, place_note = self._find_value_with_notes(block, "場所")
+        if not date_time and not place:
+            date_time, place = self._parse_next_meeting_inline(block)
         return NextMeeting(
             date_time=date_time,
             place=place,
@@ -305,7 +316,13 @@ class MinutesParser:
         start = self._find_line_index(lines, {"全体要約"})
         if start is None:
             return []
-        return [line for line in lines[start + 1 :] if line and not line.startswith("※")]
+        summary: list[str] = []
+        for line in lines[start + 1 :]:
+            if line.startswith(("議題", "ToDo", "次回会議", "次回日程", "基本情報")):
+                break
+            if line and not line.startswith("※"):
+                summary.append(line)
+        return summary
 
     def _find_line_index(self, lines: list[str], candidates: set[str]) -> int | None:
         for index, line in enumerate(lines):
@@ -332,4 +349,34 @@ class MinutesParser:
                 if next_line.startswith("※"):
                     notes.append(next_line)
             return value, " / ".join(notes)
+        return "", ""
+
+    def _parse_next_meeting_inline(self, lines: list[str]) -> tuple[str, str]:
+        for line in lines:
+            cleaned = line.strip()
+            if not cleaned or cleaned.startswith("※"):
+                continue
+            date_time = ""
+            place = ""
+
+            date_match = re.search(
+                r"(?:日時[：:\s　]*)?"
+                r"((?:\d{4}年)?\s*\d{1,2}月\s*\d{1,2}日"
+                r"(?:[（(][^)）]+[）)])?"
+                r"(?:[\s　]*\d{1,2}[:：]\d{2}(?:\s*[～〜-]\s*\d{1,2}[:：]\d{2})?)?)",
+                cleaned,
+            )
+            if date_match:
+                date_time = date_match.group(1).strip()
+
+            place_match = re.search(r"場所[：:\s　]*(.+)$", cleaned)
+            if place_match:
+                place = place_match.group(1).strip()
+            elif date_match:
+                tail = cleaned[date_match.end() :].strip("　 /、,")
+                if tail and not tail.startswith(("日時", "場所")):
+                    place = tail
+
+            if date_time or place:
+                return date_time, place
         return "", ""

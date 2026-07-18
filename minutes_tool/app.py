@@ -15,7 +15,7 @@ from .version import __version__
 
 
 class MinutesToolApp(tk.Tk):
-    TEMPLATE_FILENAME = "会議議事録テンプレ.xlsx"
+    TEMPLATE_FILENAME = "会議議事録テンプレのコピー.xlsx"
     COLOR_BG = "#1A1A1A"
     COLOR_TITLE = "#FFFFFF"
     COLOR_DESCRIPTION = "#DDDDDD"
@@ -180,7 +180,11 @@ class MinutesToolApp(tk.Tk):
             self.status.set("テンプレート選択をキャンセルしました。")
             return
 
-        default_name = build_output_filename(minutes.meeting_name, minutes.date_time)
+        default_name = build_output_filename(
+            minutes.meeting_name,
+            minutes.date_time,
+            short_meeting_name=minutes.short_meeting_name,
+        )
         output_path = filedialog.asksaveasfilename(
             title="Excelファイルの保存先を選択",
             defaultextension=".xlsx",
@@ -197,7 +201,7 @@ class MinutesToolApp(tk.Tk):
             messagebox.showerror(
                 "テンプレートエラー",
                 "Excelテンプレートが見つかりませんでした。\n"
-                "「会議議事録テンプレ.xlsx」を選択して、もう一度作成してください。",
+                "「会議議事録テンプレのコピー.xlsx」を選択して、もう一度作成してください。",
             )
             self.status.set("テンプレートが見つかりません。")
             return
@@ -251,7 +255,7 @@ class MinutesToolApp(tk.Tk):
         messagebox.showwarning(
             "テンプレート確認",
             "Excelテンプレートが見つかりません。\n"
-            "次の画面で「会議議事録テンプレ.xlsx」を選択してください。",
+            "次の画面で「会議議事録テンプレのコピー.xlsx」を選択してください。",
         )
         selected = filedialog.askopenfilename(
             title="Excelテンプレートを選択",

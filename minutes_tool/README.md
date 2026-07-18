@@ -24,7 +24,7 @@ WindowsとMacの両方で利用できます。
 - `excel_writer.py`: Excelテンプレートへの書き込み
 - `models.py`: データ定義
 - `version.py`: バージョン情報
-- `resources/会議議事録テンプレ.xlsx`: Excelテンプレート
+- `resources/会議議事録テンプレのコピー.xlsx`: Excelテンプレート
 - `resources/icon.icns`: Macアプリ用アイコン
 - `output/会議議事録サンプル_v1.0.0.xlsx`: 実議事録サンプルから作成した動作確認用Excel
 - `USER_GUIDE_A4.md`: 一般ユーザー向けのA4一枚程度の使い方
@@ -83,16 +83,16 @@ python run_minutes_tool.py
 
 ## テンプレートExcelが見つからない場合
 
-通常は `resources/会議議事録テンプレ.xlsx` を自動で読み込みます。
+通常は `resources/会議議事録テンプレのコピー.xlsx` を自動で読み込みます。
 
 もしテンプレートが見つからない場合は、Excelテンプレートを選択する画面が表示されます。
-その場合は、使用する `会議議事録テンプレ.xlsx` を選択してください。
+その場合は、使用する `会議議事録テンプレのコピー.xlsx` を選択してください。
 
 ## エラーが出た場合
 
 - `議事録テキストを貼り付けてください`: 入力欄が空です。
 - `一部の項目を自動判定できませんでした。黄色セルを確認してください。`: Excelは作成できます。黄色セルに不足情報を追記してください。
-- `Excelテンプレートが見つかりません`: テンプレート選択画面で `会議議事録テンプレ.xlsx` を選択してください。
+- `Excelテンプレートが見つかりません`: テンプレート選択画面で `会議議事録テンプレのコピー.xlsx` を選択してください。
 - `Excelファイルを保存できませんでした`: 同名ファイルをExcelで開いている場合は閉じてください。保存先フォルダの権限も確認してください。
 
 ## 入力テキストの想定フォーマット
@@ -149,7 +149,7 @@ pip install -r requirements.txt
 3. PyInstallerでexeを作成します。
 
 ```bat
-pyinstaller --onefile --windowed --name 議事録作成ツール --add-data "minutes_tool\resources\会議議事録テンプレ.xlsx;minutes_tool\resources" run_minutes_tool.py
+pyinstaller --onefile --windowed --name 議事録作成ツール --add-data "minutes_tool\resources\会議議事録テンプレのコピー.xlsx;minutes_tool\resources" run_minutes_tool.py
 ```
 
 4. 完成したexeを確認します。
@@ -203,7 +203,7 @@ Macのセキュリティ設定により初回起動できない場合は、Finde
 - アプリ名: `議事録作成ツール`
 - 起動方法: `.app` をダブルクリック
 - ターミナル表示: なし
-- 同梱ファイル: `minutes_tool/resources/会議議事録テンプレ.xlsx`
+- 同梱ファイル: `minutes_tool/resources/会議議事録テンプレのコピー.xlsx`
 - アイコン: `minutes_tool/resources/icon.icns` を使用します。アイコンを差し替える場合は、同じ場所に新しい `.icns` を保存してから再ビルドします。
 
 ### specを使わずに直接ビルドする場合
@@ -213,7 +213,7 @@ python3 -m PyInstaller \
   --windowed \
   --name "議事録作成ツール" \
   --icon "minutes_tool/resources/icon.icns" \
-  --add-data "minutes_tool/resources/会議議事録テンプレ.xlsx:minutes_tool/resources" \
+  --add-data "minutes_tool/resources/会議議事録テンプレのコピー.xlsx:minutes_tool/resources" \
   run_minutes_tool.py
 ```
 

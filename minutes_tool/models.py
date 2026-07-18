@@ -32,6 +32,7 @@ class NextMeeting:
 @dataclass
 class MeetingMinutes:
     meeting_name: str = ""
+    short_meeting_name: str = ""
     date_time: str = ""
     place: str = ""
     attendees: str = ""
