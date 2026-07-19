@@ -82,6 +82,11 @@
   font-weight:800;
 }
 
+#comparison .office-table thead th:nth-child(4){
+  background:#4f7f52;
+  color:#fff;
+}
+
 #comparison .office-table th:nth-child(4),
 #comparison .office-table td:nth-child(4){
   background:#f0f7f1;
