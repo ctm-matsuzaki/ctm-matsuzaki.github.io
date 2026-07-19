@@ -10,7 +10,9 @@ from openpyxl import load_workbook
 from openpyxl.cell.cell import MergedCell
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment
+from openpyxl.styles import Border
 from openpyxl.styles import PatternFill
+from openpyxl.styles import Side
 from openpyxl.utils.exceptions import InvalidFileException
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -29,7 +31,7 @@ class MinutesExcelWriter:
     """Write parsed minutes into the fixed CTM Excel template."""
 
     DYNAMIC_START_ROW = 14
-    DYNAMIC_END_ROW = 64
+    DYNAMIC_END_ROW = 70
     AGENDA_DECISION_ROWS = 5
     AGENDA_CONTENT_ROWS = 5
     TODO_MIN_ROWS = 1
@@ -143,6 +145,20 @@ class MinutesExcelWriter:
         spacer_after_todo = self._capture_rows(sheet, 61, 61)[0]
         next_header = self._capture_rows(sheet, 62, 62)[0]
         next_body = self._capture_rows(sheet, 63, 63)[0]
+        decision_bottom_sides = self._capture_bottom_sides(sheet, 29, 2, 5)
+        content_bottom_sides = self._capture_bottom_sides(sheet, 46, 2, 5)
+        todo_bottom_sides = self._capture_bottom_sides(sheet, 56, 2, 5)
+        todo_top_sides = self._capture_top_sides(sheet, 49, 2, 5)
+        todo_left_side = self._first_existing_side(
+            sheet.cell(row=48, column=2).border.left,
+            sheet.cell(row=48, column=2).border.right,
+            sheet.cell(row=48, column=3).border.left,
+        )
+        todo_right_side = self._first_existing_side(
+            sheet.cell(row=48, column=5).border.right,
+            sheet.cell(row=48, column=5).border.left,
+            sheet.cell(row=48, column=4).border.right,
+        )
 
         self._unmerge_rows(sheet, self.DYNAMIC_START_ROW, self.DYNAMIC_END_ROW)
         sheet.delete_rows(self.DYNAMIC_START_ROW, self.DYNAMIC_END_ROW - self.DYNAMIC_START_ROW + 1)
@@ -168,7 +184,10 @@ class MinutesExcelWriter:
         self._merge_if_unmerged(sheet, row, 3, row, 5)
         row += 1
         for agenda in agendas:
+            block_start = row
             row = self._write_decision_block(sheet, row, agenda, decision_body)
+            self._apply_bottom_sides(sheet, row - 1, decision_bottom_sides)
+            self._close_outer_vertical_sides(sheet, block_start, row - 1, left_col=2, right_col=5)
 
         self._apply_row_template(sheet, row, spacer_after_decision)
         row += 1
@@ -177,13 +196,18 @@ class MinutesExcelWriter:
         self._merge_if_unmerged(sheet, row, 3, row, 4)
         row += 1
         for agenda in agendas:
+            block_start = row
             row = self._write_content_block(sheet, row, agenda, content_body)
+            self._apply_bottom_sides(sheet, row - 1, content_bottom_sides)
+            self._close_outer_vertical_sides(sheet, block_start, row - 1, left_col=2, right_col=5)
 
         self._apply_row_template(sheet, row, spacer_after_content)
         row += 1
 
+        todo_header_row = row
         self._apply_row_template(sheet, row, todo_header)
         row += 1
+        todo_start_row = row
         previous_agenda = None
         for index, todo in enumerate(todos):
             template = todo_first if index == 0 else todo_body
@@ -192,6 +216,15 @@ class MinutesExcelWriter:
             self._missing_ranges.append(f"C{row}:E{row}")
             previous_agenda = todo.agenda_label or previous_agenda
             row += 1
+        self._apply_bottom_sides(sheet, row - 1, todo_bottom_sides)
+        self._close_todo_outer_border(
+            sheet,
+            header_row=todo_header_row,
+            end_row=row - 1,
+            top_sides=todo_top_sides,
+            left_side=todo_left_side,
+            right_side=todo_right_side,
+        )
 
         self._apply_row_template(sheet, row, spacer_after_todo)
         row += 1
@@ -389,6 +422,74 @@ class MinutesExcelWriter:
             cell.number_format = cell_template["number_format"]
             cell.protection = copy(cell_template["protection"])
             cell.value = cell_template["value"]
+
+    def _capture_bottom_sides(self, sheet: Worksheet, row_number: int, start_col: int, end_col: int) -> dict[int, object]:
+        return {
+            column: copy(sheet.cell(row=row_number, column=column).border.bottom)
+            for column in range(start_col, end_col + 1)
+        }
+
+    def _capture_top_sides(self, sheet: Worksheet, row_number: int, start_col: int, end_col: int) -> dict[int, object]:
+        return {
+            column: copy(sheet.cell(row=row_number, column=column).border.top)
+            for column in range(start_col, end_col + 1)
+        }
+
+    def _apply_bottom_sides(self, sheet: Worksheet, row_number: int, bottom_sides: dict[int, object]) -> None:
+        for column, bottom_side in bottom_sides.items():
+            cell = sheet.cell(row=row_number, column=column)
+            self._replace_border_sides(cell, bottom=bottom_side)
+
+    def _close_outer_vertical_sides(
+        self,
+        sheet: Worksheet,
+        start_row: int,
+        end_row: int,
+        left_col: int,
+        right_col: int,
+    ) -> None:
+        left_side = copy(sheet.cell(row=start_row, column=left_col).border.left)
+        right_side = copy(sheet.cell(row=start_row, column=right_col).border.right)
+        for row_number in range(start_row, end_row + 1):
+            self._replace_border_sides(sheet.cell(row=row_number, column=left_col), left=left_side)
+            self._replace_border_sides(sheet.cell(row=row_number, column=right_col), right=right_side)
+
+    def _close_todo_outer_border(
+        self,
+        sheet: Worksheet,
+        header_row: int,
+        end_row: int,
+        top_sides: dict[int, object],
+        left_side,
+        right_side,
+    ) -> None:
+        for column, top_side in top_sides.items():
+            self._replace_border_sides(sheet.cell(row=header_row, column=column), top=top_side)
+        for row_number in range(header_row, end_row + 1):
+            self._replace_border_sides(sheet.cell(row=row_number, column=2), left=left_side)
+            self._replace_border_sides(sheet.cell(row=row_number, column=5), right=right_side)
+
+    def _first_existing_side(self, *sides) -> Side:
+        for side in sides:
+            if side and side.style:
+                return copy(side)
+        return Side(style="thin", color="000000")
+
+    def _replace_border_sides(self, cell, left=None, right=None, top=None, bottom=None) -> None:
+        border = cell.border
+        cell.border = Border(
+            left=copy(left if left is not None else border.left),
+            right=copy(right if right is not None else border.right),
+            top=copy(top if top is not None else border.top),
+            bottom=copy(bottom if bottom is not None else border.bottom),
+            diagonal=copy(border.diagonal),
+            diagonal_direction=border.diagonal_direction,
+            diagonalUp=border.diagonalUp,
+            diagonalDown=border.diagonalDown,
+            outline=border.outline,
+            vertical=copy(border.vertical),
+            horizontal=copy(border.horizontal),
+        )
 
     def _unmerge_rows(self, sheet: Worksheet, start_row: int, end_row: int) -> None:
         for merged_range in list(sheet.merged_cells.ranges):

@@ -199,6 +199,159 @@ def test_template_can_be_loaded_after_write(tmp_path: Path) -> None:
         assert "table+xml" not in content_types
 
 
+def test_dynamic_borders_with_one_agenda_and_one_todo(tmp_path: Path) -> None:
+    _, output, sheet = _write(_dynamic_text(agenda_count=1, todo_count=1), tmp_path)
+
+    _assert_dynamic_block_borders(sheet, agenda_count=1, todo_count=1)
+    _assert_todo_outer_border(sheet, todo_count=1)
+    _assert_no_table_parts(output)
+
+
+def test_dynamic_borders_with_three_agendas_three_todos_and_pending(tmp_path: Path) -> None:
+    _, output, sheet = _write(_dynamic_text(agenda_count=3, todo_count=3, with_pending=True), tmp_path)
+
+    _assert_dynamic_block_borders(sheet, agenda_count=3, todo_count=3)
+    _assert_todo_outer_border(sheet, todo_count=3)
+    assert _row_containing(sheet, "未決事項・継続検討事項")
+    _assert_no_table_parts(output)
+
+
+def test_dynamic_borders_with_five_agendas_and_no_todos(tmp_path: Path) -> None:
+    _, output, sheet = _write(_dynamic_text(agenda_count=5, todo_count=0, with_pending=False), tmp_path)
+
+    _assert_dynamic_block_borders(sheet, agenda_count=5, todo_count=1)
+    _assert_todo_outer_border(sheet, todo_count=1)
+    _assert_no_table_parts(output)
+
+
+def _dynamic_text(agenda_count: int, todo_count: int, with_pending: bool = True) -> str:
+    agenda_parts = []
+    for index in range(1, agenda_count + 1):
+        pending = "未決事項は継続確認です。" if with_pending else "該当なし"
+        decision = "該当なし" if index == 1 else f"決定事項{index}を実施します。\n追加決定{index}を確認しました。"
+        content = "短い内容です。" if index == 1 else f"打合せ内容{index}です。\n複数行の内容{index}です。"
+        agenda_parts.append(
+            f"""
+# 議題{index} 議題タイトル{index}
+## 内容
+{content}
+## 決定事項
+{decision}
+## 未決事項・継続検討事項
+{pending}
+"""
+        )
+
+    if todo_count:
+        todo_rows = "\n".join(
+            f"| 担当{index} | 2026年7月{20 + index}日 | タスク{index}を対応する |"
+            for index in range(1, todo_count + 1)
+        )
+        todo_section = f"""
+# ToDo
+| 担当 | 期限 | 内容 |
+|---|---|---|
+{todo_rows}
+"""
+    else:
+        todo_section = """
+# ToDo
+該当なし
+"""
+
+    return f"""
+# 基本情報
+**会議名**
+罫線確認会議
+**日時**
+2026年7月16日 14:00～15:00
+**場所**
+オンライン
+**出席者**
+松崎さん、名倉さん
+
+# 全体要約
+全体要約の本文です。
+
+{''.join(agenda_parts)}
+{todo_section}
+# 次回会議
+日時：2026年7月30日（木）14:00～15:00　場所：オンライン
+"""
+
+
+def _assert_dynamic_block_borders(sheet, agenda_count: int, todo_count: int) -> None:
+    decision_start = _row_containing(sheet, "決定事項") + 1
+    content_start = _row_containing(sheet, "打合せ内容") + 1
+    todo_start = _row_containing(sheet, "ToDoタスク") + 1
+
+    for index in range(agenda_count):
+        decision_end = decision_start + ((index + 1) * 5) - 1
+        content_end = content_start + ((index + 1) * 5) - 1
+        _assert_bottom_styles(sheet, decision_end, range(2, 6), "medium")
+        _assert_bottom_styles(sheet, content_end, range(2, 6), "medium")
+        assert sheet.cell(decision_end, 2).border.left.style == "medium"
+        assert sheet.cell(decision_end, 5).border.right.style == "medium"
+        assert sheet.cell(content_end, 2).border.left.style == "medium"
+        assert sheet.cell(content_end, 5).border.right.style == "medium"
+
+    _assert_bottom_styles(sheet, todo_start + todo_count - 1, range(2, 6), "thin")
+
+    assert sheet.cell(decision_start, 3).border.right.style == "medium"
+    assert sheet.cell(content_start, 5).border.right.style == "medium"
+    if agenda_count:
+        assert sheet.cell(content_start + 1, 3).border.bottom.style == "dotted"
+    if todo_count > 1:
+        assert sheet.cell(todo_start, 3).border.bottom.style == "dotted"
+    assert any(str(merged_range).startswith(f"C{decision_start}:E{decision_start}") for merged_range in sheet.merged_cells.ranges)
+    assert any(str(merged_range).startswith(f"C{content_start}:D{content_start}") for merged_range in sheet.merged_cells.ranges)
+    assert len(sheet.conditional_formatting) > 0
+
+
+def _assert_todo_outer_border(sheet, todo_count: int) -> None:
+    header_row = _row_containing(sheet, "ToDoタスク")
+    first_body_row = header_row + 1
+    end_row = first_body_row + todo_count - 1
+
+    for column in range(2, 6):
+        assert sheet.cell(header_row, column).border.top.style == "medium"
+        assert sheet.cell(end_row, column).border.bottom.style == "thin"
+
+    for row in range(header_row, end_row + 1):
+        assert sheet.cell(row, 2).border.left.style == "thin"
+        assert sheet.cell(row, 5).border.right.style == "thin"
+
+    assert sheet.cell(header_row, 2).border.right.style == "thin"
+    assert sheet.cell(header_row, 3).border.left.style == "thin"
+    assert sheet.cell(header_row, 3).border.right.style == "thin"
+    assert sheet.cell(header_row, 4).border.right.style == "thin"
+    if todo_count > 1:
+        assert sheet.cell(first_body_row, 3).border.bottom.style == "dotted"
+        assert sheet.cell(first_body_row + 1, 3).border.bottom.style == "dotted"
+
+    spacer_row = end_row + 1
+    assert sheet.cell(spacer_row, 2).border.left.style is None
+    assert sheet.cell(spacer_row, 5).border.right.style is None
+
+
+def _assert_bottom_styles(sheet, row: int, columns, expected: str) -> None:
+    for column in columns:
+        assert sheet.cell(row=row, column=column).border.bottom.style == expected
+
+
+def _assert_no_table_parts(output: Path) -> None:
+    workbook = load_workbook(output)
+    assert len(workbook.active.tables) == 0
+    with ZipFile(output) as archive:
+        names = set(archive.namelist())
+        assert not [name for name in names if name.startswith("xl/tables/")]
+        for name in names:
+            if name.startswith("xl/worksheets/_rels/"):
+                rels = archive.read(name).decode("utf-8")
+                assert "relationships/table" not in rels
+                assert "table1.xml" not in rels
+
+
 def _row_containing(sheet, text: str) -> int:
     for row in sheet.iter_rows():
         for cell in row:
