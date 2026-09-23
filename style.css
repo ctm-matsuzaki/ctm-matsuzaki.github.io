@@ -12,6 +12,71 @@
   overflow:visible !important;
 }
 
+/* =========================
+   Step 5: Related paths and company facts
+   ========================= */
+.ctm-related-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:28px 0;
+}
+.ctm-related-links a,
+.cases-topic-links a{
+  color:var(--ctm-green);
+  font-weight:700;
+  text-underline-offset:4px;
+}
+.ctm-related-links a{
+  border:1px solid rgba(38,74,39,.25);
+  border-radius:10px;
+  padding:12px 18px;
+  text-decoration:none;
+  background:#fff;
+}
+.cases-topic-links{
+  padding:18px 0 8px;
+  background:#fff;
+}
+.cases-topic-links p{
+  margin:6px 0;
+}
+.ctm-company-overview{
+  padding:clamp(48px,7vw,80px) 0;
+  background:#fff;
+}
+.ctm-company-overview h2{
+  color:var(--ctm-green);
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+}
+.ctm-company-facts{
+  margin:28px 0;
+  border-top:1px solid #d9e1d9;
+}
+.ctm-company-facts div{
+  display:grid;
+  grid-template-columns:minmax(120px,25%) 1fr;
+  border-bottom:1px solid #d9e1d9;
+}
+.ctm-company-facts dt,
+.ctm-company-facts dd{
+  margin:0;
+  padding:14px 16px;
+}
+.ctm-company-facts dt{
+  color:var(--ctm-green);
+  font-weight:700;
+  background:#f3f7f3;
+}
+@media (max-width:640px){
+  .ctm-related-links{flex-direction:column;align-items:stretch;}
+  .ctm-related-links a{text-align:center;}
+  .ctm-company-facts div{grid-template-columns:34% 1fr;}
+  .ctm-company-facts dt,.ctm-company-facts dd{padding:12px 10px;overflow-wrap:anywhere;}
+}
+
 .ctm-logo img{
   content:url("images/ctm-logo-header.png");
   width:100% !important;

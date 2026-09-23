@@ -152,17 +152,49 @@ gtag('config', 'G-JB8M4CBSRM');
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "松崎忠将",
-    "jobTitle": "事務長代行・医療機関マネジメント支援",
-    "url": "https://ctm-matsuzaki.github.io/message.html",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Clinic Total Management (CTM)"
-    },
-    "sameAs": [
-      "https://www.amazon.co.jp/dp/B0FX8W8LBB",
-      "https://ctm-matsuzaki.github.io/"
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://ctm-matsuzaki.github.io/message.html",
+        "url": "https://ctm-matsuzaki.github.io/message.html",
+        "name": "代表挨拶 | CTM",
+        "inLanguage": "ja",
+        "isPartOf": {"@id":"https://ctm-matsuzaki.github.io/#website"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ctm-matsuzaki.github.io/message.html#breadcrumb",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"ホーム","item":"https://ctm-matsuzaki.github.io/"},
+          {"@type":"ListItem","position":2,"name":"代表挨拶","item":"https://ctm-matsuzaki.github.io/message.html"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ctm-matsuzaki.github.io/message.html#person",
+        "name": "松崎 忠将",
+        "jobTitle": "CTM代表",
+        "url": "https://ctm-matsuzaki.github.io/message.html",
+        "worksFor": {"@id":"https://ctm-matsuzaki.github.io/#organization"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ctm-matsuzaki.github.io/#organization",
+        "name": "CTM",
+        "alternateName": "Clinic Total Management",
+        "url": "https://ctm-matsuzaki.github.io/",
+        "logo": "https://ctm-matsuzaki.github.io/images/ctm-logo-header.png",
+        "description": "CTM（Clinic Total Management）は、クリニックを対象に、事務長代行・医療機関マネジメント支援を提供しています。院長の右腕として現場に入り、経営と現場、院長とスタッフをつなぎながら、持続可能なクリニック運営を支援します。",
+        "leader": {"@id":"https://ctm-matsuzaki.github.io/message.html#person"}
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://ctm-matsuzaki.github.io/#website",
+        "name":"CTM（Clinic Total Management）",
+        "url":"https://ctm-matsuzaki.github.io/",
+        "inLanguage":"ja",
+        "publisher":{"@id":"https://ctm-matsuzaki.github.io/#organization"}
+      }
     ]
   }
   </script>
@@ -271,6 +303,10 @@ gtag('config', 'G-JB8M4CBSRM');
           <p>4年間赤字経営が続いていたクリニックにおいて、インナーブランディング・組織改革・業務改善・医療DX推進を実施。スタッフの主体性向上と運営体制の再構築を行い、1年で黒字化を実現しました。</p>
         </article>
       </div>
+      <nav class="ctm-related-links" aria-label="代表者の支援内容と事例">
+        <a href="services.html">事務長代行サービスの内容を見る</a>
+        <a href="cases.html">導入事例・支援実績を見る</a>
+      </nav>
     </div>
 
     <div class="section">

@@ -78,7 +78,7 @@ gtag('config', 'G-JB8M4CBSRM');
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
+        "@type": "CollectionPage",
         "@id": "https://ctm-matsuzaki.github.io/cases.html",
         "url": "https://ctm-matsuzaki.github.io/cases.html",
         "name": "導入事例・支援実績｜CTM Clinic Total Management",
@@ -87,37 +87,45 @@ gtag('config', 'G-JB8M4CBSRM');
         "isPartOf": {"@id": "https://ctm-matsuzaki.github.io/#website"}
       },
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://ctm-matsuzaki.github.io/cases.html#breadcrumb",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"ホーム","item":"https://ctm-matsuzaki.github.io/"},
+          {"@type":"ListItem","position":2,"name":"導入事例","item":"https://ctm-matsuzaki.github.io/cases.html"}
+        ]
+      },
+      {
         "@type": "ItemList",
         "@id": "https://ctm-matsuzaki.github.io/cases.html#case-list",
         "name": "CTM 導入事例・支援実績",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"url":"https://ctm-matsuzaki.github.io/cases.html#case-01","name":"整形外科 医療法人への組織改革支援"},
-          {"@type":"ListItem","position":2,"url":"https://ctm-matsuzaki.github.io/cases.html#case-02","name":"多診療科医療法人への採用改革支援"},
-          {"@type":"ListItem","position":3,"url":"https://ctm-matsuzaki.github.io/cases.html#case-03","name":"整形外科クリニックの開業支援"},
-          {"@type":"ListItem","position":4,"url":"https://ctm-matsuzaki.github.io/cases.html#case-04","name":"整形外科クリニックの事務長代行支援"},
-          {"@type":"ListItem","position":5,"url":"https://ctm-matsuzaki.github.io/cases.html#case-05","name":"精神科クリニックの組織改革・地域連携支援"},
-          {"@type":"ListItem","position":6,"url":"https://ctm-matsuzaki.github.io/cases.html#case-06","name":"皮膚科クリニックの業務改善・情報発信支援"},
-          {"@type":"ListItem","position":7,"url":"https://ctm-matsuzaki.github.io/cases.html#case-07","name":"精神科クリニックの開業スポット支援"},
-          {"@type":"ListItem","position":8,"url":"https://ctm-matsuzaki.github.io/cases.html#case-08","name":"皮膚科医療法人への採用支援"}
+          {"@type":"ListItem","position":1,"url":"https://ctm-matsuzaki.github.io/cases.html#case-01","name":"院長依存の組織から、自走する組織への転換を支援"},
+          {"@type":"ListItem","position":2,"url":"https://ctm-matsuzaki.github.io/cases.html#case-02","name":"採用難と離職課題を改善し、安定した組織運営体制を構築"},
+          {"@type":"ListItem","position":3,"url":"https://ctm-matsuzaki.github.io/cases.html#case-03","name":"開業前から伴走し、スムーズなクリニック立ち上げを支援"},
+          {"@type":"ListItem","position":4,"url":"https://ctm-matsuzaki.github.io/cases.html#case-04","name":"院長の右腕として運営実務を支援し、診療に集中できる環境を構築"},
+          {"@type":"ListItem","position":5,"url":"https://ctm-matsuzaki.github.io/cases.html#case-05","name":"組織改革と地域連携強化により、持続可能なクリニック運営を実現"},
+          {"@type":"ListItem","position":6,"url":"https://ctm-matsuzaki.github.io/cases.html#case-06","name":"業務改善と情報発信強化により、安定したクリニック運営を支援"},
+          {"@type":"ListItem","position":7,"url":"https://ctm-matsuzaki.github.io/cases.html#case-07","name":"精神科クリニック開業に伴う行政手続き・施設基準届出を支援"},
+          {"@type":"ListItem","position":8,"url":"https://ctm-matsuzaki.github.io/cases.html#case-08","name":"採用体制を見直し、人材の質と定着率向上を支援"}
         ]
       },
       {
         "@type": "Organization",
-        "@id": "https://ctm-matsuzaki.github.io/#org",
-        "name": "Clinic Total Management (CTM)",
+        "@id": "https://ctm-matsuzaki.github.io/#organization",
+        "name": "CTM",
+        "alternateName": "Clinic Total Management",
         "url": "https://ctm-matsuzaki.github.io/",
-        "logo": "https://ctm-matsuzaki.github.io/images/8.jpeg",
-        "sameAs": [
-          "https://ctm-matsuzaki.github.io/",
-          "https://www.amazon.co.jp/dp/B0FX8W8LBB"
-        ]
+        "logo": "https://ctm-matsuzaki.github.io/images/ctm-logo-header.png",
+        "description": "CTM（Clinic Total Management）は、クリニックを対象に、事務長代行・医療機関マネジメント支援を提供しています。院長の右腕として現場に入り、経営と現場、院長とスタッフをつなぎながら、持続可能なクリニック運営を支援します。",
+        "leader": {"@type":"Person","@id":"https://ctm-matsuzaki.github.io/message.html#person","name":"松崎 忠将","jobTitle":"CTM代表"}
       },
       {
         "@type": "WebSite",
         "@id": "https://ctm-matsuzaki.github.io/#website",
         "name": "CTM（Clinic Total Management）",
         "url": "https://ctm-matsuzaki.github.io/",
-        "inLanguage": "ja"
+        "inLanguage": "ja",
+        "publisher": {"@id":"https://ctm-matsuzaki.github.io/#organization"}
       }
     ]
   }
@@ -167,7 +175,7 @@ gtag('config', 'G-JB8M4CBSRM');
   <main class="cases-main">
     <section class="office-hero">
       <div class="office-hero__image">
-        <img src="images/cases-hero.png" alt="導入事例・支援実績" width="1600" height="600">
+        <img src="images/cases-hero.jpg" alt="導入事例・支援実績" width="1600" height="1067">
       </div>
       <div class="office-hero__text">
         <nav class="site-breadcrumb site-breadcrumb--hero" aria-label="パンくずリスト">
@@ -189,6 +197,13 @@ gtag('config', 'G-JB8M4CBSRM');
         </div>
       </div>
     </section>
+
+    <nav class="cases-topic-links" aria-label="事務長代行の事例と関連情報">
+      <div class="cases-container">
+        <p><strong>事務長代行の事例：</strong> <a href="#case-01">組織運営</a>・<a href="#case-04">院長の右腕としての運営支援</a>・<a href="#case-06">業務改善</a></p>
+        <p><a href="services.html">CTMの事務長代行サービスを見る</a></p>
+      </div>
+    </nav>
 
     <section class="cases-list" aria-labelledby="cases-list-title">
       <div class="cases-container">
