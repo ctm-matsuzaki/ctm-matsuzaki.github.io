@@ -1,0 +1,44 @@
+/* Shared navigation: allow breathing room with the new column entry. */
+.ctm-header .ctm-container{width:92%;max-width:1440px;min-width:0}
+.ctm-nav ul{gap:clamp(10px,1.5vw,24px)}
+.ctm-nav a{white-space:nowrap}
+.ctm-drawer__panel{max-height:100dvh;overflow-y:auto}
+@media(max-width:1199.98px){.ctm-nav{display:none}.ctm-hamb{display:inline-block}.ctm-drawer{display:grid}.ctm-header .ctm-container{justify-content:space-between}}
+.column-main,.home-column{width:min(860px,calc(100% - 40px));margin-inline:auto;color:#264a27}
+.column-main{padding:100px 0 64px;font-size:17px;line-height:2}
+.column-main h1{font-size:clamp(27px,3.1vw,38px);line-height:1.6;letter-spacing:.03em;margin:22px 0 32px;text-align:left}
+.column-main h2{font-size:clamp(21px,2.3vw,26px);line-height:1.7;text-align:left;margin:0 0 18px}
+.column-main p{margin:0 0 24px}
+.column-main a,.home-column a{color:#264a27;text-underline-offset:4px}
+.column-crumb{font-size:13px;line-height:1.7;margin-bottom:24px}
+.column-crumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px 12px;margin:0;padding:0}
+.column-crumb li+li:before{content:"/";margin-right:12px;color:#758779}
+.column-table{border-collapse:collapse;width:100%;table-layout:fixed;margin:36px 0 44px;font-size:16px;line-height:1.8}
+.column-table caption{text-align:left;font-weight:700;margin-bottom:12px}
+.column-table th,.column-table td{padding:18px;border:1px solid #d2e0d7;vertical-align:top;text-align:left;overflow-wrap:anywhere}
+.column-table th:first-child{width:30%}.column-table thead{background:#264a27;color:#fff}.column-table tbody th{background:#eef7f1}
+.column-section{margin-top:38px}.column-ending{padding-top:28px;border-top:1px solid #d2e0d7;margin-top:38px!important}
+.column-related{border-top:1px solid #d2e0d7;margin-top:36px;padding-top:24px}.column-related h2{font-size:19px}.column-related ul{padding-left:22px}
+.home-column{width:min(1100px,92%);padding:44px 0}.home-column-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}.home-column-heading h2{font-size:28px;margin:0}
+.column-card{padding:24px 28px;background:#f3f8f4;border:1px solid #d2e0d7;border-radius:8px}.column-card h3{font-size:clamp(20px,2vw,25px);line-height:1.7;margin:8px 0 12px}.column-card h3 a{text-decoration:none}.column-card h3 a:hover{text-decoration:underline}.column-card p{line-height:1.9;margin:0 0 12px}.column-eyebrow{font-size:12px;letter-spacing:.08em;color:#52715e}.column-read{font-size:15px}.column-list{margin-top:42px}
+@media(max-width:600px){.column-main{font-size:16px;padding-top:86px}.column-table{font-size:14px}.column-table th,.column-table td{padding:12px 10px}.column-table th:first-child{width:34%}.column-card{padding:20px}.home-column-heading h2{font-size:25px}.home-column{padding:32px 0}}
+/* The glass header establishes a containing block; give its drawer viewport height. */
+.ctm-drawer{height:100dvh;bottom:auto;grid-template-rows:minmax(0,max-content) 1fr}
+#home-column-title{scroll-margin-top:90px}
+.column-main h1 span{display:block}
+
+/* Shared article image, explicitly presented as an illustration. */
+.column-hero-image,.column-thumbnail{margin:0}
+.column-hero-image{margin:0 0 30px}
+.column-hero-image img,.column-thumbnail img{display:block;width:100%;height:auto;border-radius:6px}
+.column-hero-image img{aspect-ratio:3/2;max-height:400px;object-fit:cover;object-position:center 58%}
+.column-hero-image figcaption,.column-thumbnail figcaption{font-size:12px;line-height:1.7;color:#53665a;margin-top:8px}
+.column-card--image{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+.column-card-content{min-width:0}
+@media(max-width:600px){.column-card--image{grid-template-columns:1fr;gap:16px}.column-thumbnail img{max-height:190px;object-fit:cover}.column-hero-image img{max-height:240px}.column-hero-image{margin-bottom:24px}}
+
+.column-card-link{text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
+.column-card-link:hover{border-color:#699b80;box-shadow:0 3px 12px rgba(38,74,39,.08)}
+.column-card-link:focus-visible{outline:3px solid #264a27;outline-offset:4px}
+.column-card-link .column-card-content>span:last-child{text-decoration:underline;text-underline-offset:4px;font-size:15px}
+.column-date{font-size:14px;color:#53665a}

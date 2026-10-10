@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JB8M4CBSRM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-JB8M4CBSRM');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事務長代行を選ぶ前に、院長が確認したい3つのこと | CTM</title><meta name="description" content="クリニックが事務長代行を検討する際に、業務範囲、現場への関わり方、院内との役割分担を短く整理。依頼前に使える比較表付き。">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://clinic-total-management.com/office-manager-outsourcing-checklist.html">
+<meta property="og:type" content="article"><meta property="og:title" content="事務長代行を選ぶ前に、院長が確認したい3つのこと | CTM"><meta property="og:description" content="クリニックが事務長代行を検討する際に、業務範囲、現場への関わり方、院内との役割分担を短く整理。依頼前に使える比較表付き。"><meta property="og:url" content="https://clinic-total-management.com/office-manager-outsourcing-checklist.html"><meta property="og:site_name" content="CTM（Clinic Total Management）"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://clinic-total-management.com/images/column-partner-choice-1440.webp">
+<meta property="og:image:alt" content="クリニックの打ち合わせ空間を表現したイメージ画像">
+<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="style.css"><style id="ctm-header-style">
+    :root{
+      --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
+      --ctm-ink:#264a27;
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
+
+    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
+    .ctm-header{
+      position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
+      height:var(--ctm-header-height);
+      --glass-alpha:.18;
+      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(38,74,39,.12);
+      display:flex; align-items:center;
+      transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+
+    .ctm-container{
+      width:var(--ctm-wrap); margin:0 auto;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-end; /* ロゴ無しなので右寄せ */
+    }
+    @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
+
+    .ctm-nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; gap:32px;               /* メニュー間隔広め */
+    }
+    .ctm-nav a{
+      display:inline-block; padding:10px 6px;
+      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
+      color:var(--ctm-ink); text-decoration:none;
+      text-underline-offset:4px;
+    }
+    .ctm-nav a[aria-current="page"]{ position:relative; }
+    .ctm-nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:6px;
+      height:2px; background:var(--ctm-ink); border-radius:2px;
+    }
+
+    /* ハンバーガー */
+    .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
+      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
+    }
+    .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* モバイルドロワー */
+    .ctm-drawer{
+      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
+      display:grid; grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
+      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
+    .ctm-drawer__panel{
+      position:relative; /* ×配置用 */
+      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      backdrop-filter: saturate(140%) blur(12px);
+      transform:translateY(-12px); opacity:.0;
+      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
+    .ctm-drawer nav{ padding:10px 16px 20px; }
+    .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
+    .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
+
+    /* ×ボタン */
+    .ctm-close{
+      position:absolute; top:6px; right:4px;
+      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+    }
+    .ctm-close::before,.ctm-close::after{
+      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+      background:var(--ctm-ink); border-radius:2px;
+    }
+    .ctm-close::before{ transform:rotate(45deg); }
+    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close:active{ transform:translateY(1px); }
+
+    /* 表示切替 */
+    @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+    @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
+
+    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    body{ padding-top: var(--ctm-header-height); }
+    */
+  </style><link rel="stylesheet" href="columns.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://clinic-total-management.com/office-manager-outsourcing-checklist.html",
+      "url": "https://clinic-total-management.com/office-manager-outsourcing-checklist.html",
+      "headline": "事務長代行を選ぶ前に、院長が確認したい3つのこと",
+      "description": "クリニックが事務長代行を検討する際に、業務範囲、現場への関わり方、院内との役割分担を短く整理。依頼前に使える比較表付き。",
+      "inLanguage": "ja",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CTM",
+        "url": "https://clinic-total-management.com/"
+      },
+      "datePublished": "2026-10-10",
+      "dateModified": "2026-10-10",
+      "mainEntityOfPage": "https://clinic-total-management.com/office-manager-outsourcing-checklist.html",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://clinic-total-management.com/images/column-partner-choice-1440.webp",
+        "width": 1440,
+        "height": 960,
+        "caption": "イメージ画像"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://clinic-total-management.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "コラム",
+          "item": "https://clinic-total-management.com/columns.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "事務長代行を選ぶ前に、院長が確認したい3つのこと",
+          "item": "https://clinic-total-management.com/office-manager-outsourcing-checklist.html"
+        }
+      ]
+    }
+  ]
+}
+</script></head><body class="page-column"><header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <a class="ctm-logo" href="index.html" aria-label="CTM ホーム">
+        <img src="images/ctm-logo-header.png" alt="CTM Clinic Total Management" width="1075" height="650">
+      </a>
+      <nav class="ctm-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+          <li><a href="index.html#price">料金</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+            <li><a href="index.html#price">料金</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+<main class="column-main"><nav class="column-crumb" aria-label="パンくず"><ol><li><a href="index.html">ホーム</a></li><li><a href="columns.html">コラム</a></li><li aria-current="page">事務長代行を選ぶ前に、院長が確認したい3つのこと</li></ol></nav><h1><span>事務長代行を選ぶ前に、</span><span>院長が確認したい3つのこと</span></h1><p class="column-date">公開日：<time datetime="2026-10-10">2026年10月10日</time></p><figure class="column-hero-image"><img src="images/column-partner-choice-960.webp" srcset="images/column-partner-choice-480.webp 480w, images/column-partner-choice-960.webp 960w, images/column-partner-choice-1440.webp 1440w" sizes="(max-width: 600px) calc(100vw - 40px), 860px" width="1536" height="1024" alt="クリニックの打ち合わせ空間を表現したイメージ画像" fetchpriority="high" decoding="async"><figcaption>イメージ画像</figcaption></figure><p>「事務長を置きたいが、常勤採用までは決められない」「外部に頼んだら、院内の仕事はどう変わるのか」。そんなとき、事務長代行は選択肢の一つになります。ただし、同じ名前のサービスでも、引き受ける仕事や現場への関わり方は異なります。</p><p>事務長代行とは、クリニックの事務長が担う業務の一部を、外部の担当者が契約で定めた範囲で支える方法です。相談前には、次の3点を確認しておくと、提案内容を比較しやすくなります。</p><table class="column-table"><caption>依頼前に確認したい3つのこと</caption><thead><tr><th scope="col">比較する項目</th><th scope="col">確認する質問</th></tr></thead><tbody><tr><th scope="row">業務範囲</th><td>「最初に何を担当し、何は対象外ですか？」</td></tr><tr><th scope="row">現場への関わり方</th><td>「訪問時と訪問のない日に、誰が何をしますか？」</td></tr><tr><th scope="row">院内との役割分担</th><td>「院長とスタッフには、どの仕事を残しますか？」</td></tr></tbody></table><section class="column-section"><h2>業務範囲：最初に何を任せたいか</h2><p>「経営全般の支援」だけでは、実際の作業は分かりません。採用が進まない、スタッフ間の役割が曖昧、業務改善が止まっているなど、まず困っている場面を一つか二つ挙げます。そのうえで、求人票の作成、会議の進行、課題の整理など、どの仕事を誰が行うのかを確認しましょう。対象外の業務も聞いておくと、開始後の行き違いを減らせます。</p></section><section class="column-section"><h2>現場への関わり方：訪問回数の先を見る</h2><p>訪問回数が同じでも、助言が中心の支援と、院内の会議やスタッフとの調整まで関わる支援では中身が違います。訪問時に誰と話し、何を決め、次回までに誰が動くのか。訪問のない日の連絡方法とあわせて確認します。「何回訪問するか」だけでなく、「訪問後に何が進むか」を比べることが大切です。</p></section><section class="column-section"><h2>役割分担：院長とスタッフの仕事はどう変わるか</h2><p>外部の担当者が入っても、診療や最終的な経営判断を代わりに行うわけではありません。院内に管理者がいる場合は、その人が続ける仕事と外部に任せる仕事を分けます。スタッフが相談先に迷わないよう、誰が提案し、誰が決め、誰が院内へ伝えるかを明確にしておきましょう。</p></section><p class="column-ending">事務長代行を選ぶ際は、料金だけで判断せず、業務範囲・現場への関わり方・役割分担を同じ条件で比べることが出発点です。まだ依頼する仕事が決まっていなければ、現在困っている場面を書き出すところから始めてみてください。</p><aside class="column-related" aria-label="関連ページ"><h2>関連ページ</h2><ul><li><a href="clinic-office-manager.html">クリニックの事務長とは</a></li><li><a href="services.html">事務長代行サービス</a></li></ul></aside></main><footer class="global-footer" role="contentinfo">
+    <nav class="global-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="clinic-office-manager.html">事務長とは</a>
+      <a href="services.html">サービス</a>
+      <a href="cases.html">導入事例</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_top_cta">お問い合わせ</a>
+    </nav>
+    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
+  </footer><script>
+    // フッター年号
+    (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+
+    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
+    (function(){
+      var btn    = document.querySelector('.ctm-hamb');
+      var drawer = document.getElementById('ctm-drawer');
+      var header = document.getElementById('ctm-header');
+
+      function toggle(open){
+        if(!btn || !drawer) return;
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      if(btn && drawer){
+        // ハンバーガーで開閉
+        btn.addEventListener('click', function(){
+          toggle(btn.getAttribute('aria-expanded')!=='true');
+        });
+        // 背景タップで閉じる
+        drawer.addEventListener('click', function(e){
+          if(e.target === drawer) toggle(false);
+        });
+        // ×ボタンで閉じる
+        var closeB = drawer.querySelector('.ctm-close');
+        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        // メニューリンクで閉じる
+        drawer.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ toggle(false); });
+        });
+        // Escキーで閉じる
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') toggle(false);
+        });
+      }
+
+      // スクロールでガラス濃度＆影
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
+    })();
+  </script>
+</body></html>
