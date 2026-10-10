@@ -1,0 +1,84 @@
+{
+  "schedule_timezone": "Asia/Tokyo",
+  "site": "https://clinic-total-management.com/",
+  "articles": [
+    {
+      "number": 2,
+      "due_date": "2026-10-13",
+      "slug": "base-up-evaluation-after-filing.html",
+      "title": "ベースアップ評価料は届出後も確認が必要｜診療所で見直したい3点",
+      "description": "令和8年度診療報酬改定後のベースアップ評価料について、診療所が届出後に確認したい受理内容と請求、賃金改善、報告書の3点を整理します。",
+      "image_alt": "机上の書類を二人で確認する場面",
+      "staged_page": ".github/column-queue/pages/base-up-evaluation-after-filing.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-02-480.webp",
+          "public_path": "images/ctm-column-02-480.webp",
+          "sha": "3a8fe80c1b9f2fc9bfdb3da3fa99fb4b15282351"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-02-960.webp",
+          "public_path": "images/ctm-column-02-960.webp",
+          "sha": "225d8769c4dc030d453e7f0a752ba417d01c41e6"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-02-1440.webp",
+          "public_path": "images/ctm-column-02-1440.webp",
+          "sha": "b578d2253fab3edda634003b465381d6c6ca0afc"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "due_date": "2026-10-20",
+      "slug": "electronic-prescription-preparation.html",
+      "title": "電子処方箋の導入前に、クリニックで決めておきたい3つのこと",
+      "description": "電子処方箋の導入を検討する診療所向けに、システム確認、申請手続き、院内の運用確認を3点に絞って整理します。",
+      "image_alt": "診察室で電子端末を見ながら運用を相談する場面",
+      "staged_page": ".github/column-queue/pages/electronic-prescription-preparation.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-03-480.webp",
+          "public_path": "images/ctm-column-03-480.webp",
+          "sha": "4b49d14ff23da1757b6d5700040c5b0d491c9fb5"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-03-960.webp",
+          "public_path": "images/ctm-column-03-960.webp",
+          "sha": "f1bd42db2929615b1c826747bd65027e3410574c"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-03-1440.webp",
+          "public_path": "images/ctm-column-03-1440.webp",
+          "sha": "ff6ad744ed55f27dfa6879bd4cb39e4f213d3019"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "due_date": "2026-10-27",
+      "slug": "medical-dx-filing-2026.html",
+      "title": "2026年の診療報酬改定で、クリニックの医療DX関連の届出はどう変わった？",
+      "description": "医療DX推進体制整備加算から新しい加算への変更を受け、クリニックが確認したい届出、設備・運用、レセプト請求の3点を整理します。",
+      "image_alt": "診療所の受付で端末を確認する場面",
+      "staged_page": ".github/column-queue/pages/medical-dx-filing-2026.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-04-480.webp",
+          "public_path": "images/ctm-column-04-480.webp",
+          "sha": "30ed31034e82664d9125a2d7968fa626903e21bc"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-04-960.webp",
+          "public_path": "images/ctm-column-04-960.webp",
+          "sha": "437492c4156359bb2d269230c95f8c0bcae54bbd"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-04-1440.webp",
+          "public_path": "images/ctm-column-04-1440.webp",
+          "sha": "2f7f2b743aff6c36ee6004b412970a4a395803a5"
+        }
+      ]
+    }
+  ]
+}
