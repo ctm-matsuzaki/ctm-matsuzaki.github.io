@@ -79,6 +79,12 @@ If multiple cards or sections belong to the same group, they should feel like pa
 
 ---
 
+## Column Image Labels
+
+- Do not add generic labels or captions such as 「イメージ画像」 to column images, including the home card, column list, and article page.
+- Use concise, descriptive alt text for accessibility without implying that a fictional scene shows an actual CTM office or client.
+- Keep image metadata accurate without generic image labels.
+
 ## AI Search & SEO
 
 Create pages that are easy for both people and AI search systems to understand.
