@@ -42,3 +42,6 @@
 .column-card-link:focus-visible{outline:3px solid #264a27;outline-offset:4px}
 .column-card-link .column-card-content>span:last-child{text-decoration:underline;text-underline-offset:4px;font-size:15px}
 .column-date{font-size:14px;color:#53665a}
+
+.home-column > .column-card + .column-card,
+.column-list > .column-card + .column-card{margin-top:18px}
