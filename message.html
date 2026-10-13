@@ -100,6 +100,14 @@ gtag('config', 'G-JB8M4CBSRM');
     .lead{ font-size: clamp(1rem,1.7vw,1.125rem); line-height:2; text-align:center; margin-bottom: clamp(28px,4vw,40px); }
     .body{ font-size: clamp(.95rem,1.6vw,1.05rem); line-height:2.1; text-align:left; }
     .name-img{ display:block; width: clamp(220px,28vw,360px); height:auto; margin: clamp(20px,4vw,36px) auto 0; }
+    .greeting-content{ width:min(900px,100%); margin:0 auto; display:grid; grid-template-columns: minmax(0,260px) minmax(0,1fr); gap:clamp(24px,4vw,42px); align-items:start; }
+    .greeting-photo{ margin:0; overflow:hidden; border-radius:8px; background:#f3f8f4; }
+    .greeting-photo img{ display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; }
+    .greeting-content .body{ width:auto; }
+    @media(max-width:700px){
+      .greeting-content{ grid-template-columns:1fr; gap:24px; }
+      .greeting-photo{ width:min(260px,80%); margin:0 auto; }
+    }
     .section{ padding: clamp(28px,5vw,56px) 0; border-top:1px solid rgba(0,0,0,.06); }
     .section:first-of-type{ border-top:none; }
     .achievements-intro{ margin-bottom: clamp(22px,3vw,32px); }
@@ -263,13 +271,18 @@ gtag('config', 'G-JB8M4CBSRM');
 
     <div class="section">
       <h2 class="subttl">ご挨拶</h2>
-      <p class="body">
+      <div class="greeting-content">
+        <figure class="greeting-photo">
+          <img src="images/representative-matsuzaki.webp" width="640" height="800" alt="CTM代表 松崎忠将" decoding="async">
+        </figure>
+        <p class="body">
         皆さま、こんにちは。Clinic Total Management（CTM）の松崎です。<br>
         これまで私は、整形外科や美容皮膚科など複数のクリニックにおいて、現場業務から経営改善まで幅広く携わってまいりました。<br>
         特に大切にしているのは、「院長の最大の理解者として、最高の2番手になること」です。<br><br>
         クリニック経営において、院長が医療に専念できる環境こそが、最良の医療サービス提供につながります。<br>
         そのために、私は現場出身者の“現場視点”を活かして、人事・財務・業務フロー・ブランディングなど、ソフト面と経営面の両面からサポートを行っています。
-      </p>
+        </p>
+      </div>
     </div>
 
     <div class="section" style="border-top:none;">

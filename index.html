@@ -52,16 +52,13 @@ gtag('config', 'G-JB8M4CBSRM');
     .ctm-header{
       position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
       height:var(--ctm-header-height);
-      --glass-alpha:.18;
-      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      backdrop-filter: saturate(140%) blur(10px);
+      background:#f5faf6;
       border-bottom:1px solid rgba(38,74,39,.12);
       display:flex; align-items:center;
       transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
       padding-top: env(safe-area-inset-top, 0px);
     }
-    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+    .ctm-header.is-scrolled{ box-shadow:0 6px 14px rgba(0,0,0,.08); }
 
     .ctm-container{
       width:var(--ctm-wrap); margin:0 auto;
