@@ -79,6 +79,32 @@
           "sha": "2f7f2b743aff6c36ee6004b412970a4a395803a5"
         }
       ]
+    },
+    {
+      "number": 5,
+      "due_date": "2026-11-03",
+      "slug": "clinic-reception-workflow.html",
+      "title": "受付・医療事務の仕事を一人に集中させない｜クリニックで始める3つの手順",
+      "description": "受付・医療事務の仕事が特定の人に集中している診療所へ。業務の洗い出し、判断と相談先の共有、代替できるかの確認を3つの手順で整理します。",
+      "image_alt": "クリニックの受付で業務手順を一緒に確認するスタッフ",
+      "staged_page": ".github/column-queue/pages/clinic-reception-workflow.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-05-480.webp",
+          "public_path": "images/ctm-column-05-480.webp",
+          "sha": "d8f5002ac6cb675aa960385902b4535e6339ff74"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-05-960.webp",
+          "public_path": "images/ctm-column-05-960.webp",
+          "sha": "1b698951f99a6c8abc413102c53b3eac48e45076"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-05-1440.webp",
+          "public_path": "images/ctm-column-05-1440.webp",
+          "sha": "489ac4ecdb9b9a631f85fa827f15e45acfaa599c"
+        }
+      ]
     }
   ]
 }
