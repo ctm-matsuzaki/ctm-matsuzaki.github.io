@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JB8M4CBSRM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-JB8M4CBSRM');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか | CTM</title><meta name="description" content="内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html">
+<meta property="og:type" content="article"><meta property="og:title" content="内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか | CTM"><meta property="og:description" content="内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。"><meta property="og:url" content="https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html"><meta property="og:site_name" content="CTM（Clinic Total Management）"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://clinic-total-management.com/images/ctm-column-15-1440.webp">
+<meta property="og:image:alt" content="内科の予約方法を確認する場面">
+<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="style.css"><style id="ctm-header-style">
+    :root{
+      --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
+      --ctm-ink:#264a27;
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
+
+    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
+    .ctm-header{
+      position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
+      height:var(--ctm-header-height);
+      --glass-alpha:.18;
+      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(38,74,39,.12);
+      display:flex; align-items:center;
+      transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+
+    .ctm-container{
+      width:var(--ctm-wrap); margin:0 auto;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-end; /* ロゴ無しなので右寄せ */
+    }
+    @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
+
+    .ctm-nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; gap:32px;               /* メニュー間隔広め */
+    }
+    .ctm-nav a{
+      display:inline-block; padding:10px 6px;
+      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
+      color:var(--ctm-ink); text-decoration:none;
+      text-underline-offset:4px;
+    }
+    .ctm-nav a[aria-current="page"]{ position:relative; }
+    .ctm-nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:6px;
+      height:2px; background:var(--ctm-ink); border-radius:2px;
+    }
+
+    /* ハンバーガー */
+    .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
+      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
+    }
+    .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* モバイルドロワー */
+    .ctm-drawer{
+      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
+      display:grid; grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
+      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
+    .ctm-drawer__panel{
+      position:relative; /* ×配置用 */
+      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      backdrop-filter: saturate(140%) blur(12px);
+      transform:translateY(-12px); opacity:.0;
+      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
+    .ctm-drawer nav{ padding:10px 16px 20px; }
+    .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
+    .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
+
+    /* ×ボタン */
+    .ctm-close{
+      position:absolute; top:6px; right:4px;
+      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+    }
+    .ctm-close::before,.ctm-close::after{
+      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+      background:var(--ctm-ink); border-radius:2px;
+    }
+    .ctm-close::before{ transform:rotate(45deg); }
+    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close:active{ transform:translateY(1px); }
+
+    /* 表示切替 */
+    @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+    @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
+
+    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    body{ padding-top: var(--ctm-header-height); }
+    */
+  </style><link rel="stylesheet" href="columns.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html",
+      "url": "https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html",
+      "headline": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
+      "description": "内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。",
+      "inLanguage": "ja",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CTM",
+        "url": "https://clinic-total-management.com/"
+      },
+      "datePublished": "2026-12-18",
+      "dateModified": "2026-12-18",
+      "mainEntityOfPage": "https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://clinic-total-management.com/images/ctm-column-15-1440.webp",
+        "width": 1440,
+        "height": 960
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://clinic-total-management.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "コラム",
+          "item": "https://clinic-total-management.com/columns.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
+          "item": "https://clinic-total-management.com/internal-medicine-fever-appointment-guidance.html"
+        }
+      ]
+    }
+  ]
+}
+</script></head><body class="page-column"><header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <a class="ctm-logo" href="index.html" aria-label="CTM ホーム">
+        <img src="images/ctm-logo-header.png" alt="CTM Clinic Total Management" width="1075" height="650">
+      </a>
+      <nav class="ctm-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+          <li><a href="index.html#price">料金</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+            <li><a href="index.html#price">料金</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+<main class="column-main"><nav class="column-crumb" aria-label="パンくず"><ol><li><a href="index.html">ホーム</a></li><li><a href="columns.html">コラム</a></li><li aria-current="page">内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか</li></ol></nav><h1>内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか</h1><p class="column-date">公開日：<time datetime="2026-12-18">2026年12月18日</time></p><figure class="column-hero-image"><img src="images/ctm-column-15-960.webp" srcset="images/ctm-column-15-480.webp 480w, images/ctm-column-15-960.webp 960w, images/ctm-column-15-1440.webp 1440w" sizes="(max-width: 600px) calc(100vw - 40px), 860px" width="1440" height="960" alt="内科の予約方法を確認する場面" fetchpriority="high" decoding="async"></figure><p>内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際の受け入れ方法を確かめ、それを同じ言葉で伝えることが大切です。</p>
+<h2>1．症状ごとの連絡方法を一か所にまとめる</h2>
+<p>「発熱外来はこちら」と書くだけでなく、発熱以外のせきや喉の痛みも対象なのか、いつからの症状について連絡してほしいのか、電話とWeb予約のどちらを使うのかを明示します。予約なしで受け入れる院、事前連絡を求める院など運用は異なるため、他院の基準をそのまま写さず、院長と看護側に確認した内容だけを掲載します。</p>
+<p>通常診療を希望する患者さんにも分かるよう、予約画面の入口を分ける場合は選び方を短く説明します。厚生労働省は発熱などで受診を希望するとき、緊急の場合を除き、直接受診する前にかかりつけ医や外来対応医療機関に相談する案内を掲載しています。一方、実際の予約方法は院ごとに違います。</p>
+<h2>2．連絡後から来院までの流れを書く</h2>
+<p>連絡時に確認する項目、来院時間を知らせる方法、到着後にどこで受付するかを一続きで示します。一般の患者さんと時間や動線を分けている場合は、その案内を予約完了画面、確認メール、ホームページでもそろえます。実際には別入口がないのに「専用入口」と書くようなことは避けます。</p>
+<p>電話がつながらない場合や当日の枠が埋まった場合も、患者さんが次に何をすればよいか分かる案内が必要です。対応可能な時間、Webで予約できる範囲、受け入れの可否を判断する担当を院内で決めておきます。受付が症状だけで医学的な緊急度を判断するのではなく、判断に迷う内容は医療職へ速やかにつなぐ手順を用意します。</p>
+<h2>3．院内の運用が変わったら表示も同日に直す</h2>
+<p>季節や人員配置によって枠や受付時間が変わる院では、ホームページ、予約システム、電話での説明、院内掲示が食い違いやすくなります。変更を決めたときは、掲載先と担当者を一覧にして、更新漏れを確認します。特に休診前後は古い案内が残りやすいため、公開日時と更新日も点検します。</p>
+<p>ある内科クリニックは通常診療と発熱相談の入口を分け、別の院は事前連絡と来院時の動線を具体的に説明しています。どちらか一つが正解という意味ではありません。患者さんが「どの方法で連絡し、いつ、どこへ行くか」を迷わず確認できることが、院内の運用に合った案内の目安です。</p>
+<p>まず院の電話案内と予約画面を、初めて受診する人の目線で並べて確認してください。入口、連絡方法、来院後の案内の三つが一致しているかを見るだけでも、直す場所を見つけやすくなります。</p><section class="column-section"><h2>参考資料</h2><ul><li><a href="https://www.mhlw.go.jp/stf/covid-19/kenkou-iryousoudan.html">厚生労働省「感染対策・健康や医療相談の情報」</a></li></ul></section><aside class="column-related" aria-label="関連ページ"><h2>関連ページ</h2><ul><li><a href="columns.html">コラム一覧</a></li><li><a href="services.html">事務長代行サービス</a></li></ul></aside></main><footer class="global-footer" role="contentinfo">
+    <nav class="global-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="clinic-office-manager.html">事務長とは</a>
+      <a href="services.html">サービス</a>
+      <a href="cases.html">導入事例</a>
+      <a href="columns.html">コラム</a>
+      <a href="index.html#price">料金</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_top_cta">お問い合わせ</a>
+    </nav>
+    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
+  </footer><script>
+    // フッター年号
+    (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+
+    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
+    (function(){
+      var btn    = document.querySelector('.ctm-hamb');
+      var drawer = document.getElementById('ctm-drawer');
+      var header = document.getElementById('ctm-header');
+
+      function toggle(open){
+        if(!btn || !drawer) return;
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      if(btn && drawer){
+        // ハンバーガーで開閉
+        btn.addEventListener('click', function(){
+          toggle(btn.getAttribute('aria-expanded')!=='true');
+        });
+        // 背景タップで閉じる
+        drawer.addEventListener('click', function(e){
+          if(e.target === drawer) toggle(false);
+        });
+        // ×ボタンで閉じる
+        var closeB = drawer.querySelector('.ctm-close');
+        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        // メニューリンクで閉じる
+        drawer.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ toggle(false); });
+        });
+        // Escキーで閉じる
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') toggle(false);
+        });
+      }
+
+      // スクロールでガラス濃度＆影
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
+    })();
+  </script>
+</body></html>

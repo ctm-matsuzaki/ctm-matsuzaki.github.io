@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JB8M4CBSRM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-JB8M4CBSRM');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スタッフから改善提案が出ないとき、院内で見直したいこと | CTM</title><meta name="description" content="「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://clinic-total-management.com/clinic-staff-improvement-proposals.html">
+<meta property="og:type" content="article"><meta property="og:title" content="スタッフから改善提案が出ないとき、院内で見直したいこと | CTM"><meta property="og:description" content="「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。"><meta property="og:url" content="https://clinic-total-management.com/clinic-staff-improvement-proposals.html"><meta property="og:site_name" content="CTM（Clinic Total Management）"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://clinic-total-management.com/images/ctm-column-11-1440.webp">
+<meta property="og:image:alt" content="スタッフが院内の改善を相談する場面">
+<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="style.css"><style id="ctm-header-style">
+    :root{
+      --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
+      --ctm-ink:#264a27;
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
+
+    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
+    .ctm-header{
+      position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
+      height:var(--ctm-header-height);
+      --glass-alpha:.18;
+      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(38,74,39,.12);
+      display:flex; align-items:center;
+      transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+
+    .ctm-container{
+      width:var(--ctm-wrap); margin:0 auto;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-end; /* ロゴ無しなので右寄せ */
+    }
+    @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
+
+    .ctm-nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; gap:32px;               /* メニュー間隔広め */
+    }
+    .ctm-nav a{
+      display:inline-block; padding:10px 6px;
+      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
+      color:var(--ctm-ink); text-decoration:none;
+      text-underline-offset:4px;
+    }
+    .ctm-nav a[aria-current="page"]{ position:relative; }
+    .ctm-nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:6px;
+      height:2px; background:var(--ctm-ink); border-radius:2px;
+    }
+
+    /* ハンバーガー */
+    .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
+      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
+    }
+    .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* モバイルドロワー */
+    .ctm-drawer{
+      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
+      display:grid; grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
+      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
+    .ctm-drawer__panel{
+      position:relative; /* ×配置用 */
+      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      backdrop-filter: saturate(140%) blur(12px);
+      transform:translateY(-12px); opacity:.0;
+      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
+    .ctm-drawer nav{ padding:10px 16px 20px; }
+    .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
+    .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
+
+    /* ×ボタン */
+    .ctm-close{
+      position:absolute; top:6px; right:4px;
+      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+    }
+    .ctm-close::before,.ctm-close::after{
+      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+      background:var(--ctm-ink); border-radius:2px;
+    }
+    .ctm-close::before{ transform:rotate(45deg); }
+    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close:active{ transform:translateY(1px); }
+
+    /* 表示切替 */
+    @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+    @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
+
+    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    body{ padding-top: var(--ctm-header-height); }
+    */
+  </style><link rel="stylesheet" href="columns.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://clinic-total-management.com/clinic-staff-improvement-proposals.html",
+      "url": "https://clinic-total-management.com/clinic-staff-improvement-proposals.html",
+      "headline": "スタッフから改善提案が出ないとき、院内で見直したいこと",
+      "description": "「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。",
+      "inLanguage": "ja",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CTM",
+        "url": "https://clinic-total-management.com/"
+      },
+      "datePublished": "2026-12-15",
+      "dateModified": "2026-12-15",
+      "mainEntityOfPage": "https://clinic-total-management.com/clinic-staff-improvement-proposals.html",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://clinic-total-management.com/images/ctm-column-11-1440.webp",
+        "width": 1440,
+        "height": 960
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://clinic-total-management.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "コラム",
+          "item": "https://clinic-total-management.com/columns.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "スタッフから改善提案が出ないとき、院内で見直したいこと",
+          "item": "https://clinic-total-management.com/clinic-staff-improvement-proposals.html"
+        }
+      ]
+    }
+  ]
+}
+</script></head><body class="page-column"><header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <a class="ctm-logo" href="index.html" aria-label="CTM ホーム">
+        <img src="images/ctm-logo-header.png" alt="CTM Clinic Total Management" width="1075" height="650">
+      </a>
+      <nav class="ctm-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+          <li><a href="index.html#price">料金</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+            <li><a href="index.html#price">料金</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+<main class="column-main"><nav class="column-crumb" aria-label="パンくず"><ol><li><a href="index.html">ホーム</a></li><li><a href="columns.html">コラム</a></li><li aria-current="page">スタッフから改善提案が出ないとき、院内で見直したいこと</li></ol></nav><h1>スタッフから改善提案が出ないとき、院内で見直したいこと</h1><p class="column-date">公開日：<time datetime="2026-12-15">2026年12月15日</time></p><figure class="column-hero-image"><img src="images/ctm-column-11-960.webp" srcset="images/ctm-column-11-480.webp 480w, images/ctm-column-11-960.webp 960w, images/ctm-column-11-1440.webp 1440w" sizes="(max-width: 600px) calc(100vw - 40px), 860px" width="1440" height="960" alt="スタッフが院内の改善を相談する場面" fetchpriority="high" decoding="async"></figure><p>「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。</p>
+<h2>1．大きな提案を求めない</h2>
+<p>受付で繰り返し説明していること、診察室と案内が食い違うこと、手順を探すのに時間がかかることなど、日々の「少し困る」を集めます。匿名の箱だけに頼らず、短い定例の場で具体的な場面を聞く方法もあります。患者さんの氏名や診療情報は共有メモに書かず、課題の種類だけを残します。</p>
+<h2>2．採用しない案にも返事をする</h2>
+<p>提案を受けた人が、すぐ実施するもの、追加確認するもの、今は実施できないものに分け、理由を伝えます。返事がないままになると、現場は次の案を出しにくくなります。院長の判断が必要なことは、誰がいつ確認するかまで示します。</p>
+<h2>3．小さく試し、結果を共有する</h2>
+<p>案内文や引き継ぎ方法など、戻せる変更を一定期間試します。患者さんへの影響とスタッフの負担を確かめ、続けるか直すかを決めます。厚生労働省が示す医療勤務環境改善も、現状把握、課題整理、実施、評価を繰り返す考え方です。</p>
+<h2>意見が出ないときの聞き方を変える</h2>
+<p>全体会議で突然「改善案は？」と聞かれても、その場では思い浮かばないものです。まずは「この一週間で患者さんへ同じ説明を何回もした場面は？」「引き継ぎで探し物をしたのは？」のように、実際の場面を聞きます。特定の職員への不満が混ざった場合は、その人を責める議論にせず、仕事の流れと必要な情報を整理します。</p>
+<p>提案の受付先を一人に固定すると、その人との関係によって話しにくいこともあります。直属の責任者に相談しづらい内容は別の相談経路を設け、誰が見られる記録なのかも明らかにします。匿名で集める場合でも少人数の職場では投稿者が推測される可能性があるため、内容の共有範囲を慎重に決めます。</p>
+<p>試行するときは、患者さんへの案内や診療の安全に影響するかを先に確認します。例えば書類の置き場所を変えるなら、困っていた人だけでなく、後工程を担当する人にも知らせます。二週間後に「時間が短くなったか」「別の負担が増えなかったか」を聞き、採用、修正、元に戻すのいずれかを決めます。結果まで知らせることで、次の提案が出やすくなります。</p>
+<p>最初は一つの困りごとを選び、二週間後に「変えてどうだったか」を同じメンバーで確認してみてください。</p><section class="column-section"><h2>参考資料</h2><ul><li><a href="https://iryou-kinmukankyou.mhlw.go.jp/outline/">いきいき働く医療機関サポートWeb「勤務環境改善マネジメントシステム」</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/quality/index.html">厚生労働省「医療従事者の勤務環境の改善について」</a></li></ul></section><aside class="column-related" aria-label="関連ページ"><h2>関連ページ</h2><ul><li><a href="columns.html">コラム一覧</a></li><li><a href="services.html">事務長代行サービス</a></li></ul></aside></main><footer class="global-footer" role="contentinfo">
+    <nav class="global-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="clinic-office-manager.html">事務長とは</a>
+      <a href="services.html">サービス</a>
+      <a href="cases.html">導入事例</a>
+      <a href="columns.html">コラム</a>
+      <a href="index.html#price">料金</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_top_cta">お問い合わせ</a>
+    </nav>
+    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
+  </footer><script>
+    // フッター年号
+    (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+
+    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
+    (function(){
+      var btn    = document.querySelector('.ctm-hamb');
+      var drawer = document.getElementById('ctm-drawer');
+      var header = document.getElementById('ctm-header');
+
+      function toggle(open){
+        if(!btn || !drawer) return;
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      if(btn && drawer){
+        // ハンバーガーで開閉
+        btn.addEventListener('click', function(){
+          toggle(btn.getAttribute('aria-expanded')!=='true');
+        });
+        // 背景タップで閉じる
+        drawer.addEventListener('click', function(e){
+          if(e.target === drawer) toggle(false);
+        });
+        // ×ボタンで閉じる
+        var closeB = drawer.querySelector('.ctm-close');
+        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        // メニューリンクで閉じる
+        drawer.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ toggle(false); });
+        });
+        // Escキーで閉じる
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') toggle(false);
+        });
+      }
+
+      // スクロールでガラス濃度＆影
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
+    })();
+  </script>
+</body></html>

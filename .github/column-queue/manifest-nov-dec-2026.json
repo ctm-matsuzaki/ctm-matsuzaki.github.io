@@ -1,0 +1,266 @@
+{
+  "schedule_timezone": "Asia/Tokyo",
+  "site": "https://clinic-total-management.com/",
+  "articles": [
+    {
+      "number": 6,
+      "due_date": "2026-11-10",
+      "slug": "medical-office-recruitment-applications.html",
+      "title": "医療事務の求人に応募が来ないとき、募集内容のどこを見直すか",
+      "description": "医療事務の求人を出しても応募が少ないと、給与や掲載媒体をすぐ変えたくなるかもしれません。ただ、先に見直したいのは、求職者が「入職後の一日」を想像できる内容になっているかです。条件だけが並ぶ求人では、実際に何を担当し、誰と働くのかが。",
+      "image_alt": "医療事務の求人内容を見直すスタッフ",
+      "staged_page": ".github/column-queue/pages/medical-office-recruitment-applications.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-06-480.webp",
+          "public_path": "images/ctm-column-06-480.webp",
+          "sha": "38c50538fd928b9b63a0bbc187bccf134848b98f"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-06-960.webp",
+          "public_path": "images/ctm-column-06-960.webp",
+          "sha": "291bf8e56a14097c97947f53eaf35075f7d5ebdd"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-06-1440.webp",
+          "public_path": "images/ctm-column-06-1440.webp",
+          "sha": "83b2c6537e0ccb029fcf75c8b84b9ab559d498fe"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "due_date": "2026-11-17",
+      "slug": "clinic-recruitment-interview.html",
+      "title": "クリニックの採用面接で、経験以外に何を確認するか",
+      "description": "医療事務の採用面接で「レセプト経験があるか」だけを確認しても、入職後の働き方まで一致するとは限りません。仕事の範囲、勤務できる曜日、患者さんへの対応で困ったときの相談方法などを、候補者と院側の双方で具体的に確かめることが大切です。",
+      "image_alt": "採用面接で仕事の進め方を確認する場面",
+      "staged_page": ".github/column-queue/pages/clinic-recruitment-interview.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-07-480.webp",
+          "public_path": "images/ctm-column-07-480.webp",
+          "sha": "729adc90eda731ca2e07a9bb52e5dbfc10b5e971"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-07-960.webp",
+          "public_path": "images/ctm-column-07-960.webp",
+          "sha": "cccd397937d5e745fcf845d785a9c18fee54f8d7"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-07-1440.webp",
+          "public_path": "images/ctm-column-07-1440.webp",
+          "sha": "d2ffd9fdbc5d13852cc3419aa35266e8dc37a695"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "due_date": "2026-11-24",
+      "slug": "medical-office-onboarding-first-month.html",
+      "title": "新しい医療事務スタッフを、最初の1か月でどう育てるか",
+      "description": "採用できても、入職初日から「見て覚えて」と任せるだけでは、教える側と教わる側の負担が増えます。最初の一か月はすべてを習得する期間ではなく、優先する仕事、相談先、できるようになったことを確認する期間として設計します。",
+      "image_alt": "新人スタッフの研修計画を確認する場面",
+      "staged_page": ".github/column-queue/pages/medical-office-onboarding-first-month.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-08-480.webp",
+          "public_path": "images/ctm-column-08-480.webp",
+          "sha": "2d045a99ef51d10db526720183761987904f4188"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-08-960.webp",
+          "public_path": "images/ctm-column-08-960.webp",
+          "sha": "5ec203c6fbae03ab21b2bc12b4f121c60ecc0177"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-08-1440.webp",
+          "public_path": "images/ctm-column-08-1440.webp",
+          "sha": "33d3ddeca8f66d0a908112c97978dca382dad316"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "due_date": "2026-12-01",
+      "slug": "clinic-director-office-manager-roles.html",
+      "title": "院長と事務責任者の役割分担を決めるときのポイント",
+      "description": "院長が細かな事務判断を毎回引き受けると、診療の合間の確認が増えます。一方で、何でも事務責任者に任せればよいわけでもありません。院長が決めること、事務側が進めること、相談を受けて決めることを、具体的な場面で分ける必要があります。",
+      "image_alt": "院長と事務責任者が役割を相談する場面",
+      "staged_page": ".github/column-queue/pages/clinic-director-office-manager-roles.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-09-480.webp",
+          "public_path": "images/ctm-column-09-480.webp",
+          "sha": "4f53256bb713e8b73e3a51ca42a9499dd770a3d1"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-09-960.webp",
+          "public_path": "images/ctm-column-09-960.webp",
+          "sha": "470ca05e4e267008e395aa83c0b1c9f20a4d9f5d"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-09-1440.webp",
+          "public_path": "images/ctm-column-09-1440.webp",
+          "sha": "b0059a82960acdcc5d89485cdfab5770ef8c833f"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "due_date": "2026-12-08",
+      "slug": "clinic-monthly-metrics.html",
+      "title": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
+      "description": "売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。",
+      "image_alt": "クリニックの月次資料を確認する場面",
+      "staged_page": ".github/column-queue/pages/clinic-monthly-metrics.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-10-480.webp",
+          "public_path": "images/ctm-column-10-480.webp",
+          "sha": "69e9d701a80f25ae4f5b968cd67cea92c64a0b6e"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-10-960.webp",
+          "public_path": "images/ctm-column-10-960.webp",
+          "sha": "1c7d38e2a66e159274399ee824d82449bcb6d3d7"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-10-1440.webp",
+          "public_path": "images/ctm-column-10-1440.webp",
+          "sha": "a1aded1b0c35cd8e27f5180680299e5dc3bd0402"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "due_date": "2026-12-15",
+      "slug": "clinic-staff-improvement-proposals.html",
+      "title": "スタッフから改善提案が出ないとき、院内で見直したいこと",
+      "description": "「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。",
+      "image_alt": "スタッフが院内の改善を相談する場面",
+      "staged_page": ".github/column-queue/pages/clinic-staff-improvement-proposals.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-11-480.webp",
+          "public_path": "images/ctm-column-11-480.webp",
+          "sha": "d5e823b5a23515ac4ca103d26432e403b377261f"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-11-960.webp",
+          "public_path": "images/ctm-column-11-960.webp",
+          "sha": "982b910dd331a78626a01638b1998032fb48468a"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-11-1440.webp",
+          "public_path": "images/ctm-column-11-1440.webp",
+          "sha": "5678593d962982057acc2268b1fa76098ea3e265"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "due_date": "2026-12-22",
+      "slug": "clinic-website-patient-information.html",
+      "title": "クリニックのホームページで、患者に伝わりにくい情報の見直し方",
+      "description": "診療時間やアクセスを掲載していても、初めての患者さんが「いつ、どう受診すればよいか」まで分かるとは限りません。問い合わせが繰り返される項目は、電話対応を増やすだけでなく、ホームページの説明を見直す手掛かりになります。",
+      "image_alt": "クリニックのホームページを確認する場面",
+      "staged_page": ".github/column-queue/pages/clinic-website-patient-information.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-12-480.webp",
+          "public_path": "images/ctm-column-12-480.webp",
+          "sha": "57fb7494c31d22769cb3b307ca9cf0bd41283a15"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-12-960.webp",
+          "public_path": "images/ctm-column-12-960.webp",
+          "sha": "ba469a0bcea3275c1dc9aa8ee179bf602a3d2862"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-12-1440.webp",
+          "public_path": "images/ctm-column-12-1440.webp",
+          "sha": "d2b60ee838eca4a9c942ceecdb9781e7e4c88e00"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "due_date": "2026-12-29",
+      "slug": "clinic-year-end-review.html",
+      "title": "年末に振り返るクリニック運営――来年の改善項目をどう決めるか",
+      "description": "年末の振り返りで課題を一度に並べると、年明けには何から始めるか分からなくなります。今年の出来事を「数字」「患者さんの困りごと」「スタッフの負担」に分け、来年最初に直すことを少数に絞ります。",
+      "image_alt": "年末の運営計画を相談する場面",
+      "staged_page": ".github/column-queue/pages/clinic-year-end-review.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-13-480.webp",
+          "public_path": "images/ctm-column-13-480.webp",
+          "sha": "13b8d41ce633813eab950bba0ecf818554f19b42"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-13-960.webp",
+          "public_path": "images/ctm-column-13-960.webp",
+          "sha": "119d56ad7148c97ff951fe856a902e3238681d95"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-13-1440.webp",
+          "public_path": "images/ctm-column-13-1440.webp",
+          "sha": "0abdc98979b906c634447f43be28f7634cf2f1d2"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "due_date": "2026-12-04",
+      "slug": "dermatology-appointment-guidance.html",
+      "title": "皮膚科の保険診療と自由診療、予約案内を分かりやすくする方法",
+      "description": "保険診療と自由診療の両方を扱う皮膚科では、患者さんが予約時に自分の相談に合う枠を選びにくいことがあります。受付の判断だけに頼らず、サイト、予約画面、電話で伝える内容をそろえることが大切です。",
+      "image_alt": "皮膚科の予約区分を確認する場面",
+      "staged_page": ".github/column-queue/pages/dermatology-appointment-guidance.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-14-480.webp",
+          "public_path": "images/ctm-column-14-480.webp",
+          "sha": "4de8e6c33a29a7fa4b5124aa4832b41ca74932df"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-14-960.webp",
+          "public_path": "images/ctm-column-14-960.webp",
+          "sha": "878d992d2d7bf1aed952f0cab3272a2954e41ed0"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-14-1440.webp",
+          "public_path": "images/ctm-column-14-1440.webp",
+          "sha": "bb5dae9ebb1666ff4e38dc71ec48ac1a5cbe252b"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "due_date": "2026-12-18",
+      "slug": "internal-medicine-fever-appointment-guidance.html",
+      "title": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
+      "description": "内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。",
+      "image_alt": "内科の予約方法を確認する場面",
+      "staged_page": ".github/column-queue/pages/internal-medicine-fever-appointment-guidance.html",
+      "images": [
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-15-480.webp",
+          "public_path": "images/ctm-column-15-480.webp",
+          "sha": "5aee04a77e58305e4fbfa251d4da1eb7f09dd6de"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-15-960.webp",
+          "public_path": "images/ctm-column-15-960.webp",
+          "sha": "6f4703bc456ba6d76dbca6201efefe558ecc8023"
+        },
+        {
+          "staged_path": ".github/column-queue/assets/ctm-column-15-1440.webp",
+          "public_path": "images/ctm-column-15-1440.webp",
+          "sha": "419b20e2c54a24fa59a4e0ef9c2467dbb201573d"
+        }
+      ]
+    }
+  ]
+}

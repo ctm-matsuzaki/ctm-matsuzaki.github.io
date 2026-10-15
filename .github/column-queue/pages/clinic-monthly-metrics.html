@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JB8M4CBSRM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-JB8M4CBSRM');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>クリニックが毎月確認したい数字を、どう運営改善につなげるか | CTM</title><meta name="description" content="売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://clinic-total-management.com/clinic-monthly-metrics.html">
+<meta property="og:type" content="article"><meta property="og:title" content="クリニックが毎月確認したい数字を、どう運営改善につなげるか | CTM"><meta property="og:description" content="売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。"><meta property="og:url" content="https://clinic-total-management.com/clinic-monthly-metrics.html"><meta property="og:site_name" content="CTM（Clinic Total Management）"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://clinic-total-management.com/images/ctm-column-10-1440.webp">
+<meta property="og:image:alt" content="クリニックの月次資料を確認する場面">
+<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="style.css"><style id="ctm-header-style">
+    :root{
+      --ctm-glass-mint: 173,231,209; /* #ADE7D1 */
+      --ctm-ink:#264a27;
+      --ctm-header-height:64px;
+      --ctm-wrap:max(92%,1100px);
+      --ctm-ease:cubic-bezier(.2,.7,.2,1);
+      --ctm-radius:14px;
+      --ctm-z-header:1000;
+      --ctm-z-drawer:1100;
+    }
+
+    /* 常に画面上部に固定（PC/スマホ）＋すりガラス */
+    .ctm-header{
+      position:fixed; top:0; left:0; right:0; z-index:var(--ctm-z-header);
+      height:var(--ctm-header-height);
+      --glass-alpha:.18;
+      background: rgba(var(--ctm-glass-mint), var(--glass-alpha));
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(38,74,39,.12);
+      display:flex; align-items:center;
+      transition:box-shadow .25s var(--ctm-ease), background-color .25s var(--ctm-ease);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .ctm-header.is-scrolled{ --glass-alpha:.34; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+
+    .ctm-container{
+      width:var(--ctm-wrap); margin:0 auto;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-end; /* ロゴ無しなので右寄せ */
+    }
+    @media (max-width:979.98px){ .ctm-container{justify-content:space-between;} }
+
+    .ctm-nav ul{
+      margin:0; padding:0; list-style:none;
+      display:flex; gap:32px;               /* メニュー間隔広め */
+    }
+    .ctm-nav a{
+      display:inline-block; padding:10px 6px;
+      font-weight:800; letter-spacing:.06em; /* 文字間隔UP */
+      color:var(--ctm-ink); text-decoration:none;
+      text-underline-offset:4px;
+    }
+    .ctm-nav a[aria-current="page"]{ position:relative; }
+    .ctm-nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:6px;
+      height:2px; background:var(--ctm-ink); border-radius:2px;
+    }
+
+    /* ハンバーガー */
+    .ctm-hamb{ display:none; position:relative; width:40px; height:40px; border:0; background:transparent; cursor:pointer; }
+    .ctm-hamb span,.ctm-hamb::before,.ctm-hamb::after{
+      content:""; position:absolute; left:9px; right:9px; height:2px; background:var(--ctm-ink);
+      transition:transform .25s var(--ctm-ease), opacity .2s var(--ctm-ease);
+    }
+    .ctm-hamb span{top:19px} .ctm-hamb::before{top:12px} .ctm-hamb::after{top:26px}
+    .ctm-hamb[aria-expanded="true"] span{opacity:0}
+    .ctm-hamb[aria-expanded="true"]::before{transform:translateY(7px) rotate(45deg)}
+    .ctm-hamb[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
+
+    /* モバイルドロワー */
+    .ctm-drawer{
+      position:fixed; inset:0; z-index:var(--ctm-z-drawer);
+      display:grid; grid-template-rows:auto 1fr;
+      background:rgba(0,0,0,.0); opacity:0; pointer-events:none;
+      transition:opacity .25s var(--ctm-ease), background .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"]{ opacity:1; pointer-events:auto; background:rgba(0,0,0,.2); }
+    .ctm-drawer__panel{
+      position:relative; /* ×配置用 */
+      margin:0; border-radius:0 0 var(--ctm-radius) var(--ctm-radius);
+      background: rgba(var(--ctm-glass-mint), .9); /* 視認性確保で少し濃い */
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      backdrop-filter: saturate(140%) blur(12px);
+      transform:translateY(-12px); opacity:.0;
+      transition:transform .25s var(--ctm-ease), opacity .25s var(--ctm-ease);
+    }
+    .ctm-drawer[aria-hidden="false"] .ctm-drawer__panel{ transform:translateY(0); opacity:1; }
+    .ctm-drawer nav{ padding:10px 16px 20px; }
+    .ctm-drawer ul{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .ctm-drawer a{ display:block; padding:14px 10px; font-weight:800; border-radius:10px; color:var(--ctm-ink); text-decoration:none; }
+    .ctm-drawer a:hover{ background:rgba(0,0,0,.06); }
+
+    /* ×ボタン */
+    .ctm-close{
+      position:absolute; top:6px; right:4px;
+      width:40px; height:40px; border:0; background:transparent; cursor:pointer;
+    }
+    .ctm-close::before,.ctm-close::after{
+      content:""; position:absolute; left:10px; right:10px; top:19px; height:2px;
+      background:var(--ctm-ink); border-radius:2px;
+    }
+    .ctm-close::before{ transform:rotate(45deg); }
+    .ctm-close::after{ transform:rotate(-45deg); }
+    .ctm-close:active{ transform:translateY(1px); }
+
+    /* 表示切替 */
+    @media (min-width:980px){ .ctm-hamb{display:none} .ctm-nav{display:block} .ctm-drawer{display:none} }
+    @media (max-width:979.98px){ .ctm-nav{display:none} .ctm-hamb{display:inline-block} }
+
+    /* （任意）本文をヘッダー分だけ下げたい場合は有効化
+    body{ padding-top: var(--ctm-header-height); }
+    */
+  </style><link rel="stylesheet" href="columns.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://clinic-total-management.com/clinic-monthly-metrics.html",
+      "url": "https://clinic-total-management.com/clinic-monthly-metrics.html",
+      "headline": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
+      "description": "売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。",
+      "inLanguage": "ja",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CTM",
+        "url": "https://clinic-total-management.com/"
+      },
+      "datePublished": "2026-12-08",
+      "dateModified": "2026-12-08",
+      "mainEntityOfPage": "https://clinic-total-management.com/clinic-monthly-metrics.html",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://clinic-total-management.com/images/ctm-column-10-1440.webp",
+        "width": 1440,
+        "height": 960
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://clinic-total-management.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "コラム",
+          "item": "https://clinic-total-management.com/columns.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
+          "item": "https://clinic-total-management.com/clinic-monthly-metrics.html"
+        }
+      ]
+    }
+  ]
+}
+</script></head><body class="page-column"><header class="ctm-header" id="ctm-header">
+    <div class="ctm-container">
+      <a class="ctm-logo" href="index.html" aria-label="CTM ホーム">
+        <img src="images/ctm-logo-header.png" alt="CTM Clinic Total Management" width="1075" height="650">
+      </a>
+      <nav class="ctm-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+          <li><a href="services.html">サービス</a></li>
+          <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+          <li><a href="index.html#price">料金</a></li>
+          <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="ctm-hamb" aria-label="メニュー" aria-controls="ctm-drawer" aria-expanded="false"><span></span></button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <aside class="ctm-drawer" id="ctm-drawer" aria-hidden="true">
+      <div class="ctm-drawer__panel">
+        <button class="ctm-close" type="button" aria-label="メニューを閉じる"></button>
+        <nav aria-label="モバイルメニュー">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="message.html">代表挨拶</a></li>
+            <li><a href="company.html">会社情報</a></li>
+          <li><a href="clinic-office-manager.html">事務長とは</a></li>
+            <li><a href="services.html">サービス</a></li>
+            <li><a href="cases.html">導入事例</a></li>
+          <li><a href="columns.html">コラム</a></li>
+            <li><a href="index.html#price">料金</a></li>
+            <li><a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_header">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+<main class="column-main"><nav class="column-crumb" aria-label="パンくず"><ol><li><a href="index.html">ホーム</a></li><li><a href="columns.html">コラム</a></li><li aria-current="page">クリニックが毎月確認したい数字を、どう運営改善につなげるか</li></ol></nav><h1>クリニックが毎月確認したい数字を、どう運営改善につなげるか</h1><p class="column-date">公開日：<time datetime="2026-12-08">2026年12月8日</time></p><figure class="column-hero-image"><img src="images/ctm-column-10-960.webp" srcset="images/ctm-column-10-480.webp 480w, images/ctm-column-10-960.webp 960w, images/ctm-column-10-1440.webp 1440w" sizes="(max-width: 600px) calc(100vw - 40px), 860px" width="1440" height="960" alt="クリニックの月次資料を確認する場面" fetchpriority="high" decoding="async"></figure><p>売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。</p>
+<h2>1．数字を増やしすぎない</h2>
+<p>最初は月間の延べ患者数、初診・再診の内訳、予約の変更やキャンセル、請求後の返戻・未収金、残業時間などから、院の課題に関係するものを三～五個選びます。診療科や診療日数が違えば、他院の数字だけでは判断できません。前月や前年同月と比べる際も、休診日や診療体制の違いを添えます。</p>
+<h2>2．数字の「理由」を現場で確認する</h2>
+<p>患者数が減った場合、予約枠を減らしたのか、休診日が増えたのか、受診希望そのものが変わったのかで対応が違います。データだけで結論を出さず、受付・診療・会計の担当者から実際に起きたことを聞きます。患者さんの個人情報を一覧表へ不要に載せないことも大切です。</p>
+<h2>3．翌月に一つだけ試す</h2>
+<p>数字を見た会議で、改善する場面、担当、次に確認する日を決めます。例えば予約の変更が集中する時間帯を見直し、翌月に同じ指標で確かめます。厚生労働省の医療経済実態調査も診療所の経営実態を扱っていますが、自院の運営判断には自院の条件をそろえた推移が必要です。</p>
+<h2>比較できる数字にしてから話し合う</h2>
+<p>同じ「患者数」でも、延べ人数と実人数では意味が異なります。初診の定義や予約変更の数え方も、院内でそろえておきます。開院日が少なかった月を前月と比べる場合は、一日当たりの数も見ます。ただし一日当たりの数字だけでは曜日構成の違いまで消せないため、休診や担当医の変更を表の横にメモします。</p>
+<p>例えば予約のキャンセルが増えたとしても、直ちに患者さんの離脱が増えたとはいえません。予約枠を増やした結果なのか、同じ患者さんが取り直しているのか、受付で理由が分かる範囲を確認します。担当者から現場の変化を聞き、次月に試せる対応を一つ選びます。患者さんの事情を細かく分類して共有する必要はありません。</p>
+<p>月次の打ち合わせでは、数字の一覧を読み上げる時間を短くし、「変化した数字」「考えられる理由」「確かめる方法」を一行ずつ残します。対策を決める前に追加データが必要なら、誰がいつ集めるかだけ決めても構いません。効果を急いで断定せず、同じ定義で続けて見ることで、次にどこを直すかの判断材料になります。</p>
+<p>一枚の月次表で「何が起き、次に何を試すか」まで共有できれば、数字は報告のためだけの資料ではなくなります。</p><section class="column-section"><h2>参考資料</h2><ul><li><a href="https://www.mhlw.go.jp/bunya/iryouhoken/database/zenpan/iryoukikan.html">厚生労働省「医療経済実態調査（医療機関等調査）」</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/quality/index.html">厚生労働省「医療従事者の勤務環境の改善について」</a></li></ul></section><aside class="column-related" aria-label="関連ページ"><h2>関連ページ</h2><ul><li><a href="columns.html">コラム一覧</a></li><li><a href="services.html">事務長代行サービス</a></li></ul></aside></main><footer class="global-footer" role="contentinfo">
+    <nav class="global-footer__nav" aria-label="フッターナビ">
+      <a href="index.html">ホーム</a>
+      <a href="message.html">代表挨拶</a>
+      <a href="company.html">会社情報</a>
+      <a href="clinic-office-manager.html">事務長とは</a>
+      <a href="services.html">サービス</a>
+      <a href="cases.html">導入事例</a>
+      <a href="columns.html">コラム</a>
+      <a href="index.html#price">料金</a>
+      <a href="https://forms.gle/JbpikABfqXwCGdzW9" target="_blank" rel="noopener" data-contact-event="contact_top_cta">お問い合わせ</a>
+    </nav>
+    <p class="global-footer__copy">© <span id="gf-year"></span> CTM（クリニックトータルマネージメント）</p>
+  </footer><script>
+    // フッター年号
+    (function(){var y=document.getElementById('gf-year'); if(y) y.textContent=new Date().getFullYear();})();
+
+    // ヘッダー：ドロワー開閉（×/リンク/背景/Escで閉じる）＋スクロール影
+    (function(){
+      var btn    = document.querySelector('.ctm-hamb');
+      var drawer = document.getElementById('ctm-drawer');
+      var header = document.getElementById('ctm-header');
+
+      function toggle(open){
+        if(!btn || !drawer) return;
+        btn.setAttribute('aria-expanded', String(open));
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      if(btn && drawer){
+        // ハンバーガーで開閉
+        btn.addEventListener('click', function(){
+          toggle(btn.getAttribute('aria-expanded')!=='true');
+        });
+        // 背景タップで閉じる
+        drawer.addEventListener('click', function(e){
+          if(e.target === drawer) toggle(false);
+        });
+        // ×ボタンで閉じる
+        var closeB = drawer.querySelector('.ctm-close');
+        if(closeB){ closeB.addEventListener('click', function(){ toggle(false); }); }
+        // メニューリンクで閉じる
+        drawer.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ toggle(false); });
+        });
+        // Escキーで閉じる
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') toggle(false);
+        });
+      }
+
+      // スクロールでガラス濃度＆影
+      function onScroll(){ header && header.classList.toggle('is-scrolled', window.scrollY > 4); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // GA4：お問い合わせリンクのクリック計測
+    (function(){
+      document.addEventListener('click', function(e){
+        var link = e.target.closest && e.target.closest('a[data-contact-event]');
+        if(!link || typeof gtag !== 'function') return;
+        gtag('event', link.getAttribute('data-contact-event'), {
+          event_category: 'contact',
+          event_label: (link.textContent || '').trim(),
+          link_url: link.href,
+          page_path: location.pathname
+        });
+      });
+    })();
+  </script>
+</body></html>
