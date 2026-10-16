@@ -107,28 +107,28 @@
       ]
     },
     {
-      "number": 10,
+      "number": 14,
       "due_date": "2026-12-08",
-      "slug": "clinic-monthly-metrics.html",
-      "title": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
-      "description": "売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。",
-      "image_alt": "クリニックの月次資料を確認する場面",
-      "staged_page": ".github/column-queue/pages/clinic-monthly-metrics.html",
+      "slug": "dermatology-appointment-guidance.html",
+      "title": "皮膚科の保険診療と自由診療、予約案内を分かりやすくする方法",
+      "description": "保険診療と自由診療の両方を扱う皮膚科では、患者さんが予約時に自分の相談に合う枠を選びにくいことがあります。受付の判断だけに頼らず、サイト、予約画面、電話で伝える内容をそろえることが大切です。",
+      "image_alt": "皮膚科の予約区分を確認する場面",
+      "staged_page": ".github/column-queue/pages/dermatology-appointment-guidance.html",
       "images": [
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-10-480.webp",
-          "public_path": "images/ctm-column-10-480.webp",
-          "sha": "69e9d701a80f25ae4f5b968cd67cea92c64a0b6e"
+          "staged_path": ".github/column-queue/assets/ctm-column-14-480.webp",
+          "public_path": "images/ctm-column-14-480.webp",
+          "sha": "4de8e6c33a29a7fa4b5124aa4832b41ca74932df"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-10-960.webp",
-          "public_path": "images/ctm-column-10-960.webp",
-          "sha": "1c7d38e2a66e159274399ee824d82449bcb6d3d7"
+          "staged_path": ".github/column-queue/assets/ctm-column-14-960.webp",
+          "public_path": "images/ctm-column-14-960.webp",
+          "sha": "878d992d2d7bf1aed952f0cab3272a2954e41ed0"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-10-1440.webp",
-          "public_path": "images/ctm-column-10-1440.webp",
-          "sha": "a1aded1b0c35cd8e27f5180680299e5dc3bd0402"
+          "staged_path": ".github/column-queue/assets/ctm-column-14-1440.webp",
+          "public_path": "images/ctm-column-14-1440.webp",
+          "sha": "bb5dae9ebb1666ff4e38dc71ec48ac1a5cbe252b"
         }
       ]
     },
@@ -159,28 +159,28 @@
       ]
     },
     {
-      "number": 12,
+      "number": 15,
       "due_date": "2026-12-22",
-      "slug": "clinic-website-patient-information.html",
-      "title": "クリニックのホームページで、患者に伝わりにくい情報の見直し方",
-      "description": "診療時間やアクセスを掲載していても、初めての患者さんが「いつ、どう受診すればよいか」まで分かるとは限りません。問い合わせが繰り返される項目は、電話対応を増やすだけでなく、ホームページの説明を見直す手掛かりになります。",
-      "image_alt": "クリニックのホームページを確認する場面",
-      "staged_page": ".github/column-queue/pages/clinic-website-patient-information.html",
+      "slug": "internal-medicine-fever-appointment-guidance.html",
+      "title": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
+      "description": "内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。",
+      "image_alt": "内科の予約方法を確認する場面",
+      "staged_page": ".github/column-queue/pages/internal-medicine-fever-appointment-guidance.html",
       "images": [
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-12-480.webp",
-          "public_path": "images/ctm-column-12-480.webp",
-          "sha": "57fb7494c31d22769cb3b307ca9cf0bd41283a15"
+          "staged_path": ".github/column-queue/assets/ctm-column-15-480.webp",
+          "public_path": "images/ctm-column-15-480.webp",
+          "sha": "5aee04a77e58305e4fbfa251d4da1eb7f09dd6de"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-12-960.webp",
-          "public_path": "images/ctm-column-12-960.webp",
-          "sha": "ba469a0bcea3275c1dc9aa8ee179bf602a3d2862"
+          "staged_path": ".github/column-queue/assets/ctm-column-15-960.webp",
+          "public_path": "images/ctm-column-15-960.webp",
+          "sha": "6f4703bc456ba6d76dbca6201efefe558ecc8023"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-12-1440.webp",
-          "public_path": "images/ctm-column-12-1440.webp",
-          "sha": "d2b60ee838eca4a9c942ceecdb9781e7e4c88e00"
+          "staged_path": ".github/column-queue/assets/ctm-column-15-1440.webp",
+          "public_path": "images/ctm-column-15-1440.webp",
+          "sha": "419b20e2c54a24fa59a4e0ef9c2467dbb201573d"
         }
       ]
     },
@@ -211,54 +211,54 @@
       ]
     },
     {
-      "number": 14,
-      "due_date": "2026-12-04",
-      "slug": "dermatology-appointment-guidance.html",
-      "title": "皮膚科の保険診療と自由診療、予約案内を分かりやすくする方法",
-      "description": "保険診療と自由診療の両方を扱う皮膚科では、患者さんが予約時に自分の相談に合う枠を選びにくいことがあります。受付の判断だけに頼らず、サイト、予約画面、電話で伝える内容をそろえることが大切です。",
-      "image_alt": "皮膚科の予約区分を確認する場面",
-      "staged_page": ".github/column-queue/pages/dermatology-appointment-guidance.html",
+      "number": 10,
+      "due_date": "2027-01-05",
+      "slug": "clinic-monthly-metrics.html",
+      "title": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
+      "description": "売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。",
+      "image_alt": "クリニックの月次資料を確認する場面",
+      "staged_page": ".github/column-queue/pages/clinic-monthly-metrics.html",
       "images": [
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-14-480.webp",
-          "public_path": "images/ctm-column-14-480.webp",
-          "sha": "4de8e6c33a29a7fa4b5124aa4832b41ca74932df"
+          "staged_path": ".github/column-queue/assets/ctm-column-10-480.webp",
+          "public_path": "images/ctm-column-10-480.webp",
+          "sha": "69e9d701a80f25ae4f5b968cd67cea92c64a0b6e"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-14-960.webp",
-          "public_path": "images/ctm-column-14-960.webp",
-          "sha": "878d992d2d7bf1aed952f0cab3272a2954e41ed0"
+          "staged_path": ".github/column-queue/assets/ctm-column-10-960.webp",
+          "public_path": "images/ctm-column-10-960.webp",
+          "sha": "1c7d38e2a66e159274399ee824d82449bcb6d3d7"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-14-1440.webp",
-          "public_path": "images/ctm-column-14-1440.webp",
-          "sha": "bb5dae9ebb1666ff4e38dc71ec48ac1a5cbe252b"
+          "staged_path": ".github/column-queue/assets/ctm-column-10-1440.webp",
+          "public_path": "images/ctm-column-10-1440.webp",
+          "sha": "a1aded1b0c35cd8e27f5180680299e5dc3bd0402"
         }
       ]
     },
     {
-      "number": 15,
-      "due_date": "2026-12-18",
-      "slug": "internal-medicine-fever-appointment-guidance.html",
-      "title": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
-      "description": "内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。",
-      "image_alt": "内科の予約方法を確認する場面",
-      "staged_page": ".github/column-queue/pages/internal-medicine-fever-appointment-guidance.html",
+      "number": 12,
+      "due_date": "2027-01-12",
+      "slug": "clinic-website-patient-information.html",
+      "title": "クリニックのホームページで、患者に伝わりにくい情報の見直し方",
+      "description": "診療時間やアクセスを掲載していても、初めての患者さんが「いつ、どう受診すればよいか」まで分かるとは限りません。問い合わせが繰り返される項目は、電話対応を増やすだけでなく、ホームページの説明を見直す手掛かりになります。",
+      "image_alt": "クリニックのホームページを確認する場面",
+      "staged_page": ".github/column-queue/pages/clinic-website-patient-information.html",
       "images": [
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-15-480.webp",
-          "public_path": "images/ctm-column-15-480.webp",
-          "sha": "5aee04a77e58305e4fbfa251d4da1eb7f09dd6de"
+          "staged_path": ".github/column-queue/assets/ctm-column-12-480.webp",
+          "public_path": "images/ctm-column-12-480.webp",
+          "sha": "57fb7494c31d22769cb3b307ca9cf0bd41283a15"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-15-960.webp",
-          "public_path": "images/ctm-column-15-960.webp",
-          "sha": "6f4703bc456ba6d76dbca6201efefe558ecc8023"
+          "staged_path": ".github/column-queue/assets/ctm-column-12-960.webp",
+          "public_path": "images/ctm-column-12-960.webp",
+          "sha": "ba469a0bcea3275c1dc9aa8ee179bf602a3d2862"
         },
         {
-          "staged_path": ".github/column-queue/assets/ctm-column-15-1440.webp",
-          "public_path": "images/ctm-column-15-1440.webp",
-          "sha": "419b20e2c54a24fa59a4e0ef9c2467dbb201573d"
+          "staged_path": ".github/column-queue/assets/ctm-column-12-1440.webp",
+          "public_path": "images/ctm-column-12-1440.webp",
+          "sha": "d2b60ee838eca4a9c942ceecdb9781e7e4c88e00"
         }
       ]
     }
