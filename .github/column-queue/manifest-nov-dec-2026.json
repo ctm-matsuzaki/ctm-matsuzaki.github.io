@@ -7,7 +7,7 @@
       "due_date": "2026-11-10",
       "slug": "medical-office-recruitment-applications.html",
       "title": "医療事務の求人に応募が来ないとき、募集内容のどこを見直すか",
-      "description": "医療事務の求人を出しても応募が少ないと、給与や掲載媒体をすぐ変えたくなるかもしれません。ただ、先に見直したいのは、求職者が「入職後の一日」を想像できる内容になっているかです。条件だけが並ぶ求人では、実際に何を担当し、誰と働くのかが。",
+      "description": "医療事務の求人に応募が少ないとき、仕事内容、勤務条件、応募までの流れを見直す方法を整理します。",
       "image_alt": "医療事務の求人内容を見直すスタッフ",
       "staged_page": ".github/column-queue/pages/medical-office-recruitment-applications.html",
       "images": [
@@ -33,7 +33,7 @@
       "due_date": "2026-11-17",
       "slug": "clinic-recruitment-interview.html",
       "title": "クリニックの採用面接で、経験以外に何を確認するか",
-      "description": "医療事務の採用面接で「レセプト経験があるか」だけを確認しても、入職後の働き方まで一致するとは限りません。仕事の範囲、勤務できる曜日、患者さんへの対応で困ったときの相談方法などを、候補者と院側の双方で具体的に確かめることが大切です。",
+      "description": "クリニックの採用面接で確認したい仕事内容、相談の進め方、勤務条件を整理。適性・能力に基づく質問と記録のポイントを紹介します。",
       "image_alt": "採用面接で仕事の進め方を確認する場面",
       "staged_page": ".github/column-queue/pages/clinic-recruitment-interview.html",
       "images": [
@@ -59,7 +59,7 @@
       "due_date": "2026-11-24",
       "slug": "medical-office-onboarding-first-month.html",
       "title": "新しい医療事務スタッフを、最初の1か月でどう育てるか",
-      "description": "採用できても、入職初日から「見て覚えて」と任せるだけでは、教える側と教わる側の負担が増えます。最初の一か月はすべてを習得する期間ではなく、優先する仕事、相談先、できるようになったことを確認する期間として設計します。",
+      "description": "新しい医療事務スタッフの最初の1か月を、基本業務、指導体制、習得状況と職場環境の確認に分けて整理します。",
       "image_alt": "新人スタッフの研修計画を確認する場面",
       "staged_page": ".github/column-queue/pages/medical-office-onboarding-first-month.html",
       "images": [
@@ -85,7 +85,7 @@
       "due_date": "2026-12-01",
       "slug": "clinic-director-office-manager-roles.html",
       "title": "院長と事務責任者の役割分担を決めるときのポイント",
-      "description": "院長が細かな事務判断を毎回引き受けると、診療の合間の確認が増えます。一方で、何でも事務責任者に任せればよいわけでもありません。院長が決めること、事務側が進めること、相談を受けて決めることを、具体的な場面で分ける必要があります。",
+      "description": "院長と事務責任者の役割分担を、担当、決裁、相談条件、報告の時点から整理し、判断待ちを減らす方法を紹介します。",
       "image_alt": "院長と事務責任者が役割を相談する場面",
       "staged_page": ".github/column-queue/pages/clinic-director-office-manager-roles.html",
       "images": [
@@ -111,7 +111,7 @@
       "due_date": "2026-12-08",
       "slug": "dermatology-appointment-guidance.html",
       "title": "皮膚科の保険診療と自由診療、予約案内を分かりやすくする方法",
-      "description": "保険診療と自由診療の両方を扱う皮膚科では、患者さんが予約時に自分の相談に合う枠を選びにくいことがあります。受付の判断だけに頼らず、サイト、予約画面、電話で伝える内容をそろえることが大切です。",
+      "description": "皮膚科の保険診療と自由診療の予約案内を、相談内容、費用・リスクの表示、受付の説明から見直す方法を紹介します。",
       "image_alt": "皮膚科の予約区分を確認する場面",
       "staged_page": ".github/column-queue/pages/dermatology-appointment-guidance.html",
       "images": [
@@ -137,7 +137,7 @@
       "due_date": "2026-12-15",
       "slug": "clinic-staff-improvement-proposals.html",
       "title": "スタッフから改善提案が出ないとき、院内で見直したいこと",
-      "description": "「何か改善案はない？」と聞いても反応がない場合、現場に課題がないとは限りません。提案してよい範囲が分からない、以前の提案がどうなったか見えない、忙しくて話す時間がないなど、出しにくい理由を探すことから始めます。",
+      "description": "スタッフから改善提案が出にくいとき、困りごとの聞き方、提案への返答、小さく試して結果を共有する方法を整理します。",
       "image_alt": "スタッフが院内の改善を相談する場面",
       "staged_page": ".github/column-queue/pages/clinic-staff-improvement-proposals.html",
       "images": [
@@ -163,7 +163,7 @@
       "due_date": "2026-12-22",
       "slug": "internal-medicine-fever-appointment-guidance.html",
       "title": "内科の発熱・かぜ症状の予約案内を、通常診療とどう分けるか",
-      "description": "内科のホームページで通常診療の予約方法は分かっても、熱やせきがあるときに同じ予約枠を使ってよいか迷う患者さんがいます。案内があいまいだと、来院後に受付で確認し直すことになり、患者さんもスタッフも動きにくくなります。まずは各院の実際。",
+      "description": "内科の発熱・かぜ症状の予約案内を、連絡方法、来院までの流れ、院内運用との一致から見直す方法を整理します。",
       "image_alt": "内科の予約方法を確認する場面",
       "staged_page": ".github/column-queue/pages/internal-medicine-fever-appointment-guidance.html",
       "images": [
@@ -189,7 +189,7 @@
       "due_date": "2026-12-29",
       "slug": "clinic-year-end-review.html",
       "title": "年末に振り返るクリニック運営――来年の改善項目をどう決めるか",
-      "description": "年末の振り返りで課題を一度に並べると、年明けには何から始めるか分からなくなります。今年の出来事を「数字」「患者さんの困りごと」「スタッフの負担」に分け、来年最初に直すことを少数に絞ります。",
+      "description": "年末のクリニック運営を数字、患者さんの困りごと、スタッフの負担から振り返り、翌年1月の改善項目と担当・確認日を決める方法を紹介します。",
       "image_alt": "年末の運営計画を相談する場面",
       "staged_page": ".github/column-queue/pages/clinic-year-end-review.html",
       "images": [
@@ -215,7 +215,7 @@
       "due_date": "2027-01-05",
       "slug": "clinic-monthly-metrics.html",
       "title": "クリニックが毎月確認したい数字を、どう運営改善につなげるか",
-      "description": "売上だけを見て「今月は良かった」と判断しても、何が変わったかは分かりません。診療所では、患者数、予約、請求、未収金、人員配置などを、同じ期間・同じ定義で見て初めて、次の行動につなげやすくなります。",
+      "description": "クリニックの月次データを運営改善につなげる方法を、指標の選び方、比較条件、現場への確認、翌月の行動から整理します。",
       "image_alt": "クリニックの月次資料を確認する場面",
       "staged_page": ".github/column-queue/pages/clinic-monthly-metrics.html",
       "images": [
@@ -241,7 +241,7 @@
       "due_date": "2027-01-12",
       "slug": "clinic-website-patient-information.html",
       "title": "クリニックのホームページで、患者に伝わりにくい情報の見直し方",
-      "description": "診療時間やアクセスを掲載していても、初めての患者さんが「いつ、どう受診すればよいか」まで分かるとは限りません。問い合わせが繰り返される項目は、電話対応を増やすだけでなく、ホームページの説明を見直す手掛かりになります。",
+      "description": "クリニックのホームページを、受診の流れ、診療内容、よくある質問から点検。医療広告と個人情報にも配慮した見直し方を紹介します。",
       "image_alt": "クリニックのホームページを確認する場面",
       "staged_page": ".github/column-queue/pages/clinic-website-patient-information.html",
       "images": [
