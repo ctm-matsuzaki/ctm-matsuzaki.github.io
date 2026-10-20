@@ -59,7 +59,7 @@
       "due_date": "2026-10-27",
       "slug": "medical-dx-filing-2026.html",
       "title": "2026年の診療報酬改定で、クリニックの医療DX関連の届出はどう変わった？",
-      "description": "医療DX推進体制整備加算から新しい加算への変更を受け、クリニックが確認したい届出、設備・運用、レセプト請求の3点を整理します。",
+      "description": "2026年度診療報酬改定に伴う医療DX関連の届出を、加算の変更、施設基準、レセプト請求の3点から確認します。",
       "image_alt": "診療所の受付で端末を確認する場面",
       "staged_page": ".github/column-queue/pages/medical-dx-filing-2026.html",
       "images": [
@@ -85,7 +85,7 @@
       "due_date": "2026-11-03",
       "slug": "clinic-reception-workflow.html",
       "title": "受付・医療事務の仕事を一人に集中させない｜クリニックで始める3つの手順",
-      "description": "受付・医療事務の仕事が特定の人に集中している診療所へ。業務の洗い出し、判断と相談先の共有、代替できるかの確認を3つの手順で整理します。",
+      "description": "受付・医療事務の仕事が一人に集中している診療所へ。業務の洗い出し、判断と相談先の共有、代わりに対応できるかの確認を3つの手順で整理します。",
       "image_alt": "クリニックの受付で業務手順を一緒に確認するスタッフ",
       "staged_page": ".github/column-queue/pages/clinic-reception-workflow.html",
       "images": [
