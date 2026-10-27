@@ -231,6 +231,9 @@
   line-height:1;
 }
 @media (max-width:900px){
+  .office-outsourcing{
+    grid-template-columns:1fr;
+  }
   .office-outsourcing .office-visual{
     order:-1;
     aspect-ratio:16/9;
